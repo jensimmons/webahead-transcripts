@@ -27,15 +27,918 @@
 <header role="banner">
 <h1 class="site-name"><a href="http://transcripts.webahead.info">The Web Ahead Transcripts</a></h1>
 </header>
-  
-  <main role="main">
-    <article>
-      <h1>Episode Title</h1>
-  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis eu libero id lacinia. Sed semper, ante laoreet congue tristique, sem metus pharetra enim, in tincidunt lorem massa at lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris iaculis sem consectetur mi pellentesque aliquet. Praesent adipiscing venenatis ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ac mauris est. Etiam sed aliquam ligula, quis congue magna. Proin a sagittis orci, eget iaculis tellus. Ut ipsum risus, mattis nec nunc faucibus, euismod interdum arcu. Donec congue ut odio a semper. Duis eu venenatis felis. Mauris interdum nunc id enim hendrerit, vel imperdiet mauris tristique. Duis quis tristique ligula. Morbi imperdiet imperdiet ipsum vitae dapibus.</p>
-  
-    </article>
-  </main>
+
+<main role="main">
+<article>
+<h1>Episode 56, The Nature of the Web with Jeremy Keith</h1>
+
+<dl> 
+
+<dt>Jen Simmons</dt>
+<dd>This is The Web Ahead. A weekly conversation. Actually that's probably wrong. It's like biweekly. A biweekly conversation about changing technologies and the future of the web. I'm your host, Jen Simmons, and this is Episode 56.</dd>
+
+<dd>I want to first say, thank you so much to today's sponsors, the Artifact Conference, which we will talk about more later. And also the JavaScript Summit, another summit from Environments for Humans. Yes, we'll talk about both of those later.</dd>
+
+<dd>But first, let me say hello to this week's guest, Jeremy Keith. Hi, Jeremy.</dd>
+
+<dt>Jeremy Keith</dt>
+<dd>Hi, Jen. When you say biweekly, do you mean that it's once every two weeks or twice every week?</dd>
+
+<dt>Jen</dt>
+<dd>Once every two weeks.</dd>
+
+<dt>Jeremy</dt>
+<dd>See, the definition of that term, I'm never clear on. It's like biannual. I don't know if that means twice a year or once every two years.</dd>
+
+<dt>Jen</dt>
+<dd>Should I actually say once in a fortnight?</dd>
+
+<dt>Jeremy</dt>
+<dd>Well, I suppose it will get rid of the ambiguity. I don't know, or it could just be me. Maybe there is a set definition of ...</dd>
+
+<dt>Jen</dt>
+<dd>No it's confusing. I think it's confusing to everybody.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's just one of those things that I've always wondered about. Like is there an actual definition? It's one of those words people use both ways, like the way something can be flammable and inflammable and it means the same thing. It's like the opposite version of what I mean. It's like something can be biweekly and it could mean both things.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's supposed to mean every other week, like the Whitney Biennial is every other year, not twice a year.</dd>
+
+<dt>Jeremy</dt>
+<dd>Okay so biannual event is every other year not twice a year.</dd>
+
+<dt>Jen</dt>
+<dd>Yes, but I think we misuse it perhaps. I don't know, someone could go look it up.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's probably actually very straightforward, and I'm over complicating it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah well what I meant was, it seems like I've been doing this show, at least right now, every other week. Sometimes I've done it weekly in the past. I've also done it every ... like none in several months, and then, but I realized that you were on the show almost two years ago, just shy or a week and a half shy of two years ago.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's that long?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>Oh wow, yeah. That was pretty early on.</dd>
+
+<dt>Jen</dt>
+<dd>You were Episode three.</dd>
+
+<dt>Jeremy</dt>
+<dd>There you go.</dd>
+
+<dt>Jen</dt>
+<dd>Which was extremely exciting. People were very happy. They loved having you on the show. They loved that episode so I wanted to have you back.</dd>
+
+<dt>Jeremy</dt>
+<dd>That's very kind of you. Here we are. What Episode number is this again?</dd>
+
+<dt>Jen</dt>
+<dd>This one is 56, so in two years I've done almost one year's worth of shows.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yes so that's pretty much biweekly.</dd>
+
+<dt>Jen</dt>
+<dd>That's what made me think it's averaged out to biweekly.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah biweekly, okay, cool.</dd>
+
+<dt>Jen</dt>
+<dd>Someone has pasted into the chat-room the definition of biweekly.</dd>
+
+<dt>Jeremy</dt>
+<dd>Is it once every two weeks?</dd>
+
+<dt>Jen</dt>
+<dd>Appearing or taking place every two weeks or twice a week.</dd>
+
+<dt>Jeremy</dt>
+<dd>See that's not helpful. That's just English being an asshole. That's not going to make our lives in any way, uh, okay.</dd>
+
+<dt>Jen</dt>
+<dd>This might mean a lot or it might mean every once in a while.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Let's use the same word for both.</dd>
+
+<dt>Jeremy</dt>
+<dd>Great.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and then the example in this definition, which looks like it's pasted right out of the dictionary. “She followed her doctor's instructions to undergo health checks biweekly.”</dd>
+
+<dt>Jeremy</dt>
+<dd>That's dangerous, because your doctor is instructing you to take health checks biweekly you could be taking health checks you know like ...</dd>
+
+<dt>Jen</dt>
+<dd>It's either four times too often or ...</dd>
+
+<dt>Jeremy</dt>
+<dd>Exactly four times exactly or four times not enough.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Jeremy</dt>
+<dd>That's just dangerous.</dd>
+
+<dt>Jen</dt>
+<dd>It's funny that the example has to do with something like this.</dd>
+
+<dt>Jeremy</dt>
+<dd>I know it's something that's actually downright dangerous.</dd>
+
+<dt>Jen</dt>
+<dd>Right, yes.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's like momentarily, because I think in America you use momentarily to mean it will happen in a moment, right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>Whereas I think technically momentary is it's going to happen for a moment. So when the pilot of the plane says, "We will be landing momentarily," I keep that seatbelt fastened, because technically he's saying, "We're going to land very briefly." Although it showed both definitions are actually valid.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I don't know. It gets confusing too. I remember the first time I went to England, which I was like 18, 19, and it was before the web and before there was so much back and forth. It was sort of a global world when things were still very very sort of separate, and I didn't understand British television like I totally could not understand it at all, the humor. The words ... I was just so scared and so confused by like, "Get in the queue for the coach." I'm like, what am I supposed to do?</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah because queue is a really British thing isn't it? But now you would know it right I mean because queue ...</dd>
+
+<dt>Jen</dt>
+<dd>Now I would know it because I'm older and I've traveled, but also I wonder if I was suddenly 19 and young and had never traveled anywhere if I would know what it means because we exchange so much.</dd>
+
+<dt>Jeremy</dt>
+<dd>I think there is quite a bit of crossover. Actually I was listening to a podcast about this because people in Britain love to complain that there beautiful language is being sullied by Americanisms, which is not true because it goes both ways completely. There's definitely Britishisms that have crossed over into America, like saying Cheers all the time, and what's the other example that was on this podcast. Oh yeah saying someone is a hard man that's a very kind of British way of putting tough guy right. In America you already have this phrase, but that's started to get more popular, probably because of TV shows and films and all this stuff that crosses over. </dd>
+
+<dt>Jen</dt>
+<dd>Yeah, well now, you know, in the U.S. we watch a lot of British television and it is understandable.</dd>
+
+<dt>Jeremy</dt>
+<dd>Because we all actually talk like we're in Downton Abbey all the time. Although weirdly it seems like when I watch American TV shows and I'm hearing American accents, they're quite often coming out of the mouth of British actors, like there's Hugh Laurie on House, and like the guy who played Apollo in Battlestar Galactica, he's British, or McNulty on The Wire.</dd>
+
+<dt>Jen</dt>
+<dd>Right, that's the really sort of surprising one. If you hear McNulty in his real accent because you're like wait what, because he's so U.S. in that show. He's just so down and dirty, you know, Philly-Baltimore-New Jersey guy you know.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah it's funny.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>There's still a couple of linguistic traps I think for Americans coming to the UK, but most of them are known traps now, like the whole pants thing, and there's been a few like that because you know about pants, right?</dd>
+
+<dt>Jen</dt>
+<dd>Probably not, no.</dd>
+
+<dt>Jeremy</dt>
+<dd>Okay so pants to you are trousers correct? It's basically a synonym.</dd>
+
+<dt>Jen</dt>
+<dd>Yes we would say pants here in the United States.</dd>
+
+<dt>Jeremy</dt>
+<dd>And actually growing up in Ireland I would have said the same, that pants and trousers are kind of the same thing. If I say I'm wearing a pair of pants, I mean I'm wearing a pair of long trousers.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>In Britain, pants means underpants.</dd>
+
+<dt>Jen</dt>
+<dd>Oh.</dd>
+
+<dt>Jeremy</dt>
+<dd>I met Nicole Sullivan last week because she was home for d.Construct and she mentioned that the very first time she was in the UK it was a very yahoo saying in London. She said one of the first things she said to somebody yahoo you know making small talk was like I like your pants or something like that and everyone's sniggering and everyone's laughing because basically she just said underpants, and we have childish humor here. Yeah that one they still get a kick out of that. They like the fact that Americans say pants and mean something other than underpants because it allows them to giggle like schoolchildren.</dd>
+
+<dt>Jen</dt>
+<dd>Yes. Well and a lot of people who listen to the show are not in either Britain or the United States.</dd>
+
+<dt>Jeremy</dt>
+<dd>Right yeah so I guess we use International English whatever that this.</dd>
+
+<dt>Jen</dt>
+<dd>I wonder sometimes if I talk too quickly if I should ... I've never gotten mail saying please slow down, stop talking so fast.</dd>
+
+<dt>Jeremy</dt>
+<dd>I'm sure you're fine. I on the other hand do have a tendency to rabbit on a bit fast. I know when I give talks, sometimes I can hear myself and I'm going a mile a minute and I think I should probably slow down, but it's usually because I'm excited about something.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>I don't want to lose the excitement, so I keep babbling.</dd>
+
+<dt>Jen</dt>
+<dd>So people who don't know who you are, A, you're in the UK.</dd>
+
+<dt>Jeremy</dt>
+<dd>I am in the UK, from Ireland, but living in Brighton, England.</dd>
+
+<dt>Jen</dt>
+<dd>And you're one of the founders and the technical director of Clearleft.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yes I don't know what technical director means, but that's what I am.</dd>
+
+<dt>Jen</dt>
+<dd>Which Clearleft I think is one of the best web design, development design shops in the world.</dd>
+
+<dt>Jeremy</dt>
+<dd>Thank you you're very kind and it is very kind of you to say so. We try our best. We like to do good work. We got some very talented people working at Clearleft.</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>Jeremy</dt>
+<dd>I am here stealing their credit and taking all the credit for their hard work. I think that's what a technical director does.</dd>
+
+<dt>Jen</dt>
+<dd>Oh okay, I'll write that down. You've written a bunch of ... several books and you've written lots of blog posts or articles on famous, fabulous websites. You've spoken at all the amazing conferences. And one of the books is HTML5 for Web Designers.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah, which is old, it's like three years old now.</dd>
+
+<dt>Jen</dt>
+<dd>Ancient news.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah isn't that crazy. I mean it doesn't feel that old to me, but that's quite a long time on the web.</dd>
+
+<dt>Jen</dt>
+<dd>And I probably said this on Episode three when you were on, but I'm just going to pretend like none of us remember what we talked about then because … </dd>
+
+<dt>Jeremy</dt>
+<dd>I don't remember what we talked we about.</dd>
+
+<dt>Jen</dt>
+<dd>I don't remember, so for anybody who has just discovered the show and is binge listening to it and just listened to Episode three like last week, I apologize in advance for being redundant.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah, I'm probably going to say all the same things. I'm like the annoying uncle who keeps telling the same jokes or something. I'll just forget what I've said in Episode three and come out with all the same stuff again.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, because it's important. But this book, A, is short and easy to digest and awesome, and B, this is how I found out about HTML5.</dd>
+
+<dt>Jeremy</dt>
+<dd>Really? That was your introduction to it?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Well, probably my introduction was going to DrupalCon and meeting you and hearing your keynote at DrupalCon that year, two years ago three ...</dd>
+
+<dt>Jeremy</dt>
+<dd>No no no, you were already doing HTML5 stuff. You were because when I met you ...</dd>
+
+<dt>Jen</dt>
+<dd>Oh yeah right.</dd>
+
+<dt>Jeremy</dt>
+<dd>DrupalCon Copenhagen, right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah yeah you were on my radar as an HTML5 person.</dd>
+
+<dt>Jen</dt>
+<dd>That's true. See this is how well I remember my own life.</dd>
+
+<dt>Jeremy</dt>
+<dd>You're getting your own chronology all mixed up. Your origin story.</dd>
+
+<dt>Jen</dt>
+<dd>Oh my whole origin story. Yeah I'm being like, oh I learned DSS in 1992. Like "What?" "No you didn't."</dd>
+
+<dt>Jeremy</dt>
+<dd>Seriously, though? This is why blogging is good, because when you write something down at the time then you know 5, 10 years later you can go back. You have it in your head that things were one way and then you go back and read what you actually wrote at the time and go, "Oh no, I had it completely wrong. My memory was false, but I'm very glad I recorded it on this blog post.” And that's why you should blog, kids.</dd>
+
+<dt>Jen</dt>
+<dd>And you do have an amazing blog. People should, if they've not ever gone to your website, they should go there and read your blog.</dd>
+
+<dt>Jeremy</dt>
+<dd>Well it's not focused, let me put it that way. It's whatever I feel like talking about and so there will be some HTML stuff and some text stuff, but there’ll also be some stuff that I'm sure people would not be interested in but you know you ...</dd>
+
+<dt>Jen</dt>
+<dd>But then they get to know you.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah, I mean, what I don't do is I don't censor myself because I have actually seen bloggers do this and I thought it was really sad where ... especially when they start to get an audience they get a following and they feel like the audience and the following are coming for a certain kind of post, like “I've become the responsive design authority so I need to blog on responsive design and if I blog about my puppy then people are going to be mad and so I won't blog about my puppy.” That's really sad because now you're censoring yourself and not blogging about your puppy and people would love to hear about your puppy, I'm sure. I've seen it happen when people self-censor and I always think it's kind of sad.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, you have a thing on your ...</dd>
+
+<dt>Jeremy</dt>
+<dd>That's what I'm saying. Blog about anything that comes into your head.</dd>
+
+<dt>Jen</dt>
+<dd>You have this very last post that you wrote about. I just saw this yesterday and I was kind of fascinated.</dd>
+
+<dt>Jeremy</dt>
+<dd>About the web mentions?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, so explain to people what this is.</dd>
+
+<dt>Jeremy</dt>
+<dd>Well let me back up and explain about IndieWeb and the IndieWeb movement, give a bit of background. The IndieWeb movement started a couple of years ago and it's basically kind of a pushing back against the idea that the default way of publishing online is through a third party service and two, giving a third party service the canonical copy of your data. So Twitter, Facebook, Google Plus, Flickr.</dd>
+
+<dt>Jen</dt>
+<dd>Medium.</dd>
+
+<dt>Jeremy</dt>
+<dd>Medium, whatever. And putting forward the now-revolutionary idea that, hey, what about having your own website, and of course this isn't a crazy idea and for many years this was the norm. If you wanted to publish something on the web, you started a blog or whatever you wanted to call it, some kind of site, and you published.</dd>
+
+<dd>IndieWeb is kind of just a return to that saying hey, we should publish on our own sites. The slight extension is that to acknowledge that those silos out there are very valuable, partly because of the social benefit that comes with them, but you know there's other reasons why it's actually very handy to publish to these large monolithic silos, so the IndieWeb movement is kind of about trying to have your cake and eat it too. Where you have your own website and you publish on your own website, but then you can syndicate out to other places.</dd>
+
+<dd>So I'm going to publish on Adactio.com, but I'm going to give a copy of my posts to Facebook, Twitter, or somewhere else, but that I have control over the original canonical URL. Some people are living this, they're doing it like Tantec Celik. Whenever you see a tweet from Tantec he didn't post that through Twitter. He posted that on Tantec.com and then that got pushed out to Twitter. The acronym we're using for this is POSSE which is publish your own site and syndicate elsewhere. </dd>
+
+<dd>So that's the IndieWeb movement and it's kind of a very broad idea and there's been IndieWebCamps where people get together to discuss and then work on this stuff. It's actually really nicely formatted as an event where it's usually a two day event and the first day is discussions and brainstorming and kind of barcamp like. Then the second day is much more like a hack day where based on the stuff you discussed you're now going to actually work on getting code out and they've been really really productive. I took some in Portland last couple of years and there's been great code coming out of that from Aaron Parecki and Amber Case and Tantek Celik and all these people.</dd>
+
+<dd>I was at IndieWebCamp two years ago in Portland. It was really good and there was one just recently in Brighton right after d.Construct which was last Friday. On the Saturday and Sunday there was an IndieWebCamp and that's when I ... I've seen Webmentions. This is where I got a proper explanation of Webmentions and I really like the idea. </dd>
+
+<dd>Webmentions are essentially like pingback. Pingback was a technology back from 2006-2007 and it was for bloggers. The idea is I've written a blog post on my blog and that prompts you to write something in response and pingback was a way of you telling me that you had done it. It's basically just a ping to say hey there's a response to that post over here at this URL.</dd>
+
+<dd>Webmentions is this really really simple protocol that does exactly the same thing as pingback, but a lot simpler because pingback used to use XML-PRC and quite complicated, whereas Webmentions is literally just a ping, just a post request to an endpoint saying this is the original URL, your post, and this is the response to it.</dd>
+
+<dd>At IndieWebCamp I implemented that on all my posts on my blog which if you know my blog it's quite a big deal because generally I don't have comments on my blog. I generally am not open to anybody leaving a response on my blog, but I am in favor of people writing on their websites, and I'd like to encourage that, so the idea was is you wrote a response to a blog post of mine you could ping my post.</dd>
+
+<dt>Jen</dt>
+<dd>Why don't you like comments?</dd>
+
+<dt>Jeremy</dt>
+<dd>I'm going to backtrack a bit more on that. This is a separate issue, but sure let's tackle this. This is interesting because when I first started blogging in 2001 I think it was and I felt back then I was coming very late to the party because blogging was well established by then. I read some false histories of blogging that say it all started in 2001 political bloggers. Not at all. There were people blogging for years at this point. I felt like I was coming very late to the party, but the point was back then it was normal not to have comments. </dd>
+
+<dd>Instead you would write posts on your own blog and there was more of a communities feel generally. Over the next few years that evolved especially with more web standards, people blogging, but as generally through RSS I would read what Dave Shea and Doug Bowman and John Hicks and all these people were writing and I'd write my own posts and that was the way it worked.</dd>
+
+<dd>Comments sort of arrived later and became the norm at some point. I guess because of the publishing systems like WordPress, whatever, it became the norm to have comments. Then it not only became the norm people started having a go at me for not having comments like, "why don't you have comments on your site?" Whereas to me the question would have been why do you have comments on your site? The norm for me was not to have comments and you needed a really good reason to open up comments. </dd>
+
+<dd>I had people tell me that my blog was not a blog because it didn't have comments, that a blog without comments is not a blog. So to this day I call it a journal so as not to offend anyone such strict beliefs in blogdum, but I sort of analyze like why I'm actually not that interested in having comments. I started analyzing what are comments for and I put that out there. Ironically I got some really interesting comments on this. Effectively I broke it down ... I got two responses back. Most responses fell into two camps. </dd>
+
+<dd>One was comments are there for feedback. In other words, I write something and somebody has some feedback for me and that's good and comments are okay at handling that, but there's lots of other ways of giving me feedback. You can send me an email. It can be through my contact form. There's lots of other ways of giving feedback. Then the other 50% of the answers were comments were for discussion that what happens in the comments area blowup post is that it's for conversation. I said okay that's a very very different use case to feedback.</dd>
+
+<dd>Giving feedback and having a conversation are two very different things. Again there are actually other technologies out there that are better for discussion. Mailing lists, chat software, forum software, and so on. Blog comments are actually okay, but not great in handling both use cases. Then I had a look inside my soul and asked myself what was I interested in. Was it feedback or was it discussion and I came to the conclusion that if I did have comments for whatever reason what I wanted them for was feedback and I did not want discussion. The reason for that is it's not that I don't like community or community websites, quite the opposite. </dd>
+
+<dd>I already manage a community website. I've got this Irish music website called The Session and it's a full-time job running the community there so I know what's involved with the responsibility involved in managing any kind of discussion. I didn't want to have that responsibility for my personal site because Adactio.com for me is kind of an escape. It's whatever I want to do, whatever I want to say, it's my personal space, and I didn't want to have that responsibility, but I was okay with feedback. </dd>
+
+<dd>What I ended up doing was implementing a commenting system that worked like this. First of all commenting is not enabled by default. It would maybe be enabled on 10% of posts, actually more like 5% of posts because frankly most posts don't need comments. I'm not interested in either feedback or discussion, but then occasionally I am interested in getting people’s opinions on something, but then I don't want to start conversations. I don't want people to have conversations or discussions in the blog comments because comments aren't good at that. I basically started using the sort of wisdom of crowds technique where if I opened up comments on a blog post if you went to the post you would see a form where you could input your comment, text area, text fields. You input your comment, but you do not see your comment or any of the other comments as long as comments are open. </dd>
+
+<dd>Then after about three, four days, which seemed to be about the right length of time people have something to say. After some length of time I switch off the ability to post comments and at that moment I display all the comments that I have received. And so nobody posting a comment could see what anybody else had already posted and that way I actually got genuinely good information because if three people mention the same resource to me, you know you should check this out, then I knew it wasn't because they had just seen the other people mention it. It was because it must genuinely be a good resource if three people are recommending it. That was the way comments were working on my site up until last week and to be honest it's very very very rare I would open up comments. </dd>
+
+<dd>But then as I learned about Webmentions, which is this kind of pingback like technology I thought, okay this I like where if you want to write a comment in response instead of it being a comment go off to your own website and write a blog post in response. I really like that and part of that is that people will take more care or will care more if it's on their own site than if it's on somebody else's site. I've seen blog posts that start off oh this started as a comment on such and such a post, but then you know it got too long or it got too good basically. What I've got to say is too important to waste on a comment. </dd>
+
+<dd>First of all there is this qualitative difference that a comment can be quick and throwaway, but if you publish on your own site you're going to write something more thoughtful. I just like the idea of people publishing on their own websites and I want to encourage that, so at IndieWebCamp I implemented pingbacks. Underneath every blog post of mine now there's a little form that just says, "Hey have you written a response to this. Let me know the URL." You just type the URL into this form and ping me. Then I just do a quick check to see yes there is a link somewhere in this page to my post okay I've got it. That was as far as I got at IndieWebCamp was I could basically grab links and say okay somewhere on this page there's a response to my post and I can display them simply with links. </dd>
+
+<dd>The next step that the web mentions to kind of level up to the next level is that if you had a response on your own site you've written your own blog post, if that response is marked up using the h-entry micro-format then now I can also parse the response because it's structured and I can say oh I can display this. Just like I display any comment that had been typed into a text area I can display this on my own site display a copy of it. The canonical copy remains on your site, that's very important, but I could display the copy just like a comment on my own website. </dd>
+
+<dd>On my most recent website where I'm talking about implementing this and some of the code I used and you see below it there are comments, but those comments all have their canonical URL's on other peoples sites. Those people sent the pingbacks and not only did they send the pingbacks site the web mentions they sent the pings to me, and they also on their blogs have their blogs marked up using h-entry. It seems to be working a treat so far.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. It looks like from these photos a lot of the comments ... a lot of the links the posts that people put on their own blogs or sites in response to your post to your article you have a thing that says comments and then you have a list of links.</dd>
+
+<dt>Jeremy</dt>
+<dd>Most are just links because they aren't marked up in h-entry. So for example some people might just say something on Twitter and then they'll place the URL of that tweet into the forum and I'll look at it and go well yeah this is a link back to my blog post so that counts, but I can't parse it for h-entry because Twitter doesn't use those class names, so all you're going to get for that is just a link. You're not actually going to get the content, whereas the people who have marked up their blogs using h-entry, they kind of get rewarded I guess with having the full text shown.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah I mean that's something I've been very interested in is. I think [Elissa Parr 00:25:34] did something different, but not technically similar, but sort of conceptually similar in that you can tweet about, or maybe it's you know different places have done this where you can tweet about something and the tweet ends up showing.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah that's on the Happy Cog blog, the Cognition blog, that's what they've got so the way you would normally see comments you see tweets.</dd>
+
+<dt>Jen</dt>
+<dd>It's just such an interesting concept. It actually goes back to what Ted Nelson rants about where he really wants the web to ...</dd>
+
+<dt>Jeremy</dt>
+<dd>Transclusion right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>This is an interesting thing and as you get deeper into the Webmentions it does start to look at lot like Transclusion because you do want the canonical copy to be on the author's website, the person writing the response. Currently [inaudible  00:26:21] is I grab a copy of that and I display a copy, but ideally it will be literally displayed. I mean I could simply have an iFrame and actually display it. iFrames are kind of Transclusion.</dd>
+
+<dd>One of the things that Webmentions does and I haven't implemented this yet, but I mean to do it, is that they ideally should support the full CRUD stack, create, update the link. In other words, if you pinged me to say I've created a response on my website here's the URL. Okay I've got that and I grab a copy. If you ping me again with the same URL I'll go grab it again just to check to see has something changed and I'll parse the markup again, so that's doing the update so you can let me know if it's been updated.</dd>
+
+<dd>Also you can ping me again and if I then go to Parser and I get a 410 response which means it's gone, not 404, which could just mean it's temporarily unavailable, but 410 which means gone. Then I should delete my copy as well, because you've made an active decision that actually you've deleted your response and so I should delete my copy, but again because we're dealing with copies here it is different to Transclusion. What Ted Nelson talks about is that there's literally only one copy, there's only one version. The way that links work is that it's like a wormhole and they display the actual original thing in situ.</dd>
+
+<dt>Jen</dt>
+<dd>Which is more like an iFrame in a way that you're ...</dd>
+
+<dt>Jeremy</dt>
+<dd>Like an iFrame yeah, and yeah iFrames and little embed things we do. They kind of work like Transclusion in a way.</dd>
+
+<dt>Jen</dt>
+<dd>It is a fascinating idea that to really get comments away from the kind of crazy problems that they end up sometimes being.</dd>
+
+<dt>Jeremy</dt>
+<dd>So this is the ironic thing is that back in 2005-2006 when I saying, “Yeah, comments on blogs, I don't think they're great. I just don't think they're that good generally,” and people pooh-poohed me and said, "Oh you Luddite, comments are great, blogs great," all this. I'm kind of standing back now and saying, "I told you so." I mean partly it was spam issues, but also people just didn't treat them with the respect they deserved. People would open up comments unthinkingly and didn't moderate them or didn't curate them, didn't set a tone. </dd>
+
+<dd>You have to understand that even something as simple as comments on a blog are still a form of community. They're still a place where people are going to discuss, and if you're going to have any kind of community website you have to take it seriously. Community management, it's very tricky, but a very important topic and if you're not up to the task I think it's better not to start community in the first place.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah I mean it seems like comments really ... beyond comments just what you were describing in the beginning of people writing in response to other peoples writing. People creating something saying something and then other people commenting on that and discussing it writing something in response. Like that sort of back and forth in many ways is how the web got invented. I mean you can argue the web really was invented on email lists and stuff, but a lot of how we figured out how to use this stuff, how to implement things, what are some of these practices, a lot of that has happened in blog posts that have been written in response to other blog posts.</dd>
+
+<dt>Jeremy</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And the community feeling that you have. I mean you just named a bunch of people that you knew and you read their blogs and they knew you and they read your blog. There is something about that that doesn't scale. I mean it works for dozens or hundreds of people maybe, but it does not work for 10 thousand people or a 100 thousand people.</dd>
+
+<dt>Jeremy</dt>
+<dd>No, but within communities it can work whereas in fairly niche communities where goldfish lobbyists or whatever go to different blogs there's not going to be enough of them to overwhelm with the scale of it. But some things it's just mayhem, so political blogs just aren't going to scale because there's just too many of them and the signal-to-noise is so low. </dd>
+
+<dd>It's true enough that people publishing stuff and response to something somebody else has published and people collaborating it very much gets to the heart of the web. Tim Berners-Lee his stated goal was to enable collaboration. Some people say it's about enabling the sharing of documents, but that's not exactly right. It was more high level that it was his stated goal was collaboration, the open communication, the open flow of communication collaboration. </dd>
+
+<dd>As it turns out writing documents and publishing documents at URLs is a very good way of doing that, not the only way, but a way that stood the test of time quite well. I think people are starting to get back into the idea of having their own website after many years in the wilderness blaming Twitter for killing their blogs and this kind of stuff. I think people are starting to get back into the idea that actually owning your own writing is a good thing.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah I mean for anyone who is sort of new to this world you might wonder well what's wrong with just using Medium or Google Plus or this or that. </dd>
+
+<dt>Jeremy</dt>
+<dd>It's really interesting to see a generational difference there. There was a fascinating discussion on Branch. Branch started about the same time as Medium. In Branch the idea is you would have conversations and you're supposed to log in with your Twitter identity which I never did because it asked for right permissions and I refuse to sign up for anything that demands the ability to write to my Twitter feed. It doesn't need right permissions, but it asks for them. But, anyway that's a tangent. </dd>
+
+<dd>There was a great discussion by one of the guys who founded Branch as a young kid. He was genuinely interested and like well why wouldn't you publish on Branch. What's the problem here? And some older bloggers or people who have been blogging for a while like Anil Dash and Gina Trapani and people like that were explaining that there is something about you having the decision about what's going to happen to the stuff you're publishing be important. In other words, it may all disappear one day, but it should at least be your decision about what day it's going to disappear and not some third party site that gets blocked by Google or Yahoo and then announces all your content is going to disappear. But this young kid was genuinely interested to know because he had grown up only knowing publishing through third party silos. He had grown up with MySpace and then later Facebook.</dd>
+
+<dt>Jen</dt>
+<dd>That's what I was going to say. He probably grew up with Facebook and didn't realize. He didn't watch Friendster come and go and MySpace come and go.</dd>
+
+<dt>Jeremy</dt>
+<dd>Right that must feel like the norm. The norm for him was he published the third party. The idea of owning, of having your own website is probably a little weird frankly.</dd>
+
+<dt>Jen</dt>
+<dd>It's harder to have your own website, but it's becoming easier and easier all the time now.</dd>
+
+<dt>Jeremy</dt>
+<dd>I think it's the main sort of issue with all IndieWeb who identify what's the biggest stumbling block. It is still the technological gap there and obviously what serves is like Twitter and Facebook. These third party publishers do is that they make it very easy to publish. That's what they really worked on.</dd>
+
+<dd>Getting your own website, getting your own domain, publishing on your own website is still too geeky. It's still too geeky, and that's definitely something we should change. But also the other way to look at that is what an opportunity. I often mention Marty Neumeier in this respect because he wrote a book called Zag. You might even know him. He's this great author and speaker. He talks about design and advertising and products and all that stuff. His book Zag was basically saying look if everyone else is zigging that's exactly the time they should be zagging. In other words, you don't about what the competition is doing, you look at what is the competition not doing. </dd>
+
+<dd>Right now in startup land everybody's got these startups where it's all about getting as many users as possible and getting people to use your product on the web and publish through your product. But what if there were startups that were about enabling people to publish on their own websites with some crazy business model like actually charging people money or something ludicrous like that. Maybe that's actually where the opportunity is. </dd>
+
+<dd>In fact, I was talking to Tantec about this just the other day. Blogger back in the day kind of worked like this because blogger was effectively blog post writing and editing as a service. In other words, you could give blogger your FTP credentials, the details for your website, your domain, and then you get to use the blogger front-end, the blogger interface, all the great tools to craft your web post and publish and update your blog, but you still have the copies. You still have the canonical copies on your website and that's actually a very interesting model. It's still too geeky because it involves FTP passwords and all this kind of stuff. That's pretty nerdy geeky stuff, but still this idea of the interface, the nice usable interface as a service I find really really interesting.</dd>
+
+<dt>Jen</dt>
+<dd>Let me jump in here and do our first sponsor today. The Artifact Conference. The Artifact Conference is coming up in November the 4th, 5th, and 6th in Providence, Rhode Island. I was at this conference in Austin, Texas back in April I think, and it was amazing. I spoke at this conference so, of course, I might be a little bit biased.</dd>
+
+<dt>Jeremy</dt>
+<dd>I heard it was amazing as well.</dd>
+
+<dt>Jen</dt>
+<dd>It was amazing. Anyone who listens to this show is clearly interested in the new stuff and in learning how to do this new stuff. Artifact is very much about responsive web design, about designers and how designers what kind of process designers use. There's a lot of old techniques, older techniques that got solidified in the mid 2000's especially in bigger companies like this is how you do web design. This is step one, step two, step three. These are the documents that you should create. This photo-shop document. This water-frame. This PDF and you email it to this person as a step of the process. </dd>
+
+<dd>It's been hard for design process, design people, design part of the business to sort of adapt to everything that just changed out from underneath us. This whole conference is all about that. The whole conference is about well what should we be doing now. If you're a front-end developer, you're a developer, what kind of techniques do you need to know. If you're on the business side how do you do estimates when the process is different and you're not sure how to estimate this.</dd>
+
+<dt>Jeremy</dt>
+<dd>You know it's funny because the first Artifact was very shortly after Responsive Day Out which I organized at really short notice here in Brighton. It was very clearly a lot of the same themes coming up at both, so even though Responsive Day Out was extensively responsive to design a recurring theme was process and how do we do this, what are new ways of approaching this. Actually a lot of the conferences I've been going to lately that aren't specifically about responsive design at all and that topic is coming up a lot, at An Event Apart, Smashing Conference last week in Freiburg. The process issue is definitely a hot topic which is what prompted Artifact Conference in the first place is that we need to talk about this.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah Jenn Robbins started this conference and she just wanted to ... she knew that she could feel this need for people. I mean it sort of was like responsive web design should we do it, yes/no. Okay, yes is the answer. Sold. And then okay wait a minute, wait I'm confused. I'm stuck with our sheet that we use to calculate our bids doesn't work anymore. Our documents we hand each other are not the right documents anymore. We need to design the browser. We need to prototype. Well then what is ... how does that change everything.</dd>
+
+<dt>Jeremy</dt>
+<dd>I've been doing workshops either private workshops for companies or conferences like UX Week and UX London about responsive design and process and planning and all this stuff. I think some people are coming to the workshops thinking great I'll get the answers. I'll get the silver bullets. Bill told me everything I need to know and I'll do this and what they're actually getting is some really hard truths which is I'm really sorry, but you have to throw away everything you've know up until now. We have to start from scratch and there isn't any one process.</dd>
+
+<dd>I'm telling them really hard things involving how we work together has got to change completely. Deliverables we're used to, we just can't use anymore. Generally the response I get throughout the day of the workshop is it's kind of like the five stages of grief, because first of all people are in denial. They're like no no no, we don't need to change our [inaudible  00:39:29]. Then they're angry about it. Then they start bargaining and pleading can't we just try this. Surely people on mobile will never want to do that. This kind of pleading, and then hopefully by the end of the day there's some acceptance, but it's definitely not an easy pill to swallow when you walk into a room and say, "I'm really sorry, but the way we've been working for years just doesn't work." </dd>
+
+<dd>The interesting thing is it never worked. I'm sure I'm probably repeating myself from Episode three now because I'm pretty sure we talked about this that all the ways we used to work whether it's front-end development techniques like fixed widths and stuff like that or whether it's processors like going UX design development in a waterfall way they never actually worked. We pretended they did. They were never that good to begin with.</dd>
+
+<dd>Responsive design and mobile and all these changes, they're actually just throwing it into sharp relief and pointing out what was always true, that the way we've been working has never been good, but now we just can't ignore it anymore. Now we have to confront it.</dd>
+
+<dt>Jen</dt>
+<dd>In this conference I mean if people who are interested in this and hearing some answers or hearing some not a definitive answer, but some ideas on what companies, what different people are doing. There's folks from Bearded, Funny Garbage, Sparkbox, Lullabot, Happy Cog, who all came in and talk about, hey this is what we're doing, this is the way we figured things out.</dd>
+
+<dd>Two days of sessions and they're long sessions too. I am doing a session on responsive layouts beyond the sidebar where I walk people through how to do responsive prototype. I've done that talk in 40 minutes. I've done it in 60 minutes. I get to do it in 90 minutes at this conference which is awesome because then I can actually get into the code and show people step by step. It's funny like I do that on the second day.</dd>
+
+<dd>The first day with Jared Ponchot from Lullabot he does a session on how to use responsive frameworks and how to use a starter kit to get going and then I come in the next day and tell people why that's a terrible idea and [crosstalk 00:41:37] and then we can contradict each other and people can ... but it's good. I was really impressed and I learned a lot and it felt like a great ... Jen keeps the conference nice and small and intimate so you can really just go talk to people and talk to the people who are sitting next to you in the room and find out how they're struggling with these issues.</dd>
+
+<dt>Jeremy</dt>
+<dd>I think that's one of the best things about those kind of conferences. It's kind of like almost a self-help group where you start to realize I'm not alone, we're all facing these problems, because I think people can start to think that everyone else has got it all figured out.</dd>
+
+<dt>Jen</dt>
+<dd>Right and it's me.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yes it's me.</dd>
+
+<dt>Jen</dt>
+<dd>It's not you.</dd>
+
+<dt>Jeremy</dt>
+<dd>Going to these events is nice because you're always oh okay. It's like at Responsive Day Out that was one of their themes. Right from the start Sarah Parmar took it up and said, "Look we're all just muddling along figuring this out as we're going along," and there's a sigh of relief like, "Oh thank God it's not just me." </dd>
+
+<dd>It's funny because you told me about the 90 minute segments for Artifact that's like the opposite of Responsive Day Out because it was like super quick sessions and a lot of people said they really liked this format when all that I did was I arranged three back to back talks, but the talks were only 15 to 20 minutes. I've told people you've got to just get in there, say what you got to say and get out. There's no point to even say your name, where you work, what you've done. No you just got to talk about the specific thing and get off again, so three of those back to back, boom boom boom, but then I get those three speakers back on stage and we have a joint discussion for another 15 - 20 minutes with questions from the audience. </dd>
+
+<dd>Four of those throughout the day meant that the pace was really really fast and it felt really quick and yet there were 12 speakers in one day. It worked quite nicely. I don't know if it's repeatable, but a lot of people told me how much they enjoyed the format of that because I think like me some people have very short attention spans so then they welcome the fact that there's something happening every 15 - 20 minutes to kind of shake things up a bit.</dd>
+
+<dt>Jen</dt>
+<dd>Let me finish this up. Ethan Marcotte is a keynote speaker and there are two days of the sessions and then there's one day of workshops. Brad Frost is doing an all day workshop and everything you wanted to know about responsive design. Val Head who was on the show on The Web Ahead a few episodes back. She's doing a half day workshop on CSS animation so if you liked that show and you want to learn more and you want to see some practical examples and have her walk you through the code you could come to her half day workshop. Matt Griffin is doing a half day on Sass which we also talked about on another episode of The Web Ahead.</dd>
+
+<dd>The whole thing is in Providence. For people who don't know where Providence is Providence, Rhode Island is just a little bit southwest of Boston. You could fly into Boston and take the train or you could hop another little plane over there to Providence. You can get the train very easily from Boston, very easily from New York City, and even very easily from Washington, DC. The Amtrak goes straight through Providence. It's beautiful and it's right on the water and it's a great little town with lots of stuff going on, big arts community.</dd>
+
+<dt>Jeremy</dt>
+<dd>I've heard that Providence has a really good foodie scene.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>I may have heard that from Jenn Robbins, but I think other people have mentioned it as well it's like if you're a foodie Providence is a good place to go.</dd>
+
+<dt>Jen</dt>
+<dd>I'm excited to go and just be a little bit ... it's like between New York and Boston so it's even closer to New York than typical.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah so you just hop on a train.</dd>
+
+<dt>Jen</dt>
+<dd>I'll just hop on a train and boom I'm there it's really easy.</dd>
+
+<dt>Jeremy</dt>
+<dd>Very nice.</dd>
+
+<dt>Jen</dt>
+<dd>People can get full price tickets are 595 which is not nearly ... that's like half of what some conferences are. You can get 100 dollars off of that using the code WEBAHEAD.  Code WEBAHEAD 100 bucks off. Go check out their website artifactconf.com or of course just Google Artifact Conference. Go check out the whole program, see all the speakers, look at their bios, check out exactly where it is, where the hotel is, all that kind of stuff. </dd>
+
+<dd>Thank you so much to Jenn Robbins and Artifact Conference for supporting the show. Help out the show by supporting yourself by going to the conference and learning all about this stuff.</dd>
+
+<dt>Jeremy</dt>
+<dd>Listen to some very smart, talented people.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeremy</dt>
+<dd>Except for that Ethan Marcotte guy. I hate that guy. He's so smart and nice.</dd>
+
+<dt>Jen</dt>
+<dd>He's smart.</dd>
+
+<dt>Jeremy</dt>
+<dd>You just know somebody that nice he's got bodies buried in the basement.</dd>
+
+<dt>Jen</dt>
+<dd>No.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah he's got to be there's no other explanation for it.</dd>
+
+<dt>Jen</dt>
+<dd>He'll hop on a train too I bet from Boston.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah he'll come down.</dd>
+
+<dt>Jen</dt>
+<dd>Let me ask you you're going to get on the plane tomorrow I believe and go over to reinvent the original web browser.</dd>
+
+<dt>Jeremy</dt>
+<dd>Day after tomorrow. Wednesday I'm flying to Geneva to go to CERN which is like going to Disneyland for me basically</dd>
+
+<dt>Jen</dt>
+<dd>Tell people what CERN is for people who don't know what CERN is.</dd>
+
+<dt>Jeremy</dt>
+<dd>Well if you don't know what CERN is you need to hand in your geek card at the door. I'm afraid we're revoking your right to call yourself a geek. CERN is the European Center for what does it actually ... it's a French acronym European Center for Nuclear Research, I believe, but it's where the large Hadron Collider is. It's where the greatest experiment ever constructed by human beings is on the planet. It's just mind-bogglingly awesome. It's just fantastic. </dd>
+
+<dt>Jen</dt>
+<dd>Scientists from all over the world except the United States hanging out there.</dd>
+
+<dt>Jeremy</dt>
+<dd>Scientists from everywhere including United States.</dd>
+
+<dt>Jen</dt>
+<dd>Oh yeah yeah that's true.</dd>
+
+<dt>Jeremy</dt>
+<dd>I mean there are large Hadron Colliders elsewhere in the world. There's Fermi Labs, there's these other places, but the one at CERN is by far the largest, over 20 km wide, and they're smashing particles into one another. They're doing this amazing, fundamental research into the nature of matter and reality and the universe and recreating the conditions that started the Big Bang. To do that it requires them to basically transcend politics, national boundaries, economics. All the things that would normally get in the way somehow they manage to work around that. Oh and then as a byproduct they invented the web.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Jeremy</dt>
+<dd>The web for them isn't a big deal, that's just that thing that happened along the way because they are thinking in time scales of billions of years of the life-cycle of the universe where something like the web, whatever.</dd>
+
+<dt>Jen</dt>
+<dd>They just needed a place to write some stuff down and have some conversations.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah no really it was ... they needed a way to collaborate faster and better and Tim Berners-Lee came up with the web for that, but there was a means to an end. The end was to allow scientists to collaborate. I was there last year and I got shown around a bit of the place. I couldn't go into the large Hadron Collider because it was actually up and running so you could only go down there if it wasn't running.</dd>
+
+<dd>I had a German scientist show me around who first came there in 1989. He was describing what it was like. There's people from all over the world and this is 1989 the Wall hasn't come down yet, you know tanks are rolling in Tiananmen Square, but he's there collaborating with these Chinese students. He's meeting people from East Germany who he'd normally not get to meet. It was like this little part of the world in Switzerland where national boundaries didn't matter and also social boundaries. </dd>
+
+<dd>You literally had Nobel Prize winning scientists rubbing shoulders with interns and college students collaborating on projects and that kind of blew me away. I knew that the science was amazing and of course it's the birthplace of the web and the web is amazing. I'm constantly blown away by Tim Berners-Lee and his invention, but I didn't realize how stuff got done and it was basically one big hack day, that someone would go I've got this idea from an experiment and they describe it and someone else would stand up and go, "Oh I could get help you out." "Yeah that sounds interesting to me, I'm going to work on that with you," and they'd start to work on that experiment which just blew my mind.</dd>
+
+<dd>Then I kind of got the web a bit more as well. Okay I see how the underlying sort of design principles and philosophies that were at work in CERN which are very much not the normal way of working at anywhere else in the world that those ideas seeped into the web. Certainly in the early days of the web. The idea of collaboration and blurring those boundaries, social, economic, political there really really was something to that. Then big business got involved on the web and now ... I see a lot of services trying to put the genie back in the bottle and trying to make the web back to being more like a 20th Century medium where you've got publishers and you've got consumers. You got the broadcasters and you got the passive watchers, but at a very fundamental level the web isn't like that. The web's got something different to it.</dd>
+
+<dd>CERN is this amazing place. It's the place where the web was invented by Tim Berners-Lee he invented the web, he invented the first web-browser to browse it and he invented HTML. There's been an ongoing project at CERN headed up by or collaborated with Mark Boulton Design to restore the very first web-page which was sitting on the W3C website to restore it to its original URL which is on the CERN website. They did a couple of months back which was fantastic. The fact that the very first URL now resolves and the very first web-page is still readable in any browser today that I find wonderful and amazing.</dd>
+
+<dd>It's kind of a step on from this. CERN have gathered together a bunch of nerds to collaborate on a little two-day hack project to try and recreate one of the very first browsers. This is a line-mode browser so kind of like opening up a terminal and browsing the web text only obviously back then by typing in commands and reading through text. So that's what we're going to do try and recreate that experience, but in a modern browser so that you would access this in a browser rather than a terminal. You could get an idea of what it would be like A to look at the very first web-page with that kind of experience and B maybe what would it be like to ... how would this browser handle modern web-pages if they're built the right way. It could still be accessible, still be viewable.</dd>
+
+<dd>Then the other part of the two-day hack project is to document what we're doing and also explain why we're doing it. Why this kind of long term history of the web is so fascinating, and it is, I find it fascinating. I've been enjoying The Web Behind episodes you've been doing where you're getting people on and you're talking to them about the early days of the web and I just find it ... the whole web history thing just fascinates me not least because I think there's a lot we can learn today as web developers from lessons in the past. Maybe not practical hands-on here's an element you can use or here's some CSS that's going to help you out, but in how we think about things in the long term. </dd>
+
+<dd>This has been occupying my mind a lot. With responsive design for example I see a lot of stuff coming up that seems like new problems around responsive images or bandwidth issues, layout. Actually they're just old problems in new guises and we were dealing with a lot of these issues back in the '90s and some of the solutions from back in the '90s still apply today, like web designers and developers really optimizing the hell out of their images for example. </dd>
+
+<dd>We somehow lost that skill at some point in the last 10 years and now we need to get that back. Little things like that. I remember it was the same when Ajax came along, there was all sorts of problems around bookmarking and the back button and I remember thinking at the time, like hang on, these are familiar problems and they were familiar because I remembered frames and framesets and Flash and all this kind of stuff that also had issues with bookmarking and the back button. I think having a knowledge of where we've come from can be enormously valuable not just on the web, but in life in general. A good knowledge of history allows you to have a better grasp of the future.</dd>
+
+<dt>Jen</dt>
+<dd>I agree and it's interesting because for a while everybody working on the web had maybe you weren't there at the beginning, but you were there early enough that you kind of where there at the beginning. More and more people clearly got on as we went along, but still it was just one generation of folks and so you could read a book that was written by somebody who got involved in the web in '93 or '95 or '97 and you were there in 2001 or whatever, like just the oral history it felt whole, but now it feels like we've gone along long enough that there's a whole new generation of folks coming along who take a lot of that for granted like who the web has existed their whole lives and they didn't really notice the changes when they were a little kid because they were a little kid and it just seems like it's always been the way that it's been since 2004 or something and yeah I think ... especially since it's gotten so commercial. I mean you know I'm on my phone, I'm surfing the web, and every website I seem to hit it seems to be so flooded with ads, the pages are jumping around, it's like all about ad performance and ad responsive design and ad ...</dd>
+
+<dt>Jeremy</dt>
+<dd>The ad thing is kind of a surface level example of that [crosstalk  00:56:09] business getting involved.</dd>
+
+<dt>Jen</dt>
+<dd>But it's sort of assumption that everyone is the same, that everyone is doing it like that, that that's what the web is. It's like well that's what the web can be and it's a layer of what it is, but there's actually all this other rich stuff going on.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's like when I was going back earlier with the guy from Branch who'd only grown up with posting to third party sites. It's like that generation literally didn't know that there was another way of doing it. </dd>
+
+<dd>There was a great post by Anil Dash last year I think it was called The Web We Lost, where he basically outlines the feeling in the air around 2005-2006. It's when the web 2.0 buzz word was out and there was startups happening and that's not new there's plenty of startups today, but the philosophy is the attitudes were very different. </dd>
+
+<dd>There was this understanding that if you were to startup about sharing photos or travel information, whatever, that you were just one part of this bigger web and to provide the best value you should make yourself a valuable part of this bigger web, but not try and be everything to everybody, and to work with these other pieces of that web so you had much more collaboration and integration across these startups so Flickr and Doppler and Twitter and all these things, there was much more of a porous back and forth with the data and between those things because that made life easier for the users.</dd>
+
+<dd>Over the years that changed and things got a lot more solidified where today a startup tries to be all things to all people like tries to lock you in and not let you out of it's silo. I think it's partly because the idea that any website could be all things for all people back in 2005-2006 would have been a ludicrous idea because there's no website big enough. In the meantime Facebook just got bigger and bigger and at some point people realized Oh my God they're actually doing it, they can be effectively the web which is kind of funny because to my mind what Facebook has managed to do is recreate AOL. Back at the very start of the web we had the web which was wild west and no quality control. It was wonderful, but you also had AOL which was this world garden and you'd sign up for America On-line and you'd be within AOL and they'd try and provide an experience almost as good as the web.</dd>
+
+<dt>Jen</dt>
+<dd>For a long time it was separate from the web.</dd>
+
+<dt>Jeremy</dt>
+<dd>It was separate from the web, right.</dd>
+
+<dt>Jen</dt>
+<dd>You couldn't get to the web from the  AOL.</dd>
+
+<dt>Jeremy</dt>
+<dd>If you tried you get warnings like ...</dd>
+
+<dt>Jen</dt>
+<dd>It's dangerous don't go over there. You're in Disneyland. Don't leave Disneyland. You'll end up in the big big bad world with all the ...</dd>
+
+<dt>Jeremy</dt>
+<dd>Exactly which is a ridiculous attitude, but that ended up being recreated by Facebook. I remember this would still happen when you'd click on an external link from a Facebook post it would pop up a warning saying hey you know you're about to leave Facebook we can't guarantee your safety. It happened to Anil Dash. His own website someone would click a link to his blog post and it would pop up a warning saying you're about to leave Facebook you're sure you want to do that which is exactly like AOL and yet Facebook actually succeeded. It actually managed to be this one social network to rule them all and I think that inspired people, startups, entrepreneurs. It inspired them in exactly the wrong way. </dd>
+
+<dd>Again, everyone was zigging when they should have been zagging. They looked at Facebook and they decided I want to be the next Facebook. I want to create something that will have that kind of ambition that I could effectively be the web to some people. The fact that we've been here before. That was a good example again with the AOL thing and the Facebook thing, but the Facebook thing wasn't anything new, that we have been here before. </dd>
+
+<dd>Friendster was enormous. The idea that there'd be a world without Friendster seemed ridiculous and yet people today can't contemplate a world without Facebook. So once you've been around long enough you do start to see these cycles coming around. It's true that we do have entirely new generations because I mean things move fast on the web so if you've been making websites for five years that's actually a pretty long time I would say, but that means you weren't around for the web standards, battles. You weren't around for this whole web 2.0 era of startups and stuff. I find it fascinating. Now I go to conferences and I'll be at Event Apart and they'll be people there really good at HTML and CS and JavaScript, but maybe they don't know who Jeffrey Zeldman is or they don't know who Eric Meyer is which kind of blows my mind, but when I stop and think about it it kind of makes sense. They've been making websites for a few years, but they weren't there when these sort of epochal events were happening. </dd>
+
+<dd>At some times it's a little depressing in that I find myself having to repeat things I said five years ago or seven years ago or nine years ago. Progressive enhancement being a good case in point because progressive enhancement is exactly one of those fundamental principles. It's not a technology, it's a principle that has stood me in such good stead regardless of what technological changes have come along that at this point I kind of think it's just a very fundamental way to approach making stuff on the web. If you stick to progressive advancement it's going to be hard, but you'll be doing the right thing and what you'll produce will be better for it. </dd>
+
+<dd>I find myself having to explain what progressive advancement is again because it's been a few years since anyone explained it. I find myself having to defend it and explain why it works well. If you told me five years ago you know Jeremy in five years' time you're going to be on stage at the Conference explaining why progressive advancement is a good idea I would have thought oh no really are we back to that, but I understand it now that, as you said, there's new generations, things go in cycles. If someone who has been making websites for five years doesn't look back at the history and doesn't see what we can learn from the past then maybe it is up to me and other people to tell them the lessons of the past which does make me sound like the old man on the porch. I know I'm like, "You don't know what it was like back in my day sonny get off my lawn," which I do feel like sometimes. I'll take that. </dd>
+
+<dt>Jen</dt>
+<dd>I got to jump in with another sponsor HostGator.</dd>
+
+<dd>HostGator is a premier web hosting platform. If you are looking to start a website HostGator can help you get started with monthly hosting plans, one click installs, and tons of other features that make getting your site up and running easy. If you're an advanced user or a business HostGator can take care of you and with reseller plans, VPS, and dedicated servers HostGator guarantees 99.9% uptime no matter ... I'm getting really bad at these readings ... no matter your size or needs if you are web wordpress user you're going to love their one click installs and optimized hosting platform. </dd>
+
+<dd>When you host with HostGator you get unlimited disc space and bandwidth. They have free builder tools, super easy to use, 24/7 support. You can go to hostgator.com to learn more about them and you can use the coupon code JENSENTME9, that's kind of like Dan sent me, but I'm not Dan, I'm Jen. JENSENTME9, 9 for the month of September, and get 30% of. I mean this is, you know, we're talking about having your own website, you're going to have your own place to stick it. This is the place you can stick it.</dd>
+
+<dt>Jeremy</dt>
+<dd>Actually I need a new web host for Adactio.com. The people I'm with are pretty awful. They weren't always that way. I've seen this. Again, learning the lessons of the past. I've seen this happen where a web host that was once really good and provided really good service just starts going downhill or they get bought up by another larger company or something happens. You have to move to somewhere better. I'm sort of a refugee at the moment. I need to find a good host. This is the interesting thing as well about it owning your own website, but Adactio.com I've owned that domain for about 15 years, but that's not true to say I own that domain.</dd>
+
+<dt>Jen</dt>
+<dd>You rent it.</dd>
+
+<dt>Jeremy</dt>
+<dd>I rent it yeah and the time scales are usually a couple of years maybe. I'll renew for another year or two years, maybe five years tops, but still it's and I don't own it. I'm renting that space on somebody's else's server to host my stuff. I don't own it and even that gets to me. </dd>
+
+<dd>I remember seeing a talk by Steven Pemberton who works at W3C actually. This was a few years ago at X-Tech Conference, no longer have those. This was in Dublin. The title of his talk was Why You Should Have Your Own Website which seemed to be a very basic low-level kind of talk I thought until he explained no literally you should own your own website. He was talking about, again, the IndieWeb thing really, but kind of ahead of its time that if you have the canonical copy of everything, your photos, your words, everything, and you can syndicate out to Flickr, Twitter, whatever, but you should own it. And he was talking about you should own the server that as technology gets better the ideal is having your router in your home also be your web server isn't such a crazy idea.</dd>
+
+<dt>Jen</dt>
+<dd>Which is a box in the closet.</dd>
+
+<dt>Jeremy</dt>
+<dd>A box in the closet potentially. What's interesting is there's a lot of ISP's that don't allow that in their terms of service which goes against the principle of net neutrality. The whole idea is Fat pipe. Always on. Get out of my way. That I pay you for a bandwidth, but you don't care what the bits are. You don't care whether it's video files or torrent files or text files and you don't care whether it's upstream downstream that shouldn't matter to you, and yet they're putting this stuff into terms of service.</dd>
+
+<dd>Most disturbingly, Google put this into their ISP terms of service. They started an ISP thing recently Google Fiber or something, I don't know. They have that clause in that. And Google were an ally in the defense of net neutrality and here they are adding that clause. And they'll say yeah but you know only this one instance. That's what everyone says when it comes to violating net neutrality. Or we're only going to traffic shape torrents. We're only going to censor this bad content. We're only going to violate net neutrality in this one way, but it's all or nothing I think with net neutrality. It's really really sad that we've effectively lost Google as an ally. </dd>
+
+<dt>Jen</dt>
+<dd>I wanted to ask you about HTML5 or more like HTML5.1 because it feels like and so here's ... this may just be the Jen-centric view of the world or it may actually be kind of what happened. It felt like to me there was a big slow-down in changes to HTML5 specifications, CSS specifications. They got into this big logjam. Actually I learned this from you. They all got in this logjam and then the logjam broke and we ended up with sort of a whole bunch of amazing things getting invented very quickly and a lot of pent up desire manifesting itself into APIs that you can use like follow API or F Line, Apache, and local storage. Many of the topics that I've talked about on episodes of this show </dd>
+
+<dd>Then it seems like things have slowed down a little bit now. It seems like because I'm constantly looking for what's another new API that I didn't hear of before. I'll add it to this talk I do. I'll do an episode of The Web Ahead about it. I'll go hunt down like oh there's another one, there's a new one, there's another one. It feels like for a while there there were just so many. I was like oh my gosh I haven't heard of that one and now it feels like no things have sort of settled down a bit and there's not a lot of whole new specifications getting started. Does that seem right to you or is there new stuff going on and what is the new stuff?</dd>
+
+<dt>Jeremy</dt>
+<dd>It does seem right and I don't think that's necessarily a bad thing because as you say there was the logjam so of course there was going to be a flood once we finally got up to speed and started iterating fast there's going to be a flood. Everything we've wanted for years.</dd>
+
+<dt>Jen</dt>
+<dd>10 years.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah for 10 years and now it's all came out in one big gush, but now we can iterate a bit more slowly and refine things a bit better. Also I think maybe we've seen it, and we didn't get it right first time. Apache would be a good example of that, but actually we need to step back and revisit that.</dd>
+
+<dt>Jen</dt>
+<dd>Do it again.</dd>
+
+<dt>Jeremy</dt>
+<dd>Kind of not quite start from scratch, but try an alternate evolution of it. I think it kind of makes sense that things have slow down because also there's implementing this stuff and getting it into browsers and getting it out there and getting it right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah and there's so much work especially everyone learning about it and then changing the way they design websites and catching up. I think people would be perfectly happy having things slow down a little.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah it's funny what ... be careful what you wish for because for years things were stagnated and we want all this stuff and now you got all this stuff. It's like whoa it's too much, can't handle it, but I think we're probably in a pretty good place because it feels like maybe some of the giddiness that came with just get it out there and get into browsers straight away and work fast and don't matter if you got it quite right. Maybe step back a little and say no well actually this needs to be quite good and quite robust. I think things are going at a pretty good pace. If you talk to different people you get different responses. </dd>
+
+<dd>I know some people who still think things move far too slow even at the WhatWG level or browser level that things are moving too slow. I think things are moving pretty well all told. Certainly better than they used to. Like you say there really was a lot of logjam, a lot of politics, and all sorts of reasons why things weren't getting done.</dd>
+
+<dd> It's true we aren't hearing about new additions to HTML every week or new additions to CSS every week and it did seem like maybe a year or two ago we were. Literally every week there was some new thing to keep track of, but that hasn't stopped the deluge of things to keep track of because even if it's not coming out of their standards bodies, they're still hey there's this new framework. Hey there's this new library. I mean I've got my backlog of things I need to check out that I haven't checked out, JavaScript, frameworks and libraries, CSS ways of working, tools for the command line to make work easier, all this kind of stuff. It does seem to me that the flood has not stopped. It seems like every week there is still something new to learn.</dd>
+
+<dt>Jen</dt>
+<dd>Most definitely. I mean it's almost like we lived in a little tiny house and we needed a bigger house and we finally got this big mansion and it just sort of dropped out of the sky onto the lawn, but like you got to paint all the rooms, and you got to move in furniture, and then you need to ... like really did we need all those rooms, like why. This room's empty.</dd>
+
+<dt>Jeremy</dt>
+<dd>And now we're filling up all those rooms with libraries and frameworks [crosstalk  01:11:28]</dd>
+
+<dt>Jen</dt>
+<dd>Right so it's going to be years and years of the whole community, of the whole ecosystem sort of maturing all these new cutting-edge whatever, but it does leave me curious too to be like okay well what ... and I have a list somewhere, I don't have it open right now, but I do have a little running list of like ...</dd>
+
+<dt>Jeremy</dt>
+<dd>All the latest and greatest ...</dd>
+
+<dt>Jen</dt>
+<dd>Yeah like the new brand new baby house that just dropped the shed that dropped out the [inaudible  01:11:53] that's not probably not mature yet, not in browsers yet, not whatever whatever, but something's that coming down the road. There is this HTML5.1 thing happening.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah, but to be honest the numbering system I don't care about that much because [inaudible  01:12:11 ] is the W3C thing and they've kind of ... their work is involved in setting stuff down kind of getting it in stone for posterity which obviously is really important that there's a specific spec and it contains all this stuff and nothing more. Then the next version contains all that stuff and more. That's really really important work, but over to WhatWG it's now just HTML the living standard.</dd>
+
+<dd>When it comes to the day to day issue of well what I can use in a browser, what can I use in work, the numbering system does not matter. It's not a case of oh well I can use everything that's in HTML5 today, but I can't use everything that's in HTML5.1 today because it doesn't work that way. some of the stuff that's in 5 isn't yet implemented in browser. Some of the stuff that's in 5.1 has been implemented for years so the numbering system can actually be confusing if you're using it to try and get a handle on what can I use today. </dd>
+
+<dd>In terms of what can I use today the WhatWG method which would say here's everything. The stuff that's in browsers that's the stuff you can use today. That's actually a more sensible approach. It stops you thinking of things in buckets of 5, 5.1, or 5.2 and you start looking at the individual feature sets like can I use the 5 API, can I use this particular API today and that's a more sensible approach I think.</dd>
+
+<dt>Jen</dt>
+<dd>What's something that you've seen recently? A way in which somebody has used one of these newer APIs that impressed you or that you're like ah ha that's it, that's the thing that we've been ... ?</dd>
+
+<dt>Jeremy</dt>
+<dd>That's a really good question. Gosh I'm not sure. The funny thing is that what's actually been occupying my mind lately and is partly to do with responsive design and progressive enhancement and mobile first is actually quite old fashioned ideas like sending core HTML down the pipe initially. Good structured markup with the bare minimum CSS partly because performance is such a big issue on my mind these days that I haven't been looking that much at the new shiny and the really new cool implementations and the people doing cool stuff with technologies, so I'd have to stop and think,</dd>
+
+<dd>It would probably be something device related, something to do with device API. It's like I don't know accelerometer or light sensors or [inaudible  01:14:42] or camera. One of these kind of things were the web has traditionally lagged behind native and now we're starting to catch up, but frankly off the top of my head I can't think of that stuff because like I say what's been occupying me is more about how do I get a really fast website using good old fashioned HTML and good old fashioned CSS and not relying on JavaScript to display all the content, using progressive enhancement. It's weird. I've kind of been focusing on the a bigger picture and what's available this week.</dd>
+
+<dt>Jen</dt>
+<dd>It makes sense. I mean it feels like that's what a lot of people are doing sort of this back to basics let's remember how to do really solid, really great basic websites.</dd>
+
+<dt>Jeremy</dt>
+<dd>Certainly it's the starting point. I don't want give the wrong impression that means building boring websites. What I mean is that your starting point, your bare minimum of what you send to every single browser and I mean every single browser no matter what the device, no matter what [inaudible 01:14:42] is rock solid and can be parsed in that first ever line mode browser that we'll be recreating at CERN with the progressive and the enhancement part of progressive enhancement, but then you query the browser. Okay what are you capable of and what can we use and then go all out, go for it, and use an API that just landed last week and this one particular browser has it, use it, go for it. Start using the stuff and that's the part of progressive enhancement that people miss is that yes you start with the lowest common denominator, a good well structured HTML, hyper-links, forums. Make sure everything works just like that, but then when you start enhancing there is no limit to how far you can enhance and you can absolutely start using the latest and greatest APIs. It doesn't matter if they're not implemented in every browser, it's an enhancement. It's not a requirement for accessing your content. They're not required to accomplish the core tasks of your website. They're an enhancement.</dd>
+
+<dd>I can't think of any specifics right now, but that's generally the lens eye view. A lot of the new additions the new APR is through is can I use this as an enhancement as opposed to would I need to build this as the core feature.</dd>
+
+<dt>Jen</dt>
+<dd>Is it a requirement.</dd>
+
+<dt>Jeremy</dt>
+<dd>Exactly is it a requirement more like is there a way I can use this an enhancement. Dual location is a good example. I've got sites where without dual location that's fine you get to accomplish your task and everything's okay, but if the browser supports dual location this experience is going to be really nice as an enhancement so that's generally how I ... when new APIs come out and I'm going to be checking out the latest and greatest I'm looking to see how they can be used as an enhancement.</dd>
+
+<dt>Jen</dt>
+<dd>Let me jump in with our last sponsor and then I have a question for you and this kind of fits in. It's nice this dovetails really well with what we're talking about. </dd>
+
+<dd>Environments for Humans who have all these awesome on-line summits that you can go to without traveling anywhere has a JavaScript summit coming up November 19, 20, and 21. Three days of people talking about JavaScript and talking about frameworks. Someone is comparing Bootstrap versus Foundation kind of debating which is which and which one is maybe the one you want to use. Somebody is talking about Grunt. Somebody is talking about Create.js. [inaudible  01:18:14]AngularJS, Async.js. </dd>
+
+<dd>I've had people email me and say, "Hey can you do a show comparing JavaScript framework and explaining each one and walking through the pros and cons of each and I'm like, "Ah no, I can't." I personally don't have any of the technical skills to do that or the experience and trying them out, but also it's very very code-centric and I try to stay more in the principles and design ideas and the development ideas rather than development how-to's. But this will be a great way for people who are interested in those questions, especially three days of people getting into each one of the options really really great. Val Head, again, Val Head comes up again today. She's doing an opening session on JavaScript for designers. If you don't know anything about JavaScript at all you can learn for an hour about JavaScript. </dd>
+
+<dd>Go check it out. What's the URL. Is it jssummit.com? Yes jssummit.com is the URL, it redirects you over to their website and there are ... you can go to one day or you can go to two days or you can go to all three days. You can buy a three day ticket. You can go by yourself or you can buy a meeting room ticket. A meeting room ticket gets you the ability to the right to show the event to a whole group of people so you can get a bunch of your friends together, buy a meeting room ticket, or get a bunch of people at work together, a bunch of students, or something. </dd>
+
+<dd>Check it out. You can also use the discount code WEBAHEAD, same discount code to get the same as Artifact to get 20% off, 20% off any one of those tickets coming up in November. Thank you so much to Environments for Humans for once again supporting the show and teaching people cool stuff. </dd>
+
+<dd>So here's my question. There does seem to be a bit of a idealogical war going on. I mean it used to be a war of like let's use tables for layout, no let's use web standards, and now the war is a very similar one, but it seems to be let's use web standards, progressive enhancement versus. A lot of people who would seem to be Android fans and Google fans as well or Twitter Bootstrap fans they're like the web platform isn't really a proper programming language, let's do our best to turn it into one. We'll just make everything a DIV. Everything is a DIV, just strip out that complexity and that craziness it's annoying. It's slowing us down. We need to move quickly. We're going to be fast and agile and fast. We want to use this framework and get started and write all this JavaScript and do all this awesome stuff so we'll use code. We'll use whatever code. I mean there's [Node, there's ___ 01:21:14] different things. We'll use JavaScript and we'll just ignore the DOM and ignore HTML and just everything is a DIV. Do you know what I mean? Have you seen that? </dd>
+
+<dt>Jeremy</dt>
+<dd>I know the attitude you're talking about. It's basically the web is a platform just like Android is a platform or iOS is a platform or Desktop Operating System is a platform. We write software for those platforms and so the way we write software for the web should be similar and how do we make the web a first class platform. The solution is we use the [inaudible  01:21:52] programming language, JavaScript is the programming language for the web to do everything essentially which is the exact opposite of what we were just talking about where we're talking about things as an enhancement rather than a requirement.</dd>
+
+<dd>In my opinion that pushes against the fundamental strength of the web. The fundamental strength of the web for me considering the types of technologies we have HTML, CSS, JavaScript is that's it's not this all or nothing monolithic platform in the same way that Flash was. With Flash either the plug-in was installed or it wasn't. You either got 100% or 0%, nothing in between and that's the way it works on most platforms, Android, iOS, MAC, PC, whatever. Either you can run the software or you can't. It's [inaudible  01:22:42]</dd>
+
+<dd>On the web we have this fantastic layered technology. We have HTML, and every web browser can handle that, but then we also have CSS. Most web browsers can handle that. Then we got JavaScript and most web browsers can handle that too, but you don't make it a requirement. Within each stack the wonderful thing is how we can use new features even if they aren't available everywhere. We can put in the latest and greatest technologies what is exactly what we were talking about as enhancements. HTML is the best example of this. New things land in HTML all the time and they ship in some browsers, but not others, but we can start using them. </dd>
+
+<dd>We can start using the new input types. We can start using new elements. We can start using new attributes. We can do that safe in the knowledge that we won't break the website in older browsers. That in older browsers that hasn't yet implemented this stuff. We'll look at this new stuff, not understand it, and just ignore it. It won't throw an error. It won't refuse to render the page, it will just move on. </dd>
+
+<dd>So again a lesser experience than the more capable browser, but that's absolutely fine, so that's why we can start using HTML stuff that isn't universally supported. It's the same with CSS. New selectors land all the time. New properties, new values land all the time and so we can start using those today. Even if that's only shipped in one browser that's fine, that one browser will get that enhancement and every other browser that doesn't understand it will just ignore it. A browser sees a selector it doesn't understand it will just ignore that declaration. That's hugely valuable. I mean that is basically what allows us to still view the first web-page ever made in a modern browser or conversely use the first web browser ever made to view a modern website and understand it. That's hugely powerful. </dd>
+
+<dd>Now at JavaScript things are a little bit different because with JavaScript if you do use some JavaScript that the browser doesn't understand it will throw an error. It could potentially stop rendering. The error handling model for JavaScript is that of most programming languages which is if there is a syntax error you can throw an error to the user. So this is why to me if I'm going to place my bets on wherever I want to have my content I want to put it in the more robust technology, put it in the HTML under CSS, you know, specifically in the HTML that's where the content belongs. Precisely because it's so forgiving and the error handling model is so forgiving and that it's so universally accessible. If it's an HTML it's readable in just about every device that can connect to the web. </dd>
+
+<dd>JavaScript first of all by putting your content into JavaScript if feels like you're kind of crossing the streams there and that's not where the content belongs, that's where the enhancements go. Then to make all your content dependent on JavaScript, not just JavaScript's requirement, but dependent it seems just so fragile from an engineering point of view. From a just robust principle point of view it seems crazy to put your fundamental unit of what the site is about into a technology that could break if you get one semicolon wrong. If you have one misplaced comma. This happened on Google. </dd>
+
+<dd>You mentioned Google as being a good example of the people doing this where do I ... having it in the HTML, having it in the JavaScript. It doesn't matter. It's all the same. In the end it ends up in a browser rendered with DOM, so whether you feel comfortable using programming language as opposed to declarative languages like markup then we're going to use a programming language. We're going to use JavaScript to generate the markup. </dd>
+
+<dd>A small example of this is the web-page for downloading Google Chrome where as you can imagine a lot of traffic is pushed through that web-page, there's ads on television, in print, on the tube, saying go download Google Chrome, here's the URL. </dd>
+
+<dd>There was a time period, I think it was last year where for two hours that web-page didn't work. It didn't work in the sense that there's a button that says download Chrome now and if you clicked that button it didn't work. It didn't download Chrome. Now there was a JavaScript error. There was a JavaScript error in this hundreds of lines of JavaScript code, just one single error completely unrelated to the downloading button, but because they hadn't used a link to point to the download file or a form with a button. They have used [you had DIV SPAN.  01:27:15] No I think it was the other an A element, but the [atref  01:27:18 ] value was JavaScript colon and then some function instead of actually pointing to a file to download. </dd>
+
+<dd>Because of that for two hours nobody in the world could download Google Chrome. I don't know if heads rolled for that or how much lost revenue potentially in ads they lost out of that, but that's pretty serious and it could have been so easily avoided by simply using HTML for your HTML. If you're going to write a link have a proper value in the link, not a JavaScript pseudo protocol. Just in a fundamental Occam's razor point of view to me it doesn't make sense to make JavaScript a requirement for something that doesn't require JavaScript and your content doesn't require JavaScript. Of course you use JavaScript as a requirement for geolocation or accelerometer stuff or all this stuff that is inherently JavaScript based, of course that, but your fundamental content, your fundamental tasks, you can do that using HTML and you should do that using HTML. </dd>
+
+<dd>Now I don't want to come across like I'm saying don't use JavaScript. I want to keep hammering this on that with progressive enhancement there's no limit to where you can enhance to. I was saying you don't make it a requirement. It's funny because I remember the first web conference I ever spoke at 2005 I was the token JavaScript guy. It was all CSS talk, HTML talks because everyone looked down her nose at JavaScript. It was just nasty language that was used for making pop-up windows and high-jacking your browser and I was going no no JavaScript is really cool. We can use JavaScript for good, check this out, it's really well supported. I was trying to convince people JavaScript was good, and then Ajax came along and everybody got into JavaScript and now we've gone so far in the other direction that JavaScript is established itself so well that people want to do everything in JavaScript including the stuff that JavaScript shouldn't be touching with a barge pole. lf you have a content site, like a news web site, and a magazine website the idea that you would use JavaScript to generate your articles and to inject them into the DOM using using JavaScript that's just crazy. That's like a weird Rube Goldberg way of approaching web design. </dd>
+
+<dd>I can see where this developer conveyanced this stuff, again especially if you're very familiar with programing environments. You're familiar with programming languages as opposed to declarative languages than it makes life easier for this developer to code in this way, but it does not make life easier for the user. Lets get that straight. Whereby user we mean all users, not just a subset that you're willing to support. They're having arguments to try and defend the JavaScript content approach as being faster, but I haven't seen the evidence that holds up. In fact, Flickr deliberately went back to using HTML for their HTML because they were seeing that it just wasn't fast enough. The time to first tweet was slower when they were using JavaScript to inject everything into the DOM. </dd>
+
+<dd>But fundamentally this isn't a technology question. This is a philosophy kind of design approach question and all the things you can do by using JavaScript as the central controller for your content, all of that stuff you can accomplish with progressive enhancement. You might not be used to doing it with progressive enhancement and so the first time you do it it might feel hard, it might feel difficult, but that's true like you said of switching from tables for layout to CSS or switching from fixed widths to responsive design. The first time you do it it's going to feel hard. The second time it will be a bit easier, and by the third time it's going to feel normal. There's nothing fundamentally that you can't do with progressive enhancement that you can do using just JavaScript as a requirement approach. It's entirely a philosophical engineering approach. I know where I stand.</dd>
+
+<dt>Jen</dt>
+<dd>I'm [inaudible  01:31:15] to notice a couple of years ago a lot of websites that were just very slow and I couldn't figure out why or they would just seem flaky. Especially on my phone. Especially on 4G connection somehow on a very small Internet, well 4G isn't even very slow. We have to remember the rest of the world. I was on a US phone connection, and I was wondering what is going on and then I realized oh all of these sites or services are loading a blank page on the first ... the first thing they do is load an empty page. The second thing they do is load probably a second CSS [inaudible 01:31:54]  nothing, and then the third thing they do is load a bunch of JavaScript and then the JavaScript loads the content.</dd>
+
+<dt>Jeremy</dt>
+<dd>Which again if you were using any other platform it makes total sense. If you're building a native app. If you're building for Android or iOS that's how you'd approach it. You build it [through the __ 01:32:10] how you have your container for the content and then you inject the content, but the web has a better way of doing it frankly. A way that allows you the best of both worlds.</dd>
+
+<dd>One of the advantages that you could get by using JavaScript to inject everything is now once you've got the user onto that one URL you keep them at the one URL and every time they request more information by clicking, swiping, whatever you use JavaScript again to update the DOM. So you never have to go back and request that whole document again, great, but you can still do with that progressive enhancement. You can still do it by using the history, API, using the Ajax. You can have the best of both worlds where you can have stuff sent from the server. You can have stuff sent as [inaudible  01:32:54] JavaScript. It is possible to do it. </dd>
+
+<dd>There's some tricky engineering challenges in doing it right. [inaudible  01:33:03] have been doing some interesting stuff here. They originally were using JavaScript as a requirement for everything and they realized that wasn't working well. They weren't serving their customers well so now they're taking a more progressive enhancement approach, but they really enhance to a large degree where if your browser is capable of running the JavaScript, it is capable of updating the URL, then you are effectively staying on a single serving site and they're updating everything with JavaScript, but that doesn't mean they can JavaScript your requirement. I agree that the sites about the way they feel initially slow regardless of how fast [inaudible  01:33:38] Once everything is downloaded that initial feeling it just feels weird.</dd>
+
+<dt>Jen</dt>
+<dd>It just feels weird. I also think that there's something ... it seems like it will be faster to develop an easier and less of a hassle for developers, but that's before you get QA involved because it feels like when you use progressive enhancement and you're building the stack and you sort of know that no matter what you're at least going to get plain, ugly, HTML, and then on top of that you get CSS, and then on top of that you get responsive CSS and layouts, and on top of that you get etcetera. Then you can develop on ... I mean you can test on a quarter of the phones that you know your users use. Never mind the other million phones that you've never even heard of and you're probably going to be okay.</dd>
+
+<dd>Where it feels like if you do it this other way where everything is dependent on your JavaScript running and every single thing is dependent on this one way of everything being done, this sort of minimum technology requirement. This is just one technology requirement then you either are going to ... it's going to be broken all over the place and you're not going to know it or you're going to need to buy your QA team a much much larger group of phones and tablets. I mean the bugs it's just ...  you want hundreds and hundreds and hundreds of bugs coming in about this one little thing and oh you [don't ever hear  01:35:10] on the ASUS [inaudible  01:35:12] tablet that you've never heard of this thing doesn't work properly. That to me is one of the ... it's just my gut instinct. I'm just like I don't even want to go over there. </dd>
+
+<dt>Jeremy</dt>
+<dd>I think that gets to the fundamental difference in approach. Regardless before line of code is written if your approach is these are the devices I'm supporting or these are the operating systems and browsers I'm supporting okay now I need to write code that supports those browsers. Okay you can do that and like you say the QA is going to be kind of a nightmare. You got to make sure it works in each one of those things or you take the progressive enhancement approach which is I'm not coding for any particular browser. I'm using this technology. I know the devices and browsers that I don't have and can't test on maybe they don't even exist yet. I know that at least if I'm using HTML for HTML and CSS as an enhancement, JavaScript as an enhancement, I know that at least it will be able to accomplish the core task and I can focus on other devices, particular devices, and say I want to make sure that the user experience is really really good in these devices as best it can be, but I don't have to test a list of devices, a list of browsers because I've got a pretty good idea.</dd>
+
+<dd>Even if it doesn't work perfectly it's still going to work. People are still going to be able to accomplish what they want to do. Yes a very fundamental way of approaching a project. Before line of code is written. Before anything is designed it's a very fundamental difference in how you approach building and like you said that other way is much more akin to traditional software development. We say these are the requirements and these are the platforms that will be supported and if the device falls outside [and this pool  01:36:53] then it's not supported at all. It's going back to zero or 100%. Either your device gets everything or it gets nothing, and that seems like such a waste of the opportunity that the web gives us. </dd>
+
+<dd>The web gives us a way to provide the bare minimum to everyone and then the best experience to the devices, browsers capable of receiving that best experience. That's such an amazing gift. Whether by design or accident has been baked into the technologies of the web. It seems so crazy to throw it away. Constantly people are complaining about the web by comparing it to native stacks on mobile or native stacks on desktop and say oh we don't have this and we don't have that and isn't it a shame that native apps can do this and the web can't do that.</dd>
+
+<dd>So yeah, but you're missing what the web can do that's so amazing that with one code base say HTML you reach every possible device. You don't have to write a separate app for a Blackberry and Windows and Android and iOS. It's given to everybody and it will vary depending on the technologies you used, but the core content, the core tasks to be available to everyone that's really quite amazing. </dd>
+
+<dt>Jen</dt>
+<dd>Across time in fact.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah exactly older browsers that don't exist yet, devices that don't exist yet. For me that's what progressive enhancement is about. It's not about oh I'm catering to these browsers and these devices and here's my list of ones I'm catering to. It's all the ones I can't think of, all the situations and use cases that I haven't thought about, that's where progressive enhancement is so powerful.</dd>
+
+<dt>Jen</dt>
+<dd>And accessibility as well I mean it really makes a big difference.</dd>
+
+<dt>Jeremy</dt>
+<dd>I consider it a form of accessibility. I consider it in terms of access to the information. I consider progressive enhancement the key cornerstone to access in its broadest term. I think content available over time as you're talking about being accessible to an ancient browser or [inaudible 01:38:55] right now being accessible to a browser that doesn't exist yet that is a form of accessibility to me. I mean when we talk about accessibility we tend to [inaudible  01:39:04] the nitty gritty of assistant technologies and stuff, but I find a lot of that follows on by simply thinking of access in its broader terms.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah the web.</dd>
+
+<dt>Jeremy</dt>
+<dd>The web. I like it. Good work web.</dd>
+
+<dt>Jen</dt>
+<dd>And it really is sort of miraculous. It's really could not have been planned to be what it is. It is chaotic and it's beautiful because of that somehow. That beauty came out of the chaos.</dd>
+
+<dt>Jeremy</dt>
+<dd>I still find it amazing when people see this amazing thing the web and say oh it's broken or it's not as good as this closed silo system I'm using over here so I'm going to try and make the web more like this closed system where you can't link to another app. It just boggles my mind that people would actually find that desirable because it's weird.</dd>
+
+<dt>Jen</dt>
+<dd>It really is about control. I mean it really is about whether you're a company that wishes you had patented it all and kept it for yourself or you want to keep all the content inside your Disneyland or you're a developer who wants to feel like you know everything that's possible and so you're able to control everything and you're only going to think about a certain set of devices because you're thinking about all of reality and now it's lack of control.</dd>
+
+<dt>Jeremy</dt>
+<dd>It's really interesting you bringing up that point of control because I've been having an email conversation back and forth with Scott Jansen who's an incredibly smart guy who's been doing thing for many things at Apple, at frog design, at Google. He's thinking a lot about the web, native [inaudible  01:40:38] things. Standards in a very big broad sense.</dd>
+
+<dd>He wanted to tell me about this idea of because [inaudible  01:40:46] idea of the web app. To me it seems a crazy idea that you could divide the entire web into two buckets, web sites and web apps, and where do you draw the line and how do you find one. Usually when people say web app what they actually mean is requires JavaScript to work, but that's [inaudible  01:41:04] because what we ended up agreeing on is that a fundamental difference between the kind of things that generally get called web apps by the people who make them is that idea of control, is that they want a similar level of control as you get with native technologies where they can control what the user can't do.</dd>
+
+<dd>Whereas on the web being a good web-driver to me is acknowledging that certain things are beyond your control and that's actually a good thing so every time you write a line of CSS you are suggesting a styling, you are dictating a styling, you are suggesting a style. It's important to remember that we don't have that control and that's good and that the user can pinch zoom or expand text on a desktop or change your layout, have their own style sheet, that's good, that's a very powerful thing. And acknowledging that we don't have control is acknowledging the reality.</dd>
+
+<dd>The people who are trying to build for the web while at the same time have the sense of control that they would get in a native app they're usually the ones to label what they're building web app because it's kind of shorthand for I'm going to dictate the terms of engagement rather than it being this more two-way conversation between the user and the designer. </dd>
+
+<dd>And so me and Scott ended up agreeing on that that the fundamental differences about let's call it web app is a matter of control, it's not a technological thing, it's not about which APIs are available or what JavaScript you can use or performance or anything like that. It's fundamentally about the mindset of the person creating this thing. Call it web app. Call it what you will, and whether they're trying to have control or the illusion of control or whether they are willing to acknowledge that on the web the user should have the final say, should have a level of control.</dd>
+
+<dt>Jen</dt>
+<dd>Well thank you so much for being on the show today.</dd>
+
+<dt>Jeremy</dt>
+<dd>It was my pleasure.</dd>
+
+<dt>Jen</dt>
+<dd>This has been really fun.</dd>
+
+<dt>Jeremy</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>People can follow you on Twitter: <a href="http://twitter.com/adactio">@adactio</a>.</dd>
+
+<dt>Jeremy</dt>
+<dd>They can, but you know adactio.com would be the first port of call because at least I have some control over when that information will disappear one day whereas on Twitter I don't, so I'd say first and foremost <a href="adactio.com">adactio.com</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Adactio.com and you have an [inaudible  01:43:28]</dd>
+
+<dt>Jeremy</dt>
+<dd>Sure yeah old school, but yes then I am also on Twitter. I'm on all those places [inaudible  01:43:34 ] Flickr, GitHub, you name it. I'm on all those networks, but I still consider adactio.com my home.</dd>
+
+<dt>Jen</dt>
+<dd>And people can get to the show notes for this show you can go to <a href="5by5.tv/webahead/56">5by5.tv/webahead/56</a> and we've collected quite a lot of links including bazillionaire who totally helped collect the links during the show today. Thank you bazillionaire. Yeah tons of different things so if you want to look up what we were talking about.</dd>
+
+<dd>You can follow me on Twitter Jen Simmons or you could go to <a href="jensimmons.com">jensimmons.com</a>. It's not really ... that's a whole other conversation about why <a href="jensimmons.com">jensimmons.com</a> is not what it should be, but it's still there. It's been there since 2001, 2003. You can also go to <a href="5by5.tv/webahead/newsletter">5by5.tv/webahead/newsletter</a> and sign up to The Web Ahead newsletter which will basically send you an email when the show is ... a new episode is posted to the Internet. It will email you all the show notes and the links so that you don't have to go to the website to get them, and you will get notification of new shows every time a new show comes out. </dd>
+
+<dd>You can subscribe in iTunes that's a good way to get the show automatically. Lots of other stuff that you can check out on The Web Ahead page at 5by5. Click on the link, see all the stuff. I think that's it for now. </dd>
+
+<dd>Again thank you so much Jeremy. Thank you so much to our sponsors. The JavaScript Summit, Artifact Conference, and HostGator. I have another show lined up in about two weeks, maybe one will happen before then, maybe not. Just wait and see. Thank you.
+
+</dl>
+
+<footer><p>Thanks so much to <a href="http://www.rev.com/transcription">rev.com</a> for providing the transcript for this episode.</p></footer>
+
+</article>
+</main>
 
 <footer role="contentinfo">
 <hr>
