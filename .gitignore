@@ -6,6 +6,11 @@ _site
 ##########
 .sass-cache
 
+# CodeKit #
+##########
+kit
+.kit
+
 # Packages #
 ############
 *.7z
