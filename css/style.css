@@ -104,3 +104,11 @@ footer[role=contentinfo] ul {
     padding-left: 125px;
     }
 }
+
+.template-home header,
+.template-home main h1,
+.template-home dd,
+.template-home footer > *,
+.template-home footer[role=contentinfo] ul  {
+    padding-left: 0;
+    }
