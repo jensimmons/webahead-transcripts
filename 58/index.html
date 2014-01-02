@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>The Web Ahead | Transcripts</title>            
+<meta name="description" content="transcripts of the radio show, The Web Ahead">
+<meta name="author" content="Jen Simmons">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="cleartype" content="on">
+<meta name="robots" content="index,follow" />
+
+<!-- <link rel="stylesheet" href="/css/style.css" /> -->
+
+</head>
+
+<body>
+
+<header role="banner">
+<h1 class="site-name"><a href="http://transcripts.webahead.info">The Web Ahead Transcripts</a></h1>
+</header>
+  
+<main role="main">
+<article>
+<h1>Episode 58: CSS Innovation with Lea Verou</h1>
+
+<dl>
+
+<dt>Jen</dt>
+<dd><p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host, Jen Simmons, and this is episode number 58. I want to start out by saying thank you so much to the sponsors of today's show: HostGator, Artifact Conference and the JavaScript Summit. I'l talk about those later in the show.</p>
+
+<p>Today we're going to talk about CSS. CSS being, of course, one of the big foundations of the web, not one of the necessities, I guess you only need some HTML,a a URL, and a HTTP request to technically have a website but websites today, of course, all also use CSS to style them and to lay things out and to make them look like it's later than 1992.</p>
+
+<p>I think that we underestimate CSS. As I learn more and more, sometimes I'm on Twitter and I just stumble across a link, and suddenly there I am, watching a video of some completely awesome presenter, blowing my mind, teaching me things about CSS that I had no idea were possible. In a presentation that is, like, one of the best ways, formats, a whole new format of a way to give a presentation. I just thought, well, I should get that person on the show. And, so, hello, Lea Verou.</p></dd>
+
+<dt>Lea</dt>
+<dd>Hi there, thanks for having me.</dd>
+
+<dt>Jen</dt>
+<dd>You're known for doing all kinds of awesome, open source projects. You used to work at the W3C, the place that defines what the web is. You're a member of the CSS Working Group. You've done these amazing presentations. I'm putting two of them in the show notes. People can go to the show notes at <a href="http://5by5.tv/webahead/58">5by5.tv/webahead/58</a> and see all the links for the show today. At Frontiers, I'm sure you've done these talks at many, many places, but Frontiers specifically has put two of them online. They're on Vimeo. These talks are awesome.</dd>
+
+<dt>Lea</dt>
+<dd>Thank you.</dd>
+
+<dt>Jen</dt>
+<dd>Part of what's so astounding about it, you're getting up on stage, you're talking about CSS, you're teaching people stuff, but you're not, you're... you wrote your own, did you write your own presentation software?</dd>
+
+<dt>Lea</dt>
+<dd>Yeah, it's on GitHub, it's called <a href="http://github.com/LeaVerou/csss">CSSS</a>. Whoever wants to use it, they can find it there. It's open source. The live coding thing is a plugin but it's in the same Github repo.</dd>
+
+<dt>Jen</dt>
+<dd>Basically, you're on stage doing a live code demo. Which sometimes is really boring to watch at a conference because it's hard to do a live code demo and write code and show people what it does and write more code and show people what it does and have that go fast enough that it really works. But because you wrote your own software, you're not in a code environment, you're not in Coda or Espresso or something, you're not switching back and forth between a browser. It's just this big slide, where there's a slot at the bottom, and you're typing CSS live and things are changing live and you're explaining.</dd>
+
+<dt>Lea</dt>
+<dd>I think that's why it works. I think it's very distracting if you have to use separate windows and the whole UI of an IDE is very distracting and usually you get carried away and you type too much code, if you're in a proper IDE. People eventually just lose focus. At some point, the more code you write, the higher the chance that you'll make mistakes. So you stop and you try to debug your own code, live. People are trying to help you because they feel bad about you and it doesn't work. Also, if you have to type the code and show them the result in a separate window, and they can't see them together, it's really hard to connect how the code works to effect the result. So I try to have them both in the same window, both the code and the result. The whole point I do live coding is not to show off that, "Hey, I'm doing live coding." I'm not just showing the audience the live result. I'm also showing them the intermediate steps before you get to the end result, so it's easier to understand how that code works. If you start from scratch and you gradually build up the final result. Also I try to keep the code very short. Usually below 5 lines. Because it's harder to make mistakes, though I still make mistakes sometimes, even with that little code, sometimes you type something wrong and then you're trying to find out what mistake you made. But it's less frequent if the code is short, and also it's easier for the audience to digest because it's not the same as working on your own code, where you might have 100 lines and you might be able to keep them all in your memory at the same time. If somebody else is writing code and you're trying to follow along, it's so less easy to understand.</dd>
+
+<dt>Jen</dt>
+<dd>What I think is so profound and powerful about these talks that you're giving is that you're teaching people about new CSS properties that they might not know about. You could do that from static slides and just people, "Hey, here's the code, here's the result, here's the image." But it's... can you hear that baby? There's a baby crying next door. [Both laugh] He's so little, he's so tiny, tiny, tiny. I don't know if people can hear it. [Sound of baby crying] He's loud today. [Lea laughs]</dd>
+
+<dd>You're also recreating the thought process of a developer. You're showing people, "Hey, if I write this one line, this is what is happening, and if I add this, see how it's developing?" And then, "Oh, there's another layer to the complexity. And here's the result of that." I feel like even for people that don't write CSS and maybe never will, there's something there that's really valuable and fascinating because you can watch what a front-end developer does and how a person who's designing in code, especially, might approach a situation and say, "I'm not really sure how I want this to look, but let me mess around, and mess around, and mess around, and then, oh, wow that shadow, let me make this little adjustment, I'll make it a little more transparent. I'll make it a little bigger. No, I'll make it smaller. I'll make it more grey." The act of finessing the look of something in code, you're demonstrating that right on stage and you're showing people how they could also do that kind of thing in their own work.</dd>
+
+<dt>Lea</dt>
+<dd>That's part of showing all of the intermediate results until you get to the end result. It's not like, a straight line from A to B. Sometimes you experiment, you tweak some values, and I try to get into the mindset of how I would think if I was writing this code for the first time today. Even though I'm not writing it for the first time the day of the talk, obviously, I have rehearsed it. But I always try to get into the mindset I would have if I was writing it for the first time. Obviously, I wouldn't instantly know what values to use, I would experiment a bit. If I just pulled magic numbers out of my head and told them, "Oh, I'm going to use 370 pixels here!" Then they'd like, "Okay, where does this come from? I don't understand how this is going." It wouldn't logically follow. To come up with that number, I had to experiment. If I don't show that experimentation, it won't make sense to the audience.</dd>
+
+<dt>Jen</dt>
+<dd>Talk to us about CSS and what is getting you excited these days. We were talking, I said this to you a bit before the show, it seems like things were... for a long time we didn't have CSS. Then CSS got invented. But many people were afraid to use it. Then it became, like, "Okay, you should use CSS." And then things got kind of static for awhile. We all kind of felt like, "I know CSS2, 2.1." There were new tricks to learn having to do with solving bugs or writing CSS in code that is more accessible. But there wasn't a lot of innovation. And then all of a sudden CSS3 came along and there was a bunch of new properties and we all kind of learned about those new properties. Rounded corners being one of them, drop shadows, box shadow being another. But then it feels a little bit like that "new" news is old, and nothing else is happening. "Okay, we learned the 15 new properties," so we're done. There isn't anything else going on. [Lea laughs] But when I saw your talks, and I read your work, I'm like, "There's so much going on." [Lea laughs] I don't even know where to begin to keep up because, well, learn from you! What are some of the things that you've seen that are going on that you feel like you're excited about, and people don't know about, but they should?</dd>
+
+<dt>Lea</dt>
+<dd>First, I wanted to say, it's not that we suddenly started having CSS Level 3 modules. Some Level 3 modules existed from 2003. It's just that browsers weren't implementing them, we were stuck with IE6, then IE7 had to catch up, then IE8 had to catch up, so we didn't get many implementations of Level 3 modules that we could use until a few years later. It's not that they just suddenly started inventing CSS3 stuff. Lots of it existed for ages, it's just that browsers were not implementing it. Or it was browsers that didn't have enough market share. For instance, Opera implemented media queries long before they became popular. Nobody cared because Opera had a low market share. There's still tons of stuff happening. Personally, I'm really excited about the SVG-inspired CSS modules: filters, masking, blending modes. I think they will allow us to do things in CSS that we were never able to do and for the most part, they degrade gracefully. There are many exciting CSS features, like Flexbox and Grid layout, and layout stuff like that, but I don't focus so much on those because it will take some time before we're able to use them on real projects because they don't degrade gracefully. If you use them to build your layout, your layout will be completely broken in IE8 or IE9 or browsers that don't support Flexbox or Grid layout or all of these modules. But, for instance, if you use filters, everything will just work in older browsers that don't support filters.</dd>
+
+<dt>Jen</dt>
+<dd>Explain to people what those are and what they each do and how that's going to change the web and make it better.</dd>
+
+<dt>Lea</dt>
+<dd>I'm sorry. So, CSS filters have nothing to do with the IE proprietary filters that we're used to. They're inspired from SVG filters and they allow us to do things like blurring an element or making it greyscale or changing the hues or giving it a real drop shadow. Because, you know, box-shadow is what the name says: It's a box shadow. It's influenced by the border-radius but apart from that, if for instance, you have semi-transparent regions on the element. Like a speech bubble, for instance, that has a pointer and you use box-shadow on it, the box shadow's just on the box, it's not on the pointer of the speech bubble. If you use the drop shadow filter, all the transparent regions will be shadowed properly. That applies to any transparent region you might have, Semi-transparent background, for instance, or a dotted border, or a dashed border, or anything really. It shadows the actual element, not the box that might be around it like box-shadow. There are many kinds of filters. You can even write you own. You can reference a SVG filter if you know how to write SVG filters. But you don't really need to know how to write SVG filters to use CSS filters, because they're just nice if you want to use the predefined ones. They're just nice, readable functions, like "filter-drop-shadow" or "filter-greyscale" or "filter-blur" and they take parameters as well. All of that without any SVG syntax. Or if you want to spend extra time learning about them you could also write shaders, which do all kinds of crazy stuff. There are demos online with shaders. They completely change the shape of the element. You can do page curl effects and anything you can come up with. But shaders have to be written on a language similar to C. They're not really written in CSS. That's a bit complicated. But for actual filters, you don't really need any of that. There's also another spec about masking, which allows you to crop elements with any shape you want. You want to crop an element in a flower shape? You can do that. Or in a triangle shape. Or whatever you come up with. As long as you can make an image with that shape, you can crop any element according to that shape.</dd>
+
+<dt>Jen</dt>
+<dd>What would you crop? You're not cropping text, you're cropping another image? Or cropping a background?</dd>
+
+<dt>Lea</dt>
+<dd>You could crop another image. You can crop an element with text as long as you give it enough padding so you can still see the text. If you want to crop an element, for instance, in a flower shape, obviously you would have to give it enough padding so that the actual text is not cropped and just the element. You can do all sorts of interesting effects with that. Blending modes are definitely familiar to people that have been using Photoshop. A very basic blending mode is when you have an element that's semi-transparent on another element. The element that's behind it influences how the topmost element looks because of the alpha blending mode. But there are many more blending modes than opacity. For instance, you can have blending modes that... darker colors on the topmost element, are kind of overprinted on top of the element underneath it, but lighter colors stay the way they were. It's a little hard to explain with audio without an pictures.</dd>
+
+<dt>Jen</dt>
+<dd>Right. It's interesting because these are the things that I feel like we are so used to CSS never doing anything like this. Our imagination is so limited.</dd>
+
+<dt>Lea</dt>
+<dd>Designers have been asking for blending modes for ages, before we finally got a spec on that. But we don't have implementations yet. The good thing about these specs, all the three specs I've mentioned that I'm excited about, is that you can still use them even if they get some first implementations. Filters already have implementations but the others don't. Masking also does in Webkit. And Blink. But even before they get full browser support, you can start using them. They still work, even when those features are not present. Even if your element is not clipped on a flower shape, it still works. The text is still perfectly readable. Or if it doesn't have a greyscale filter, it still works, you just see the full color image. I get more excited about things I can use quickly rather than major layout overhauls that I need to wait years for them to be usable. Even though Flexbox and all the other layout modules are more important, objectively. But I'm impatient. I like to be able to use stuff and play with them and actually use them in real scenarios instead of having to wait years.</dd>
+
+<dt>Jen</dt>
+<dd>What you're talking about, for people who maybe aren't thinking this way already, is that by using progressive enhancement you just write your CSS, strategize about what you're doing in such a way so that there's a default, "This is how it's going to be," and then override that with the fancier, newer stuff, for the browsers that will understand it. We talked about this a lot when it came to rounded corners. You're going to make a box, the box is going to have square corners, and then you're going to layer in and say, "Hey, round the corners." The browsers that don't know what that means will just ignore it and they'll have square corners. The browsers who do know what that means will make it round. As time goes by, as years go by, that same code can sit there and no one has to touch it, and more and more and more browsers will start automatically using the rounded corners, and fewer and fewer will be stuck in the world of square corners. Square corners aren't that big a deal. Who cares that they're square? It's fine. And that works for all of these things, you're saying.</dd>
+
+<dt>Lea</dt>
+<dd>Exactly. CSS was designed with that goal from the very beginning. When browsers encounter things they don't understand in the code, they just ignore them. It's not like JavaScript where you get a syntax error and everything fails after that point. JavaScript is not like that. CSS works with pretty much any weirdness in the code and the browser just ignores it and there's specific recovery rules in the CSS specs that tell that browser how to recover from any error they might see.</dd>
+
+<dt>Jen</dt>
+<dd>Which I think is kind of amazing and understated for a lot of people out there, a lot of developers. I was reading something the other day about the history of HTML and reading some of the original intentions of the folks who invented HTML. They were in the world, thinking of all these other markup languages that existed at the time. All these other languages where there was an opening tag, some content, and a closing tag. HTML was designed to work with those other documents. To take those other documents and put them on the web and so from the very beginning HTML was designed to just ignore the things it didn't understand. If it ran into XML or, I forget all the letters...</dd>
+
+<dt>Lea</dt>
+<dd>SGML?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, SGML. All those crazy, crazy alphabet soup stuff that mostly is gone now. HTML would be like, "That's fine. I don't know what you're saying, but that's cool with me, I'm not going to worry about it." [Lea laughs] Here we are, 23 years later, relying on that principle of the web.</dd>
+
+<dt>Lea</dt>
+<dd> SGML was actually a wider markup markup language that HTML was based on. I believe HTML was based on SGML until very recently, until HTML5. HTML5 is the first version of HTML that's not SGML-based because there were things that HTML5 does that couldn't be defined in SGML terms.</dd>
+
+<dt>Jen</dt>
+<dd>I don't think it can be stated enough. Progressive enhancement and what we mean by degrading gracefully. I still meet people everyday, or work on teams everyday, where developers are not approaching things with that frame of mind. Just to loop everybody in on that.</dd>
+
+<dt>Lea</dt>
+<dd>It's a frame of mind above everything else. Even when it was just rounded corners, developers still, until this day, they can't accept that their element might not have rounded corners on older browsers. Even though in other industries it's a given that everyone will not get the same experience. Think about TVs, for instance. When colors TVs came along, and channels started broadcasting in colors, some people were still stuck on black and white TV, so they got a black and white experience. Channels didn't start broadcasting black and white programs again because some people were stuck on older TVs. They broadcast it in color. That's what we should do as web designers, as well. We should make sure that we create something that looks good on modern browsers and works in older browsers. As long as it works and doesn't look like shit, sorry, it should be fine.</dd>
+
+<dt>Jen</dt>
+<dd>The black and white TV thing is perfect, the perfect example. Because television executives didn't sit around and say, "Well, we have to wait until everyone buys a color TV before we can broadcast the show in color."</dd>
+
+<dt>Lea</dt>
+<dd>Exactly. Although, I find that progressive enhancement and graceful degradation and all that, it's not really, either you have that mindset or you don't. It's a spectrum. What is graceful degradation? What's simply degradation? Or, what's progressive enhancement and what's not so progressive? For instance, if your stripes are a solid color, is it progressive enhancement or is it unacceptable? Or if your circle is a square, what about that? We're not talking about just a rectangle with some small rounded corners. What if the actual shape is different? Because when you use extreme values of border-radius, you create circles. Those shapes will be squares on IE8. Is that acceptable? What if something is rotated and it's not rotated in older browsers? Is that acceptable? I find that this is much more difficult to agree on that just agreeing on if we're going to use graceful degradation or not. Because everybody with a modern mindset says, "Yes, we should use graceful degradation." And then people start fighting about what exactly is graceful degradation? What is progressive enhancement? What is acceptable?</dd>
+
+<dt>Jen</dt>
+<dd>It requires, when you're in the code to say, "I want to use a RGBA value for my background color so that I can specify the color in RGB and specify a transparency, an alpha layer, in the 'A' and that will give me a translucent box so people can see the things that are underneath it." Well, that's not going to work in IE, I think it's 6, 7 and 8. What you do is you say, "Hey, I want this box to be white." Then you immediately correct yourself and say, "I mean, I want this box to be white with an alpha transparency of 80%." But a good coder, a good front-end developer, will think that through and they'll write the code so that it degrades gracefully. At that moment, it's not so much about RGBA and being able to degrade, it's about remembering to write the code for the other browsers. Maybe if the thing that's going to be sideways and then over here it's not going to be sideways, then you may have to make a tweak to the layout to make space for it whether it's not sideways. Or if there's something that's going to get clipped and then it's not going to get clipped over here, then you may need to make an adjustment to the layout or whatever's going on when it doesn't get clipped. Or hide something completely. You're right, it totally depends on the situation at that point. There's no broad stroke, everyone should do it like this. You have to write the code for the site that you're building.</dd>
+
+<dt>Lea</dt>
+<dd>Exactly. In some designs, have a translucent background might actually be crucial to make the design work. The whole design might depend on that. In that case, you might end up having to use a semi-transparent background image, instead of RGBA.</dd>
+
+<dt>Jen</dt>
+<dd>As your backup.</dd>
+
+<dt>Lea</dt>
+<dd>Yeah. Or use ugly IE hacks. I remember there was a really ugly IE hack to make translucent backgrounds work. But nobody uses it anymore because usually solid colors are an acceptable fallback.</dd>
+
+<dt>Jen</dt>
+<dd>Let me take a minute and talk about our first sponsor today. HostGator. This crazy thing happened the other day where MediaTemple got bought out by GoDaddy. I could say a lot about that but maybe I shouldn't. You want to know about I think about that, you can go look at my Twitter feed. [Both laugh] Suddenly, many, many of us are looking for new hosts. We've been happy MediaTemple customers for years and do not want to suddenly become GoDaddy customers. A lot of people on Twitter were asking yesterday... I mean, last week. This is going to go out next week, this show. Last week, people were asking, "What's a new host? I need a new host suddenly. I've got to move all my domains, and move all my websites. What should I do?"</dd>
+
+<dt>Lea</dt>
+<dd>I actually use HostGator.</dd>
+
+<dt>Jen</dt>
+<dd>Do you?</dd>
+
+<dt>Lea</dt>
+<dd>No kidding, yes.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. They've been around for quite awhile. They have small, little plans, which I talked about last week, where you can get fairly inexpensive, basic space on their web servers. They have VPS hosting. They've got dedicated servers. They guarantee 99.9% uptime, no matter your size or needs. They've got WordPress one-click installs, where you can just log in and go into their software and click a button and set up a WordPress website. A lot of their plans are all unlimited disk space and unlimited bandwidth. It's not like back in the day where you chose your plan based on a certain limited amount of disk space or bandwidth. This is all unlimited. A bunch of software. You log in and you've got all the typical CPanel awesome software to set up your web server and get it all organized. 24/7 support to make sure that everything is running smoothly. You can go to <a href="http://www.hostgator.com/">hostgator.com</a> to see all the details of the different plans they've got. All the different ways in which they could serve your needs. You can use the coupon code SWITCHITUP before October 22nd. The end of the day, October 22nd, this code will work before then. SWITCHITUP. Why would you want to use that? Because you get 50% off of anything at HostGator. For people who might be switching away from another service. Thanks to HostGator.</dd>
+
+<dd>What else? Let's talk about other stuff in CSS. These talks that you give, you called it, "CSS3 Secrets: 10 Things You Might Not Know About CSS".</dd>
+
+<dt>Lea</dt>
+<dd>I called the first one, "10 CSS 3 Secrets". The sequel was just, "More CSS Secrets", because I tried to avoid using the term "CSS 3". Because it doesn't really exist. It's not an official term. It's a community term that refers on a set specs. But CSS 3 doesn't really exist as an official term. There's no spec that's called "CSS 3" like there was a spec called "CSS 2.1". It's just multiple, multiple specs that are levels. Some of them are Level 3, some of them are even Level 1.</dd>
+
+<dt>Jen</dt>
+<dd>And some are Level 4, aren't they?</dd>
+
+<dt>Lea</dt>
+<dd>Yeah, but usually people call that CSS 4 and not CSS 3. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>It sounds very cool to say, "Hey, I'm using CSS 4! Are you?"</dd>
+
+<dt>Lea</dt>
+<dd>I know! Some things in those Level 4 specs are already implemented in some browsers. Like <code>cross-fade</code>. Cross-fade allows you to combine two background images or any image, really, but most people are used to using images in CSS through <code>background-image</code>. You can combine two images...</dd>
+
+<dt>Jen</dt>
+<dd>You can... and then, wait. [Both laugh] You can combine them, how?</dd>
+
+<dt>Lea</dt>
+<dd>It interpolates the size of the image and it, kind of, fades each one on the other. If you specify, like, 20%, it takes three arguments, the two images, and a percentage. Which means, how much you want of the first image. If you specify 20%, you will be 20% through the transition, not the transition in the animation sense, just what's between those two images. Both in terms of size and in terms of what's displayed on the image. This function was not introduced in CSS images to be used by authors directly. It was introduced so that we can have something that browsers can use to do image transitions. That way, you can have an animation between two different background images, for instance. Right now, we can't do that, because transitions work in the same way jQuery did animations. Basically, you need to be able to represent all of the intermediate states in CSS. That's why you can't animate between values like "auto" and "100 pixels". What's halfway between "auto" and "100 pixels"? Before CSS images Level 4, what's halfway between an image called "foo.jpg" and an image called "bar.jpg"? You couldn't represent that in CSS. That's why you can't do transitions between images now. But with <code>cross-fade</code>, browsers can now start representing that.</dd>
+
+<dt>Jen</dt>
+<dd>Nice.</dd>
+
+<dt>Lea</dt>
+<dd>If it's useful for some situations, you can use it directly. But the primary reason it was introduced was so we can have transitions and animations between images.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And cross-fade from one image to another.</dd>
+
+<dt>Lea</dt>
+<dd>Which looks really cool. You can have these slideshows where one image fades into another in pure CSS.</dd>
+
+<dt>Jen</dt>
+<dd>It will be interesting to see what people might do with it besides that. Besides a classic cross-fade in a slideshow. Because you should be able to cross-fade between anything and anything. Image-wise, I guess. Or background images?</dd>
+
+<dt>Lea</dt>
+<dd>You can cross-fade between any image and you can use <code>cross-fade</code> in any property in CSS where an image is accepted. Not just <code>background-image</code>, there are other properties in CSS that accept images. For instance, <code>list-style-image</code> or <code>border-image</code>. There are a couple.</dd>
+
+<dt>Jen</dt>
+<dd>You could slowly cross-fade the background on your whole website over a certain amount of time.</dd>
+
+<dt>Lea</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. You were listing stuff, what's another one?</dd>
+
+<dt>Lea</dt>
+<dd>In Selectors 4 there are some really cool selectors. People have been asking about parent selectors in CSS for ages, right? If you're coding CSS, you must have wished for parent selectors as well. How can I write this selector that means, "I want to target this element if it contains something that matches this"? For instance, I want to target A elements only if they have an image element inside. Right now, you can't do that. You can target the image element that's inside an A element but you can't go the other way. You can't target A elements that have an image inside them. It's the same with siblings. You can target an image that's after a paragraph, but you can't target a paragraph that's before an image. You can't go the other way. People have been asking for this sort of functionality for ages. Pretty much ever since CSS started. In Selectors 4, we got something called the subject indicator. By default, the part of the selector that's targeted is the last. If you write, <code>a img</code>, the subject of the selector is the image because it's last. But with the subject indictor, you can say, "I want to target the A as the selector." Effectively you match an A that contains an image. But browsers have been complaining for years that this is slow and we can't do it in CSS. It was added in the spec anyway and then browsers started complaining again that it's too slow to do in CSS. It was kind of removed but not quite. What the CSS Working Group did, was they created two CSS selector profiles. A "slow" one and a "complete" one. [Both laugh] I know it sounds ridiculous.</dd>
+
+<dt>Jen</dt>
+<dd>No, it's great. It's such a human... people think this is all about the technology, but in the end, it really is all about the humans and figuring out the human side of things.</dd>
+
+<dt>Lea</dt>
+<dd>Actually, actually, I'm sorry, it's the "fast" one and the "complete" one. The "complete" one is essentially the "slow" one. But the official name is the "complete" one. You can only use the selectors that are in "complete" and are not in "fast" in JavaScript. You can't actually use them in real CSS code. The thing is, most developers haven't really realized that these selectors are basically out. They'll only be able to use them in JavaScript, which is not really that useful, because they're still in the spec. It's just one paragraph in that spec that explains this whole thing about selector profiles. It's really difficult for anybody reading the spec just to understand what the problem is. I don't know how this can be solved. Because we really, really, really need this in CSS. Anybody that writes CSS needs this. Ask anybody that's been writing CSS for, I don't know, at least half a year. They will tell you, "I would love this in CSS." If you explained it to them, what it does. But on the other hand you have browsers complaining that, "This is slow." We didn't get it got over a decade and now we almost got it and we didn't quite get it again. I think more developers should know about this.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's one of those things that it's easy to come across the need to be able to specify. What if you have a whole bunch of paragraphs and every paragraph is going to be inside of a box, but the paragraph that has an image with it needs a green background and all the other paragraphs have a white background. To be able to target that, just all by itself. "Hey, there's an image in there," not, "Oh, I put a class in here that says, 'class-paragraph-with-image'." For awhile you just think it's you, as a developer. You think it's you, that you don't know how to do this thing. But of course it must be out there because everybody else is going to need this, too. You slowly realize, "Oh, it's not me. This doesn't exist." Then it's like, "Well, why doesn't this exist?"</dd>
+
+<dt>Lea</dt>
+<dd>These things should be simpler. Take the very simple example of the OSX dock. I assume you want to do something like that. Something that, when you hover over it, it gets bigger, and the element right before and after it also gets slightly bigger. You can't do that in CSS right now. You need JavaScript. You can target the element after it and make it bigger, but not before. Look it up. Try to find the CSS dock. None of them will work properly. And that's not just useful for recreating OSX docks, because who does that on their website? That's awful. But it's a common effect that you might want in many other different situations. Maybe you want to hover over something and make it completely opaque from transparent and you want the elements right before and after it to become a little more opaque but not completely. You can't do that in CSS right now. There are literally tons of cases. Assume you're building a CSS-based drop down. When you focus on an element inside the drop down, you want the drop down to open because you want it to be keyboard accessible. You can't do that in CSS right now. Because you can't say, "I want to target this element and make it visible," when something inside it has focus.</dd>
+
+<dt>Jen</dt>
+<dd>Running JavaScript to solve these problems does not make for a faster website. I totally appreciate the browser-makers being advocates for speed and being advocates for, "Hey, we want the browser to work very, very quickly and when it renders this page we want it to render the page super fast." If there's one little thing in here that's too hard to compute, they have to think about things too hard and it makes a couple extra milliseconds. I'm glad and they're on the vigilant watch to make sure things like that don't get added to browsers. But when I go to websites today, it's not a cleanly built, well-architected code base that seems to be the slow website. It's the crazy websites with the crazy, crazy JavaScript because they've got all these ads and the ads all have JavaScript in them and the page gets repainted six times. Each time it gets repainted the text that I went there to read moves two inches up and down, up and down, up and down. [Both laugh] I'm already reading the article and the whole page just jumps up in the air and my eyes re-adjust and I start reading and it jumps back down to where it was in the first place. Slow is on a whole other level of crazy. A lot of that's cultural, lack of skills, a lot of that's people just throwing crap at a website when the deadline's coming.</dd>
+
+<dt>Lea</dt>
+<dd>A big problem in that, is that things that should be simple in the web platform are not because, effectively, what browsers want to do ends up having more control over the web platform, over what developers want.</dd>
+
+<dt>Jen</dt>
+<dd>Right. You know who has even more power than what developers want? What the people writing their checks want. [Both laugh] The business folks making decisions about websites. You end up with a crazy mess of JavaScript. Browser makers and developers who write better code than this and point over to the other side and go, "Those people are just doing it wrong. Shame on them if their website's slow." If some of these things that we really want to do were much, much easier to do, then people wouldn't have to turn to crazy bad JavaScript that do some of these things.</dd>
+
+<dt>Lea</dt>
+<dd>I can't say I'm not seeing the browser makers point. Because when you do something in JavaScript, you usually update it far less time than the browsers have to recompute CSS selectors. Browsers have to recompute CSS selectors basically on tons of cases. That's why if they're a little bit slower it ends up slowing the page very much. But if there was sufficient pressure from the developer community, browsers would have to find a solution. Right now, most people are happy that the subject indicator and the Selector 4 spec, not realizing that they will never be able to actually use it in CSS code.</dd>
+
+<dt>Jen</dt>
+<dd>What's something else that jumps out at you as something that's here that we can use that people don't know that much about?</dd>
+
+<dt>Lea</dt>
+<dd>Something that's here.</dd>
+
+<dt>Jen</dt>
+<dd>Or soon to be here?</dd>
+
+<dt>Lea</dt>
+<dd>Sorry, I got carried away by thinking about selectors. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>It's fine. I mean, selectors have really changed over the years. It's interesting. We're able to make much cleaner code or do more interesting things without having to change the code base, the HTML code base, or the CMS that's generating that HTML. By having more powerful selectors. By being able to target something very directly without having to add IDs or classes to it. Which has been great.</dd>
+
+<dt>Lea</dt>
+<dd>Some will actually be able to start using Flexbox. Even though I said that layout modules usually take a lot of time. Because we're already almost there. It's been worked on for ages. For several years. It's getting support in IE10. In some cases, we can use it today. Probably not for our entire layout, unless we're working on some mobile website or something. We can start using it for basic things, like vertical centering. Vertical centering is super easy in Flexbox. We can make it degrade gracefully on IE9 and below if we give it a top margin or something.</dd>
+
+<dt>Jen</dt>
+<dd><p>By the way, if people haven't listened already, episode 49 of The Web Ahead, Rachel Andrew came on and talked about CSS layouts. She explains Flexbox, Grid layout, regions and more. There's several different new CSS modules having to do with layout and being able to do layouts in a completely different way. We spend that whole hour and a half just talking about that.</p>
+
+<p>But it seems... you could lay out the navigation, for example, and to get the links to spread out across the full width of the thing that they're in, center themselves so that they're equally spaced from each other. Filling up the whole available box. If your user's browser doesn't support that code, you write the original code of just, the old-school, putting navigation down and let the new stuff override it. To be savvy about the use of that particular thing so that it does degrade gracefully and you can use it in small ways. A lot of people use IE classes to target IE6, 7 and 8 with a specific class. You could put the entire layout into one of these new modules and then go back and write an entirely separate layout for IE, old IE. It's just a lot of work. It feels like, to me, it's just too much work to do that.</p></dd>
+
+<dt>Lea</dt>
+<dd>It's not just that it's too much work. It's a bad practice to assume that IE does not support Flexbox. Because when it does, and IE10 actually does, then you're serving the non-Flexbox layout. Which is unfair, because you could be serving the Flexbox layout and it would work fine. But it could be a viable strategy if you target specific versions, like IE9 or below.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's in HTML 5 Boilerplate where Paul Irish, or anywhere that Paul Irish has been, that instead of loading conditional stylesheets that only work for IE or that only get loaded for IE, there's a practice of using the IE conditional code that you can put into the head of the document to put a different class on the HTML element. You have a class of "IE6", a class of "IE7", a class of "IE8", in each of those browsers. Then you can override everything having to do with anything in CSS by simply anywhere, in any of your stylesheets, this is why I like this practice, because instead of having whatever code about making a calendar, and there's a bunch of CSS for styling that calendar, so I have a small .scss file. I'm using SASS. So there's 300 lines of code for the calendar. I'm writing some stuff, and then, "Oh, I have to fix these things for IE." Instead of having to go into a separate stylesheet and write the code for IE and then remember to update it. "Oh, we changed the color from green to blue and I forgot to go into the second stylesheet." Instead, you can just put the IE CSS straight inline with everything else. You just write the code, "blah blah blah", "blah blah blah", and then you put "dot IE6 blah blah blah" and because you're adding an extra class to the string of specifiers, it overrides.</dd>
+
+<dt>Lea</dt>
+<dd>Or you can just use Modernizr that detects whether Flexbox is there, and that way you also target older versions of older browsers, not just IE.</dd>
+
+<dt>Jen</dt>
+<dd>Yup.</dd>
+
+<dt>Lea</dt>
+<dd>In general, it's a bad idea to target browsers instead of features. Not just in JavaScript but also in CSS. If you can detect features and styles conditionally based on whether the features are there or not, that's a much better idea than targeting specific browsers or specific browser versions. Because you're bound to forget a few. If you do it for the whole browser, you're ignoring other browsers, you're ignoring future versions of that browser. It's a complete mess if you do it that way.</dd>
+
+<dt>Jen</dt>
+<dd>Yup. That's true. That could be true, too, if you want to run Modernizr. I'll put that in the show notes, too. If people don't know what that is, it runs JavaScript and then it inserts classes, in very much in the same way, in the HTML element. You could have, "Flexbox-fails", or I don't know what the class would be. But then you could say, "For any browser where Flexbox is not going to work, here's the CSS that you need to use instead."</dd>
+
+<dt>Lea</dt>
+<dd>Actually, we're getting that functionality in native, pure CSS code very soon with the <code>@supports</code> rule.</dd>
+
+<dt>Jen</dt>
+<dd>Oh yeah, talk about that.</dd>
+
+<dt>Lea</dt>
+<dd>It's already supported in Firefox and Chrome and Opera, because it's using Chromium, and it will likely be supported on IE11 as well. It's not quite there yet but it's really coming. We're already having implementations. Once we start having implementations of something, the others follow pretty soon. That will allow you to do feature detection for CSS in CSS code with no JavaScript. You will just write, for instance, <code>@supports display-flex</code> and then you can write inside it only for browsers that support <code>display: flex</code>, which is browsers that support Flexbox. You can also do logical things like, "Does it support <code>display: flex</code> or <code>display: flexbox</code>?" So you can also cover the older syntax. Then you can write code for browsers that support Flexbox with any syntax inside that rule. You can have fallbacks by using <code>:not</code>. "Does it not support this?" You can write the fallback rules inside <code>@supports</code> as well.</dd>
+
+<dt>Jen</dt>
+<dd>This is profound. This is bizarre and profound. [Lea laughs]</dd>
+
+<dt>Lea</dt>
+<dd>Why?</dd>
+
+<dt>Jen</dt>
+<dd>Because it's a conditional in CSS. Which I'm not used to having. SASS has conditionals and there's other ways to do it if you're using a third-party thing.</dd>
+
+<dt>Lea</dt>
+<dd>Actually, CSS is becoming a lot more like preprocessors. It's not just conditionals. Actually, <code>@supports</code> is not the only conditional. Media queries are conditionals, in a way.</dd>
+
+<dt>Jen</dt>
+<dd>True.</dd>
+
+<dt>Lea</dt>
+<dd>There was another conditional, but I think it was removed, called "document" that allowed you to apply conditionals based on the URL of the element, of the page. CSS is also getting... no, it's already there actually, it's not getting it. A calc function that allows you to do math. Like 50%-300 pixels. That's actually way more powerful than the math preprocessors allow you to do because it's dynamic. A preprocessor doesn't know what 50% corresponds to. But when you're doing that in the client, in CSS, you're browser knows what 50% corresponds to. If it's 50% of the viewport, for instance, your preprocessor doesn't know how big the viewport will be.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Lea</dt>
+<dd>That's already supported in IE9, in Firefox from 4 and ahead, from Chrome 19 and above.</dd>
+
+<dt>Jen</dt>
+<dd>What's it called?</dd>
+
+<dt>Lea</dt>
+<dd>Calc. It's a function called calc. You can do any kinds of math in it. For instance, if you want to do this effect, you might have seen that in my talks, if you're want to do this effect where the background occupies the whole width of the viewport and the content is a fixed width, you can use calc and just use one element instead of requiring two elements. Just by using calc. If you specify a padding that's 50% minus half your width, then you essentially have what you want. It's supported in pretty much every browser, I think, today, except Opera Mini.</dd>
+
+<dt>Jen</dt>
+<dd>And Android browser doesn't support it. But it looks like everybody else does, including IE9.</dd>
+
+<dt>Lea</dt>
+<dd>Safari 5.1 and below might be an issue, but it's not a huge one.</dd>
+
+<dt>Jen</dt>
+<dd>I had heard about it but I didn't realize it was this well-supported already.</dd>
+
+<dt>Lea</dt>
+<dd>Until recently, we couldn't use it because of Opera. But now Opera switched to Chromium, so... free calc support!</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] Nice. Let me jump in here with another one of our awesome sponsors. The Artifact Conference. The Artifact Conference is coming up in Providence in November. It's going to be November 4, 5 and 6. There's two days of sessions and one day of workshops. A typical kind of conference format. It's a one-track conference. Everybody who goes to the conference in the same room, they all go to the same sessions at the same time, which makes for a really great atmosphere when you see people in the hall or you're having lunch with strangers, meeting people, you know where they just came from and you can talk about the session because you both were in the same session just a moment ago. The whole thing focuses around, "How do we make websites now that we have responsive web design, mobile, focus back on content? How have our workflows changed?" It used to be that people used Photoshop, then they emailed all their Photoshop files to the developers and the designers and the developers never met, they never hung out together, they didn't know anything about each other. [Lea laughs] All the designs were signed off on in these Photoshop documents where everybody thinks that everything's static, there's no states, there's no hover, there's no animation, there's nothing, nothing. It's just simply a picture of what the website should look like. Then when the executives say, "Yes, that's what we want", the developers try to build it and it doesn't really come out like that because those fonts aren't available, and bold doesn't look that way in Chrome, and there was no information about all of these different states, and we do have animation... right? That workflow doesn't really work anymore. It didn't really work five or seven years ago. It definitely doesn't work so much anymore. The question becomes, "What are people doing?" Especially professional shops, professional designers who are working on big projects. What is our new way of working? What are some of the tools that people are using? What are the business models people are using? How are people bidding on projects and making the math add up so that they can still get paid what they need to get paid? It's just two whole days of people coming together and talking about that stuff.</dd>
+
+<dt>Lea</dt>
+<dd>I think many, many designers today have switched into designing in the browser. Although, CSS is not exactly... even though CSS was designed to be simple, it's still not exactly how a designer works. I think many designers are using a combination of the two. They might use Photoshop or Illustrator. By the way, when I was designing mockups in the past, I was using Illustrator. Some people use Illustrator, not everybody uses Photoshop.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, yeah.</dd>
+
+<dt>Lea</dt>
+<dd>They might use applications like that to create mockups, and then they put something together in CSS to show off the animation, the different states. Some people still use Photoshop or things like that and they just create multiple sizes. Which is still suboptimal because there's not just multiple fixed sizes, it could be any size. You also have animations, like you mentioned, and you have hover states and pressed states. Usually when you're working with mockups, you often end up with these horrible sites that give the user no feedback about what they're doing. I hate it when I use a site like that. Press a button, nothing happens. You hover over a button, nothing happens. "Did my browser freeze? Or is it just the website that's designed like that?"</dd>
+
+<dt>Jen</dt>
+<dd>Now, more and more people are using off-canvas spaces to load content and then have it slide in, or appear one way or the other, or you click a button and the whole thing moves to the side. It's very hard to convey those kinds of things or makes those kinds of design decisions in something like Photoshop alone.</dd>
+
+<dt>Lea</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Really what people are doing is they're making wireframes, they're doing sketches. I think people are doing drawings and sketches more now than ever. Things like Style Tiles, things like design pattern libraries, or style guide libraries. What's interesting with this conference, a lot of these ideas have been kicked around, a lot of them we've talked about on The Web Ahead. But it's one thing to think about them in the abstract and it's another thing to actually see somebody show you what they do and show you their behind-the-scenes secrets. "Here it is, this is how I do it, this is what I do." Jen Robbins put this conference together and she was very much thinking about, "Let's get from the big picture, great ideas, yes yes yes," to the, "No, really." [Both laugh] "I thought I was on board with this but then we tried to use it at work and we got stuck. Give me some super practical, really, how do you get this stuff done?" It's easier to say, "Oh, yes, you should totally do it this way!", "Oh, yes, it's totally going to be perfect! Everything will be fine!" It's nice to be like, "Okay, it's not perfect. Everything's not fine." [Both laugh] "This is hard, this is a struggle, this is what's been good for us." I was at this conference in Austin. I spoke at it.</dd>
+
+<dt>Lea</dt>
+<dd>Which one?</dd>
+
+<dt>Jen</dt>
+<dd>Artifact, the one I'm talking about right now.</dd>
+
+<dt>Lea</dt>
+<dd>Oh.</dd>
+
+<dt>Jen</dt>
+<dd>It felt like a big community of people who were struggling together to figure this stuff out. If any of this sounds good to you, listener, and you're interested in attending this conference, check it out. You can go to <a href="http://artifactconf.com/">artifactconf.com</a>, see the list of speakers, see the whole list of programs, check out the workshops, the whole-day and half-day workshops. If you'd like, you can use the code WEBAHEAD to get $100 off. Thanks to the folks at Artifact Conference for sponsoring the show.</dd>
+
+<dd>It's crazy. I feel like we're in this amazing transition where things are really exciting and confusing and awesome and hard, right? That's what everybody's talking about these days.</dd>
+
+<dt>Lea</dt>
+<dd>It is hard. It is hard. Yes. It's much harder than people would assume. I'm not sure I have much to offer because I don't really like my workflow. It's pretty random, actually. I even sometimes develop the CSS and HTML together instead of just coding the HTML properly, like i should beforehand, then writing the CSS, then the responsive parts, and all that. It's not usually structured like that, at least in my case. I really admire the people that have a productive, nice workflow to follow in every single case. Because mine is kind of chaotic. I'm still not sure how I end up with usually good results, because it's really chaotic.</dd>
+
+<dt>Jen</dt>
+<dd>I feel like it's less of a flow, now, these days, and more of just a big toolbox. You're not really sure which tools you're going to use, you just get in there, and once you get in there, you go, "Oh! You know what? This is a good place to use... Style Tiles!" or "This is a place I want to whip out... a piece of paper!" [Both laugh] "Here's a time when, yes, I am going to write this code in a browser, but I'm not going to care about the quality because all of this is going to get thrown away, we're just doing a demo." Or, "No wait, this time I'm going to actually take a moment to look that up and do it properly because this code is most likely going to make it to production so I want to write good code from the beginning." It feels like it's different every project.</dd>
+
+<dt>Lea</dt>
+<dd>I think it's too stressful to try to write good code from the beginning. It's usually good to hack something together and then make sure you find time to refactor and not push the horrible code to production.</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] That's the problem, though. Finding time.</dd>
+
+<dt>Lea</dt>
+<dd>You should factor that in. When you're working somewhere and you tell your boss how long something will take, include the time refactoring will take. Or if you're quoting time to a client, you should keep that in mind as well.</dd>
+
+<dt>Jen</dt>
+<dd>I've found it really fun to design in CSS. I use Firebug, all the great browsers have web developer tools now. A lot of people love Chrome web developer tools. And you just get into that little control panel and change the values right there in the browser and mess with them and mess with them and mess with them for minute-to-minute-to-minute sometimes and then, once I like the way it looks, just grab it, copy it, and paste it into my code editor. As a way to save it. I work like that a lot. Every once in a while I meet somebody who's never heard of Firebug, who doesn't use it. I think, "Oh my God, how do you ever do anything?" [Lea laughs] When I say, "design in the browser," I literally mean in the browser. [Laughs] Not even in the code side, in the code environment. Literally, changing the values in the browser itself until things look cool.</dd>
+
+<dt>Lea</dt>
+<dd>But also I have to admit, I can see some benefits in the other approach as well. It's not all worthless. When we were designing mockups in these applications, they were pushing us to explore the limits of CSS and what we can do with the open web platform. When we're designing in the browser, we're often just doing what's easy to do.</dd>
+
+<dt>Jen</dt>
+<dd>It's true. I think we need to do all of it. We need to do all of it. I think the one thing that I don't like is every design must be a full page in Photoshop. We're going to fix the size of the Photoshop document because Photoshop needs you to tell it what is the width of that document. Then we're going to get the executives, the business folks, the client, to say, "Yes, this is the design we want." We're going to get them to sign a piece of paper that they agree that these Photoshop documents or this PDF, that is a compilation of Photoshop documents, is in fact the website that they want. It's just that one particular thing. Use Photoshop like crazy. Draw all kinds of stuff in Photoshop. Draw individual little elements. Mess around with things like drop shadows and filters until you see something you like. You can even draw whole pages in Photoshop. But I wouldn't lock down the design. I think it works much better, when it's possible of course, to show the clients running code and have it not be locked yet. Have them say, "Oh, I really like that animation," or "No, we thought that was going to work but that's not working. Let's change it."</dd>
+
+<dt>Lea</dt>
+<dd>I have many examples in mind, but one of them was very, very recent. As many people know these days, I'm writing a book about CSS secrets for O'Reilly. The book design is also done in CSS. I first designed the book spread in Illustrator before I even worked on the system O'Reilly had and before I even worked with print CSS at all. My design had many things that needed to be different on left and right pages. Not just layout stuff. For instance, border radius stuff that needed to be different. Lots of things. When I started coding that design in CSS, I realized that you can't style elements differently based on when they've fallen on a left or right page. I wrote to the CSS Working Group and I was like, "This is something that needs to be possible." Because it wasn't even in the spec. It wasn't an issue that there was something and it wasn't implemented. It wasn't even in the spec. So I wrote to the CSS Working Group and I was like, "This should be possible. You should be able to style elements differently." How do you do simple things, like sidebars? You know how you do sidebars right now? It's really ridiculous. You have to float outside grids, float left on left pages, and right on right pages. Then you use a weird property like <code>float-offsest-x</code> to push it in the margins. This is stuff that should be easier. I wrote to the CSS Working Group about that. They were like, "Yes, this needs to be possible." There was a huge discussion about how it should be possible, but the thing is, it will be possible. If I hadn't done the original design in Illustrator, I might not have used sidebars. I might not have used so many things that were different on left or right pages. Maybe I would have just done sidebars. Which are possible today, just in an awkward way. I wouldn't have stumbled on the real problem. I wouldn't have suggested it and it would never be solved.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. That's one of the things that people argue when they say, "I don't want to work in the code. I just want to have an open canvas where I can do anything I want." That's what people mean. They don't want to be constrained by the limitations, the current limitations of CSS. There's a lot of validity to that. Although, you could also argue that people have been, instead, designing within the constraints of Photoshop. [Both laugh] Or InDesign. Or whatever. But especially Photoshop, I think. There are things that are very possible in CSS. Especially that's true now today with things like transitions and translate and animation and hover. There's all these things to think about that are definitely possible in CSS. There's no parallel reality in Photoshop. Which is part of why Adobe's working so hard to create other tools.</dd>
+
+<dt>Lea</dt>
+<dd>If people never used Photoshop and realized how difficult these things are to do with CSS, we might never have gotten them in CSS. Blending modes came directly from Photoshop. If people weren't asking for them because they were using them in Photoshop, we would never get them.</dd>
+
+<dt>Jen</dt>
+<dd>That's absolutely true.</dd>
+
+<dt>Lea</dt>
+<dd>I'm not saying people should design in Photoshop. I'm just seeing I see merits in both approaches.</dd>
+
+<dt>Jen</dt>
+<dd>I think the best thing for us, as an industry, is to design in all of these tools. There used to be one way to do it, or there seemed to be only one way to doit, and replace that with a whole diversity of a whole bunch of different tools. Not to come up with a new, one way to do it.</dd>
+
+<dt>Lea</dt>
+<dd>I think people should do whatever makes them produce better results. A really well-known designer, web designer, Sarah Parmenter, have you heard of her?</dd>
+
+<dt>Jen</dt>
+<dd>Yes, she's been on the show.</dd>
+
+<dt>Lea</dt>
+<dd>Oh, good. I think it was last year, she wrote a blog post that said, "I can't design in the browser." But she still produces amazing work. Who care if she's doing it in the browser or not?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, she was on episode 8 if people want to listen. Talking about iOS design. It's true, there are a lot of great designers who don't know CSS.</dd>
+
+<dt>Lea</dt>
+<dd>I'm pretty sure she knows CSS. It just said, she finds it more...</dd>
+
+<dt>Jen</dt>
+<dd>She doesn't like it. It's awkward and weird. Or something.</dd>
+
+<dt>Lea</dt>
+<dd>No, I think it's just that, her familiar environment makes her feel more comfortable. That's a valid mindset to be in. If she can still produce good work, and she does, then who can blame her for it?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So, what's another secret of CSS that we should know about?</dd>
+
+<dt>Lea</dt>
+<dd>A really quick one that many people don't know is that they can use <code>hyphens: auto</code> for hyphenation and it works with every language. As long as you define which language you're using in your HTML with the "lang" attribute, you can use <code>hyphens: auto</code> and have automatic hyphenation that works properly. You can use justified text without having tons of white space. That's one of the properties that I really like, because it's designed to degrade gracefully. In browsers that don't support hyphenation, you just don't get hyphenation. The text is still perfectly readable. That was pretty good browser support as well, I believe. Let me look it up. [Mumbling] CSS hyphenation... yeah. IE10, Firefox 6, Safari 5.1, basically it's only Chrome that's the issue here. Even mobile Safari supports it.</dd>
+
+<dt>Jen</dt>
+<dd>Oh yeah. Nothing on Chrome. That's funny.</dd>
+
+<dt>Lea</dt>
+<dd>Chrome and Opera because Opera is also using Chromium.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Lea</dt>
+<dd>Actually, Chrome is being a real jerk about it. Chrome is being a huge troll about it, because you cannot detect hyphens, you cannot detect if they're supported the way you usually detect CSS properties. Usually you just check if the CSS properties in the style object in JavaScript and Chrome will lie and say, "Yes, it's there." Another way of checking if something is supported is trying to assign the value with JavaScript and then checking if it was retained. Chrome will lie about that, too. It will retain the value. Basically there's no easy way to detect it in Chrome, which sucks.</dd>
+
+<dt>Jen</dt>
+<dd>Do you have a sense of why Chrome folks don't support this?</dd>
+
+<dt>Lea</dt>
+<dd>Browsers do this sort of stuff for two reasons. Because this is not the only thing browsers lie about when we try to feature detect properties. Especially Webkit and Blink does that sort of thing a lot. Browsers either lie about this just to appear better, to appear that they support more stuff. Or they don't intentionally lie about it, they just... somebody implemented parsing before they implemented the actually features. So they just pushed the version out without the actual implementation, just the parsing implementation. [Laughs] So the browser parses the property and understands it but it doesn't do anything with it.</dd>
+
+<dt>Jen</dt>
+<dd>That's a problem. It comes up a lot. You're trying to do something, you're trying to build progressive enhancement. Good, quality, graceful degradation code, and you run a test to see, "Hey, does this browser have support for this thing or this other thing or this other thing that's going to be pretty important? I want to be able to fork my code base and the browsers that don't have it, they're going to get this, and the browsers that do have it, are going to get that. Then the browser lies to you about whether or not it's going to work. It just leaves developers hanging. It just leaves people really frustrated. That's when people say, "We can't go anywhere near this because it totally doesn't work. It's broken. It's not working." In a way, they have a point, they can't because they can't write great progressive enhancement code, because they don't have the conditional that they need. They can't run the test that they need. It's frustrating. It's one of those things, maybe if you work full-time for a browser maker, you don't realize this because you don't build websites for a living. This is actually really, really important. It's ok if you don't have time to implement this yet. Don't lie about it. [Both laugh] Double check. Triple check. To make sure. Write tests to make sure that your browser's not going to lie about what it can and cannot do.</dd>
+
+<dt>Lea</dt>
+<dd>I hate it when browsers do that. Another thing you can use today and it's not really well-supported because IE8 doesn't support it, but as far as CSS 3 stuff goes, it's quite well-supported, is the <code>ch</code> unit. Not many people know about that. The ch unit, I don't think you can find it on <a href="http://caniuse.com/">Can I Use...</a> even. I have to look up support. It's not there.</dd>
+
+<dt>Jen</dt>
+<dd>The ch unit? What is that?</dd>
+
+<dt>Lea</dt>
+<dd>It refers to the width of the zero character in a font. But it depends on the font instead of ems that just result to pixels and they're independent of the font you're using. One ch means the width of the zero character. That's useless in most fonts but it's really, really useful in monospace fonts. In monospace fonts, the width of the zero character is the same as the width of every character. If you want to do effects like, an input element that grows as you type in it, or an animation that emulates typing and makes each character appear one-by-one, things like that with monospace fonts, the ch unit is really, really useful. We even used it in CERN recently. There was this project in CERN about recreating the world's first line mode browser. We used the ch unit pretty much everywhere. Everything needed to be relative to characters. To character width. Because obviously it was using a monospace font for everything. Pretty much every size is in ch and we're also using ems as a fallback. The problem with ems is that ems don't depend on the font you're using. If you have to fall back to another font in your font stack, it will break. Also, ems are not as easy to understand. If you write "2ch" it's easy to understand. It means the width of two characters. Something like, "1.66ems". What does that mean? You have to add comments and explain what it means and it's messy. So I found that really useful. It's supported by IE9 and pretty much every browser.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. I've used viewport units for a project and they were profound. I was doing all kinds of crazy things with layout. Specifying all my layout numbers in viewport units. No matter what size the screen was, everything on the page was resizing itself. Not only horizontally but vertically as well. So I could pin things vertically into the viewport that was available. As the different size devices, everything was different sizes... everything was moving around. All kinds of things in layout that I would have never thought possible. That I've told myself for years is totally impossible. I could do all of these things and open it up on Chrome on Android and then open it up on modern browsers on a desktop. And iOS as well. It was just crazy. The idea of viewport units was like, "Oh, that's nice." Then the reality of viewport units was, "Woooooooow."</dd>
+
+<dt>Lea</dt>
+<dd>Yeah, yeah, I got that, too, when I first used viewport units. They're awesome. For a long time not many people knew about those, either. In the past year, maybe a little longer. They were supported before they became popular.</dd>
+
+<dt>Jen</dt>
+<dd>I still think they're not that popular. People debate whether they should do everything in pixels or ems or rems. I hear people talking about rems.</dd>
+
+<dt>Lea</dt>
+<dd>I like ems for other reasons as well. You might have a component, like a button. If you size everything in ems, you can just change the font size and everything scales. I quite like that.</dd>
+
+<dt>Jen</dt>
+<dd>There's pros and cons to all of them. On this project I didn't use viewport for everything. I used it for layout, mostly.</dd>
+
+<dt>Lea</dt>
+<dd>Yes, yes, of course.</dd>
+
+<dt>Jen</dt>
+<dd>Then I set all of typography in ems, I believe. Set the base font size in pixels. It was a whole stack of different units for different parts of the CSS.</dd>
+
+<dt>Lea</dt>
+<dd>Viewport units would be even more useful if Chrome didn't have this horrible bug that it doesn't let you use viewport units in calc. I don't know if they fixed it. I don't think they've fixed it.</dd>
+
+<dt>Jen</dt>
+<dd>I ran into a couple of bugs that I was like, "Wow, that's obscure." But not obscure, like, "That's a bad bug that needs to get fixed."</dd>
+
+<dd>Let me jump in with our third sponsor. Then I'm going to ask you about line mode browser. Because we should talk about that.</dd>
+
+<dt>Lea</dt>
+<dd>Okay.</dd>
+
+<dt>Jen</dt>
+<dd><p>The JavaScript Summit from Environments for Humans is coming up on November 19, 20 and 21. It's a three day, online conference. You don't go anywhere, you just have to find a computer with a good internet connection and you can attend. They've got a whole stack of people presenting on all three days. Each session is almost an hour long. You get a lot of different diverse voices about JavaScript, explaining different libraries, different techniques different reasons to use JavaScript. It's a three day, deep dive into JavaScript. If you've attended JavaScript Summit before in the past, you'll be glad to know it's all new. These are all new sessions, whole new schedule, totally different lineup than years before. Environments for Humans, they do a lot of these online summits. You can get a ticket for just yourself to attend. One day, two days, or all three days. Or you can get a meeting room ticket where a group of people can get together, get into some sort of a meeting-room-situation and watch by just paying for one ticket. Go check them out. You can go to <a href="http://www.jssummit.com/">jssummit.com</a> and read the whole schedule, see what else is going on over there. Use the discount code WEBAHEAD to get 20% off any of the types of tickets that they have. Thanks so much to the JavaScript Summit for supporting The Web Ahead.</p>
+
+<p>The line mode browser. This is something I want to totally get Dan Noise to come on and talk about. but you were there. Tell us what happened, why you went to CERN, and what you guys did while you were there.</p></dd>
+
+<dt>Lea</dt>
+<dd>It was awesome. We gathered together at CERN for two days. The plan was to build a replica of the first, the very, very first line mode browser in modern web technologies. We split in two groups. One group was responsible for recreating the actual browser and the other group was responsible for making a website to tell the story and explain about the project and that kind of stuff. I was in the first one. I mostly helped with the CSS and the client-side JavaScript. There was a chance to get my hands on the other bit but I didn't really work on that very much, not the server-side part. I was worried it wouldn't work because it was only two days and there weren't many people and I was like, "How will all these people work together on the same thing?" Even though it was very chaotic and we didn't have that much defined responsibilities. We split in those two teams but apart from that, everybody could work on anything. We used GitHub for the code. It actually ended up working really well. We made something valuable in only two days. We could push it out, only after the two days. It worked. It had some bugs.</dd>
+
+<dt>Jen</dt>
+<dd>[Inaudible sound] Sorry.</dd>
+
+<dt>Lea</dt>
+<dd>It had some bugs but it worked. People were still working on it even after those CERN hack days. There were many pull requests on GitHub and many discussions about bugs on GitHub and bugs were fixed. I didn't really have much time to work on it after the hack days but I was following the progress and it seemed like there are many people interested in that project. It's great because people get to see, get to experience, how the first years of the web were. What was the experience of the first web users? Without ever leaving their houses. Before that project, you had to get access to an old computer with a line mode browser. I wouldn't know how to do that. We had one in CERN that we used to see how it did things and imitate them in our app. Apart from that, I wouldn't know how to get access, how to get my hands on one and see how it was.</dd>
+
+<dt>Jen</dt>
+<dd>You would have had to go to a computer museum, basically.</dd>
+
+<dt>Lea</dt>
+<dd>Pretty much, yeah. The experience then was so different. Everything was text. You couldn't click on anything. Links had numbers and you had to type in a number at the command prompt to follow the link.</dd>
+
+<dt>Jen</dt>
+<dd>For people who don't know, this was back when most computers were... you'd be looking at a black screen with either amber or green text on it. There was no mouse. The keyboard had arrow keys, so you'd use the arrow keys to move the cursor around and limp over to a certain place where you could type some text and limp back to someplace else then to save it.</dd>
+
+<dt>Lea</dt>
+<dd>Back then, we didn't really have forms in HTML. IT was basically just text and the command prompt. You typed everything you needed in the command prompt. There was no cursor you could move. You could type links, you could press enter to move one page down. That's how you read the page, by pressing enter to move one page down every time. Or you could type "top" to go to the top of the page.</dd>
+
+<dt>Jen</dt>
+<dd>Oh yeah, "top". The "top" button. [Laughs] The original web browser was written for the NeXT computer and had more of a graphical user interface to it. But most people in the world did not have access to a NeXT computer and Tim Berners-Lee and folks wanted the web to take off and be something that everybody could use. This was the first browser that was written to the capabilities of the average computer at the time. People all over the world were using this browser to get on the web when the web was first invented. Even though the very, very first web browser was more powerful than this. This was the first people-are-actually-using-it-web-browser. I was very confused because I put the links to all of this in the show notes. People can go to <a href="http://line-mode.cern.ch/">line-mode.cern.ch</a> to see this website that you were talking about that got built and click the buttons to go check it out.</dd>
+
+<dt>Lea</dt>
+<dd>You could also put a link to the GitHub repo if people would contribute. It's <a href="http://github.com/cern-hackdays/lmb">github.com/cern-hackdays/lmb</a>.</dd>
+
+<dt>Jen</dt>
+<dd>There's a bookmarklet-thingy that you can drag up into the toolbar of your web browser and as you're surfing the web, you can go to any website on the whole web, and you can click that button and it will turn your browser into a line mode browser and load that page as if you were looking at that page from the line mode browser back 1992 or whatever. It's kind of profound. You go to your own website, go to The New York Times, go to this website, go to that website. Try to actually surf around. [Both laugh] You're right, all the links, the line mode browser will say, "Oh look, there's a navigation bar, it's got seven links in it. Okay. I'm going to just print them out as a list and put a number next to each one." The "About" link is number three and the "Contact Me" link is number seven. You just type in "seven" to go to "Contact Me". [Both laugh] It's funny. It's kind of amazing.</dd>
+
+<dt>Lea</dt>
+<dd>In the first, first prototype those numbers were generated with... we used CSS counters to generate them. Though later we changed the code and they're generated with JavaScript now. I thought that was funny.</dd>
+
+<dt>Jen</dt>
+<dd>In a way, I feel like that's the ultimate in progressive enhancement. Is your website going to work? We always talk about how your brand new, modern website needs to work in an older browser. It really should if it's being built well. So let's test it in the oldest browser of all. [Lea laughs] Can you get through it? Can you surf it? Do the links show up as links? Or did you do something strange and they're not actually real links? Is the text text? If you strip off all the JavaScript and the CSS, what's the content on the page? Is it getting rendered?</dd>
+
+<dt>Lea</dt>
+<dd>Everybody says your website should work on older browsers but, how old? [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>If anybody out there, if you're proud of your work, if you've been an advocate for progressive enhancement and accessibility and all of these things, then you want to test your... the ultimate test. Go check this out. Then you can brag to all your colleagues about how the website is working properly. You just have to figure out how to use the browser because it's confusing. It's funny. "Wait, I'm clicking. I'm clicking with my mouse. I'm clicking with my mouse, what's happening? Nothing's happening. What do I need to do?" [Both laugh] "You need to put your mouse down and use your keyboard." "What?"</dd>
+
+<dt>Lea</dt>
+<dd>I believe we were actually planning to hide the mouse but I don't remember if we did it. Use <code>cursor: none</code> for browsers that support it.</dd>
+
+<dt>Jen</dt>
+<dd>You know, actually, I am clicking with my mouse and it does work. The cursor is not hidden.</dd>
+
+<dt>Lea</dt>
+<dd>I think Chrome stopped supporting <code>cursor: none</code>. Even if they used it. I don't remember if we added it. I sure didn't add it myself but maybe someone else did. Chrome doesn't support it anymore, I think. Even if we added it, it wouldn't work in Chrome.</dd>
+
+<dt>Jen</dt>
+<dd>The thing to me that was most, "Ohhh, right" is how it paints the page like it writes individual lines and you can actually see the cursor moving across the page as it renders each letter of the text. Then it writes however many lines of text will fit in the window as the window is, whatever size it is. Then it was will stop and it will just hang out there and it will wait and you have to hit return to say, "Okay, I'm done reading that. Render more of the page now, please." For people who live in the command line, it's not that different from a regular command line. But somehow it feels different when it's the whole experience. The whole webpage experience. You're actually in the page not just in the browser. Anyway. Okay. That's enough about that.</dd>
+
+<dd>Thanks so much for being on the show today.</dd>
+
+<dt>Lea</dt>
+<dd>Thanks for having me.</dd>
+
+<dt>Jen</dt>
+<dd>It's been really fun. People should check you out, right? They can go to your website. [Typing] Now I've got line mode browser... [Both laugh] I can't...</dd>
+
+<dt>Lea</dt>
+<dd>Does my website work on the line mode browser?</dd>
+
+<dt>Jen</dt>
+<dd>We should find out. [Both laugh]</dd>
+
+<dt>Lea</dt>
+<dd>No, no, no! [Both laugh] I don't want to find out! If it doesn't, I have to fix it. But I don't have time to fix it.</dd>
+
+<dt>Jen</dt>
+<dd>I'm sure it does.</dd>
+
+<dt>Lea</dt>
+<dd>I'm not so sure.</dd>
+
+<dt>Jen</dt>
+<dd>People can go to your website at <a href="http://lea.verou.me/">lea.verou.me</a>.</dd>
+
+<dt>Lea</dt>
+<dd>Yup.</dd>
+
+<dt>Jen</dt>
+<dd>Or follow you on Twitter <a href="http://twitter.com/LeaVerou">@LeaVerou</a>.</dd>
+
+<dt>Lea</dt>
+<dd>If they want to follow my web development stuff only and not my other thoughts on Twitter, they can follow <a href="http://twitter.com/LeaVerouDev">@LeaVerouDev</a>. It's not maintained by me but I'm glad somebody made it. Because on Twitter I tweet about all sorts of stuff, not just web dev stuff. If they're only interested in the dev stuff, they could follow that other account.</dd>
+
+<dt>Jen</dt>
+<dd>Somebody is basically retweeting... they filter your tweets and they retweet the things that are about development?</dd>
+
+<dt>Lea</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>That's interesting.</dd>
+
+<dt>Lea</dt>
+<dd>They retweet everything I post about, even remotely related to development.</dd>
+
+<dt>Jen</dt>
+<dd>And they filter out everything else.</dd>
+
+<dt>Lea</dt>
+<dd>Yup. And its called <a href="http://twitter.com/LeaVerouDev">@LeaVerouDev</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Wow. [Both laugh]</dd>
+
+<dt>Lea</dt>
+<dd>I still have no idea who's behind this. I asked them. Because I follow that account and I DM'd them. Like, "Who is it? I don't mind it, I'm glad you made it, but who is it?" And they won't tell me. They were like, "Just somebody that likes your work." [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd><p>That's interesting. Yeah, and you can follow the show The Web Ahead <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter and of course always go to <a href="http://5by5.tv/webahead">5by5.tv/webahead</a> to check out past shows. Or subscribe in iTunes. Sometimes it's easier to see all the way back to episode 1 in the actual iTunes interface. If you're a new listener and haven't listened to all the other shows, you can, because they don't go out of date. I think almost nothing as gone out of date. Even all the way back two years. All this information is still current. You can always go back and listen to the old shows.</p>
+
+<p>Speaking of iTunes, if you're a fan of the show, which you must be if you've listened this late in the show. Or maybe you hate the show and you listened to the whole show. [Laughs]</p></dd>
+
+<dt>Lea</dt>
+<dd>Maybe they jumped directly to the end. [Both laugh] Just to find out what's there.</dd>
+
+<dt>Jen</dt>
+<dd><p>It would be very helpful for you to go over to the Apple store, the iTunes store, and rate the show and leave a review for the show. It's been awhile since I've asked people to do this and it really does help the show get more visible in the store, which helps more people find it. If you think it's helpful, if you like the show, if you think other people would get something out of it and they should know about it, then go leave a review. Go rate the show and help it get a little more visibility inside the iTunes store. That would be very helpful.</p>
+
+<p>That's it. Until next time. Thank you all for listening.</p></dd>
+
+</dl>
+
+<footer>
+<hr><small>
+<p>All rights to these transcripts, of course, belong to someone who is not you. This work is protected by U.S. Copyright Law, All Rights Reserved and all that stuff.</p>
+<p>Just to be clear, that means you do not have permission to grab this transcript and run off with it to print it in a book or something like that. If you have grand ideas of how that might be cool, <a href="http://jensimmons.com/contact">contact me</a>. A book would be cool. But meanwhile, it's very illegal for you to cut and paste this whole transcript into your spammy link-baity website, pretending that its yours. Don't do that.</p>
+
+<p>You do, of course, have full rights to quote parts of this conversation in something you are making -- like a paper for school, or a blog post, or a collection of stuff on a website. A link back to here and a mention of the show would be greatly appreciated. Do be sure to credit the person who said the thing, at a minimum.</p> 
+
+<p>While we are talking about rights, you don't need my permission to quote parts of this conversation. You have my permission, but -- well honestly, I don't have any right to give it to you. You just automatically and always have the right to quote something when you are commenting on it, critiquing it, or remixing it. Did you listen to <a href="http://5by5.tv/webahead/4">episode 4</a>, when Pat Aufderheide explains Fair Use? It's all about when you can use other people's copyrighted material in your work.</p>
+</small>
+
+<p>See a mistake? <a href="https://help.github.com/articles/using-pull-requests">Submit a pull request</a> to <a href="https://github.com/jensimmons/webahead-transcripts">the transcript Git repo</a> with a fix.</p>
+
+</footer>
+</article>
+</main>
+
+<footer role="contentinfo">
+<hr>
+
+<ul>
+<li><a href="http://5by5.tv/webahead">The Web Ahead on 5by5</a></li>
+<li><a href="http://twitter.com/thewebahead">The Web Ahead on Twitter</a></li>
+<li><a href="http://jensimmons.com">jensimmons.com</a></li>
+</ul>
+
+</footer><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-46513811-2', 'webahead.info');
+  ga('send', 'pageview');
+</script>
+
+</body>
+
+</html>
