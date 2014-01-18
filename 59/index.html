@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>The Web Ahead | Transcripts</title>            
+<meta name="description" content="transcripts of the radio show, The Web Ahead">
+<meta name="author" content="Jen Simmons">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="cleartype" content="on">
+<meta name="robots" content="index,follow" />
+
+<!-- <link rel="stylesheet" href="/css/style.css" /> -->
+
+</head>
+
+<body>
+
+<header role="banner">
+<h1 class="site-name"><a href="http://transcripts.webahead.info">The Web Ahead Transcripts</a></h1>
+</header>
+  
+<main role="main">
+<article>
+<h1>Episode 59: WebRTC with Henrik Joreteg</h1>
+
+<dl>
+
+<dt>Jen</dt>
+<dd><p>I'm your host, Jen Simmons and this is episode 59. I want to first say thank you so much to the sponsors of today's show. The Environments for Humans and their JavaScript Summit and HostGator. I'll talk more about those later in the show.</p>
+
+<p>My guest today is Henrik Joreteg. Hi, Henrik.</p></dd>
+
+<dt>Henrik</dt>
+<dd>Hi, how are you doing?</dd>
+
+<dt>Jen</dt>
+<dd>I have him on because there are all of these different HTML APIs of web platform APIs that have been very exciting. We've talked about a lot of them on the show with a number of different guests. I do a lot of presenting at conferences. I'll go and do a 1 hour presentation and get through about six or nine APIs and tell people, very quickly, what they are. There's one that seems to stand out more than all the others. Every time I do a little demo, people are like, "Woah! Wait, wait a minute." [Both laugh] The one that's getting the most excitement is one that I've not talked about yet on the show. I've been looking for somebody to come talk about it. WebRTC. I was at... what was that thing?</dd>
+
+<dt>Henrik</dt>
+<dd>Edge Conf.</dd>
+
+<dt>Jen</dt>
+<dd>Edge Conf, over at Google in New York, a few weeks ago. There was a panel of people. There was one particular person who kept talking about WebRTC in a very clear and intelligent way. I was like, "I need that dude. He should come." [Both laugh]</dd>
+
+<dt>Henrik</dt>
+<dd>I fooled you. [Jen laughs]</dd>
+
+<dt>Jen</dt>
+<dd>We'll see. I think it's gonna be good, though. So you're a JavaScript developer. You said you write lots of JavaScript, that's what you do.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah. Sure do.</dd>
+
+<dt>Jen</dt>
+<dd>And you also, I'll plug this now, you wrote this awesome book that people keep talking about. That I've not read, but everybody keeps talking about it so it must be awesome.</dd>
+
+<dt>Henrik</dt>
+<dd>You should read it.</dd>
+
+<dt>Jen</dt>
+<dd>I should read it.</dd>
+
+<dt>Henrik</dt>
+<dd>I'll send you a copy.</dd>
+
+<dt>Jen</dt>
+<dd> That would be fabulous. Human JavaScript, that people can go check out at <a href="http://humanjavascript.com/">humanjavascript.com</a>. You want to say something about that?</dd>
+
+<dt>Henrik</dt>
+<dd>Sure. Basically, the gist of the book is there are all of these tools and frameworks out there for building single page apps. A lot of people were talking about it very generally. The idea is: We've done lots of these, so we're actually sharing exactly how we do it and yet very practical examples, very practical starting points and ways to think about single page apps that are different than traditional server-served applications. Gotten great feedback on the book so far from people who are playing around with things like Backbone and Ember but don't quite know where to start. That's the ideal audience.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. I get a lot of questions on Twitter. People are like, "Hey what do you think of this this framework?" or "What's the best way to do this other thing?" So there's a lot of interest. I'm glad to hear. I'll point people to this as a resource to learn more about what's possible.</dd>
+
+<dt>Henrik</dt>
+<dd>Cool. Excellent.</dd>
+
+<dt>Jen</dt>
+<dd>And you also work at <a href="http://andyet.com/">&amp;yet</a>.</dd>
+
+<dt>Henrik</dt>
+<dd>Correct.</dd>
+
+<dt>Jen</dt>
+<dd>Which is a small shop, small-ish shop?</dd>
+
+<dt>Henrik</dt>
+<dd>There's about 22 of us or so now.</dd>
+
+<dt>Jen</dt>
+<dd>And you said you do a lot of JavaScript applications.</dd>
+
+<dt>Henrik</dt>
+<dd>We do lots of JavaScript. Lot of APIs. Lots of real-time web apps of various kinds. Everything from chat and XMPP and live server updates to WebRTC stuff that w''re talking about today.</dd>
+
+<dt>Jen</dt>
+<dd>WebRTC stands for Web Real-Time...</dd>
+
+<dt>Henrik</dt>
+<dd>Communication.</dd>
+
+<dt>Jen</dt>
+<dd>Communication. Let's start with real-time. What the heck is a real-time thingy?</dd>
+
+<dt>Henrik</dt>
+<dd>[Laughs] There's a lot of confusion around this word. In computer science there's this concept of "hard real-time". Generally speaking, when people talk about real-time apps, that's not what they're referring to. Usually, it's the idea that the server is actively pushing information to your browser instead of you requesting it. WebRTC is a little bit a step beyond that. It gets closer to actual real-time. You're able to actually broadcast voice, video and data in a very live way. So you can actually have a two-way conversation with somebody or very quickly transmit data from one user to the other. A whole new, low-latency type of networking that's built into the browser. </dd>
+
+<dt>Jen</dt>
+<dd>When I think about real-time, I realize that a lot of what we do on the web is not in real-time. This is my understanding. This is different, perhaps, than the more computer programming-centric idea. I think we forget that... when I look at a webpage, maybe there's a comment that someone wrote 5 minutes ago or 30 seconds ago. I go to twitter.com/whatever, I can see Tweets from 27 seconds ago. You got to Facebook and people click on things and load things and now more and more we're starting to see where the webpage kind of refreshes itself when something changes right away. But that's still not quite real-time. That's like, really fast time.<dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, yeah, yeah. You need even less latency or pause between receiver and sender in order to have a two-way communication. An actual conversation with somebody.</dd>
+
+<dt>Jen</dt>
+<dd>Like instantaneously. Right now, you just said, "Right," and I was like, "Yes." We can hear each other.</dd>
+
+<dt>Henrik</dt>
+<dd>You need way less latency to have that kind of conversation to have that kind of conversation than you do to, say, have a live back and forth commenting on the same blog post type thing. It's another level of performance and networking.</dd>
+
+<dt>Jen</dt>
+<dd>I think we've all experiences phone calls or Skype calls or some kind of situation where there's a lag.</dd>
+
+<dt>Henrik</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Or you see on TV, two people talking. Back with the satellite trucks. The reporter asks the question and the reporter on the field just stares at the camera and then they start talking. [Henrik laughs] Even that little bit of a lag in live, what should be real-time interaction, can really screw it up, right? So we're talking about... WebRTC is really... We'll talk more about what it is technically, but part of what I think about all the time as as designer is, "Ok, who cares? Why are we doing thing? What is it going to change about the web?" If I'm imagining a webpage, a person has it open, they're looking, they're reading, they're watching a video, they're doing something... What's now possible because it's possible to have this kind of instantaneous, live connection with other human beings that didn't used to be possible?</dd>
+
+<dt>Henrik</dt>
+<dd>Sure. Kind of the obvious one is being able to do a video conversation with somebody right away. If you're on a support page for an app, having a way to click a button and instantly be talking to somebody... almost instead of picking up the phone. Being able to integrate that experience into the browser directly is kind of a... the first thing people think of. But actually the capability of being able to send data in the same way enables lots of other things, too. things like multiplayer games where you're doing first person shooters with people from different continents. The latency is an issue there as well. Kind of the big, obvious, easy to demonstrate one is the video stuff, but I think we're just starting to tap into what this will mean in terms of the data side of things as well.</dd>
+
+<dt>Jen</dt>
+<dd>Let's take a moment to explain WebRTC and WebSocket. Because if people are long-time listeners of the show they might remember back just over two years ago I did a show with Peter Lubbers, episode 5, where we talked a lot about WebSocket. Some of these concepts are similar, if you're thinking about it conceptually. Live interaction, live data happening on the page. But technically they're actually quite different.</dd>
+
+<dt>Henrik</dt>
+<dd>The fundamental difference between the two is that a WebSocket represents a bidirectional, pretty low-latency communication channel to a server. The difference with WebRTC is you actually end up negotiating a connection through a central server to a peer. So once you've actually negotiated and set up this channel, you're sending messages directly from one browser to the other without an intermediary. That's where you can get even shorter, even faster connection speeds and you have this bi-directional, encrypted communication between two peers. Fundamentally, WebRTC is peer-to-peer. WebSocket is server-to-client.</dd>
+
+<dt>Jen</dt>
+<dd>And it seems like there's a lot of use cases where either one would work, but there's some use cases where one is clearly better than the other. Or because WebSock is a little older, people might use WebSocket for a little while because it's in more browsers than switch to using WebRTC once it's more supported.</dd>
+
+<dt>Henrik</dt>
+<dd>Well, the funny thing is, you actually kind of need both. They serve different purposes. In order to set up a WebRTC call, one browser doesn't immediately know how to find the other browser, right? You need some way to pass messages from browser-to-browser before you even set up the WebRTC call. You actually need that in order to set up the RTC connection.</dd>
+
+<dt>Jen</dt>
+<dd>Ahh.</dd>
+
+<dt>Henrik</dt>
+<dd>You may use WebSockets connected to some shared server between two users to then pass those signaling messages back and forth, in order to tell the browsers how to connect directly to each other. They're really complementary technologies, it's not really one or the other.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. What I've imagined or learned bout RTC, it sounds like, one of the most awesome things about it is if you're doing some kind of thing with video, because video takes up a tremendous amount of bandwidth... well, Google Hangouts, right? Google Hangouts is kind of the classic example.</dd>
+
+<dt>Henrik</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>Well, not classic. The new example. [Laughs] You've got five people in a video chat, you've got five video streams, and you're trying to serve all five video streams to each of the five people in the chat. If all that video had to go only through a central server, and then you had one hundred million users doing that at the same time, you need a lot of servers. But if you're just negotiating all the traffic through the main server, and then the video actually goes peer-to-peer between... My computer serves it to you, your computer serves it straight to me, and then each of us serves it to the other three people, all the details of the video and the actual voice data doesn't have to go through the main server. Am I right about this?</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, you're right. That's kind of the idea. We've built something like this called <a href="http://talky.io/">Talky.io</a>. It enables very quick ad-hoc meetings with zero sign up or anything. It's basically, "Meet me at this URL" and then you're in a conversation. Anybody who's at the same URL at the same time in a WebRTC-capable browser, is instantly talking to each other. We use that for meetings and stuff all the time. But you bring up an interesting point with Google Hangouts because at some point it doesn't scale very well. Because having each user upload their video stream to... five users might work, but say you had 20 users, pretty soon you're going to cap out you're upload bandwidth, because you're sending it directly to all 20 of those people. That's kind of the fundamental problem. What we're describing here is called the mesh network, where each peer is connected to very other peer. In other to support larger quantities than that, you actually need some sort of central server to relay media and ""mucks" those together, they call it. To turn it into a single stream. So I can upload my video to one place and maybe have it broadcast the video to 20 people on a fast central connection.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Henrik</dt>
+<dd>It's kind of an interesting thing. These problems have existed for awhile, it's just, WebRTC is kind of bringing it to those of us who are not used to thinking about these things.</dd>
+
+<dt>Jen</dt>
+<dd>Right. When I see demos for WebRTC or I see some of the quick ad dirty, "Hey, I got to work in three days!" or three hours, a lot of it is chat applications. Or video. In a way, it's replacing Skype.</dd>
+
+<dt>Henrik</dt>
+<dd>Right, right.</dd>
+
+<dt>Jen</dt>
+<dd>And it was interesting for me to realize, "Oh, yeah, we're already familiar with tools like this. We just are not familiar with them in the context of the web." We've had software that does these things but it was different. It was separate, It was special. Skype, or all the other bazillion things, from IRC chat clients to all the different text chat clients. The many, many different text chat clients that each of us might have installed on our computers. Why did those take off and we didn't have something like that take off on the web, say, 10 years ago? It's because the web couldn't do it 10 years ago.</dd>
+
+<dt>Henrik</dt>
+<dd>It's one of those hard problems. The web had to have a lot of other things built in the web stack in order to realistically support this type of thing.</dd>
+
+<dt>Jen</dt>
+<dd>But now it's there. Almost here.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah. So we're actually working on... so, Lance on our team has built an open-source Skype alternative called <a href="http://otalk.im/">Otalk</a>. <a href="http://otalk.im/">Otalk.im</a>. What it's doing is it's using an XMPP server to give you normal chat-type capabilities but in addition, uses a standardized version to do WebRTC signaling called Jingle. That's actually what Google Talk uses, and Google Hangouts. These protocols for doing this have existed in the XMPP world for awhile. But he's actually got that working to where it translates what the browser does into Jingle. That way you can actually run your own Skype and call somebody else on their own Skype. Which is kind of an interesting concept. This concept of federating between different experiences through shared protocols.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And I... I'm just curious... I mean, I, I think it's... [Laughs] I'm so excited I can't hardly talk! [Both laugh] I think it's exciting. Because I think on the one hand, it means some very clear things, like you described earlier. You have some kind of product that you're selling people or service that you're providing to people ad they need technical support. So they come to your website to get tech support or help or support. Rather than giving them an 800 number, just give them a button, and they click the button and BAM the phone is dialing. Except it's not the phone, it's either internet connection. We've seen this already, some. The little thing in the corner. The little annoying thing in the corner that you click and it brings up this window and there's this lady from the clipart picture and the bubble. The reason I think it's annoying is it makes the website slow and we know it. Or it makes scrolling slow. Or it just feels like some kind of clunky thing that got grafted on the side that's sort of a loser. Like there's something wrong with it.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, you had to run Flash or something. Yeah, exactly. It's not a great user experience. So just having that natively in the web is pretty awesome.</dd>
+
+<dt>Jen</dt>
+<dd>It also, you know, it's big business for some companies that provide services like that because there was no way to... I mean, doing that was incredibly hard and so they would spend millions and millions of dollars figuring out a system and doing it as best they could with the limited technology. Then other people would pay them millions of dollars. But now, you just need a couple of really smart JavaScript developers who listen to this podcast and [both laugh] you can build your on stack. So, WebRTC, there's actually, how many parts are there? I forget. There's <code>PeerConnection</code>, there's <code>MediaStream</code> and there's... what's the other one?</dd>
+
+<dt>Henrik</dt>
+<dd>I can break it down a little bit. There's the concept of getting user media is another big portion of it as well.</dd>
+
+<dt>Jen</dt>
+<dd>Right. Let's talk about each of those as separate parts of the show.</dd>
+
+<dt>Henrik</dt>
+<dd>In order to set up a video call, the first thing you have to do is get access to the user's video and audio. That's something that you have the user permission to do. But there's browser APIs for doing this, where you say, it's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.<code>getUserMedia</code>">navigator.<code>getUserMedia</code></a> and you tell it whether you want video or audio. The spec also supports being able to request certain resolutions of video. In addition, in certain cases, in Chrome, there's some preliminary support for requesting access to your screen instead, using that as a video source. But the concept is you have to ask the user for access to something worth streaming. That's kind of the <code>getUserMedia</code> portion of that. The peer connection, so, there's an object in your browser if you're using Firefox or Chrome, called <code>RTCPeerConnection</code>. That is basically the object that you have to instantiate in your browser that represents your connection to the other user, whoever the other person is that you're going to talk to. So if you're going to talk to multiple people, you're going to have multiple <code>PeerConnection</code>s set up. Then it's basically your job to then attach this media stream that you got from asking the user for access to their camera, and then attaching that to the <code>PeerConnection</code> and passing messages. Once you've done this, the <code>PeerConnection</code> knows enough of what it needs to do in order to describe its capabilities to another browser. You, as a developer who is building an app like this, it's your responsibility to figure out how to pass those messages between the two browser instances that want to talk to each other. Therefore, you might use something like a WebSocket. You're passing these things called signaling messages from user to user and once that's successfully established a connection, then you get access to the remote user's, so the other person's video stream, locally. Then you can display that to the user. So there's several steps involved there. It's unfortunately somewhat complicated but that's why there's tools and libraries to make this stuff easier.</dd>
+
+<dt>Jen</dt>
+<dd>We could just talk about <code>getUserMedia</code>. You might use <code>getUserMedia</code> to grab audio and video and send it to someone else in a Skype connection. Skype-like chat. What we used to imagine back in the 80s when I was touring the AT&amp;T headquarters in Virginia. [Henrik laughs] And they had video teleconferencing rooms where you could do a video teleconference. It was like, "Wooooow! That's big." But you might just grab the audio and video to do something completely different that doesn't effect the other people.</dd>
+
+<dt>Henrik</dt>
+<dd>Sure. Right.</dd>
+
+<dt>Jen</dt>
+<dd>Chris Wilson was on the show to talk about web audio API. And all the great things you can do with web audio. You can use the user's microphone from <code>getUserMedia</code> and then take that audio signal and display it visually on the page or record it or translate it into something else or make media our of it. There's all kinds of crazy stuff. Being able to use the device camera and the device microphone, alone, is amazing.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. Right. That's a big step for the web, for sure.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, you could make a photography app out of that.</dd>
+
+<dt>Henrik</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I mean, is that basically it? <code>getUserMedia</code>. You have access to the camera and phone. I mean, I'm sorry, "the phone"... the camera and the microphone. Whether it's on, no matter which kind of device it is. It could be a tablet, it could be a phone, it could be a computer.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, that's kind of the idea. You're requesting this access from the user and what you get back... so you were asking about <code>MediaStream</code> before... what you get back is this <code>MediaStream</code> instance. When you request that, you pass it two different callbacks. The success callback, if it's called, will be handed that <code>MediaStream</code> object that you can then either display or play back to the user or pipe it through a web audio API to do manipulation to that. People have used it to build guitar effect pedals and piping in audio from an electric guitar to do live effects using web audio. There's all kinds of cool stuff you can do with that. <code>PeerConnection</code> is kind of, I still see that as kind of the core to what WebRTC is. That's the real-time communication piece. But you couldn't do any of that without requesting media access and having that media stream API in there.</dd>
+
+<dt>Jen</dt>
+<dd>I'll have to find it, somebody built a Photobooth app. Where you see the image of the person and then it turns into a kaleidoscope and you can apply these different filters to it and then you can click and button and snap, take pictures of it, probably integrate it with parts of the file API in order to save those images.</dd>
+
+<dt>Henrik</dt>
+<dd>It's Webcam Toy, I think, is what it is. Is one of the best ones. Webcam Toy. I'm sure somebody can find it. Yeah, <a href="http://webcamtoy.com/">webcamtoy.com</a>. There's like 80 effects you can apply. But yeah, that's just local, right? So it's just requesting access to media and then letting you capture those and applying filters and things to them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And then also it has built into it, if I understand this right, a bunch of noise cancellation technology and other things that are really desperately needed in order to do something like a video teleconferencing app that you, as an individual web developer or JavaScript developer would not want to have to engineer that all over again by yourself. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Right, right.</dd>
+
+<dt>Jen</dt>
+<dd>And that those things are now going to get baked into the browsers so a lot of that heavy lifting that made this sort of thing so complicated, is now already all ready to go.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. Yeah. Having that stuff available just to use, I mean, it's seamless to the user. For the most part. If you set up a video call with two people. Even simple things, like you request access to your local media and you attach that to a video tag in your browser, if you don't mute it, you're going to get crazy feedback just from yourself. Because now you're playing back your own audio. [Laughs] There's kind of these interesting problems that people aren't used to thinking about until they actually try to build something with this.</dd>
+
+<dt>Jen</dt>
+<dd>I don't think most people understand what feedback is. Right now I have on headphones, but I could easily, normally when I'm working, I'm on a video conference and the sound from the video conference comes out of my speakers and then I'm talking and the microphone grabs my audio as I'm talking and puts it back into the video conference so everybody else can hear it. But yeah, that situation where suddenly the sound coming from the video conference is going back into the video conference. When you're doing sound engineering for a live concert or a live event you have to really work hard to make sure that doesn't happen. You have to make sure your speakers are in a position so the microphone can't really hear the speakers and that's when you get that screechy, that loud screechy sound that everybody hates. There's no way that you could basically say to all of your, you know, "Hey, person-using-my-website, you need to position your speakers so that they're pointing away from the microphone." That's not going to happen. These programs like Skype and others... I remember for a long time with Skype, you had to put headphones on. But with some of the others, maybe it was iChat, you didn't. That was one reason I really liked iChat, is because I could have a call and not have to get out headphones, whereas with Skype you had to put on headphones. Then Skype got noise cancellation into it. Then you didn't have to worry about it. You didn't have to find headphones. You could just have your call and it wouldn't be a problem.</dd>
+
+<dt>Henrik</dt>
+<dd>Right, right. We've gone through a very similar thing here with WebRTC. When this stuff first came out, the echo cancellation was not really baked it. It wasn't all that good. Firefox is still a little bit lacking there. When Chrome 28 came out... 27 was actually pretty decent, then Chrome 28 came out and all of a sudden we couldn't use <a href="http://talky.io/">Talky.io</a> without headphones anymore. It was impossible. Now when Chrome 29 landed all of a sudden those things just kind of went away. We tried all kinds of stuff. We piped in the audio through web audio APIs to figure out whether somebody was speaking to try to mute the right person to not get feedback. Painful stuff. It's something that you really want solved at a lower level in order for it to be useful.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Nice. So what are some of the other things that are... are there other things like echo cancellation that are baked in, that get people halfway down the road already?</dd>
+
+<dt>Henrik</dt>
+<dd>Another hard problem is discovering how to communication to somebody else who's behind a firewall, really. Being able to actually send a live data stream to somebody given these various hostile network environments that exist, is a really, really hard problem. This is something the likes of Skype and FaceTime are really good at. This is something they've spent a lot of money trying to solve. In some ways, it's kind of their secret sauce. There's all these technologies to do these things that I've kind of roughly lumped together as STUN and ICE. Basically, there are various ways of dealing with this situation, where one person's behind a NAT... we could get pretty technical on all of this stuff. There are still scenarios now where you need to actually have a media relay server in order to be able to have two people communicate. Establishing peer-to-peer connection is definitely ideal and about, currently, with the stack that's implemented in Chrome or Firefox, something like 92% of the calls will be able to be established just fine, without doing some sort of media relay stuff. There's that other 8% or so, that's the number that people throw around, where you actually need to have some kind of media relay in the middle to make sure that the call will work, no matter what. These are hard problems. A typical JavaScript developer is not going to know how to set up a churn server or media relay server in order to solve this problem. I think we're going to see a lot of these solutions-as-a-service that are available to developers who just want to do this and have it work all the time without having to deal with that 8% that isn't going to work.</dd>
+
+<dt>Jen</dt>
+<dd>It feels like this is definitely going to change some landscapes. Programs like Skype may not have as much business. Maybe not even so much Skype, but those 3rd party, we'll give you a chat application that you can use for tech support on your website. But it sounds like there's a whole lot of new businesses that can crop up. That people are going to need help with more complex parts of this.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. And these are what your Syscos and your Apple doing FaceTime and all that. These are problems they're used to dealing with and it's becoming extremely obvious that we need open-source solutions to these problems as well. There's some of this stuff out there but there's still more work to be done.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it would be great to have some open-source service people could set up and use as their own relay.</dd>
+
+<dd>So, talk about security a bit. In some ways it's all, rainbows and unicorns and, like, "Oh my god, this is so awesome, I can do screen sharing," and blah blah blah, I can do a thing and thing. But then there's the other side of that, right? You don't want people being able to secretly capture your screen and watch everything you do. </dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, yeah, sure. Well, that portion, the secretly capturing your screen, that's really an area where we're trusting the browsers to not do bad things. Which could be argued as a good or bad thing. But the cool thing about WebRTC is that it is encrypted by default and then once you've established the connection, you're not... unless you're in that small percentage that's relaying media, you're not actually sending your media stream through any central location. Even just the decentralization aspect of this makes it significantly harder to track and report. Any man-in-the-middle-listening sort of thing, is significantly more difficult with this type of setup. Again, these streams are encrypted in the browsers, so the browsers themselves are encrypting these and doing a key exchange so browser-to-browser it should, technically, be very, very difficult to crack the encryption between two connected browsers once you've established a connection like this. Do I trust it to be bulletproof? No, but it's probably the most secure, kind of "live" communication we can do on the web right now.</dd>
+
+<dt>Jen</dt>
+<dd>Well, and we already have learned that the entire internet is not bulletproof.</dd>
+
+<dt>Henrik</dt>
+<dd>Right, exactly.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, there was something that just went around. A diagram of how NSA has cracked into Google's servers.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah. They're sniffing traffic between data centers or something. Not cool.</dd>
+
+<dt>Jen</dt>
+<dd>So, I guess if you're looking for military-grade, top secret stuff, maybe WebRTC in the browser... [Laughs] it's not going to be any more secure than everything else in the browser.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. Well, arguably it's more secure than picking up the phone and calling somebody. And also, if you use something like <a href="http://talky.io/">Talky</a>, it's completely anonymous as well. We're not storing IPs or anything like that. We were joking... we got a support email from somebody who was really excited about <a href="http://talky.io/">Talky</a>. It was somebody who's actually deaf. They're spreading it in the deaf community as a means of doing real-time video communication using sign language. I thought that was really cool. In addition, it's kind of funny, because we were talking; it's probably one of the most secure forms of real-time communication out there. [Both laugh] Sign language over WebRTC.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. <code>MediaStream</code>s and <code>PeerConnection</code>... isn't there a third? I should have looked this up before we started the show. But I thought there were three parts to the spec.</dd>
+
+<dt>Henrik</dt>
+<dd>The other thing people talk about is the Data Channels portion. Which definitely relates to <code>PeerConnection</code>s. What you do, is, when you create a <code>PeerConnection</code> you can specify, you can create Data Channels on that <code>PeerConnection</code>. The cool thing about this is you don't have to request access from the user to do any of this. Because you can create Data Channels and <code>PeerConnection</code>s without requesting access. But really at that point what you're doing is setting up a channel to send encrypted data through either secure or unsecure... I'm sorry, reliable or unreliable channels. The idea being whether or not... maybe I'm getting too technical here, but basically either modeling after, "This needs to get there now. If I drop a few packets just ignore the last packets." Versus a file transfer where you need every last packet and you need to be able to re-sort them in the right order and recreate the file on the other end. WebRTC the spec supports both of those types of data transfers.</dd>
+
+<dt>Jen</dt>
+<dd><p>Nice. I want to come back and talk about that more, but let me jump in here first and do our sponsor.</p>
+
+<p>I like technical stuff. I think a lot of our listeners do. If people want to learn more technical stuff about JavaScript, a great place to do that is the 2013 JavaScript Summit from Environments for Humans. It's coming up on November 19-21, a little less from a month from when we're recording this show. 2013. Or, you know, maybe you're listening to this show in February of 2014 and you're like, "Oh, that sounded awesome but that was 3, 4, 5, months ago. I've missed it." You can still actually go check it out because this is something that Environments for Humans does many of these summits annually. They happen over and over again. You could always go to <a href="http://environmentsforhumans.com/">environmentsforhumans.com</a> and see what other summits they have coming up. But this one is a JavaScript Summit. It's all new from last, when they did it last year, they've got all new sessions lined up for this year. All about different things. I'm just going to name off a couple, just randomly chosen. There's a session called "Bootstrap vs Foundation", where Jen Kramer is going to debate the Twitter Bootstrap framework and the Zurb Foundation framework. Look at the difference between the two of them, do a bit of an overview, explain how you might customize those two frameworks for your application, and help you figure out which one is the right one for your project, if either. That's an example. There's a session on "Reusable, Responsive Charts with D3.js", using the D3 library. Colin Gourlay is going to talk about how to do data visualization. "Circus Tricks with Angular.js", all about the Angular.js framework and cool, kind of funky things you can do with that. All these kinds of things. If you're interested in learning more about options with JavaScript, how to dig in and get some of these more powerful tools, how to understand which one might be the right one for you, and when that might be the right one for you. Go check this one. Three whole says of summits. They're online, so you don't have to travel anywhere. You get online, you install some Adobe something-something software to do a conference, shared conference room, you get to see the slides live, as the speaker's talking they change slides. I think they may even do video. Off and on they'll do video of people, depending on how fast the connection is working at that moment. So you can see people, see what they're talking about. There's a chat room, so all the participants in the conference can sit there and chat with each other. Share links, talk, ask questions, meet each other, get to know each other a little bit. There's a moderator in there who takes questions from the chat room and asks the speaker, usually towards the end of the session. You can buy tickets for one day, two days, or all three days. You can get individual tickets, like a ticket just for you, or you can buy what's called a "Meeting Room" ticket, where you get a ticket for a group of people. One ticket. A whole group of people. And you can go into the conference room or get a bunch of friends together, come over to your house, and watch the whole thing together. For one ticket price. A classroom of folks. And they record all of these, everything's recorded, so if you go on the day and you enjoy it but you totally had to go to this other meeting, you can watch later, or you can re-watch it later. In fact, if you miss the whole entire thing, and you're like, "Shucks," you can buy a ticket after it's over and get access to all the recordings and watch all of these all over again.</p>
+
+<p>Thank you so much to Environments for Humans. Oh, wait, I need to save you money. You can use the coupon code WEBAHEAD and save 20% off of any one of those kinds of tickets. Yeah. So, thank you so much to the folks at Environments for Humans. They've been a huge supporter of The Web Ahead. And you can help us by helping them by going to their stuff, which will help you.</p></dd>
+
+<dt>Henrik</dt>
+<dd>It is a great event. I was actually a speaker there last year. It's highly recommended.</dd>
+
+<dt>Jen</dt>
+<dd>Well, and as I was describing this, I was like, "Yeah, these are all the things that you could build." Instead of using this Adobe Connect software, whatever that software they use, we could just build... you and me, let's go build a whole... [both laugh] application that does the same exact thing. This is kind of the perfect use case for WebRTC.</dd>
+
+<dt>Henrik</dt>
+<dd>For sure. It could be really interesting to see what comes out of this as these things continue to stabilize and as more people start to experiment with them.</dd>
+
+<dt>Jen</dt>
+<dd>And what I... I mean, I'm all for Adobe. I've used Adobe products since '91. In some ways I love Adobe. But in some ways they drive me nuts, right? Some of the software... it's... I think what happened is that our desire for a certain set of tools outgrew what the web could do, or outgrew what the computers could do. And so a whole genre of tools grew up to try to solve those needs at a time when the technology really wasn't ready for it. And Flash was one of those things. Over time we outgrew Flash and we wanted something even better, sleeker, faster, less of a pain in the ass. [Henrik laughs] And now it feels like, "Ok, let's finally really replace all those clunky, kludgy tools that were hacks." And let's replace them with, like, real technology that actually talks to the browser and the whole rest of the browser stack. Instead of jamming something awkward into a box, a closed box inside a web window, let's actually just use the web to do this stuff.</dd>
+
+<dt>Henrik</dt>
+<dd>It's pretty cool that the web has really enabled this, as far as... we have this process where people do things that are interesting in plug-ins and then, as we learn about what people are trying to do with these tools and the web platform evolves to envelop those capabilities as well, which is really cool. I mean, the fact that the web is hackable as it is is a huge feature. Yeah. It's just exciting to see where browsers are headed.</dd>
+
+<dt>Jen</dt>
+<dd>I've seen demos where... maybe it was even you who was doing this demo. [Henrik laughs] Where you hook up WebRTC or you hook up a <code>MediaStream</code> and the <code>MediaStream</code> ends up in a video element in HTML. The <code>video</code> tag. And then you can style that with CSS.And you can animate it, or make it shrink, or move it around in the page layout using CSS, or do responsive design with CSS, or do some animations with CSS. All of the things that you would maybe normally do to a paragraph, or a sidebar, or a... <code>div</code>, you can now suddenly do to this video.</dd>
+
+<dt>Henrik</dt>
+<dd>One of the things we do on <a href="http://talky.io/">Talky</a> is we dynamically rearrange videos based on how many people are in the call and how wide your screen is. It's this very animated, responsive design where things are going to rearrange to fit the screen. It's so cool to be able to do that stuff in JavaScript and CSS. Very little other magic, you know? It's just another element. It's just like moving <code>div</code>s around on the page.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And it means you can use all these powers that you already have, all of this technology you're already used to using.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. And the skill set that you already have. Very cool.</dd>
+
+<dt>Jen</dt>
+<dd>You're not trying to, like, learn Shockwave. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Right, exactly. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>With a whole new set of styling an wishing it had the stuff that this other thing has and it doesn't.</dd>
+
+<dt>Henrik</dt>
+<dd>Right, right.</dd>
+
+<dt>Jen</dt>
+<dd>I feel like once these tools have matured and we start to really see some amazing stuff out of it, then we're going to really be like, "Ohhhh, really? That's. Wow. That's really good." This video teleconferencing meeting software is amazing. This presentation... look, I can do a presentation and have my presenter display on one computer, one projector, one TV, and I have my slides to the audience on this other screen, projector, and then the people in the audience can also have the slideshow open and when I hit "advance" on the slide it automatically advances on their machine. But then they simultaneously can click on all of the links in my presentation and have those open in windows, and then maybe they could even have a chat with each other during the presentation.</dd>
+
+<dt>Henrik</dt>
+<dd>There's so many things like that, that you could do, it's quite cool. One of the things that I'm most fascinated by is the concept of peer replication. Peer replicated broadcasting. The idea of being able to... if I connect to you and I get a <code>MediaStream</code> that represents your video, and I can pass that to somebody else, kind of re-broadcast it, you could almost build a completely peer-distributed alternative to something like uStream. Add mobile capabilities to that. A lot of new mobile devices, Android... so, Firefox Nightly, and I think Stable now, for mobile, and Chrome for mobile, you can enable WebRTC. You could actually turn anybody with a cell phone, at least in theory, with one of those browsers on it, into a live TV broadcast, essentially. Just replicate links to that over Twitter or whatever and have people join and see as you're pointing your phone around the room. Be able to show some live event that's happening. There's some really interesting things you could do with this technology.</dd>
+
+<dt>Jen</dt>
+<dd>Again it feels like some of these things... it's been about 10 years. Just almost 10 years since we started playing with these things. But when we first started playing with these ideas it was in Flash. Flash has the ability to do some of this. Which is why a lot of people used Flash for some of these things. But we kind of, I don't know, there was a lot of excitement from 2003 to 2005, 2006... and then that excitement kind of waned a bit as people were like, "Well, we thought that would be cool but it's not as cool as we thought."</dd>
+
+<dt>Henrik</dt>
+<dd>Right. And iOS choosing not to support Flash was certainly a huge hit to that.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Things then went mobile.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, exactly. The whole move to mobile kind of killed it.</dd>
+
+<dt>Jen</dt>
+<dd>And then everything was in a walled garden. Like, okay, you could use FaceTime, but FaceTime doesn't talk to Skype, and you can use this thing but only on these phones, or you can use that thing but you have to have a native app. Quote unquote, "native app".</dd>
+
+<dt>Henrik</dt>
+<dd><p>You bring up an interesting point. Something that we care a lot about at <a href="http://andyet.com/">&amp;yet</a> and have been working a lot on. This concept that the telecoms of the future are not necessarily the telecoms of today. If you think about the amount of communication that happens through Facebook and Google+, it's easy to see where this is headed. Google with Google Hangouts, Microsoft with purchasing Skype, Facebook has the ability to make audio calls from Facebook apps. It's funny because now you're adding these additional capabilities, communication capabilities, through these individual things, but I still can't make a phone all from Google+ to FaceTime. Or Facebook. I can't make a call from my server. Say I spin up my own server. That's a pretty geeky thing to do. But, in theory, I should be able to do this, right? I should be able to run my own server and then make a call to somebody on Facebook. Why shouldn't I be able to do that? If we were talking about AT&amp;T and Verizon... if I could only call AT&amp;T people from my AT&amp;T phone, people would be furious. That's ridiculous. The reason this stuff is so... the reason phone are still the ubiquitous form of communication is because they interoperate, because they federate. That's the term, the "federation". Tools exist to do this on the web with WebRTC as well. Protocols for doing things like the signaling portion of WebRTC exist and have existed for awhile. I think the only reason that... basically, each one of these big companies, they're trying to get everyone to use theirs so the eyeballs are there. But they're all these silos and I have to join Facebook to talk to somebody on Facebook. I think the only reason that's the case is that nobody's pissed enough. [Laughs] Right? Users aren't complaining about this because they're not thinking about them in terms of telecoms. But really, that's where I think they're headed. O think we really need to make an effort to create tools and alternatives for this.</p>
+
+<p>That's the hole idea behind what we've do so far with <a href="http://otalk.im/">Otalk</a>. Lance on our team has spent a bunch of time basically meticulously smashing together XMPP, Jingle, and WebRTC into a completely federated alternative to Skype. He demonstrated this at <a href="http://realtimeconf.com/">RealtimeConf</a> a couple weeks ago. Another member in the audience had written his own version of this, running on a different server entirely, and they connected a video call. Two different pieces of software on two different services, talking seamlessly with video and audio using WebRTC. That's where things need to be headed. That's where we need to be really... as technologists, we need to be pushing this stuff forward.</p></dd>
+
+<dt>Jen</dt>
+<dd>Because we are in this era where your business card is like, "Here's my Skype handle. Here's my URL to my LinkedIn site. Here's my URL to my Facebook site. Here's my URL to my... this is my FaceTime handle. This is my..."</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah. [Laughs] Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>"... my AIM handle." It would be crazy if like, "Okay, here's my Verizon phone number. Here's my AT&amp;T phone number. Here's my..." Whatever. All the rest of them.</dd>
+
+<dt>Henrik</dt>
+<dd>And the reason we still all use phones is because you have a phone number. That's your universal address. Having some way to do... this whole concept of strong identity on the web is still something that needs a lot of... these are actually kind of solved problems. What Mozilla is doing with persona is kind of an attempt at this. Actually I think the XMPP model for this is really excellent. You basically have user@domain. It looks like an email address. But in theory, that's all I should need in order to contact you. If I want to call you as a person, if I know you are jen@thewebahead.com, I should be able to call you with just that. We need that addressing scheme that's universal. In order for these types of technologies to really get out of their individual little silos.</dd>
+
+<dt>Jen</dt>
+<dd>And be available. Phones were ubiquitous. Completely interoperable because all hones and all phone numbers and all phone equipment was owned by one company. [Both laugh] In the United States, it was all AT&amp;T. The original AT&amp;T. There was no competition. There was no Facebook and Google+. It was just Facebook. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Right, right.</dd>
+
+<dt>Jen</dt>
+<dd><p>It was only 80 years later? 60 years later? That the federal government in the United Staes forced that company to break up into a bunch of smaller companies because it was becoming too much of a monopoly. And then we ended up with a bunch of competing phone companies and it evolved into what we have today on the phone side.</p>
+
+<p>It's important for something like that to be on the web. Because in order to build a chat applications five years ago, you needed to have 50 developers and millions of dollars. And now you don't. Maybe now you can do it with three developers and a much, much smaller budget. Which means many, many more people can play in this space. It won't just be one or two companies that have these giant walled gardens. It's will be many, many, many places that can build stuff like this.</p></dd>
+
+<dt>Henrik</dt>
+<dd>The joke I usually make when I talk about this is, basically, I built a phone company so I could talk to my mom in Sweden. [Both laugh] I mean, I literally hacked together a thing that we use to talk every weekend. The fact that this is now possible is quite amazing.</dd>
+
+<dt>Jen</dt>
+<dd>It really is amazing when you think about it like that. Like, "Oh, you built... a phone company."</dd>
+
+<dt>Henrik</dt>
+<dd>I mean, "company" is obviously a bit of an exaggeration. But the concept. These are things that you had to depend on telecoms to do for you. Now I can just build my own custom experience and have it work exactly the way I want it to. That's quite a leap forward from where we were.</dd>
+
+<dt>Jen</dt>
+<dd>The idea of live broadcasting. That's really quite amazing. It's not just WebRTC technology that's needed. That's just a little piece of it. But along the lines of everything we 're talking about today, like why the open web is important, and why the web platform is important... this idea that any of us could make something and put it out there. Now including live... I mean, this show is broadcasting live right now as we're recording it, through NiceCast and servers that Dan Benjamin set up over at 5by5 and the whole stack of little bits and pieces. Which is awesome. But it's just going to be that much easier. It just is crazy. I almost feel a responsibility, I think. It's been a little sad because I used to be a bit more optimistic and excited about the democratization of these tools. That more and more people have access to these kinds of powerful, powerful tools. It used to be you needed a satellite truck. A multi-million dollar satellite truck to pull up outside of a venue in order to do a live broadcast for that venue. And now you don't, right? [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>But instead of everybody running around and creating... sort of, like, "Oh my gosh, I could make my own new creative project. Because I don't need $16 million to start a show, I can start my own show. Now I can take risks that shows that needed that kind of funding couldn't take. Now I don't need an audience of 200 million people. I only need an audience of 20 people and I'll have something." There's so much more creative power and variation that we could have. And instead, I think, what ends up happening is a lot of people are tripping over each other to copy what they see on TV. Or to copy what they see on radio. And they just want to do... like, "Oh, I can do my own TV show. Great. I'm going to do it just like Entertainment Tonight." [Henrik laughs] Or, "I'm going to make it just like... this will be my 'in' in Hollywood." It's like, "Wait, wait, no, the whole idea is you don't need Hollywood!" [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, yeah, yeah. Totally.</dd>
+
+<dt>Jen</dt>
+<dd>And people are like, "No, I want to recreate Hollywood." Like, "Why?" And if people want to do that, they should totally do that. But I still really wish and hope that there will be more and more alternatives and more and more other voices that show up and more and more... you know, risky ideas that may or may not take off. But at least... there was no... you know, the barrier to entry has fallen, so what are you going to do with it now? There is a kind of responsibility. You could do anything you want.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, I mean, I really think that developers should focus on building things that they think should exist. If you look across the board of society, I mean, the amount of power that you actually have available to you as a developer, in terms of creating things that... I mean, it sounds cheesy, but you literally can create tools to change the world. We've seen people do this. I mean, yeah, with great power... dot dot dot. [Both laugh] Right? I completely agree. I think this is a time when developers really need to focus on thinking about the impact of what they're doing beyond just their paycheck. Recognizing the power or responsibility that we have and this extreme privilege that we have to be able to live at this point in time with these skills to be able to create things like this. It's phenomenal.</dd>
+
+<dt>Jen</dt>
+<dd>Because, I mean, if history tells us anything, this window will close. I mean, it seems like it will never close but typically what happens i big companies do somehow find a way to take over everything again.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, I don't know. It's interesting. I guess it's left to be seen. But things like... you're seeing more and more of this indie web movement starting to happen, too, where people are recognizing that they don't necessarily want to give all of their data to big companies. Because that's essentially what you're doing. You're trading these free services and experiences for letting them use your data to market things to you. Which, you know, to some degree I think that's completely okay. In other ways, if people don't realize that's what's going on, that's unfortunate. The other thing that that does, is it trains people that software should be free. And software is not free, by any stretch of the imagination. Hire a developer to build something for you and you quickly realize that software is anything but free. And yet that's the consumer-level expectation that's been set. "Oh, I should just be able to use this tool that instantly lets me talk to everybody in the planet for free." Well, it's not free, and that data that you are giving to, say, Facebook, they're using to sell ads that people can show to you. Just recognizing what's going on is hugely important. And making sure that the average person is quite aware. The trade-offs that they're making in terms of privacy and everything else.</dd>
+
+<dt>Jen</dt>
+<dd>I hope we're able to find a way to build these great new tools and fund them and... money's in advertising, so that's where a lot of us are getting all our money from, even if not directly. It may not be that you're working on some sort of advertising software, but you're working, perhaps, for a company who makes most of their money through advertising, and they means they're able to have money to pay you. A great deal of our industry right now is funded from marketing and from advertising. Oh, I don't know where I'm going with this.  I agree with you. To just be aware and to be savvy. Even for any of us, even anybody who's listening or myself in the future. I might decide to build a company, take VC, venture capital funding, try to make it as fast and big as possible and flip it, and try to get rich. There's a way in which that's very valued in our community, in our industry. But I think that it's also important to remember that there's other sorts of values, too. Like, legacy. What is the web going to look like 50 years from now? Are we only going to have Facebooks of the world or are we still going to have what we've had the last 20 years? Which is a lot of new, interesting, cool, indie web, small tools, small companies being creative and giving away some of their stuff for free and teaching each other for free but also making money and also inventing stuff. Is that going to stick around? I hope that's going to stick around. I think we need to feed and water that spirit and that space.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, and you're exactly right. And the feeding part means actually purchasing money. Or purchasing software with actual money to support the things that you want to see happen. I mean, I still feel like our greatest voting power as far as what happens on the web is how we spend our money. Even down to people complain about outsourcing for tangible goods, or whatever, but then they go buy them. How you spend your money is actually, in a capitalistic world, that's how you determine what happens. Realizing that and taking responsibility for how you're spending the resources that you have and making sure that you're supporting these companies that re trying to do interesting things. Building software that lets you keep your own data. That have very good terms of service that mean they're not going to go, just, throw it all away for you. The point is, like, we actually have a decent amount of control as users. I just hope people are aware of that and recognize that the impact that they have in the decisions that they make.</dd>
+
+<dt>Jen</dt>
+<dd>And then the jobs we chose to take or in the ways that we help each other or that we say, "No, I'm sorry, I can't help you. This is the limit of what I have to give away." It's a balance for everybody.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, for sure.</dd>
+
+<dt>Jen</dt>
+<dd>Anytime we have something new and this powerful. I mean, WebRTC just seems so powerful to me. I'm excited to see what people do with it. And I want to see people do things besides Skype in a web window. I mean, I want to see an awesome Skype in the web window. But then when that's done, I want to see other stuff. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd><p>I think we're going to see a lot more of that kind of stuff, too. Some cool examples of work that's being done... there's this guy, Feross, a friend of mine. He was a student at Stanford, I think he took a little break to work on this project. He built this thing called <a href="http://peercdn.com/">PeerCDN</a>. What it is, is, it's like, using WebRTC Data Channels to seed files to other people who are on the same site. Normally, you have a content distribution network for, say, downloading video files that you're going to play in the browser. As a small little independent owner of a website, if all of a sudden the internet itself arrives on my webpage to watch my video, I'm going to spend piles of money on bandwidth. What the <a href="http://peercdn.com/">PeerCDN</a> does, is it actually, the people who are currently on the page will send the video then seamlessly to each other instead. You're using the swarm of peers visiting the site as its own CDN. Those kinds of things are just amazing and awesome. Because now the little independent publisher of that video doesn't have to spend all of this money and bandwidth, right?</p>
+
+<p>He's actually working on another project called <a href="https://github.com/feross/webtorrent">WebTorrent</a> that's basically... it gets into kind of BitTorrent-type stuff. But using Data Channels as well to do really interesting things. Tools like WebRTC landing at this point in time, with all of this news that we're hearing about encryption, et cetera, is really... it's perfect timing. I think we need to really push these technologies and get into them. If you're a developer who's just playing with... looking for the next thing to toy with... get in and start using this stuff and build things with it. My little soapbox there. [Laughs]</p></dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Well, and, you know, there's the peer-to-peer connection, right? So there's the <code>MediaStream</code> peer-to-peer and Data Channels, now that you reminded me. And the data really is... I mean, you can create a real-time data connection between browsers. And, again, you could do it with WebSocket or you could do it with WebRTC and there's technical reasons to do one or the other. But just the idea that two separate webpages can send data to each other instantaneously, basically.</dd>
+
+<dt>Henrik</dt>
+<dd>And it's quite fast. Part of the power of WebRTC is that you can actually figure out that you're on the same network. In doing the STUN and ICE signaling, you might discover that you're in the same building, on the same network and then the file would never leave the building. Which is a really cool concept as well.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. But I think there's all kinds of things. What could a designer do with a webpage where two people visiting the same page at the same time instantaneously communicate with each other. Chat is a clear thing to do, but what else? That you're on a... I don't know, I'll just make something up. You're on a website for learning about web technology, so it's a tutorial website, and you're able to play with a code example and there's actually four copies of the code example and you can see what other people are doing and how they're playing with the code example at the exact same time. Maybe you learn fro what they're doing. Or... I don't know. Some kind of data visualization where the data is changing in real-time, which might happen more from WebSocket because the data is coming from one server, from one source. But maybe there's a way in which a whole bunch of different people are contributing data at the same time and that's where you would want to use WebRTC and the data visualization is constantly morphing and changing depending on what's happening. A map, that, like, "Oh, look, all the people who are watching the same TV show as you, look at this map of all those people." I mean, some of this stuff sounds hokey but I feel like there's really something to this that we've literally not even seen the beginning of it.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. And I think having this as base-level functionality in the browser... I never underestimate people's creative abilities. Just giving this tool and making this just available in a billion browsers, is roughly what they're saying now, it's quite a big deal. I think we're yet to see what else this can do. I think the voice-video thing is the easy demo. But even Data Channels... for a long time... it's still very, very, very new. Like, you still can't... in Chrome Stable and Firefox Stable you can't actually set up a DataChannel between those two browsers. That interoperability is just now coming into fruition. I think we've got a little ways to go there and we haven't yet really begun to tap into what that could mean.</dd>
+
+<dt>Jen</dt>
+<dd><p>Yeah. So let me real quick do our last sponsor.</p>
+
+<p>HostGator. So a couple weeks ago, people were looking, everybody was looking for a new host. HostGator's an option. They are a premier hosting provider. If you're looking for a place to start a website, HostGator can get you started with monthly hosting plans, one-click installs and a ton of other features that make getting your site up and running, easier. If you're more advanced or a business user, you can get a reseller plan, you can get VPS', you can get dedicated servers. They guarantee 99.9% uptime. Which is... that's a big guarantee. If you're a WordPress user, they have a bunch of one-click installs and they've kind of optimized their hosting platform for WordPress. You get unlimited disk space and bandwidth with their hosting plans. They're not going to nickel and dime you by charing you for a little bit of desk space or a little bit of bandwidth here, here, and here. You're just going to get unlimited disk space and unlimited bandwidth on all their plans. And they also have free site builder tools that are easy to use, 24/7 support to make sure everything's running smoothly, and you can get 30% off. They have a bunch of plans. You can go over to <a href="http://www.hostgator.com/">hostgator.com</a> and check out their different plans. They've got a Hatchling plan, a Baby plan, a Business plan, depending on how many domains you want to put on your site or if you need private SSL, stuff like that is the differentiation between the two... the three, the several, the plans. But on all of the plans you can use the coupon code JENSENTME... because I'm sending you over there... JENSENTME10. JENSENTME10 will get you 30% off of HostGator.</p>
+
+<p>So, thank you very much to HostGator for supporting 5by5 and The Web Ahead.</p>
+
+<p>So, you've been mentioning WebRTC being ready. It looks like there's this cool little website that somebody built. [Laughs]</p></dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, we did that. It's called <a href="http://iswebrtcreadyyet.com/">IsWebRTCReadyYet.com</a>. It's basically a compatibility table. What features are available in what browsers right now. Also, what we do is we take the... when you finish a call on <a href="http://talky.io/">Talky</a>, you get presented with this little feedback form that says, "Hey, how good was your experience?" The quality of the video and audio is something that's completely out of our hands as developers of <a href="http://talky.io/">Talky</a>. It's really more of feedback on: How good is WebRTC, in terms of video in audio quality? We're graphing that data there as well to be able to show... to use this to demonstrate to browser vendors that quality of what they're doing and also, hopefully, draw attention to the fact that there's all these other browsers that are not doing anything with WebRTC yet.</dd>
+
+<dt>Jen</dt>
+<dd>That's pretty cool. That's really cool. Because, if I were, I'm not, but for the people that are making web browsers, to be able to get feedback back on how it's going... I imagine that would be helpful. Maybe they should tell me that it's not and for me to be quiet. [Both laugh]</dd>
+
+<dt>Henrik</dt>
+<dd>We had some folks from Mozilla contact us and ask us if they could use <a href="http://talky.io/">Talky</a> to, kind of, dog food their implementation and if we would respond to bug reports, et cetera, so we said we would do that. Then we did this as well. I don't know if they're super excited about this part of it or not. [Laughs] But we're in communication with both Firefox and Chrome teams on some of this stuff. So, hopefully it's adding value.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. And hopefully IE and Safari are working on this as well.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, Microsoft actually submitted sort of an alternate proposal to WebRTC that makes some pretty significant modifications. I haven't studied it at length. They're at least interested so we'll see what happens.</dd>
+
+<dt>Jen</dt>
+<dd>It would be interesting to know if... and I know nothing about this, but if the fact that Microsoft owns Skype is effecting the IE team's ability to implement or ideas around implementation or not, you know? It might be, might not be, I don't know.</dd>
+
+<dt>Henrik</dt>
+<dd>I would certainly assume that they're at least influenced heavily by that. </dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And then, of course, Apple with Safari, we just will never hear anything. [Henrik laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>We won't ever know anything...</dd>
+
+<dt>Jen</dt>
+<dd>But it will just show up one day.</dd>
+
+<dt>Henrik</dt>
+<dd>I think there's hope. Recently, actually just a couple of days ago Sysco announced they're basically going to fund using H264 and paying the royalties for that codec. Which is kind of Apple's big... I mean, that's what they do a lot of. Hopefully, having that might actually make it easier and higher-quality to do this stuff in Safari. Currently, however... I just don't think the incentive is there for them. Right? Because they would much rather you use FaceTime. I think it's one of those things where... and again, I am not qualified to speak on this topic, I don't know anybody at Apple that's telling me these things, but it sure seems like they don't really have any reason to do it until enough users start demanding it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Right. Until there are websites that have cool, awesome stuff that people who don't have WebRTC can't use. And then they're like, "Oh, man, we've got to support those websites. We look bad. Nobody wants to use our browser because we don't support those awesome websites."</dd>
+
+<dt>Henrik</dt>
+<dd>Exactly. Exactly. There's also work being done by Google on native iOS SDKs for this stuff, so that if you're building, at least a native app, or, in theory... Eric said and did this prototype browser called Bower that essentially added WebRTC capabilities to the built-in Webkit. It just kind of extended it a little bit.</dd>
+
+<dt>Jen</dt>
+<dd>And that's an iOS packet. I mean, an app that you can download.</dd>
+
+<dt>Henrik</dt>
+<dd>Yes, correct. And that actually does support WebRTC. It's a little bit... laggy and not the best quality ever, in terms of the actual... encoding-decoding stuff is a little bit slow. But, hey, it's there, it works, it's a proof-of-concept. I think we're going to see good things happening here and the more that gets built with this... it's the kind of thing that, like, you really shouldn't sit around and wait for this to be ready. Part of what's going to make it good is people getting in there and building stuff with it. Also, tools like this <a href="https://github.com/legastero/jingle.js">WebRTC Jingle library</a> that Lance on our team wrote... really means that if you have a native client on any platform that talks XMPP and Jingle, you should be able to interoperate with WebRTC, which is pretty cool. So even if you're not in a webpage on that device, you should be able to make voice and video calls.</dd>
+
+<dt>Jen</dt>
+<dd>This is one of those things that... many of the things that are new on the web, a really great progressive enhancement approach will solve incompatibility with older websites. Every website doesn't need to look the same, doesn't need to have all of the same exact things, so you should use progressive enhancement and it will be fine. This is the situation where that's not true, right? [Both laugh]</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, not at all.</dd>
+
+<dt>Jen</dt>
+<dd>If you don't have WebRTC support, then you don't have WebRTC support. If it's a website where there's a big chat application in the sidebar, or under a button, or the whole entire point of the app is to do something like <a href="http://talky.io/">Talky</a> does, then it's totally not going to work.</dd>
+
+<dt>Henrik</dt>
+<dd>There is, however, there's a possibility... Google's been talking about using WebRTC for Hangouts, which they're currently not doing. My guess is what they'll do, is they're still going to want to support Safari and whatnot. My guess is that it will be a plug-in that you download in other browsers but if you happen to be using Chrome you might not need...</dd>
+
+<dt>Jen</dt>
+<dd>It would be great if that plug-in were not just support for Hangouts but support for WebRTC period. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>Yes, I agree, that would be awesome.</dd>
+
+<dt>Jen</dt>
+<dd>That would be awesome because if people would be like, "Oh, I'm on IE, I went to go hangout one time and now I have WebRTC on every website on the web." And I don't even know what that is, I just have it.</dd>
+
+<dt>Henrik</dt>
+<dd>I could see that potentially happening. That would be pretty cool.</dd>
+
+<dt>Jen</dt>
+<dd>Of course, there's still progress enhancement in some ways, right? Like you could still... if your main point of your website is not something with WebRTC than you just still have the main point of your website and the people without WebRTC just don't have WebRTC. Then, of course, and I'm just going to say this because I think we can't say it enough. You use something like <a href="http://modernizr.com/">Modernizr</a> to detect whether or not there's support. if there is support, you deliver one experience. If there's not support, you deliver something else. And maybe the "something else" is a notice that says, "You're going to need this fancy thing for this and you don't have it, so you need to use one of these browsers." Is there a polyfill at all, really?</dd>
+
+<dt>Henrik</dt>
+<dd>For WebRTC in general? Not really. No. Not really. It would have to be a plug-in, form-thing at this point.</dd>
+
+<dt>Jen</dt>
+<dd>I was looking for... maybe they took it down. The HTML5Please website. HTML5Please has... they had an API for a little while that I was recommending to people to use. Where you could, instead of saying, "Oh, this only works in Chrome and Firefox, you have IE. Or Safari, You lose." If you say that, that's going to be true right now, in late 2013, but when IE-whatever comes out and it supports WebRTC or Safari, or whatever, at some point that will expire. It would be better to have something that isn't going to expire, right? It's not going to be wrong the day IE comes out with WebRTC.</dd>
+
+<dt>Henrik</dt>
+<dd>Right. So actually doing capability-detection instead of just sniffing to say, "This is IE. No, go away."</dd>
+
+<dt>Jen</dt>
+<dd>There was an API. I sound like I don't know what I'm talking about because I'm trying to type. Oh, here it is. Okay, finally. I'll put this in the show notes, too. <a href="http://api.html5please.com/">API.html5please.com</a>. They have a little widget where you can drop it in and then you don't have to worry about keeping track of what browser supports the thing. You're just testing on whether or not the feature exists, and if the feature exists, the you're good to go. If the feature does not exist, then it displays a little box that says, "Hey, this page uses features that are unavailable in your browser. Please view this page in one of these other browsers." And then it displays the logos and download links for browsers that do support that particular API.</dd>
+
+<dt>Henrik</dt>
+<dd>That's cool.</dd>
+
+<dt>Jen</dt>
+<dd>And as the APIs change, as the support changes, then the... what browsers that support this thing automatically changes. It says Firefox and Chrome today and Safari comes out with support tomorrow for the thing... it doesn't have to be WebRTC, it could be any API on the web. Then it will automatically the next day have Safari in there. Which I think is pretty hot. Because then you don't have to, as a person who's made this awesome demo or this cool little toy or this thing and you don't care about support, but you can toss this on there and it will very quickly tell people who don't have a browser that's going to run this thing, it will tell them very quickly what browsers will, and then it will update itself.</dd>
+
+<dt>Henrik</dt>
+<dd>Very cool. Yeah, I feel the need to mention, too... there are differences in the API between browser to browser. There is a polyfill even just for normalizing behavior between Chrome and Firefox. There's one that Google and Firefox kind of mutually maintain called Adaptor.js. But also I've written a tool. There's a very popular WebRTC library called SimpleWebRTC. It's really just a collection of, I think it's 10 different modules that all solve one little specific aspect. For example, in Firefox, your <code>PeerConnection</code> object is called <code>mozRTCPeerConnection</code> and in Chrome it's <code>webkitRTCPeerConnection</code>. They have slightly different methods and names and behaviors. Things like, requesting user media and actually figuring out what went wrong. The way that Firefox and Chrome handle errors is very, very different, so a little module for that. <a href="http://simplewebrtc.com/">SimpleWebRTC.com</a> is just a site that lists some of these modules and gives an example of how to very simply tinker with WebRTC without having to know all of these little intricate details. The idea is to remove barriers to entry and making it extremely approachable for somebody who's new to it, right?</dd>
+
+<dt>Jen</dt>
+<dd><p>Yeah. That and all of these other links will go into the show notes for this episode, which people can get to by going to <a href="http://5by5.tv/webahead/59">5by5.tv/webahead/59</a>. This is episode 59. Or if you don't remember that, just go to <a href="http://5by5.tv/">5by5.tv</a>, or, you know, just Google the phrase, "The Web Ahead" to find the website, find this episode, and there's a whole page of links that I've been collecting during the show.</p>
+
+<p>I had another question there and I forgot it already. Oh, I was going to say that it almost sounds like, perhaps, to some people listening that, like, "Why are you talking about this? This isn't really not ready." And I typically don't talk about APIs that are this unbaked or this half-supported and unable to be polyfilled or unable to be progressive-enhanced-around as easily. But the thing that's a little different about WebRTC is it's been going so fast.</p></dd>
+
+<dt>Henrik</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Like, it was just a sparkle in somebody's eye, and then BAM, it was a spec and then BAM, it was an actual spec with implementation and then... way faster than specs usually go. It seems to me. This was going to be baked and shipped really fast. [Laughs]</dd>
+
+<dt>Henrik</dt>
+<dd>This constant update model that we're seeing the Chrome team and Firefox doing enables this rapid iteration. This is one of those ones where it's really first to be able to fully take advantage of that, and rapidly, rapidly push out updates. I mean, not the first to take advantage of it, but certainly benefit from that greatly. It's very cool to see that. And also, I don't actually think that until somebody gets out there and implements it, and really starts... like I said, the incentive has to be there for other browsers to do this. I think part of that is showing what can be done with it. I think it's important that we don't wait for it to be ready, we help make it ready. Because: Web developers. It's WebRTC. Without that, it risks being relegated into this... you have to be a voice and video nerd. Like, they're actively soliciting feedback on these APIs. The fact is, we use WebRTC regularly. We use it for meetings all the time. It's not like we had to sit around and wait for it to start working. We are depending on it for meetings right now. You're limited to a couple of browsers but it's not like it doesn't work. It works quite well most of the time. Beautiful, full-screen video and audio and, maybe cases, way better quality than what we'd get from Skype or Hangouts. This is not the kind of thing that you had to wait for it to be done. You can build extremely valuable stuff now.</dd>
+
+<dt>Jen</dt>
+<dd>I think people are so excited about this. There's just a tremendous amount of momentum. I've seen the Chrome team and the Firefox team. They're just like, gleefully experimenting, with each other! Excited. "Oh my god, look, it works!" People are just out of their mind with having access to the camera and with being able to send real-time audio, video, chat, text, data, back-and-forth.</dd>
+
+<dt>Henrik</dt>
+<dd>The web has always been about communication. We've been really good at the broadcast-aspect of that. HTTP, publish something and everybody can see it and giving voice to people that didn't have one, but like... this is almost like the personal communication portion being modeled natively in the web, and that's really exciting.</dd>
+
+<dt>Jen</dt>
+<dd>I really do think that... I don't know how many years, if I want to say 10 or 20 or 40, but... people will look back, I think. I think the web's going to be significantly different because of WebRTC, WebSocket, and other technologies that are similar. The things that are coming out right now. It's going to morph into something that's pretty unrecognizable. When people look back, 30 years from now, back on the first 10, 20 years of the web, they're going to be like, "What? You just read pages of text and looked at images? Like, that's all you did? Why was that... that's not the web. That's boring." I really think that this kind of interaction and having the page be a container of things that are moving and shifting and happening rather than the page being a photo of a piece of paper... is pretty key to what the web is about to become.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah. And also connecting all kinds of other devices to the web. Having things like security camera broadcasting stuff that's on WebRTC. There's so many other things that can be done with this as well.</dd>
+
+<dt>Jen</dt>
+<dd>All of these little devices, all of these little data collectors that we're starting to carry around on our bodies, that those can then sync back up to the web and display that data immediately. Keep track of where people are and whatever. Like in a race. In a 5K or something.</dd>
+
+<dt>Henrik</dt>
+<dd>Also, having this stuff available at practically zero cost is cool for things like, working remotely with other people. If people are doing things like setting up a video channel that's always open. Putting a monitor on the wall and working with somebody, sharing an office with somebody on the other side of the country. That sort of stuff is completely doable now and it doesn't cost anything, really, beyond your internet connection. It's cool. It's just removing more and more and more barriers from doing this kind of stuff.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So, let us know what happens. [Both laugh] If you have any other links, you're going to send them to me and I'll put them in the show notes.</dd>
+
+<dt>Henrik</dt>
+<dd>Yeah, I'll do that.</dd>
+
+<dt>Jen</dt>
+<dd>Especially, like, demos and examples. Experiments that people have going, or open-source libraries that people are sharing.</dd>
+
+<dt>Henrik</dt>
+<dd>Totally.</dd>
+
+<dt>Jen</dt>
+<dd><p>A lot of this stuff is in GitHub repos so I put some of them already in the notes.</p><p>People can follow you on Twitter, yeah? What's your Twitter?</p></dd>
+
+<dt>Henrik</dt>
+<dd>It's just <a href="http://twitter.com/henrikjoreteg">@henrikjoreteg</a>. J-O-R-E-T-E-G is how you spell my name, my last name. But hopefully that goes in the show notes, too. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>And you've got a website I'll put in the notes.</dd>
+
+<dt>Henrik</dt>
+<dd>Just, yeah, <a href="http://andyet.com/">andyet.com</a> is what I do most stuff with. You get a blog there that we keep up to date with cool new stuff that we're working on.</dd>
+
+<dt>Jen</dt>
+<dd>And that's And Yet. A-N-D.</dd>
+
+<dt>Henrik</dt>
+<dd>A-N-D-Y-E-T. Yup.</dd>
+
+<dt>Jen</dt>
+<dd>Which is a great name. [Henrik laughs] It's fun.</dd>
+
+<dt>Henrik</dt>
+<dd>There's a whole story on the site, why the name is what it is. I won't get into it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I'll have to go read that. And people can follow the show. @webahead on Twitter. I believe, right? That's the name, right?</dd>
+
+<dt>Henrik</dt>
+<dd>It's <a href="http://twitter.com/thewebahead">@thewebahead</a>, I think.</dd>
+
+<dt>Jen</dt>
+<dd><p>It's <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. [Henrik laughs] I forget myself, because I keep trying to buy them and it's not easy to. It's not easy to get names. Yeah, <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. Geez. How could I not even know my own...? <a href="http://twitter.com/jensimmons">@jensimmons</a> on Twitter. It would be great if you want to go leave a review in the iTunes store. It's been a little while since we had a nice thick round of reviews, a bunch of ratings and reviews. Those really do help promote the show, get the show visibility in the store. And why is that good? It's good because then other people hear about the show and then they listen to the show. So if you think other people should listen to the show, because it's worth... it must be worth your time if you got all the way to the end. There's gotta be some people in the world that you think, maybe would also be good to listen. So, a review or rating would be great.</p>
+
+<p>What was the other thing I was going to tell people? Ask people. Ask people to do. I think that's it. I don't remember.
+
+<p>And tune in. You can always go to <a href="http://5by5.tv/schedule">5by5.tv/schedule</a> to see when the next show's are being scheduled, if you're interested in listening live, or if you're just curious when the next one is. And we'll hopefully have more very soon.</p>
+
+<p>Thank you, Henrik, for being on the show.</p></dd>
+
+<dt>Henrik</dt>
+<dd>This has been great. Thank you very much, Jen.</dd>
