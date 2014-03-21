@@ -206,7 +206,7 @@
 <dd>Right. Let's talk about each of those as separate parts of the show.</dd>
 
 <dt>Henrik</dt>
-<dd>In order to set up a video call, the first thing you have to do is get access to the user's video and audio. That's something that you have the user permission to do. But there's browser APIs for doing this, where you say, it's <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.<code>getUserMedia</code>">navigator.<code>getUserMedia</code></a> and you tell it whether you want video or audio. The spec also supports being able to request certain resolutions of video. In addition, in certain cases, in Chrome, there's some preliminary support for requesting access to your screen instead, using that as a video source. But the concept is you have to ask the user for access to something worth streaming. That's kind of the <code>getUserMedia</code> portion of that. The peer connection, so, there's an object in your browser if you're using Firefox or Chrome, called <code>RTCPeerConnection</code>. That is basically the object that you have to instantiate in your browser that represents your connection to the other user, whoever the other person is that you're going to talk to. So if you're going to talk to multiple people, you're going to have multiple <code>PeerConnection</code>s set up. Then it's basically your job to then attach this media stream that you got from asking the user for access to their camera, and then attaching that to the <code>PeerConnection</code> and passing messages. Once you've done this, the <code>PeerConnection</code> knows enough of what it needs to do in order to describe its capabilities to another browser. You, as a developer who is building an app like this, it's your responsibility to figure out how to pass those messages between the two browser instances that want to talk to each other. Therefore, you might use something like a WebSocket. You're passing these things called signaling messages from user to user and once that's successfully established a connection, then you get access to the remote user's, so the other person's video stream, locally. Then you can display that to the user. So there's several steps involved there. It's unfortunately somewhat complicated but that's why there's tools and libraries to make this stuff easier.</dd>
+<dd>In order to set up a video call, the first thing you have to do is get access to the user's video and audio. That's something that you have the user permission to do. But there's browser APIs for doing this, where you say, it's <a href="http://developer.mozilla.org/en-US/docs/Web/API/Navigator.<code>getUserMedia</code>">navigator.<code>getUserMedia</code></a> and you tell it whether you want video or audio. The spec also supports being able to request certain resolutions of video. In addition, in certain cases, in Chrome, there's some preliminary support for requesting access to your screen instead, using that as a video source. But the concept is you have to ask the user for access to something worth streaming. That's kind of the <code>getUserMedia</code> portion of that. The peer connection, so, there's an object in your browser if you're using Firefox or Chrome, called <code>RTCPeerConnection</code>. That is basically the object that you have to instantiate in your browser that represents your connection to the other user, whoever the other person is that you're going to talk to. So if you're going to talk to multiple people, you're going to have multiple <code>PeerConnection</code>s set up. Then it's basically your job to then attach this media stream that you got from asking the user for access to their camera, and then attaching that to the <code>PeerConnection</code> and passing messages. Once you've done this, the <code>PeerConnection</code> knows enough of what it needs to do in order to describe its capabilities to another browser. You, as a developer who is building an app like this, it's your responsibility to figure out how to pass those messages between the two browser instances that want to talk to each other. Therefore, you might use something like a WebSocket. You're passing these things called signaling messages from user to user and once that's successfully established a connection, then you get access to the remote user's, so the other person's video stream, locally. Then you can display that to the user. So there's several steps involved there. It's unfortunately somewhat complicated but that's why there's tools and libraries to make this stuff easier.</dd>
 
 <dt>Jen</dt>
 <dd>We could just talk about <code>getUserMedia</code>. You might use <code>getUserMedia</code> to grab audio and video and send it to someone else in a Skype connection. Skype-like chat. What we used to imagine back in the 80s when I was touring the AT&amp;T headquarters in Virginia. [Henrik laughs] And they had video teleconferencing rooms where you could do a video teleconference. It was like, "Wooooow! That's big." But you might just grab the audio and video to do something completely different that doesn't effect the other people.</dd>
@@ -446,7 +446,7 @@
 <dt>Henrik</dt>
 <dd><p>I think we're going to see a lot more of that kind of stuff, too. Some cool examples of work that's being done... there's this guy, Feross, a friend of mine. He was a student at Stanford, I think he took a little break to work on this project. He built this thing called <a href="http://peercdn.com/">PeerCDN</a>. What it is, is, it's like, using WebRTC Data Channels to seed files to other people who are on the same site. Normally, you have a content distribution network for, say, downloading video files that you're going to play in the browser. As a small little independent owner of a website, if all of a sudden the internet itself arrives on my webpage to watch my video, I'm going to spend piles of money on bandwidth. What the <a href="http://peercdn.com/">PeerCDN</a> does, is it actually, the people who are currently on the page will send the video then seamlessly to each other instead. You're using the swarm of peers visiting the site as its own CDN. Those kinds of things are just amazing and awesome. Because now the little independent publisher of that video doesn't have to spend all of this money and bandwidth, right?</p>
 
-<p>He's actually working on another project called <a href="https://github.com/feross/webtorrent">WebTorrent</a> that's basically... it gets into kind of BitTorrent-type stuff. But using Data Channels as well to do really interesting things. Tools like WebRTC landing at this point in time, with all of this news that we're hearing about encryption, et cetera, is really... it's perfect timing. I think we need to really push these technologies and get into them. If you're a developer who's just playing with... looking for the next thing to toy with... get in and start using this stuff and build things with it. My little soapbox there. [Laughs]</p></dd>
+<p>He's actually working on another project called <a href="http://github.com/feross/webtorrent">WebTorrent</a> that's basically... it gets into kind of BitTorrent-type stuff. But using Data Channels as well to do really interesting things. Tools like WebRTC landing at this point in time, with all of this news that we're hearing about encryption, et cetera, is really... it's perfect timing. I think we need to really push these technologies and get into them. If you're a developer who's just playing with... looking for the next thing to toy with... get in and start using this stuff and build things with it. My little soapbox there. [Laughs]</p></dd>
 
 <dt>Jen</dt>
 <dd>Yeah. Well, and, you know, there's the peer-to-peer connection, right? So there's the <code>MediaStream</code> peer-to-peer and Data Channels, now that you reminded me. And the data really is... I mean, you can create a real-time data connection between browsers. And, again, you could do it with WebSocket or you could do it with WebRTC and there's technical reasons to do one or the other. But just the idea that two separate webpages can send data to each other instantaneously, basically.</dd>
@@ -512,7 +512,7 @@
 <dd>And that's an iOS packet. I mean, an app that you can download.</dd>
 
 <dt>Henrik</dt>
-<dd>Yes, correct. And that actually does support WebRTC. It's a little bit... laggy and not the best quality ever, in terms of the actual... encoding-decoding stuff is a little bit slow. But, hey, it's there, it works, it's a proof-of-concept. I think we're going to see good things happening here and the more that gets built with this... it's the kind of thing that, like, you really shouldn't sit around and wait for this to be ready. Part of what's going to make it good is people getting in there and building stuff with it. Also, tools like this <a href="https://github.com/legastero/jingle.js">WebRTC Jingle library</a> that Lance on our team wrote... really means that if you have a native client on any platform that talks XMPP and Jingle, you should be able to interoperate with WebRTC, which is pretty cool. So even if you're not in a webpage on that device, you should be able to make voice and video calls.</dd>
+<dd>Yes, correct. And that actually does support WebRTC. It's a little bit... laggy and not the best quality ever, in terms of the actual... encoding-decoding stuff is a little bit slow. But, hey, it's there, it works, it's a proof-of-concept. I think we're going to see good things happening here and the more that gets built with this... it's the kind of thing that, like, you really shouldn't sit around and wait for this to be ready. Part of what's going to make it good is people getting in there and building stuff with it. Also, tools like this <a href="http://github.com/legastero/jingle.js">WebRTC Jingle library</a> that Lance on our team wrote... really means that if you have a native client on any platform that talks XMPP and Jingle, you should be able to interoperate with WebRTC, which is pretty cool. So even if you're not in a webpage on that device, you should be able to make voice and video calls.</dd>
 
 <dt>Jen</dt>
 <dd>This is one of those things that... many of the things that are new on the web, a really great progressive enhancement approach will solve incompatibility with older websites. Every website doesn't need to look the same, doesn't need to have all of the same exact things, so you should use progressive enhancement and it will be fine. This is the situation where that's not true, right? [Both laugh]</dd>
@@ -647,3 +647,43 @@
 
 <dt>Henrik</dt>
 <dd>This has been great. Thank you very much, Jen.</dd>
+
+</dl>
+
+<footer>
+<hr><small>
+<p>All rights to these transcripts, of course, belong to someone who is not you. This work is protected by U.S. Copyright Law, All Rights Reserved and all that stuff.</p>
+<p>Just to be clear, that means you do not have permission to grab this transcript and run off with it to print it in a book or something like that. If you have grand ideas of how that might be cool, <a href="http://jensimmons.com/contact">contact me</a>. A book would be cool. But meanwhile, it's very illegal for you to cut and paste this whole transcript into your spammy link-baity website, pretending that its yours. Don't do that.</p>
+
+<p>You do, of course, have full rights to quote parts of this conversation in something you are making -- like a paper for school, or a blog post, or a collection of stuff on a website. A link back to here and a mention of the show would be greatly appreciated. Do be sure to credit the person who said the thing, at a minimum.</p> 
+
+<p>While we are talking about rights, you don't need my permission to quote parts of this conversation. You have my permission, but -- well honestly, I don't have any right to give it to you. You just automatically and always have the right to quote something when you are commenting on it, critiquing it, or remixing it. Did you listen to <a href="http://5by5.tv/webahead/4">episode 4</a>, when Pat Aufderheide explains Fair Use? It's all about when you can use other people's copyrighted material in your work.</p>
+</small>
+
+<p>See a mistake? <a href="http://help.github.com/articles/using-pull-requests">Submit a pull request</a> to <a href="http://github.com/jensimmons/webahead-transcripts">the transcript Git repo</a> with a fix.</p>
+
+</footer>
+</article>
+</main>
+
+<footer role="contentinfo">
+<hr>
+
+<ul>
+<li><a href="http://5by5.tv/webahead">The Web Ahead on 5by5</a></li>
+<li><a href="http://twitter.com/thewebahead">The Web Ahead on Twitter</a></li>
+<li><a href="http://jensimmons.com">jensimmons.com</a></li>
+</ul>
+
+</footer><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-46513811-2', 'webahead.info');
+  ga('send', 'pageview');
+</script>
+
+</body>
+
+</html>
