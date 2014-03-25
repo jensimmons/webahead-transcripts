@@ -2,7 +2,7 @@
 
 Transcripts of the radio show, The Web Ahead
 
-Created by 
+Created by :
 Jen Simmons
 Brooklyn, New York
 twitter: @jensimmons 
@@ -10,3 +10,7 @@ http://jensimmons.com
 
 The Web Ahead
 http://5by5.tv/webahead
+
+Superstar Transcribers include:
+Jenn Schlick, http://jenn.io 
+Rev.com, http://rev.com

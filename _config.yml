@@ -1,0 +1,44 @@
+name: The Web Ahead Transcripts
+metadata_description: Full-text transcripts of the radio show, The Web Ahead
+metadata_author: Jen Simmons
+
+lang: en
+
+baseurl: /
+permalink: pretty
+markdown: rdiscount
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://transcripts.webahead.info'
+  relativeLinks: 'http://transcripts.webahead.info/starter/links.jsonp'
+  media: 'media'
+  metadata:
+    _posts:
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "blog"
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "blog"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+    _posts/static:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "page"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "permalink"
+        field:
+          element: "text"
+          label: "Permalink"
+          value: ""
