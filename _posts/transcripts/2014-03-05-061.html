@@ -1,0 +1,420 @@
+---
+layout: transcript
+title:  "Episode 61: Making Your Stuff Make Sense with Jeff Eaton"
+permalink: 61/
+---
+
+<dl></dd>
+
+<dt>Jen</dt>
+<dd>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host Jen Simmons and this is episode 61. Here we are in March 2004. I want to say, first, thank you so much to today's sponsor, New Relic, helping make today's show possible. I'll talk about them more later in the show. I also want to start out by saying a huge thank you to Jenn Schlick. I started slowly this little thing of putting transcripts of the show on the web. It's something I've been wanting to do for a really long time. Getting transcripts done professionally, is, you know, it's not cheap. You need a couple hundred bucks a week to do it. And Karen McGrane, when she was on the show, way back when, had her episode transcribed. So I had that. And then this company at <a href="http://www.rev.com/">rev.com</a> contacted me and said, "Hey, we'd love to do one transcript for you," and I said, "Oh, cool!" Then I needed to put them somewhere. You can go to transcripts.webahead.info, and I'll put that link in the show notes, where I've been gathering together transcripts. It's just a very simple website, it's barely styled at all right now. But it's the beginning of something and I eventually want to build this up into something much bigger. But then I put them on Github. There's a public repo on Github: webahead-transcripts. I just put them up there, like, "Hey, if anybody wants to help, you can help here." And Jenn Schlick totally stepped up and she banged out 3 transcripts. She transcribed episode 57, 58 and 59. Which I think is kind of awesome. It was very exciting, actually, to be like, "I put this thing out in the world and someone else contributed! What?" I believe very much in open source and have worked a lot on open source projects but it's just really funny when suddenly it's your own. Thanks, Jenn. If you, listener, want to jump in as well, you can go to this Github repo and fork it and then clone your own and then add some more. It turns out <a href="http://www.rev.com/">rev.com</a> is going to do episode 60 and we'll see. Maybe we can get all of them done. That would be kind of cool. Maybe I'll build something, a more exciting website than just this little website where people can actually get to the transcripts easily. So thanks to Jenn. Today's show. Let's just move on to today's show. I have my guest here, Jeff Eaton. Hi, Jeff.</dd>
+
+<dt>Jeff</dt>
+<dd>Hello!</dd>
+
+<dt>Jen</dt>
+<dd>You're a great developer, really. And a designer, a user experience designer at heart, in the way that you get humans as well as machines. [Laughs] You're always advocating for and pushing for humans and the human perspective on what it is that teams are building as well as understanding, very deeply, the guts in the backend of what's going on behind that scenes.</dd>
+
+<dt>Jeff</dt>
+<dd>Thank you! That really means a lot. It's a big part of the kind of work that we do and I think, especially, working on CMS-oriented stuff and these publishing platforms, it's really easy to overlook and ignore. But the people who are actually using the stuff that we build day-in and day-out are really effected by the work that gets put into that, or doesn't get put into it. </dd>
+
+<dt>Jen</dt>
+<dd>Yes. You work over at Lullabot. You've actually worked there a really long time.</dd>
+
+<dt>Jeff</dt>
+<dd>Yeah, I always lose track. It's like when you reach that point in your life where you're like, "Wait a minute, am I 36 or am I 37? I can't remember." I think I've been with Lullabot for about eight years. My title is officially "Digital Strategist" now, which feels a little weird. It's basically, I do a split of content strategy work and architecture work for the large projects we plan.</dd>
+
+<dt>Jen</dt>
+<dd>You've built a lot of sites in Drupal for a lot of big companies, a lot of big media companies, and worked with larger teams. I think we forget, those of us who get a chance to work on projects that have a budget of half a million dollars or higher, that we forget what it's like. That 99.99, totally-not-official-data, some huge percentage of the websites online are actually not half a million dollar projects. [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>Oh, definitely. </dd>
+
+<dt>Jen</dt>
+<dd>They're like, $12 projects. Or they're $5,000 projects. </dd>
+
+<dt>Jeff</dt>
+<dd>It's been interesting because we don't do a lot of really tiny projects at Lullabot. We do sort of a mix. We just finished the re-platforming for MSNBC.com, which was really exciting to get a chance to work on that. There were a bunch of different organizations that were involved in that. We've done stuff like the Martha Stewert website, wwe.com... we do a lot of publishing and media and entertainment properties. But we also work with smaller nonprofits and stuff like that on projects that are interesting and meaty but they have a much smaller scope and scale and aren't quite as dramatic and flashy. It's fun to get a mix of that. It may just be me, but I think everyone who works on the web, somehow ends up getting pulled into either their own little side projects they want to start or doing something for a friend. Although it can be a little overwhelming taking on a bunch of that, it's really really helpful to keep small projects running, too. Just to remember that everything isn't some sort of massive, decoupled content architecture thing.</dd>
+
+<dt>Jen</dt>
+<dd>Right. There aren't 15 people working on every project, ever.</dd>
+
+<dt>Jeff</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>So, we're going to talk today today about content and about structure and about how to plan, design, great content structure or strategy around data. In some ways, I think it's about data modeling to make a website.</dd>
+
+<dt>Jeff</dt>
+<dd>[Gasps] Ok, this is... ok, keep going.</dd>
+
+<dt>Jen</dt>
+<dd>Right? We were talking a little bit before the show. I don't know what label to put on it right away because it's easy to say "content strategy" or "content structure". Sometimes I feel like this is in an incredibly important thing. To spend two weeks, or however long, a phase in a project to actually plan. Yet, it so often is not planned, that I don't even know what name to use for it.</dd>
+
+<dt>Jeff</dt>
+<dd>If it's ok, I'll just jump in, because I talk a lot.</dd>
+
+<dt>Jen</dt>
+<dd>Let me just say, first, that Karen McGrane was on the show. I think it was episode 6, almost two years ago. We talked a lot about this topic when she was on the show. You and her know each other and you've presented at conferences together and I feel like the two of you have just been synergistically-connected super twins and ranting...</dd>
+
+<dt>Jeff</dt>
+<dd>It's definitely like a wonder twins of content strategy thing.</dd>
+
+<dt>Jen</dt>
+<dd>Wonder twins! Yes. You've just been busting into these big media companies and explaining to them. She wrote this great book, Content Strategy for Mobile, and she has this amazing talk that she gave in 2012 that just gives the whole pitch of, "What's the deal? Why do you need to do things this way?" We're going to talk more about that, maybe a bit of an overlap and repeat. But it was two years ago and who remembers what we talked about then, anyway.</dd>
+
+<dt>Jeff</dt>
+<dd>And the world has changed. That was when dinosaurs roamed the Earth.</dd>
+
+<dt>Jen</dt>
+<dd>So jump in. What are we talking about, Jeff?</dd>
+
+<dt>Jeff</dt>
+<dd>One of the things that I spend a lot of my time working on with the projects that we do, is planning out the... there's a lot of different used that get used for it... but "content architecture" is one side of it. The reason I got involved in the world of content strategy after a long, long stretch of working as a Drupal developer and a Drupal architect, the very technical side of a lot of CMS sites. Was because a lot of the stuff that we were building, we were having to plan, it felt like, this whole realm of tasks that weren't directly related to technology implementation or technology planning per se, that we just started figuring out, we had to do. And we had to figure out answers to certain questions or everything would just fall apart. Questions like, "You say you've got these different kinds of posts that you publish. What are they for? What are you trying to get at? Where are you going to be using them? What different kinds of existing content repositories do you have all throughout your organization?" They would get lumped into wireframing or planning for the data migration or different technical buckets that people knew how to schedule. But it really seemed like they were hinting at something other than pure technology or pure design-related stuff. I think that's what content strategy, to a large extent is about. It's about focusing on those bigger picture questions of, "What are we trying to accomplish with these projects? Who are we talking to? Who's responsible for it?" It ends up being the nexus point between a lot of different disciplines that anybody who's been working on web projects has probably been wearing a bunch of those hats or interacting with that, but there hasn't necessarily been a holistic umbrella to put it under. Does that make sense?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and what I've experienced is that lots of times there's no content strategy. Or there is and there'a a bunch of meetings and a whole bunch, a whole bunch, of Excel spreadsheets get made...</dd>
+
+<dt>Jeff</dt>
+<dd>Ah, the spreadsheets.</dd>
+
+<dt>Jen</dt>
+<dd>... and then that stuff is sort of sent to the designers and the designers make a bunch of static wireframes that are fixed width. They're emailed in PDF form at the end. Those get sent to the visual designers, who then put a skin on them. Then the developers get emailed a set of PDFs. Then they're supposed to kind of reverse-engineer from the PDFs...</dd>
+
+<dt>Jeff</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>... the Photoshop documents. These PSDs. They get these PSDs. The people who actually build the website, on a lot of projects I've seen, the only thing they get sent is a stack of Photoshop documents. Maybe they're really well-labeled, maybe they're not, but the labels and the layers might be the only metadata they get.</dd>
+
+<dt>Jeff</dt>
+<dd>If you're really unlucky, you get flattened JPGs.</dd>
+
+<dt>Jen</dt>
+<dd>Right. [Laughs] Or you do get, lots of times you do get wireframes that are annotated. There's some extra information in the annotated wireframes. But there's nothing else around, "How many types of content are there on this website? What are the names of the content? Who are the people who actually..." You know, there's a team of employees, perhaps, who are going to now, for the next five years, spend half of their day, every day, entering content into the website. Who are those people? How do they work? What is your industry? What are the names for the things in your industry? None of that is ever talked about. The developers end up with the reverse-engineering... it's like you're looking at a finished website.</dd>
+
+<dt>Jeff</dt>
+<dd>That's exactly what we did for years. We would refer to it as "design decomposition". The process of taking these designs or wireframes... again, if we were lucky, annotated wireframes... and just trying to break them down and suss out the patterns. "Oh, well, it looks like these six pages are kind of the same thing. They just have a different core piece of content. Or they have different supporting elements. We'll start labeling those and pulling them out." Especially in projects where there's a bunch of different organizations participating. You'll have internal people doing the specs and the requirements and then a design team produces those and then it gets handed off. That bucket-brigade, linear-deliverable approach can lose so much valuable information.</dd>
+
+<dt>Jen</dt>
+<dd>What I experienced quite a lot is being on a development team where everything was broken down into tickets. There were separate people at separate computers working on separate pieces of this larger website. There was very little time or effort for coordinating what each developer was doing with each other developer, right? On a better dev team, I think there'd be a meeting and you'd reverse engineer as a group and somebody would come up with a list and a plan. But more often than that, what I witnessed was just, this developer calls their content type, "Event". This other developer calls their content type... and the names of the fields... "Oh, this is the lead," and "Oh, this is the summary," and "This is the teaser," and "This is the short teaser," and this is the... completely illogical, everybody's just...</dd>
+
+<dt>Jeff</dt>
+<dd>It's a Frankenstein CMS.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and you're just running on a deadline and you're just like, "I don't know, just make the name of this crap up." [Both laugh] It's totally the wrong words for that industry and usually it's the words from the industry from the last website we built. It'd be like, "We built a newspaper website, so that was called a 'lead'. And then we built a university website so we called it a 'lead' even though no one at the university has any idea what the word 'lead' means."</dd>
+
+<dt>Jeff</dt>
+<dd>That's actually one of the things that I'm... I won't say obsessive. Well, ok, obsessive. Is that idea that naming thing sis a really important part of the process of building the interface that people will end up using to work with it. It's funny because developers get this. When we're talking about, say, the class names, or the endpoints for an API, or the stuff that they directly work with on a day-to-day basis. Anybody who's worked with PHP can probably go off on a tear about the different inconsistent names that string replacement functions, string manipulation functions in PHP have. Some of them are mixed case, some of them have underscores, they take parameters in different orders. It's just maddening. The same thing is a big problem for the people who actually work with content and have to input it into a CMS day-in and day-out. If there isn't a consistent vocabulary, a consistent set of approaches to the system that gets built for them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I shouldn't' rant about this particular one piece of it too long. For some reason it gets to me. Because I think what ends up happens is you end up with a group of developers who are trying really hard to do good work, but they're not able to. Because they don't have permission to have a planning meeting. They haven't had a chance to meet with the content strategy folks that happened six weeks ago in a meeting they weren't invited to. All you can do is build something that's kind of a Frankenstein mess.</dd>
+
+<dt>Jeff</dt>
+<dd>It's interesting because that's something that we've been... internally, we've been working really hard to try to integrate both upfront content strategy and some of the different, strange, but some of the tactical aspects that usually go under the content strategy umbrella. Things like user interviews, figuring out the way that workflows get addressed, and stuff like that. We've worked really hard to figure out how to integrate that into the rest of our development process. One of the things that we've found is that... Lullabot's, I won't say small. We're a little under 50 people total. But we're still in that zone where everybody kind of knows everybody and there aren't any gigantic projects and we're not really large enough that there are silos inside of the company that are just totally impermeable. There aren't departments that just never talk to other departments. I think that a lot of the success that we've had on our projects integrating design and development and strategy come from that small, tightly-knit quality. We've got those people who are often talking to each other and interacting, even when we're not heads down working on tickets or deliverables. The cross-talk that can happen there, I think, ends up being really valuable. When we're explicit about it, when all of those different perspectives are able to weigh in at the wireframing stage rather than just at the very end of the process, when we're like, trying to theme a Drupal site and get everything stitched together. It really makes a big difference. On the flip side, we've seen that when we have tried to silo things, even if it's on a small team where the two developers go off and do something and one designer goes off and does something, the architect is off gather requirements. When we split things up like that, we end up seeing exactly that same problems that we've observed on traditional, big-agency projects. Where the different silos aren't talking to each other and you get that bucket-brigade deliverable effect that you were talking about earlier. I don't think it's a matter of size. I think it's just, in smaller organizations it's easier to get around that siloing effect. But you have to keep fighting to get everyone from the different groups and disciplines talking to each other.</dd>
+
+<dt>Jen</dt>
+<dd>What are some of the techniques that you use or deliverables... what is it that you do as a digital strategist when you're approaching a project, and you have a new client and you know it's going to be complicated content?</dd>
+
+<dt>Jeff</dt>
+<dd>There's a whole process that we've gone through. We usually do on-site kickoffs with the client. We're a distributed company so we don't actually even have a central office. The 50 of us are scattered throughout North America and Canada and Europe and the whole deal. Usually, we always try to have on-site kickoffs just to get everyone on the same page. For a long time, we would always call those "the planning meeting" or something like that. As you were saying before, it can be a really hard sell to get a client, who feels like they've already gone through this process of figuring out what they want out of redesigning their website or embarking on a big project. They've gone through the process or hiring an outside company. Then, suddenly, this company wants to sit down for two weeks and talk to them and come up with plans instead of getting rolling. That can be really frustrating, I think. Especially when the conversations aren't even necessarily about really concrete, visible, tangible things. Like, "What's the front page going to look like?" and stuff like that. The kinds of conversations that either designers or content strategists want to have are usually things like, "Tell me more about your audience. Who are your people? What kind of language do you use to talk about your products?" Those feel very fluffy and fuzzy and especially to kick off something that you know the end goal is an actual, functioning website. That can be tough. Some of the things we end up doing a lot of are, we call them "workshops". It's sort of like a discovery and planning meeting. The idea is to get different people at different levels of the organization really engaged in answering some of these questions and figuring out, "How do you actually think of your organization? What kinds of people are you trying to communicate to?" We just worked with a nonprofit recently that had a very traditional, 2006-2007 era website. This informational website about their nonprofit and what it did. It had a newsroom and it had a front page with recent events. When they were busy, the recent events wouldn't be updated for a month, and that kind of stuff. They were really excited about reimplementing this but it look a little adjustment, talking through some of those bigger questions. Sometimes we're lucky and they're like, "Ok, let's do this. Let's iron out those things." Other times, we have to treat that work almost like project management. Project management is important on a lot of projects but it's not necessarily something that a client says, "Ok! Project management! Let's do that! Let's sit down and project manage this week!" It's lots of smaller, discrete questions and conversations that happen along the way. It depends. Sometimes with an upfront engagement, we can dive in and get all of these strategic questions answered and set up what we feel is a really good pool of knowledge for the implementation team. Other times, I'm working right alongside with all the developers as their sussing out the data migration and I'm helping plan the content structure and stuff like that. I'm not sure if that... I'm prone to rambling with this stuff.</dd>
+
+<dt>Jen</dt>
+<dd>That's alright. Part of it is Drupal, and I don't know if this is easily applicable to almost every project or if this is just a very Drupal-y thing. But in Drupal, there's this concept of content types and fields. At some point, somebody has to make a decision about, "What are our content types going to be? Are we going to have 5? Are we going to have 15? Are we going to have 40 of them?"</dd>
+
+<dt>Jeff</dt>
+<dd>"Are news stories the same as blog posts?"</dd>
+
+<dt>Jen</dt>
+<dd>Right. It forces you to ask those questions. Once you decide on your content types, you have to come up with your fields. Not only the names of the fields, but also, "What kind of data is this? How flexible are we going to be in allowing variation of data to come in to the system?" Or, "how much do we want to impose a structure?" It's a multiple choice question and you only have three choices, or it's a fill-in-the-blank and this is the kind of thing that's allowed in the blank. Or it's an open essay and you can put whatever you want in here. But no HTML. Or it's an open essay, you can put whatever you want in here, and we're going to let you put all kinds of crazy HTML in here.</dd>
+
+<dt>Jeff</dt>
+<dd>This is actually something that I think... there's been a lot of interest blossoming in the Drupal community about content strategy. I think Drupal's long history of this kind of content types and fields and relationships between content types, our way of tackling how a content-rich website gets built out, is very compatible with a lot of the kinds of planning and thinking that content strategists have been doing to awhile. "What kind of pages do we have? What kind of content types do we have?" Stuff like that. I think there's a very strong vocabulary match between the Drupal community and the content strategy community. That's one of the big early steps that almost every Drupal site starts with. It's not just, "what does the design look like?" But, "what is the big pool of content that your site has to draw from?" The sidebar isn't just a list of links. It's a list of certain kinds of content that fit certain criteria that we just happen to be presenting as a list of links. Most websites, a Drupal person will look at them and start decomposing them into individual pieces of content, or content that matches certain criteria, presented in different ways, like an ordered list of links, or a teaser, or a big, full, presentation view, or something like that.</dd>
+
+<dt>Jen</dt>
+<dd>It is one of the things that the software, Drupal, is really, really good at. I think probably has years of... is years ahead of where a lot of other pieces of software have been. Where WordPress, you've got the title and then there was metadata, like the date that the post was made, and the author, and the tags, and the categories. But the only other thing, really, is just a giant field to put the content itself.</dd>
+
+<dt>Jeff</dt>
+<dd>Yeah, like Joomla and WordPress tend to be the other two systems that get talked about in the same breath as Drupal because they're both open-source, they're both PHP-based, they've both been around for quite a few years. All of them have similar types of functionality via plugins or even some core functionality at this point. This ability to say, there's different types of posts. Or different types of pages and they can have different fields that you can fill out. It is interesting. I was going back and digging into the history of it. That kind of functionality just hit Drupal around 2004. It was a very, very early version of it. The brainstorming around, "How would we make a metadata-driven way of building out content?" Rather than just thinking of things as pages. Those were conversations that were happening in 2004-2005. The stuff that you're seeing now, in modern versions of Drupal, has gone through probably four or five major iteration cycles of figuring out what's working and isn't working and ironing out strange quirks. One of the really significant things about the way Drupal approaches it. It's not unique to Drupal but it is a real strength, is that for each one of those types of data. If you say, "I've got a podcast content type. I want to fill that out. I want to make a new one." There's three aspects to that. One is the underlying information that makes up that piece of content. There's the title of the podcast. There's the description. There's the date that it was published. There's a list of guests that could be from one to any number of them. There's the actual audio file that contains the podcast. That's just the underlying guts of what a podcast is. It's platonic form. Then you;ve got the widgets that actually get used from a web-based CMS to edit or create a new podcast. And then in addition to that, you have the actual display side of things. How does this get presented to someone when they visit the website and look at that podcast? Or when it goes out into an RSS feed? Or when it gets shown in a teaser in a list of content? Separating the underlying storage from the way it gets presented to an editor and the way it gets presented to a viewer and making each one of those three points, stuff that different plugins can throw new interfaces on top of, that's actually made Drupal super flexible. It's made it somewhat complicated, but it's also made it really flexible.</dd>
+
+<dt>Jen</dt>
+<dd> I think that there's something there for any type of site where the way the content is stored really should be planned, designed, architected, whatever word you want to use, for... I believe the content itself is safe and fast but also just future-proof. It's hanging out in the bank vault and it's just going to be there for 15 years and the way that it got stored is a way that makes sense for life or something. It's not because of one particular Photoshop document or one particular crazy idea that somebody has. It has integrity. No matter what might happen when the new watch, when the new car comes out, a new CTO or a new CEO comes into the company and they throw out the old design, they come up with a whole new design. That somehow the content itself is getting stored for a much longer period of time.</dd>
+
+<dt>Jeff</dt>
+<dd>That's a really nasty symptom that I think all of us have seen. Somebody comes in and says, "We want to refresh the design." That means, essentially, reimplementing all of the content, too. Or going through some kind of arduous migration process.</dd>
+
+<dt>Jen</dt>
+<dd>It's so much more work when you have to do that. Frequently, many of us have worked on projects where you've got... universities are notorious for this. You've got this crazy university website that started in 1993 when the computer science department heard of the web, built their own website by hand. Then it was Dreamweaver. Then it was FrontPage. Then it was Contribute. Then it was some horrible CMS that nobody's ever heard of then or now. Then it was... part of it became WordPress and part of it became this thing and part of it became that. </dd>
+
+<dt>Jeff</dt>
+<dd>The first project I was ever the "webmaster" of, when "webmaster" was still a word, I inherited an ecommerce site that a nonprofit had been running that was originally a bunch of static files running on somebody's Mac IIci. Then it got turned into a Perl-based, dynamic website. Then ColdFusion got layered on top of it.</dd>
+
+<dt>Jen</dt>
+<dd>ColdFusion. That's the one I couldn't think of.</dd>
+
+<dt>Jeff</dt>
+<dd>The ColdFusion was actually frames that were still pulling in the Perl-based stuff and I got hired when they were deciding they were going to re-do it in ASP. That sort of layer-cake, archeology-effect is really...</dd>
+
+<dt>Jen</dt>
+<dd>It's painful. I'm hoping, I hope, that big companies have had a chance to migrate away from all of that crazy and into something that's more whole and more solid and will last them longer. That they won't have to keep changing systems. They won't have to keep changing. Even if they do change CMS' that somehow the data itself is still stored in a way that even if they script it out of one database into a different database or about of databases into flat files, that script can be written clean and that it's going to be fairly error-proof because if the content's stored really well and it moves to a new system where it's stored really well, you should be able to automate that transfer. The problem becomes when the data's not really being stored for it's own sake or for it's own integrity, but is being stored for a particular visual display or for a particular idea that somebody had in 2008 about what their website should be.</dd>
+
+<dt>Jeff</dt>
+<dd>This is where the semantic markup, don't-name-your-classes "left"...</dd>
+
+<dt>Jen</dt>
+<dd>Or "green"... "green-box". What happens when you change it to blue?</dd>
+
+<dt>Jeff</dt>
+<dd>That's where that debate came from. It's funny because so much of the argument was being had in the realm of HTML markup purists. But it's really about the nature of the content that we're making. Not just the nature of the markup that it gets piped into.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's the nature of the web, as well. If you really understand it as a series of layers, that your content itself is one of those layers, and it should be stored in a way that is... it's own thing. It's not mixed up with all of this other stuff. It's not like a database table called "left column" or a form that somebody fills out that says this is the, whatever, I don't know, "the green stuff".</dd>
+
+<dt>Jeff</dt>
+<dd>This is something that Karen McGrane and I have talked about in different presentations and articles and stuff like that. Anytime you even hint in a web-based input form that X will go in the left column, somebody is going to insert ad codes into it. Thing swill deviate very quickly from what you hoped for and whatever future plans you had go out the window. What you were saying about how it's important to think about the future-friendly aspect to this. How will this content work in five years when you decide you need to redesign the site? I think it's easy, especially for developers, as we're thinking about building systems to support that, it's easy to treat that as an end in and of itself. I think that's actually where it becomes very difficult to make the case for investing in that kind of an approach. That's what I found really fascinating about the content strategy community. Because a lot of the core principles from that world revolve around things like making good content takes time and energy and effort. It's expensive in the same way that manufacturing something that has worth is expensive. You've invested in making content. If it actually has value, you should want it to have ongoing value. It shouldn't necessarily be throwaway stuff. How can you plan for it to keep its value? Those are the kinds of questions that I think they terminate in the same kinds of tasks at the implementation level but it's an interesting kind of direction to come at it from.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's an interesting question. Let me jump in here with our sponsor. NewRelic. If you've got a web for mobile application, you're going to want to know about NewRelic. NewRelic is a developer's best friend because it's easy to use, analytics dashboard that gives developers powerful, code-level visibility into the realtime performance of their applications. This means you can spot bugs, see bottlenecks, and fix problems fast, before they ever effect your user. Thanks you NewRelic, you no longer have to ship an app to production, and then helplessly wait around, hoping for the best, until negative app reviews and tweets start to pour in. And that's not ever good. NewRelic empowers software engineers by showing them what's working and what isn't working, all in realtime. The way it works is very straightforward. NewRelic gives developers a lightweight agent that you unpackage into your production-level apps. The agent sits quietly and securely in the background, gathering realtime metrics across geographies, devices, platforms, all the way down to the end user level and then displays all that data in realtime graphs so that coders have total visibility into the performance of their web and mobile applications. So you can go check out NewRelic by visiting <a href="http://newrelic.com/webahead">newrelic.com/webahead</a> to learn more and use the offer code WEBAHEAD to take advantage of a special 30 day extended free pro trial. Available exclusively to listeners of The Web Ahead. Build better performing apps, get deeper insight, spot bottlenecks quickly, and improve performance with NewRelic. Data that shows you whether or not your stuff is working. It's so valuable.</dd>
+
+<dt>Jeff</dt>
+<dd>I have to say, I feel calmer and more comfortable just hearing that.</dd>
+
+<dt>Jen</dt>
+<dd>So what I was trying to say before was just picking up on your point around... we're not just designing the display of some web content on a webpage for a particular moment in a particular font with a particular color and a very specific layout. We're designing a whole system and then those layers are sliding around and they're going to keep changing. Next year the green might change to blue and the year after that there might be something else. But if you plan, design, architect, the way that the content is saved and structured... you know, on the one hand that's a very nerdy, especially if you're handwriting the whole application from scratch. It's about organizing your database tables. but there's a very non-nerdy version of that, too, when it comes to your content editors... are going to have a mental model around what their job is. The people writing stuff and putting it into the system. What is the mental model that they have? What is it that they're thinking about as they work? Then you described it really well. There's the interface in which people use to add content into the system. That needs to be designed. You want to design that... this is what Karen was just explaining so beautifully. Especially if you have employees whose job it is to add content to the world, to your system. Then you the software that they use to do that job to be efficient. Because if its efficient they can do their job well. And if it's inefficient and frustrating and maddening and stops them being able to do a good job, you have to pay them more, they have to spend more time doing that job. You can really lose a lot of value by having bad software. Then the third thing is the one thing that everybody thinks about, especially the quote-unquote web designer, when it comes in the form of a big agency where all they do is draw Photoshop drawings, is how it gets visually displayed in very specific content for a certain number, percentage of users. Of course, there are other users and there are other contexts that frequently get ignored. But hopefully that display or that presentation is not just that one particular Photoshop document, but it's also the API and what it sounds like to a screenreader and how it works when it goes into Instapaper.</dd>
+
+<dt>Jeff</dt>
+<dd>There's a bunch of different trends that it feels like have all been pushing this. Accessibility has always been a big thing and then the idea of multi-channel and mobile access just really, really blew apart a lot of plans that revolved around desktop-specific or large screen assumptions. Now the booming market in mobile apps, I think, that's forcing a lot of organizations and sites, large projects to at least think about what our content would look like if it weren't simply sitting in a browser somewhere. You get that stacking effects of all of these different ways of getting at this content that we're producing and I think that's where the overwhelming quality of, "What if we would have to hand-tailor 18 different versions of everything we created for these different channels that we're doing?" That's where the idea of structured content ends up becoming so important. Because ideally if you  tease out, "What is the platonic form of a podcast?" And we store all of those bits separately and then we have these templates or designs, those different little pieces of podcast get pulled into different forms. On a web app, it's going to be presented in a certain way. On a tablet, on a handheld native app, it's going to get pulled in via JSON feeds and displayed in a different way. There's all of this kind of stuff that basically just boils down to: We don't want to have to make this thing 18 different times to get it out there where people want to look at it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. As you've done more and more projects with this kind of thinking and this kind of perspective, what are some of the tools or techniques or habits that are forming, new ones, to find success and to be the new Excel spreadsheet or be the new static wireframe PDF?</dd>
+
+<dt>Jeff</dt>
+<dd>Sadly, I don't think we;re ever going to escape... until someone builds the ultimate, el grande tool for capture content models, I think we're going to have to live with Excel to some extent. Well, ok, I won't get cynical.</dd>
+
+<dt>Jen</dt>
+<dd>Without picking on any particular tool too much, do you do a lot of letters and spreadsheets and memos and emails? It's just about communication and really getting everybody on board and asking a lot of good questions? Is that where you think a lot of the time goes?</dd>
+
+<dt>Jeff</dt>
+<dd>I think the challenge is that... the core questions were always trying to figure out, at that point in the project, when we're trying to figure out, "What's the real deal with this content? What is the actual stuff you're making and creating and using to get your message across? What is that message? Who's responsible for it? How is it going to be produced? And what kinds of forms is it going to be presented or transmitted or communicated in?" The thing is, I don't know of any particular deliverable that can capture all of those. That can hit on the answers to all of those questions. So usually what we end up relying on is a mix of different deliverables. Wireframes are always a really important one. Because that presentational aspect of it is a big part of how, I think, everyone who doesn't just like, live in structured markup land in their heads, has to think about things. Visual presentation is how we perceive stuff, so it's important. But there's also the classic Excel spreadsheets where we go down and detail each content type. What are the individual chunks and bits of that content? What are each one of those bits for? And stuff like that. We also sometimes do... in the content strategy world there's a lot of "inventories" or "audits". Going through and saying, "What are all the pages of the existing site? Is this good? Is this bad? Can we use this on the new site? What type of content will this page map to?" We also do what's called "reverse audits" sometimes. Where we're look at the aspirational stuff that we're discussing during the design phase and start mapping out, "Ok, well, you want to have a section on your site that does X and Y and Z. What would that actually mean for content? What are you going to need to have to fill that out?" I think we've done... there's a couple of different diagrams. We have Omnigraffle templates and stuff like that to communicate, just at a very high level for stakeholders, like, "Here are the 15 different core kinds of content your website will have. And they're grouped into these three clumps by their purpose. These are marketing content types that you would use to spice things up. These are long term asset types that you want to preserve across redesigns." And stuff like that. All of those things hit on important aspects of certain kinds of projects, but they all really just revolve around answering those underlying questions. We have what we call more of a "playbook" of different kinds of deliverables that we can use. Rather than a hard and fast list of deliverables that we always produce for every project.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and it sounds like everything else that's going on right now. Where there's just so many different options and what really matters is getting back to, "Are we effectively communicating with all the different members, the people, kinds of people, involved with this project? Are we able to get the information that we need to communicate across? What is the best tool to do that right now?" If it's Keynote, if it's the back of a napkin, if it's clay, if it's oil paints, it doesn't matter. [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>We're actually found responsive HTML wireframes that then eventually get styled via CSS, to be really useful. One of the things we're really just starting to experiment, and this is on the super nerdy side of things, is building responsive wireframes to actually demo some of these design ideas in the browser, but also using HTML5 data attributes on the different design elements in there, to annotate them with what type of content this is. Or where is this stuff actually going to be pulled from in a final implementation. Or this box that we have here is probably going to be rotating from a different pool of images. Those kinds of notes that would normally go into annotated wireframes, we're starting to experiment with the idea of layering those in data attributes. What we'd like to have then is a little jQuery widget that lets you toggle between, "Let me see the styled design comps in actual responsive HTML" or "Let me toggle into just notes-mode". Where you see the boxes with the little notes in them.</dd>
+
+<dt>Jen</dt>
+<dd>Post-it notes all over the place.</dd>
+
+<dt>Jeff</dt>
+<dd>Part of that's also because we're nerds. And we like experimenting with that kind of stuff. But all of that really revolves around just... deliverables are... their purpose is to communicate stuff. Just continually trying to push that to figure out how to get that information and get that understanding better communicated both inside our team and with the clients and the stakeholders.</dd>
+
+<dt>Jen</dt>
+<dd>You'll have to listen to last week's show and check out annotatorjs.org.</dd>
+
+<dt>Jeff</dt>
+<dd>Oh, yes!</dd>
+
+<dt>Jen</dt>
+<dd>It'd be interesting to do it with data attributes and then somehow... yeah. Somewhere in there you said something about finding out from the people who are going to be adding content from the site. What is it that they are adding and why? And how is it that they work? And what they want to add. I think maybe that's the source of my frustration and angst that comes out of my rants. Is that it's so easy to blow over checking in with the real people who actually really work on this website once it's launched or relaunched or iterated on. What is it that they're going to be adding to the website? What are they really, like, for real. [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Because it's been so easy for most of us over the course of our careers to build... get excited and build things that... I can imagine this nonprofit, where they always add events, and they add new information every week. The reality is, they don't. So you build something for them and you can tell, "If you use Twitter, it's going to help you so much" or "if you do this thing it's going to help you, so I'm going to build you the empty container to put that content in." And then the reality sort of hits and you go back and look at the website two years later it's like, "Yeah, they didn't do any of those things. They weren't ready for it and now their website is just a mess or it's empty." That's sad and disappointing, especially for clients like nonprofits.</dd>
+
+<dt>Jeff</dt>
+<dd>I think to some extent that's the different between design and development and content strategy as tools for solving problems that our clients have. Versus a set of ideals that we strive towards. It's like where every project we work on we're trying to pull it towards the perfect, fully realized, unicorns and rainbows vision of what a website should be. Versus, ok, they've got two interns who actually maintain the website o a day-to-day basis. Then every three months they can actually pour some resources into updating stuff. Those are the constraints we're working with. They're not bad people for having those constraints. We're not going to scold them for that. It's sort of like saying, "Well, we're going to be printing on t-shirts." That implies constraints. The materials there are to work with and stuff like that. You just learn to work that. I think it's hard for those of us who work with the web, sometimes, to recognize that those human factors, those organizational factors, that exist beyond this piece of software and this set of designs. Those are design constraints that need to be dealt with and respected.</dd>
+
+<dt>Jen</dt>
+<dd>Sometimes, especially, if there's no time in the budget, there's no budget for the time to go really meet, talk to the people. The company. And find out. Because maybe the person who initiated the website redesign project is all excited and gung-ho and the reality is that their desire is not going to come true either. Sometimes you have to go hunt down the stark, unfortunate reality, despite the kind of excitement, even on the client side.</dd>
+
+<dt>Jeff</dt>
+<dd>It's funny because we've occasionally encountered clients who, they're very gung-ho and then when we talk to them, they're like, "Yeah..." They're almost kind of sheepish. It's like, "[sigh] We just don''t maintain our content." It's like, "If you just knew how common that was. You're not alone."x It's like, everybody's there.</dd>
+
+<dt>Jen</dt>
+<dd>As a designer, if I design a site that's easy enough to use and easy enough to maintain, hopefully they'll be able to keep up more than they were with the system that's hard to deal with and hard to maintain. Again, that's an ideal, it's not necessarily how it's going to come down.</dd>
+
+<dt>Jeff</dt>
+<dd>Not to nerd out on it too hard, but this, again, is where I feel like a lot of that content structure and content modeling kind of planning... it's very hard to do that in isolation without really talking to the people who are going to be producing that and the people who are going to be using it. Also, the stakeholders who have sort of an idea of why this stuff gets made. Why do we publish press releases on our website? Why do we put out podcasts? What are we trying to accomplish with that? I've talked a couple of times about how it's a vocabulary question. That applies not just to what we name the fields and stuff like that but also the kinds of tools that we expose to editors and the kinds of content types we give people to work with. Then on the front-end side of things, the kinds of design elements that recur throughout the presentation of the site. Design is about language and user experience is about communicating intent to the users of a product. Those are all human language and human communication questions. Settling on the vocabulary for a given project... you know, podcasts or clients or visitors vs users or customers and stuff like that. Those have actual meaning and they can really have a far-reaching influence.</dd>
+
+<dt>Jen</dt>
+<dd>I wanted to ask you about this other... jump to a slightly different, more complex thing.</dd>
+
+<dt>Jeff</dt>
+<dd>Are we going to talk about guinea pigs?</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] No.</dd>
+
+<dt>Jeff</dt>
+<dd>Darn!</dd>
+
+<dt>Jen</dt>
+<dd>No, I don't know anything about the guinea pigs...</dd>
+
+<dt>Jeff</dt>
+<dd>Ok, carry on.</dd>
+
+<dt>Jen</dt>
+<dd>... I guess they're pretty complex. [Laughs] There's a way in which... I don't know why I keep going back to Karen but her talk was so awesome, it's just stuck with me. Part of what she was talking about is chunks vs blobs.  Which we alluded to earlier with WordPress, where there's basically one giant space in which to put all your content. And it's much, much better to have chunks. Especially for very particular kinds of content, or particular kinds of companies, particular kinds of projects.</dd>
+
+<dt>Jeff</dt>
+<dd>It makes it mixable. You can pipe things through 80 different templates to make it appear different or repurpose it for different audiences. It's great stuff.</dd>
+
+<dt>Jen</dt>
+<dd>Right. And you can build a very user-friendly form that takes the technical knowledge that Facebook takes in order to add content to the site, right? So you've got a university and you want the department secretaries and the professors and the interns and the student workers to add content to the website. Staff members. Then you need a system that's going to be very foolproof where anytime anybody ever adds something, that's basically a form and you go to fill out the date and they just... there's a calendar, and you click the buttons and it's, "March 4th, 2014". There's no choice. It's not like one person wrote "March" and the other person wrote "03/" and the other person wrote "3/" and the other person wrote "4/3" because they're in Europe.</dd>
+
+<dt>Jeff</dt>
+<dd>And then someone else wrote, "Tuesday".</dd>
+
+<dt>Jen</dt>
+<dd>Right, right. Or "yesterday". The data is going to be normalized. It's going to be consistent. They get no choices. They don't get to say, "I want this to be purple and I want this to be in Verdana and I want this to be big." It's not Microsoft Word. There's no buttons for that stuff. You just add the content and it's going to come out of the system and it's going to get skinned with the branding and it's going to look the way it's supposed to look and then in two years when we redesign, we don't have to actually change the content. We can just make it look a different way. That's a great way to do it. There's a lot of reasons to do it that way. Let's never, ever have a big empty bucket. We'll always just have these very tiny fields and everything's a multiple choice.</dd>
+
+<dt>Jeff</dt>
+<dd>[Sighs]</dd>
+
+<dt>Jen</dt>
+<dd>Until. I've been working a lot in the field over the last year of publishing industries. I worked with three different book publishers last year around the idea of let's not publish books in Pagemaker or, what year is it, InDesign. [Laughs] Let's publish books as HTML or other... some of the work I did last year, it was going to be XML.</dd>
+
+<dt>Jeff</dt>
+<dd>DocBook data!</dd>
+
+<dt>Jen</dt>
+<dd>Let's publish books onto the web but then they also could be published into more traditional ways of publishing books and have them be... but originate as... HTML could be the canonical, central, original document.</dd>
+
+<dt>Jeff</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>That's an example. But there's plenty of other examples out there. Where you want to be able to... "I'm building my own website, for me, Jen Simmons! I want, I'm a nerd, I have skills, I can write CSS, I want to be able to make this blog post vs that blog post vs this other blog post be really interesting and dynamic. I'm going to design a page layout for each one separate from the other." Some of that is like, well, then just pull a Git repo and write all your own code. But some of it is, "No, let's build a system." Let's build a content management system where people can add content to the system and have some variation. It's a long-form piece, it's an entire book chapter, and in the middle of the chapter I've got a code example and I've got a graph that's dynamic and I've got a this and a that and this other thing and I want this to be on the left and I want that to be on the right. You know where i've going, right?</dd>
+
+<dt>Jeff</dt>
+<dd>Oh yeah. This is what got us talking about some of this stuff before the podcast. There was an article called "Battle for the Body Field" which just came out on A List Apart. The idea that originally started it was... especially in the Drupal community, there's always been this big, historical, tug-of-war over WYSIWYG editors. Developers hate them just say, "Argh! We just just have markup!" And clients say, "By golly, no! We need a WYSIWYG editor. We need to paste from Microsoft Word. We need buttons to click." And stuff like that. But ultimately once you slide into using a WYSIWYG editor as your primary mechanism for formatting and inputting content, you break that concept of really effectively structured information that makes remixing and representing and repurposing content, like we were talking about, so easy. The WYSIWYG editor makes it ridiculously easy to input stuff. Don't even have to think about it, you just paste stuff in and everything's friendly. But the long term effects of that make reuse a lot harder. So you want to do the whole chunky, breaks things up into fields, and get people to input things and use a template approach. That's great. But the problem that really comes up, and I think this is what you were talking about, is long form text. Or with articles that need supporting material, not just placed in the right image slot that the template provides or in the sidebar or in the footer. But you need, say, a slideshow that actually is right after this particular paragraph. Or you need an embedded video clip to be in the actual part of a story where the contents of that video are being discussed. Then you get back to this ugly, messy markup concept. The idea of semantic markup, and really clean, pure, semantic HTML, the goal was always to smooth that out so that you only had this super-pure markup, You've just have a lone, bare video tag sitting there. Or an image tag with just a class and an alt tag put in there. That's all you would really need. But ultimately, in real world designs, like the media and publishing news sites that I work with, or the book publishers that you're working with, it's rarely that simple. Maybe you have a complex figure. Or you have a group of figures together. Or you have a slideshow that needs to go in there. A slideshow isn't an image. It's a collection of images, maybe with attribution and links off to other stories or a link to the full gallery, if you only see three of them. It very quickly... the concept of, "I need this photo gallery to go right here in my story" can very quickly turn into a very complex piece of markup. It has to be hand-rolled.  Either you've got all kinds of WYSIWYG stuff pounded in there to make that gallery work, or you force people to use markup that embeds all that stuff in. Then you get into the same place. What if, a year from now, you do a redesign and suddenly you say, "If we've got photo galleries embedded in the news story, we actually want those photo galleries to have five images displayed below the primary image instead of four." Or, "We always want to make sure there's an interstitial ad in between those photo galleries." But none of the markup that you have in your old story supports that. It's very easy. Anytime the narrative flow of a piece of content needs to have that stuff inside of it, at particular places, that whole idea of just purely chunking things out and piping it through templates really breaks down.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I mean, it's easy now to say, "Here's the blog post. Give me your text only. Give me your one main image. I'm putting the one main image at the top. Now i'm putting all your text there and we're done." That's fine, if you've ever got a website where you're going to have 15,000 articles published next year and you want them to all fit in all the different places they're going to need to go. Then do it. But, yeah, what if you want the ability to put images anywhere? Scattered through the whole thing?</dd>
+
+<dt>Jeff</dt>
+<dd>I love markdown. I use it for my blog. But one of the things that I find frustrating, sometimes it will get tossed out as the solution to the complexity of dealing with markup and rich content. Markup strips down the vocabulary of HTML to a very small subset. That's useful for simplifying things, but when you need something other than HTML. Like, I want a gallery here, not just something smaller, you know? You don't just want a smaller vocabulary that's easier to manage. You want an actual different vocabulary. An embedded teaser for another article. You want to represent that concept going in a particular place in your article. Or you want to say, "This is insurance instructions, not simply an ordered list of text." Or something like that. That kind of stuff... it comes back to that idea of a vocabulary mismatch. We don't necessarily have the right words in HTML or a WYSIWYG editor that just outputs HTML to even say that stuff.</dd>
+
+<dt>Jen</dt>
+<dd>In your article, you're talking about XML and you're talking about writing... I mean, it's very interesting, Why would somebody use XML or why do we want to use something... in an era where so many developers are refusing to even use HTML, they just only want to use "div", "span", and "a" link.</dd>
+
+<dt>Jeff</dt>
+<dd>It's been interesting because a lot of the comments on the article immediately jumped to, "Woah! You talked about data and XML. That feels like going to some sort of bizarro land after we've finally gotten used to how to clean up just pure HTML." I don't think the answer is, "Now we should go use XML." Or whatever. But one of the things that the structured document communities, like the XML crowd, the people who are doing single-sourcing of enterprise content in data or publishing DocBook. One of the things that they've really spent lots of time and energy on over the past decade plus, is figuring out how to decompose content and how to figure out what the actual stuff in your content is. It's that same sort of modeling process that we were talking about. What is the platonic form of a podcast? How do we describe that? Because they've been used to working with things like XML instead of just pure database fields and templates, they're very used to that idea that there can be very fluid structures in there. There could be a document that has a gallery inside of it. Or that has references to another document inside of it, that when it's output, will turn into an embedded photo gallery or a video player or something like that. It's not so much we should go use those tech stacks. It's that those particular communities have spent a lot of time thinking through the challenges of how you capture and model that content and then what it means to transform that into something else when you finally display it. That's what we where talking about earlier, even with Drupal's content types approach, it still comes down to: How do we describe it and store it effectively? So that we're capturing this sort of, the platonic ideal of what this kind of content is. And how do we give people a useful interface for editing it? And then how do we present it in a bunch of different ways? I think the XML and data communities have done a lot of work on those three pillars. We can learn a lot from it. Because HTML5 actually brings us a really rich vocabulary, both in terms of data attributes to layer extra information onto very simple tags that we already have and then things like the shadow DOM and things like custom elements. We'll be able to tentatively start extending the vocabulary to capture those important concepts that our content types really need. Does that make sense?</dd>
+
+<dt>Jen</dt>
+<dd>Talk about short tags and what you're thinking as far as... explain how WordPress is using them, or even Drupal, too, and how you think... how far does that get us or not get us?</dd>
+
+<dt>Jeff</dt>
+<dd>It's funny because so much of this stuff, the actual, technical answers to some of these questions are very elementary and are often being used in the wild already. A good example is WordPress' short tags. Putting a YouTube video inside of a WordPress post isn't even a matter of embedding video tags or object tags or something like that. You can just use "[youtube:" and then the video ID, I think, depending on what mix of plugins you have. Then they also have e WYSIWYG editor that integrates with that, so you have a little YouTube icon that you can click to insert that. The idea behind that is that under the hood, the markup is clean. You have an unambiguous token that represents, "I want thing X inside of thing Y at this location." But hen on output, it can be filtered or transformed into something more complex later. Although there isn't necessarily a lot of rigor going into the planning process for those things on a lot of projects. Often we'll just say, "I'm going to need to put media stuff in. Do we have a plugin that lets us do that? Ok, here's a plugin. Now we can use 15 more short codes for video embedding services. Awesome." It's often done without a lot of rigorous pre-planning. But that approach of using short codes or using shorter little tokenized representations of stuff and then expanding them into something more complex when the final HTML gets sent out, that's a really important process. Again, in the data and XML world, that transformation stage is non-negotiable. You take the way that your content is stored and then you transform it into how you want to present it. I think in the web world, we made this transition from, "We're going to handcraft every page" to "we'll store portions of the page in a database so that it's easier to template-ize" and stuff like that. That sort of convinced us that the stuff that's stored in the database, that canonical form of our content that we want to capture, has to be HTML. And it has to be the same thing that will get spit out on the front-end. Rather than thinking about it in the same way that we would think about modeling a content type. What actually goes in a body field? We don't necessarily even just have to look at plain, vanilla HTML tags when we ask ourselves, "What goes in the body field?" We don't just have to take a reductive look at it and say, "We'll not allow object embeds. We don't allow blink tags. We're going to restrict people to 'em' and 'strong' and 'a' tags," and stuff like that. We can take that reductive approach to simplify things but we can also start asking, "On our particular site, do we also have other kinds of elements?" The gallery is the one that I mention a lot. But on other projects we're seen things like, testimonials or stories or narratives from people whose lives have been effected. That's something that in a bunch of different places on the site, this one particular nonprofit integrated stories of people who were being effected by the work this nonprofit did in a bunch of different ways. It could be videos, it could be pull quotes, it could be photos of happy people. Being able to embed a story and say, "I want this to be shown as a picture" or "I want this to be shown as a pull quote" or "I want this to be shown as a video interview with the person if it's available and I want it to link off to the full story". That's different than simply inserting a bunch of 'div's and a bunch of 'span's and 'a' tags and 'media' tags into a body field. That's going back to that idea of the vocabulary of the content. As an editor, creating something, they're writing a news update and they can be able to say, "I need to insert a story here. And I've got a pile of interview material that we've got. I'll pull out that quote and I'll insert it there. Layer we may expand that particular story with an interview with that person or video or something like that. But the vocabulary I'm using isn't necessarily just 'div's and 'span's and 'float's. It's a narrative and there are stories and galleries and stuff like that." It's a little heady and I don't want to get too handwave-y about it. But I think there's a lot of potential in the world that the W3C has done in HTML5 and the learning that's happened in the XML and structured document communities about how you break down your content in a way that will be reuse-friendly. I think we've got a lot of potential and it's an exciting time to be working on this stuff.</dd>
+
+<dt>Jen</dt>
+<dd>I think the direction in which we've all, many of us, have realized we need to go, based on now two and half decades of going down the wrong road, over and over again, all sorts of different wrong roads. It becomes easy, and I was one of these people, to just say, "No WYSIWYGS ever. Stop. No. I'm not doing that ticket. I'm refusing." [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>You may not use Comic Sans.</dd>
+
+<dt>Jen</dt>
+<dd>Right. But I think that's too simple, right? Really, the reality is, we want in every place, every decision we're making, technologically or whatever, design-wise, too, architecture-wise, too. to say, "We cannot and we do not and we will not give tools to people adding content to the site that lets them do things like center, choose a font, choose a color, choose a size of the font," right? We understand why people would want to do that, because they're used to doing something, say, in Microsoft Word or another program where they're making a brochure and they're cutting and pasting and using tools like that to effect visual presentation. They're used to saying, "Oh, I'm trying to build something. I'm making something. I'm designing something, as a content editor. And so, therefore, I want visual tools, visual control over my thing." We just have to keep reminding each other and them and each other that, "No". Because we need to keep the content itself and the storage of the content completely separate from the visual presentation. And we need to say, "Hey, that makes it too easy for someone who's adding content on this particular computer with this particular size monitor with these particular input and output devices with this particular color space in this particular year in this particular browser, for them to only think about themselves and not think about all the different browsers and all the different devices and all the different assistive technology and the APIs that they don't even know about and the iPhone app and the... you know. It's just a matter of saying, "Ok, we'll give you a WYSIWYG toolbar and we'll give you a bunch of buttons. But those buttons are not going to do things like change the font and the size of the font. They're going to things like, let you apply a class of 'callout' or a blockquote element or a..."</dd>
+
+<dt>Jeff</dt>
+<dd>Or insert a short code.</dd>
+
+<dt>Jen</dt>
+<dd>Or insert a short code.</dd>
+
+<dt>Jeff</dt>
+<dd>That inserts a teaser, or something like that. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Jeff</dt>
+<dd>That vocabulary of the tools we were getting at earlier.</dd>
+
+<dt>Jen</dt>
+<dd>Because people can't... they don't know how to. And many of us, myself included, have tried experiments with clients where we thought, "Ok, we'll just teach them a little bit of markup" or "We'll give them a template and they'll just open that up and copy and paste out of the text edit file the markup that they need". [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>And then a weekend disappears in trying to find an unclosed span.</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] Exactly. That's exactly what I was going to say. I was going to say div. You get this emergency phone call, "Oh my gosh, the whole entire website is broken!" It's like, "Ok, no, actually just it's just the one page that's broken. And the reason it's broken is because you forgot the closing div and it broke all the markup for the whole page." It doesn't work to expect everybody to learn to write this code. And it's dangerous. Because once you open up the ability for them to write any code they want, then they will write any code they want and you'll end up with content that's not consistent, that's not structured. We want it to be a multiple choice form not an open essay where people can do anything they want. This is a solution that people I worked with last year came up with as well. You've got to start designing, not just... we've seen a lot of these, whether it's through a tool like style tiles or creating a design vocabulary and thinking about an entire website and the design, the visual design, and the branding as well, of that website... not as six pages we're going to design and ship to the developers. But as an entire system.</dd>
+
+<dt>Jeff</dt>
+<dd>A design system.</dd>
+
+<dt>Jen</dt>
+<dd>And delivering a design system. And delivering, perhaps, even a website that is the design system for every design that comes down the road to show up. It's almost that kind of thing there you need a content system. Not just the content types and the content fields but an actual set of multiple choice things. Like you said, like a gallery. If you identify that this client is going to be writing a bunch of long form stories and inside that long form story, they want to be able to put in a video, they want to be able to put in a gallery, they want to be able to put in these four other kinds of media. And there's only six total, there's not an infinite number. There's six. So let's identify what those are and then somehow come up with a consistent way in which that is going to be structured. Whether it's HTML5 with specific classes or IDs. Whether that's some kind of XML or web components, custom-shadow-DOM-stuff...</dd>
+
+<dt>Jeff</dt>
+<dd>Or short tags. Or whatever. </dd>
+
+<dt>Jen</dt>
+<dd>Or short tags. Or... it seems like none of those are really fabulous. We'll come up with something else next year. Then it has a very specific structure. You have here aside, an element 'aside' element, class=gallery. That could be the thing we came up with for our client. Somehow in the system there's going to be... you can click a button ,or maybe it's cut and paste, or maybe it's a short code, but whatever you get is not... it's a way in which to get your particular thing in the middle of exactly where you want it without it being... you could do anything you want.</dd>
+
+<dt>Jeff</dt>
+<dd>There's actually a really, really fascinating story that just got posted, I think late last month on the BBC News website, <a href="http://responsivenews.co.uk/">responsivenews.co.uk</a>. About how they did this in an iterative fashion. There was a particular type of infographic that they used for one story. It was like, an image and several facts, and a little summary bit of text, and then an attribution source, that worked really well for a couple of stories. Then it started to become really, really popular. It had been a one-off that they used for a couple of those stories. But once they realized this was starting to become part of the descriptive and presentational language that reporters wanted to be able to use when covering certain stories. They ended up breaking that out and turning that into something that their CMS could do. So it doesn't always to be some sort of giant, upfront, we're about to wage war, let's go back our battle plan, kind of process. It can be an evolutionary thing. That you discover certain patterns starting to emerge over the course of two years and then you can tease those things out and make them reusable components.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and have an experimental wing that comes up with crazy stuff and then figure out through practice which ones are going to be the ones you want to bake straight into the system. But to have an architecture underneath that allows you to continue to build things. And I like the thing about the short codes in that you're not actually inserting any particular pattern of code, you're using only the short code with the minimum amount of data that goes into it and then somewhere else in the system there could be a template that turns that into the code so that later, next year, when you realize, "Oh gosh, we really want to handle these YouTube videos differently." YouTube changed their code or we want to make them work better or full screen or whatever. Then you can change it once in that one template and have it populate through the whole system.</dd>
+
+<dt>Jeff</dt>
+<dd>Or, you know, we work with a lot of media organizations. Everybody's gone through this thing of, "We're going to change our video provider."</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] Right.</dd>
+
+<dt>Jeff</dt>
+<dd>If you've done any kind of hard insertion of links to video embeds, that's... I won't say it's an apocalypse, but that's a...</dd>
+
+<dt>Jen</dt>
+<dd>Somewhere between a nightmare and an apocalypse. [Laughs]</dd>
+
+<dt>Jeff</dt>
+<dd>Yes. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah.</dd>
+
+<dt>Jeff</dt>
+<dd>Ah. These are exciting times. It feels like, between a lot of the front-end stuff that's been going on, a lot of the writing that's been going on, about card-based design and design components and style tiles and design systems, there's a whole lot of fascinating thinking going on in there. And the SASS community has been building systems to support that kind of thinking in many ways. And then on the content strategy front, there's more and more talk about building these underlying kinds of content systems. And then on the development side, there's all kinds of new CMS projects that are starting up around lighter weight front-ends to content. In the Drupal world we eat and breathe content types. It really feels like there's a lot of interesting overlaps that are starting to become clearer. It feels like we're sort of just entering one of those evolutionary explosion periods. The punctuation mark.</dd>
+
+<dt>Jen</dt>
+<dd>I feel like we're finally, for the first time, designing/developing/building these systems out, building these tools out, for the web. That we've been thinking that this is print for the first 25 years.</dd>
+
+<dt>Jeff</dt>
+<dd>And even beyond. The rise of mobile apps and responsive design and desktop-focused websites, those things having to co-exist, I think it's really forcing a maturing process.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And you look back at film or TV or radio or any of those mediums and each one of them, you look at the history, you can see that people shot all these films as if they were shooting photographs. [Jeff laughs] It took years to figure out that, like, "Oh, this is something else." [Laughs] We should be doing this differently and then editing was... certain kinds of editing was invented and certain kinds of TV started using the visuals more instead of thinking it was radio. I think it's natural that happened with the web. But these ideas about progressive enhancement and abstraction and template-izing and system-itizing a whole pattern of stuff rather than focusing on one particular page or one particular article or one particular moment in time is really part of the nature of the web itself and what the web is. This sort of complex system of content and data and nodes, not a stack of index cards.</dd>
+
+<dt>Jeff</dt>
+<dd>That brings me back to hypercard.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, yeah, exactly. Well, thank you so much for being on the show today, Jeff.</dd>
+
+<dt>Jeff</dt>
+<dd>Thank you. It's been a pleasure.</dd>
+
+<dt>Jen</dt>
+<dd>People can follow you on Twitter. You're... what's you handle?</dd>
+
+<dt>Jeff</dt>
+<dd><a href="https://twitter.com/eaton">@eaton</a>. E-A-T-O-N. I am not Eaton Power Corporation.</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] In case people were confused.</dd>
+
+<dt>Jeff</dt>
+<dd>A lot of confusion. Nor am I the Toronto Eaton Center.</dd>
+
+<dt>Jen</dt>
+<dd>There's other links to you and other fabulous their, including this article that people should read. "Battle for the Body Field" at A List Apart. All of those links are at the show notes for this show, which is <a href="http://5by5.tv/webahead/61">5by5.tv/webahead/61</a>. Including a link, if people are so willing to go vote for this podcast in the podcast of the year net awards. That's going to be going on until, I think the end of March, is when voting closes. Getting an award like that would be... well, it would be cool. Then also it would be helpful in... being for some of the plans that I have to turn The Web Ahead into something bigger this year. It's funny how awards sometimes can help make things happen. So if you're interested in that, go check it out, go vote. You can follow me on Twitter <a href="https://twitter.com/jensimmons">@jensimmons</a> or this show on Twitter, <a href="https://twitter.com/thewebahead">@thewebahead</a>. Of course, subscribe in iTunes or in your other favorite podcast hardware device of your choosing. And until next, we'll talk to you next week. Bye.</dd>
+
+</dl>
