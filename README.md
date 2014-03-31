@@ -10,5 +10,5 @@ I just had some people offer to help out with this project, asking what they cou
 
 1. Find anything that should be a link, and make it a link.
 2. Find anyplace that says "inaudible" with a time stamp, go listen to the show, and see if you can understand what was being said.
-3. Correction any mistakes you find.
-4. Transcribe new episodes! Summit new transcriptions while still in progress, so other people know you are working on one. It's ok if you don't get all the way through a show. Just do part, and then collaborate by sending a pull request and let others help finish it.
+3. Correction any mistakes you find. (Still waiting to see if someone notices that mistake.)
+4. Transcribe new episodes! [Open an issue on GitHub](https://github.com/jensimmons/webahead-transcripts/issues), so other people know you are working on an episode and we don't have two people working on the same one. Feel free to summit parts of new transcriptions while still in progress. It's ok if you don't get all the way through a show. Just do part, and then collaborate by sending a pull request and let others help finish it.
