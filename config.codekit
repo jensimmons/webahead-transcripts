@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "16877",
+"creatorBuild": "16895",
 "files": {
 	"\/_layouts\/default.html": {
 		"fileType": 8192,
@@ -8,6 +8,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_layouts\/default.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_layouts\/page.html": {
@@ -16,6 +17,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_layouts\/page.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_layouts\/post.html": {
@@ -24,6 +26,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_layouts\/post.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_layouts\/transcript.html": {
@@ -32,6 +35,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_layouts\/transcript.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2011-10-19-006.html": {
@@ -40,6 +44,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2011-10-19-006.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2013-09-04-055.html": {
@@ -48,6 +53,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2013-09-04-055.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2013-09-16-056.html": {
@@ -56,6 +62,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2013-09-16-056.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2013-10-15-057.html": {
@@ -64,6 +71,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2013-10-15-057.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2013-10-22-058.html": {
@@ -72,6 +80,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2013-10-22-058.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2013-11-01-059.html": {
@@ -80,6 +89,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2013-11-01-059.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2014-02-27-060.html": {
@@ -88,6 +98,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2014-02-27-060.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_posts\/transcripts\/2014-03-05-061.html": {
@@ -96,6 +107,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_posts\/transcripts\/2014-03-05-061.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/55\/index.html": {
@@ -104,6 +116,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/55\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/56\/index.html": {
@@ -112,6 +125,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/56\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/57\/index.html": {
@@ -120,6 +134,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/57\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/58\/index.html": {
@@ -128,6 +143,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/58\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/59\/index.html": {
@@ -136,6 +152,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/59\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/6\/index.html": {
@@ -144,6 +161,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/6\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/60\/index.html": {
@@ -152,6 +170,16 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/60\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/_site\/61\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_site\/61\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/css\/style.css": {
@@ -160,6 +188,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/css\/style.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/index.html": {
@@ -168,6 +197,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/_site\/README.md": {
@@ -179,6 +209,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/_site\/README.md",
 		"outputAbbreviatedPath": "\/_site\/README.html",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/config.rb": {
@@ -187,6 +218,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/config.rb",
 		"outputAbbreviatedPath": "\/config.rb",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/style.css": {
@@ -195,6 +227,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/style.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/index.html": {
@@ -203,14 +236,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/index.html",
 		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsSetByUser": 0
-		},
-	"\/README.html": {
-		"fileType": 8192,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/README.html",
-		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/README.md": {
@@ -222,6 +248,7 @@
 		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/README.md",
 		"outputAbbreviatedPath": "\/README.html",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		}
 	},
