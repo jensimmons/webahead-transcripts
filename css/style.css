@@ -46,8 +46,8 @@ hr {
 }
 small {
   line-height: 1.36em;
-  font-style: italic;
-  font-size:0.76em;
+//  font-style: italic;
+  font-size:0.8em;
 }
 
 dd {
@@ -105,8 +105,9 @@ dd {
 
 footer {
   clear: both;
+  font-size: 0.88em;
+  font-style: italic;
 }
-
 footer[role=contentinfo] ul {
   list-style-type: none;
   padding: 0;
