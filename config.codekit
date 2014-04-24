@@ -119,6 +119,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/_posts\/transcripts\/2014-03-28-064.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_posts\/transcripts\/2014-03-28-064.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/_posts\/transcripts\/2014-04-03-065.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -209,6 +218,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/_site\/64\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/_site\/64\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/_site\/65\/index.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -280,8 +298,8 @@
 		"enableSmartyPants": 1,
 		"expandTabs": 1,
 		"fileType": 4096,
-		"ignore": 1,
-		"ignoreWasSetByUser": 1,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/README.md",
 		"outputAbbreviatedPath": "\/README.html",
 		"outputPathIsOutsideProject": 0,
