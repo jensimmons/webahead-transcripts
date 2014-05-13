@@ -3,18 +3,11 @@ layout: page
 title:  "Transcripts We Have So Far"
 ---
     <ul>
-    	<li><a href="65/">Transcript for Episode 65</a>, The Future of the Web Stack with Simon St. Laurent (<a href="http://5by5.tv/webahead/65">show page at 5by5</a>)</li>
-      <li><a href="64/">Transcript for Episode 64</a>, Accessibility with Dale Cruse (<a href="http://5by5.tv/webahead/64">show page at 5by5</a>)</li>
-    	<li><a href="62/">Transcript for Episode 62</a>, Waterfall vs Agile with Kristin Ellington (<a href="http://5by5.tv/webahead/62">show page at 5by5</a>)</li>
-    	<li><a href="61/">Transcript for Episode 61</a>, Making Your Stuff Make Sense with Jeff Eaton (<a href="http://5by5.tv/webahead/61">show page at 5by5</a>)</li>
-    	<li><a href="60/">Transcript for Episode 60</a>, Web Annotations with Doug Schepers (<a href="http://5by5.tv/webahead/60">show page at 5by5</a>)</li>
-    	<li><a href="59/">Transcript for Episode 59</a>, WebRTC with Henrik Joreteg (<a href="http://5by5.tv/webahead/59">show page at 5by5</a>)</li>
-    	<li><a href="58/">Transcript for Episode 58</a>, CSS Innovation with Lea Verou (<a href="http://5by5.tv/webahead/58">show page at 5by5</a>)</li>
-    	<li><a href="57/">Transcript for Episode 57</a>, Content Structure with Steve Fisher (<a href="http://5by5.tv/webahead/57">show page at 5by5</a>)</li>
-      <li><a href="56/">Transcript for Episode 56</a>, The Nature of the Web with Jeremy Keith (<a href="http://5by5.tv/webahead/56">show page at 5by5</a>)</li>
-      <li><a href="55/">Transcript for Episode 55</a>, Design Research with Erika Hall (<a href="http://5by5.tv/webahead/55">show page at 5by5</a>)</li>
-      <li><a href="24/">Transcript for Episode 24</a>, Episode 24: Jobs the Web Does with Horace Dediu (<a href="http://5by5.tv/webahead/24">show page at 5by5</a>)</li>
-      <li><a href="6/">Transcript for Episode 6</a>, Karen McGrane on Web Strategy (<a href="http://5by5.tv/webahead/6">show page at 5by5</a>)</li>
+      {% for post in site.posts %}
+      <li>
+        <a href="/{{ post.permalink }}">Transcript for Episode {{ post.permalink | replace:'/','' }}</a>, {{ post.title }} (<a href="http://5by5.tv/webahead/{{ post.permalink }}"</a>show page at 5by5</a>)
+      </li>
+      {% endfor %}
     </ul>
     <h2>How You Can Help</h2>
     <p>I just had some people offer to help out with this project, asking what they could do. So I thought I'd make a list.</p>
