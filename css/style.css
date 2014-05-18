@@ -58,7 +58,7 @@ dd {
 }
 dt {
   clear: both;
-  color: #888;
+  color: #494949;
   display: block;
   float: left;
   margin: 0 0.75em 0 0;
@@ -74,7 +74,7 @@ dt:nth-child(3) {
 } 
 @media (min-width:560px) {
   dt {
-    color: #bbb;
+    color: #4e4e4e;
     font-size: 1em;
     background: none;
     padding: 0;
