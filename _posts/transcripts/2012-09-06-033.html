@@ -1,0 +1,883 @@
+---
+layout: transcript
+title:  "Back to Basics with Jen Robbins"
+permalink: 33/
+---
+
+<dt>Jen Simmons</dt>
+<dd><p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I am your host, Jen Simmons, and this is episode 33. I want to say thanks so much to today’s sponsor, <a href="http://a11ysummit.com">Accessibility Summit</a>! We will talk more about the Accessibility Summit later in the show.</p>
+
+<p>So, this show is very much about technology and web and web design and what’s possible on the Web, what is going to be happening in the future with the Web. Sometimes we talk about code. Lots of times when we do I make assumptions about— oh of course, well everybody already knows the basics, let’s just jump into the middle and talk about the new stuff or talk about the advanced stuff. But that’s probably not always a very good assumption to make. There’s probably people every week who are saying, “Gosh, I really love listening and I like what they’re saying, but I kinda don’t know what they’re talking about, [laughs] and this is over my head! I would like to know some of the basic stuff.” So I thought it’d be great to do a show about the basics — about <abbr title="Hypertext Markup Language">HTML</abbr> and <abbr title="Cascading Stylesheets">CSS</abbr> — kind of from the beginning if you don’t know anything at all. If you, maybe you’re a designer and maybe you’re a professional web designer, and you’ve been a professional web designer for the last decade, but you haven’t had to write code, and you’re wanting to go ahead and get into the HTML and the CSS so that you can create prototypes and design in the browser and all those good things that people are starting to do. Maybe you’re a student. Maybe you’re a print designer who wants to get into the Web. I thought it’d be great to have Jen Robbins on as a guest. Hello Jen!</p></dd>
+
+<dt>Jen Robbins</dt>
+<dd>Hi Jen!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Got duelling Jens today!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>We got all the — not all — half the Jens from the Internet? [both laugh] I thought it’d be great to have you on because you’re very good at this stuff and, you have a book that just came out recently called <a href="http://www.learningwebdesign.com"><cite>Learning Web Design</cite></a> that you’ve written four times now?</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yes, this is my fourth edition.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I bought this book the other day because I like you. And I started reading it, and I was just, I was so impressed. I really— There are a lot of good books out there. There’s very very few great books, and I feel like your book is a really great one. And it’s not small. I have the ebook, so I’m not sure how thick it is but I have a feeling that it’s like three or four inches.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Not that big, but it is big. It ended up being 620 pages this time, which is up from 480 in the last edition because of needing to put all of HTML5 and CSS3 in there, as well as JavaScript. That’s in there for the first time. So yeah, it’s getting big and heavy, but I’d say maybe an inch and a half? It’s a good hefty book. But everything’s in there, you know. It’s an all-in-one course in web design.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. That’s what really impressed me was that it really seem to include kind of everything people need to know. A lot of the new books about HTML5 and CSS3 that are out there, especially the ones that came out one or two years ago now or even three years ago were written from the perspective of, “Hey, you kind of already know all this CSS 2 stuff and you’ve been using HTML now for many years. Let me sit you down and explain to you what the changes are, and let me explain what HTML5 is. How it’s different. Or CSS3 and those new things in CSS3.” And then it was like well, many of us grabbed those books up, read them voraciously. They’re really excellent books…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>I did.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Really important.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>But then it’s like, what about all the other people who are new? And I did an <a href="http://5by5.tv/webahead/13">episode awhile back with Dan Benjamin</a> where we kinda talked about education and we kinda went back and forth like, “Okay let’s pose the question of how do you learn this stuff if you’ve never learned it before.” And we were like, “I don’t know!” [laughs] I learned it all as I went along, from blog posts many years ago when everything was much simpler. How in the world are you going to learn it all of this complicated, much more complicated, from scratch if you’re brand new?</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Eric Meyer has a really good CSS book — his most recent one — where he writes about CSS from assuming you don’t know anything and teaching you all of it: CSS 1, 2, and 3. But I hadn’t seen any other books until I saw your book. Because your book is like, okay I’m going— maybe you know absolutely nothing whatsoever. Now let me tell you all the stuff you might need to know and how even the complicated stuff sometimes. You’re like, step, step, baby step, baby step, baby step. Oh, by the way! There’s this giant complicated thing over here.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Or this is what’s out on the horizon. Right. Well you know, I’m not sure I remember how I learned this stuff either, but I started writing web design how-to books in ‘94 when I was absolutely fresh to it. You know, I had never seen… You know, it was ‘93, I was working at O’Reilly, and I still work for O’Reilly Media. And Dale Dougherty came in and said, “There’s this new part of the Internet. It’s called the World Wide Web.” And we saw, he opened Mosaic I guess on an X machine and showed us these pages. And when I saw what was running the show, like what was this humble little <abbr title="American Standard Code for Information Interchange">ASCII</abbr> text file that was putting everything up there and pulling in the pictures, it was really foreign to me. I had no programming in my background. So, my initial learning of just how a text file is parsed by the browser, I used to think of it as beads on a string because as it would get to the opening tag, read it inline, and then the closing tag. That was new to me, because I would do things in PageMaker or Quark back then. I had everything, it was just all visual and moving around. I didn’t have any sense of the code that was happening in the background. So, that freshness? There’s still things like beads, remembering how this beads on a string image for how characters are parsed in a HTML file is a little fragment that’s been carried on from book to book to book from 1994. And there are other things in there that, like, this is what helped me think about it the right way that I would have forgotten about after all these years. What is it like almost 20 years? Right? [laughs] I don’t think I would’ve remembered that. So, it was really nice to have that documented from my fresh learner mind and carry that along and share it with people 20 years later. Because really there’s so much of it you just don’t remember how you learned it. It feels like you’ve always known it.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. Yeah, and I really have enjoyed reading a lot of your book because of that. Because it’s like, “Oh, that’s right! That’s not easy. I didn't just absorb. I wasn’t born knowing that.”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right! And just like some of the Unix conventions that you just take for granted, like <code>../</code> or starting pathnames in general, and what it means if it starts with a slash. I remember back in probably 1993–94, my friend John [inaudible] who also worked at O’Reilly, sat down with me and we were at a restaurant, and I handed him a napkin and a pen. And I’m like, “Could you please explain pathnames to me?…” [laughs] “Like, I don’t understand this <code>../</code> and these slashes.” And he taught me for the first time. I remember how hard it was to learn that. And I spend a crazy amount of time in the book walking people through that step by step, like how to write a link to a local file, and how you navigate through the directories using Unix conventional notation.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>And I don’t think a lot of other books spend that much time, like a whole chapter on describing that. But I remember that was a thing for me in particular coming as a print designer, coming to it from print design. Those are the things that hung me up. And also, from teaching a number of beginning web design classes, it’s those funny things that hang people up that I’ve seen and I make sure that in the book I kind of hammer on it to make sure that people see it in three different ways, and we move through it step by step. Because there are the least expected things that trip up new people, and I remember clearly being one of those people getting tripped up.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. I think, I mean we all were at one point or another, whether we remember it or not. [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>So, I didn’t really do your whole bio. You were one of the very first web designers on the web, if not the first web designer, right? May ‘93?</dd>
+
+<dt>Jen Robbins</dt>
+<dd>That’s right. So when we, it was at O’Reilly, Dale Dougherty and folks there started <a href="http://oreilly.com/gnn">Global Network Navigator</a> which was one of the first portal sites. He had the idea that we would do like a magazine and it would be funded by ads and sponsorships, which made it the first commercial website back in, I think we prototyped it in May of ‘93 and launched it in August. So, yeah, very early on. And so yeah, you could potentially say that I was the first designer of a commercial website.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Although there was a whole team. I basically made a lot of icons and a lot of header graphics.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>That’s cool. And so you’ve written four books and you still work over at O’Reilly now designing digital products, all sorts of things from apps to websites to user experience stuff for their digital everything stuff.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yes. It’s really cool. There’s all different types of projects. O’Reilly, which is really a very cool company, I’m sure many listeners know. But it’s a great place to work and they have very high-level look at publishing. And it's been obviously print books forever, but even starting with the web when there were 50 web servers in the world when we started GNN and we had to tell what the Internet was and what the Web was when we were showing it to them because it didn’t really, it wasn’t around much then.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>But they’re still out in front like that. We’re looking at all different ways of writing books. All different ways of publishing books. All different ways of sharing books. And also getting away from— What I am particularly interested in is for reference materials, is finding non-linear ways to getting into reference content. So, I turned one of my books into an app: <cite>The HTML Pocket Reference</cite> is available as an app. And it’s actually a far superior way to get that information. It’s an iOS app only at this point, but it’s built in HTML5 so we’re going to port it in different ways eventually. But, you know, it’s a much better way to filter. It’s like, “Oh, I want to see HTML5 only. I want to see HTML 4 only.” I can search and get right to things. It can hide or expand and contract lists so much better than flip, flip, flip through your book. So…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Once you see that your own content amplified like that it’s like, “Oh, what else can we do it to? And what other ways are there of getting to information, and navigating taxonomies that isn’t a linear page flip experience?” So those are some of the fun projects that I get to work on now. So a lot of yeah interface design, and some wireframing. I still get to open Photoshop and push pixels and make things pretty. And I do actually end up doing a lot of HTML and CSS work too when I’m building these apps with web technologies. So it’s a little of everything. I feel very fortunate.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>So what do you think is a good way to jump in? Where do people, where do you start to learn how to code? Where can people…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Well yeah, I think about that a lot. It’s like trying to climb a mountain that’s always getting taller. It’s always getting higher. So I feel completely daunted being like, I consider myself halfway up the mountain or maybe two-thirds up that mountain. And I'm looking up and the peak is getting higher and higher. And it’s like, “I‘m never going to get there!” [laughs] “I’m never going to learn microformats!” But, when I think about people who have no coding experience, like how really daunting that mountain must look. So, once you do it for awhile HTML is not too hard to learn. It’s pretty common sense once you learn the trick of it. And it’s pretty easy to get started with CSS too, but yeah we could start talking about where to start. Some strategies for your first baby steps into it. And that’s what I do in the book too. It’s very much baby steps.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, I remember being impressed with the section where you’re going to write a little bit of code and you need a place. Let’s talk about where. Oh, you already have a text editor on your computer already, I bet. You could use TextEdit on a Mac, or you can use this program on a PC.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Here’s one you can download for free. Here’s one that's whatever amount of money, rather than just assuming that we’re having a big debate about TextMate versus Sublime Text.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right, you don’t need anything fancy. So, for the person who’s just needs to make a website for their kid’s chorus or something really simple and isn’t going into a life of web design you don’t need to go out and purchase a whole lot of fancy things. You can just start it with the text editor that came on your computer. So, I think it’s important to orient yourself with how everything works. You’ve got the files that live on a server and your browser asks for those files and puts them together. And the HTML files are like the backbone of everything that holds it together. And the CSS file adds the styles and affects the way what we call presentation but how it looks and pulls in all the separate graphics files and assembles it all in like the blink of an eye or less. [laughs] In like milliseconds. And all of those pieces are over the Internet and assembled on your screen. But just knowing how those relationships is a good place to start. And then I think if you’re getting started with code, definitely the place to start is some basic HTML. Would you agree, Jen?</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, I definitely. And I think it’s interesting because I feel like that idea that it’s a layercake where there’s HTML is sort of the root of everything and the most important thing and you don’t have a website if you don’t have HTML. You have a website if the CSS and the JavaScript falls off. But you don’t have a webpage if you don’t have any HTML.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And then understand that it is this layer of like, there’s cake and then there’s some icing and then there’s some decorations that got put on top of the cake. [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And it’s always going to be like that. Print design is different in that you maybe have text and you have a bunch of images and you put them together and you put them in Quark or InDesign and you massage the layout, you change the fonts. But when it’s done you’ve fused together. Everything becomes this one thing and you can make certain sorts of design decisions or layout decisions or hacks even right at the end as you’re sending it to the press to get it to look the way you want. But when it’s done— Like, the web is not that. It’s a recurring thing I think on this show around, just because it looks a certain way in your Photoshop comp or <abbr title="Portable Document Format">PDF</abbr> that your boss signed off on doesn’t actually mean how it’s going to look on the website and…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>There are lots of contexts where the CSS does fall off, or where the JavaScript is not going to be running. And you need to take that into account. And you need to design and to think about the whole project like that. And you need to then– And I think that’s one of the things that can be really great for web designers to even just write a little bit of the code that they really understand this point from a first-hand experience.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>There’s HTML and that goes into HTML files, and there’s CSS and that goes in the CSS files, and then there’s JavaScript and…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah. And it was interesting for me to learn that all of those pieces are separate files and that it’s the browser pulling it together at the very last second. So you’re working on the HTML separate from the graphics which was all that was available when I was doing it back 20 years ago. But now there’s also CSS files and you’re working on those separately from the JavaScript which is another separate part of it. But it’s so easy, I think people would be surprised to see how easy and just intuitive it is to start writing an HTML file. What I recommend is you just start with like a letter or résumé’s a good thing to start with too if you just have your own résumé. And just find the paragraphs, and it’s like “Okay, well, a paragraph is indicated with a p, so it’d be easy to put a p at the beginning and a slash-p at the end. And move on to headings. Move on to lists, the different types of lists. And of course you need to learn how to make links and that’s what the Web is all about, so making links from one page of your site to another or links to other websites. So, once you get familiar with just one column of text that where everything is in the proper order and just using the available tags — and there aren’t that many of them, there’s surprisingly few of them that you actually use all of the time — but that's at the point where you realize, the lesson there is all about the semantics which means choosing the element tag or the element name that is appropriate for the type of information. So, just because you want something big you don’t make it a heading. You make a heading because it is a heading. [laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>And realizing that if you want to change it and make it bigger or smaller later, you can do that with your styles. But I try to drive that point home in the book that semantic markup is just so important for accessibility, for findability, for everything.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, and that’s one of the big changes with HTML5 that we haven’t talked about very much on any of the other shows is there are more elements. There used to be, how many do you think? Like 12 or something? I shouldn’t try to number it because I don’t know but 15 it felt like…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>That you would just use all of the time?</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, I mean there were five you used all the time.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right. Yeah, I think there were like, I should know, like I’ve made the list so many times. But I think there are 80.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And now there’s more.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Now there’s twice as many or three times as many. Whether it’s five you used to use all of the time or it’s 20 you use all the time.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You use all the time. Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Or it used to be officially, I don’t know, 40 or 80 or whatever but now there’s officially 100 of them or 150 of them.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah. There’s still nothing that’s too surprising or hard to learn. It’s pretty easy. It’s intuitive.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>It’s all English.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>It’s English. And people who write anything you know the difference between a numbered list and a bulleted list, or a header and a footer. There are things that are familiar.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>For tabular material, things that are in rows and columns? That isn’t completely intuitive but not hard to learn either, but you know that’s something you save for later. Start with just headings, paragraphs, lists, and links, and get familiar with that. That’s a really nice place to start and you feel like you’re there. I wrote an HTML document.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Next I say, “Well, let’s put some images in it,” and deal with what it’s like to put in embedded media. You could embed videos now and audio players. But images is the most common thing to put on a webpage. So, and then you get to deal with elements that don’t have an opening and closing tag. They’re just their little selves. You just drop them in there. And then you can start adding more, taking on more elements. Oh, I'm going to start dividing– you know, I had a lot of paragraphs here but I’m going to make that even more semantically rich by this header and these paragraphs are related. I’m going to make them a section, and you put your section at the beginning and section at the end. Or I could take all of these sections and publish them on another site. That’s an article. So, I try to explain all of those, but if you’re learning for the first time you don’t need to learn all 80 at once.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You just learn the things you would format in a Microsoft Word document once you learn how to enter, type in a tag and you’re golden! You’re good! So, it’s pretty intuitive and like I said I was surprised at how few things there are, how few tags there are to learn. And then as these new things come along then you can just add them into your bag of tricks. When you need to do a form that’s when you learn all of the form elements. And then as you really, in HTML, the journey would eventually lead you towards all of the accessibility features for making your pages accessible on screen readers or usable with something other than a mouse or keyboard. All different types of entry devices, all different types of reading and listening devices. And then there are things like <abbr title="Accessible Rich Interactive Applications">ARIA</abbr> roles for improving accessibility. And then there are microformats for really getting into the nitty-gritty of semantics. But I consider those sort of like ninja moves and also that’s really the role of a developer and the responsibility of making production-ready websites. I think a lot of designers who are right now working in Photoshop might not need to take their skillset all the way to the developer end. I mean, you might just need to know enough to manifest your designs in a simple prototype that you could hand the prototype to your developer. With the whole world of responsive web design where the page needs to look good on a smartphone or tablet and wider. Basically, every possible pixel-width it needs to make sense. Photoshop isn’t the job for that anymore. You’re going to get much farther with a HTML prototype. So I think that’s where things are changing and where designers— there’s this whole, “Do designers need to code?” Yes! If you want to communicate. It’s not just how it looks on a print page. It’s how it works. And if you don’t decide how it works then the developer down the road is going to decide how it works. It depends on how much you want to have control as a designer, and designers as we know like to control. [laughs] So I think it’s just knowing some HTML, but I’m going off on a tangent now. But you don’t need to learn all of it all at once. You need to learn enough to get your ideas across.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>That can be fairly simple at first, and then push it as far as you need to based on your job title, your job interests. And like that.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. I mean, I do think there’s something very elegant and simple about HTML. I think that’s why it has succeeded and become the thing when many people say, “Oh, the Internet. I started the Internet in such-and-such-a-year.” What they mean is the Web, and what they really mean is this thing that got invented and took off because of HTML, because it’s so easy. It is easy to learn, I think. And there’s a website, <a href="http://html5doctor.com">HTML5 Doctor</a>, that I think is a good one to go to for people who are wanting to learn. They want to see a list of these 80 elements. They want to look up very quickly which one does what.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep. I use that site a lot.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I do too, and I think it’s a good idea to start with some content. Like, grab a résumé or business letter or a magazine article or anything and say, “Here’s an example. I’m building a website. It’s got blank on it. It’s got a lot of such-and-suches on it. I’m going to take one of the such-and-suches and I’m going to mark it up, and just copy and paste the actual content, the text, the whatever it is, and just start marking it up.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Rather than try to come from some abstract— you know, “I’ll memorize all of the elements and try to remember what they are.”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Because I think it ends up depending on the use case where you’re like, “Oh! I totally understand what a blockquote is. I’ll never get confused about when I should mark something up as a blockquote.” And then you have a situation where you sort of have a quote but you’re not, maybe it’s not a quote. Maybe it is a quote. And you’re like, “Wait, what is that again?” Or, “Okay, I got the blockquote element wrapping around the outside of the quote. That’s easy, but what am I supposed to do with the <code>&lt;cite&gt;</code>? Is that the name and the magazine that it was in? Or is that just the name?”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I mean, some people must remember that, but a lot of us especially with the new elements are like, “Let me go look that up again, and think about this, what would be the best way to mark up this content so that computers and machines of all kinds can read it and understand not just see the text but actually understand what that text is in this context.”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm. And you know, some of the newer HTML5 elements do feel a little up for interpretation on how you use them. You know, with figures and figure captions, even headers and articles and sections. There’s, it’s a little vaguer than a paragraph or a heading.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. There’s debate. There’s actually long debates about some of these. [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Sure. Yeah, and I’m always amazed at like one of my mentors and heroes in the business is Aaron Gustafson, who wrote <cite>Adaptive Web Design</cite>. And he’s been a tech reviewer on this edition of the book and the prior edition. He also contributed JavaScript chapters to the last edition of the <cite>Nutshell</cite> book. But when I see him at work and like some of his comments and how he thinks about things like the semantic elements in a form, like it just blows my mind. It’s like, “Wow! It can get so sophisticated!” But you don’t start out there. You start off with things that just make a lot of sense, like headings and paragraphs. And then I feel like you work your way up to those subtle nuances of dealing with really complex information types.</dd>
+
+<!--28:06-->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. Bazillionare in the chatroom just dropped another link at <a href="http://developers.whatwg.org">developers.whatwg.org</a>, and I’ll put that in the show notes. It’s a really beautifully formatted copy of one of the official HTML5 specs where you can, if you’re wondering and you kind of want to know the official, you maybe read this blogpost and that blogpost and this other blogpost and everyone has a little bit different interpretation of how to use an element or which one to use or what it means. This so-called official verison is the actual specification itself where people have come together and agreed and sort of signed off on this is going to be the thing that we all agreed to do. And sometimes the spec doesn’t really make sense, and sometimes you’re like, I mean it’s like law. It’s the way that lawyers look at case law and argue about it and go to a judge and say, “No, we think it means this.” “No! It doesn’t. It means this other thing over here.” This is sort of the law that everybody argues about. But it’s nerdier. It’s much nerdier, but it can be fun to kind of go and look up something in the original world if you want to get down to the metal of the nerd of what it’s for. I also, developers who are listening, people who feel they definitely have a handle on HTML, I feel like, I feel like there’s more here than a lot of programmers and engineers are willing to admit. And it’s more— I don’t know, I just want to encourage all of those people, you’re some amazing PHP programmer, JavaScript developer to go back and really look again at HTML and realize that maybe there’s more here than you’ve memorized, and to go study some more. I’ve met a lot of brilliant engineers who’ve not, who don’t know their semantic markup and don’t really know how to code HTML very well and they just use lots and lots of <code>&lt;div&gt;</code>s. The D-I-V. Div, div, div, div, div, div, div, div. And it’s like, “Well, why are you doing that? Like, that’s, you’re such a good programmer and you’re so careful to make sure you use beautiful tabs and spaces instead of tabs and you see the beauty in object-oriented programming and you care deeply about writing really efficient loops and stuff, but you— Why are there 27 divs on this page? This should say paragraph! And header. And heading…”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>“…lists, not div, div, div, div.” So, anyway, my little…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>And another aspect of HTML5, and this where I learned a ton in writing this new edition, are some of the interactive new form elements that HTML is doing the work of what we always needed JavaScript for, like validation, or the browser is doing the work just using the markup and there aren’t scripts involved. So, I think that’s a really interesting direction. And again, not really what an absolute beginner needs to worry about right off, but it’s good to know that’s on the horizon. Yeah, I really learned, I learned so much about that. And also just the video and audio elements are awesome.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, there are a lot of things that people used to want to do with HTML but it wasn’t possible, so they came up with really complicated ways to get it done, some of which required things like JavaScript…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>JavaScript. Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…and others, just crazy stuff. And then the world evolved and people said, “Oh, uh, that really should be in HTML. That really should be baked into the browser. Developers shouldn’t have to do that everytime you make a website. That should just be part of the Web. And so now it is. So now you don’t have to go and preprogram or program a whole, like— Lots of people, you see a search box and there’s like a word in the search box and it says, “Search” or it says…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>It says something in that box, and you click on it. Or a form lots of times, it’ll have a word in the box and you click on it and that word should disappear, right? And sometimes it doesn’t disappear, and so you type in the search box and you start typing your word, you’re searching for flowers but what you really were searching is S-E-Flower-A-R-C-H [laughs] because of the word “Search” didn’t disappear!</dd>
+
+<dt>Jen Robbins</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And I’m always like, “Why are you such— You wrote bad JavaScript one, and two just erase that! And replace it with—” ‘Cause now you can just use the HTML form element…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Placeholder.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…and you put in there <code>placeholder</code> and boom, the browser takes care of it for you. So, if you are new the good thing about it is that’s true that mountains have gotten a lot bigger but there’s some shortcut, there are few shortcuts up the mountain. [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Oh, that's true! Yeah. Absolutely right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>That you don’t have to— We all used to do it the hard way and you don’t even have to learn the hard way. You can just— There’s a new way, and the new way is much easier. And there’s a lot of stuff that you can do in HTML that you used to have to do in JavaScript or have to do in Flash or have to do in some kind of custom plugin or get your users to download something in order to make your website work.</dd>
+
+<!--33:21-->
+
+<dt>Jen Robbins</dt>
+<dd>And CSS is taking over for a lot of responsibilities that previously required JavaScript.</dd>
+
+<dt>Jen Simmons</dt>
+<dd><p>Yeah, so let’s talk about CSS but before we do let me jump in here with a sponsor.</p>
+
+	<p>The Accessibility Summit. So this is another wonderful event from Environments for Humans who’ve done all of these other summits and conferences, like the upcoming conferences in Hawaii: InControl and CSSDev. Accessibility Summit is going to be September 25, so it’s coming up soon. And they have been selling out, so you should totally go now if you’re interested in this. Get there before they sell out. An entire day where you can stay at home, in your office, wherever you want to be online and you log in in the morning and you go to this one day conference all about accessibility. We’ve mentioned accessibility a couple of times today. I’m hoping to actually do an entire episode of The Web Ahead on accessibility because I think it’s so important. It’s one of those things though that a lot of people think it’s not important. A lot of people do, and they’re already convinced and they’re like, “Okay, great. Cool. I’m going to use web standards. I’m going to use semantics. I’m going to do my best to make my site accessible. But, I just haven’t had time yet to really learn all the details. I keep knowing I should. I’ve gotta go, there’s something else that I’m missing, but I don’t know if I’m doing a good job yet.” That’s how I think a lot of people are in that place. An event like this can really help you take it up to the next level. There’s an entire hour on ARIA, where you can learn about ARIA roles and how you want to use ARIA both to mark your content semantically and also to mark up your applications so that it’s super accessible if you’re building a web app. Accessibility testing. Implementation strategies. How to do accessibility in iOS. iPhones and iPads are insanely accessible devices. They’re so accessible. And if you’re building an app for those devices and it’s not accessible then you really screwed something up. So there’ll be an hour on how to make sure you get that right. All kinds of things. So, go check them out at <a href="http://environmentsforhumans.com/2012/accessibility-summit">http://environmentsforhumans.com/2012/accessibility-summit</a>. I will drop the real <abbr title="Uniform Resource Locator">URL</abbr>— See, look now I’m revealing my real lack of polish when it comes to advertising. [laughs] But there’s a URL! And I will look it up and put it in the show notes along with all the coupon code information, everything you need to know how to check them out, sign up. You can get a one day pass for yourself, just you. Or you can get a pass for your team where you can plug up a projector in a meeting room and how many people are feeding in that meeting room can all show up at the same time. So, thanks so much to Accessibility Summit and Environments for Humans for making this show possible.</p>
+
+<!-- 36:46 -->
+
+	<p>CSS. So explain CSS and why we care.</p></dd>
+
+<dt>Jen Robbins</dt>
+<dd>Why we care about CSS. Well from working on the web for 10 years without it, you were really at the mercy of how each browser rendered your HTML page. And beyond that, how each user had their own preferences set [laughs] in the webpage so that they could make their fonts and everything however they want. Which they still can. If a user wants really large text because it’s easier to read they can absolutely go into their browser preferences and do that. I think in the early days it was more common for people to fiddle with their preferences because every page was a gray background with black Times text. Every page looked exactly the same. And you were really at the mercy of that. So, I remember being when CSS first came along, just being so excited that I could change the size of headings if nothing else. [laughs] So you didn’t have this <code>h1</code> that was covering a third of the page for no reason. And it also frees you up to mark things up semantically because it was very tempting to use an <code>h3</code>, a third level heading, just because it looked better than that big honkin’ <code>h1</code> in the old styles. So, the styles let us, I think Eric Meyer on your show Jen said that it’s like clothes: you can put on different clothes to make a different presentation, to look different everyday. And that’s what you can do with stylesheets. It keeps how everything looks separate from that struture of the document. And it’s a really powerful thing if you have all of your styles in one place and if you want to change the color of a particular headline or color of links, one little change in one place changes it on the entire site. So that’s a really powerful thing, too. It’s much more efficient to have all of that information separate. And you can also use stylesheets to add a lot of images to the page as background images, so you don’t have all of your images embedded in the content of the page. If it’s window dressing then put it where the styles go because it really is just a part of the visual presentation of the page.</dd>
+
+<!-- 39:36 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>We get a lot of customization there, and now we’re seeing stylesheets used to completely change the layout of a single webpage so that it’s optimized for very small screens and medium screens and wide screens, all of that being controlled by CSS files.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. And I think for many of us that have been around for, to see a project live through a bunch of iterations, there’s something amazing about being able to just take the CSS and remove it from a website that maybe– Maybe you build a website and it’s been up for three years and then you just erase the CSS files and write all new CSS files or keep them and iterate and change them so radically. They’re basically totally different. And you still have the same website with all the same content, you’ve got three years worth of content, and you didn’t change the HTML and you didn’t change the URLs, and people who linked to it two years ago can still— You can click on that link and it still works, but yet it looks like a completely different kind of world somehow.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Like the clothes are different. It’s like it got a makeover from before.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>The real eye-opener for me and I think probably most of the people working on the web around I think maybe 2002 or so was the <a href="http://csszengarden.com">CSS Zen Garden</a>…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…where it was David Shea. Was that who…? I think it was David Shea who was behind that. Apologies if I got that wrong but I think it’s Dave Shea, put up one HTML file and then the whole webpage, all of these people in the web community just wrote CSS for it. And you knew it’s just one HTML file with no images in it and it just got hundreds of designs that looked completely different. And it was what taught us you don’t need to lay things out in tables, you don’t need your images in the content. All of this can be completely separate because, look, none of these people even had access to this HTML file. They were doing it all with stylesheets. And for me, that’s what made it all click. It’s like, oh! I get it! You know? [laughs] But I was completely intimidated by it. It took me a long time to be able to I guess unlearn a lot of old tricks. and start thiking in terms of CSS. In books past there were chapters on cutting up graphics and holding them together with tables, or creating— I look at a lot of my old websites I did in the ‘90s and they were all held together with tables. [laughs] So, I don’t know, it was a big shift. It took some learning, but now it’s really nice because if you’re coming into it new you don’t have to unlearn anything. You don’t have to learn table layout then unlearn it and learn the new way. You just got to learn the new way. It’s a lot easier.</dd>
+
+<!-- 42:32 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, and for those people who don’t know the way it used to work is you would basically, for a little while at least, you would for lots of times you would put in the HTML, you would create that opening paragraph and in that element you would put some information in there that would say whether that paragraph should be this font or that font, or this color or that color. And one of the big problems with that is that you, if you decided to change the font lots of times you had to change it all over the place. So if you were hand-coding the code then you had to like cut and paste, cut and paste the change over and over and over and over. That’s where things like Dreamweaver became super popular because it helped automate some of that tedium. But the bigger problem is that later when you just decide to redesign and you want to change the layout or change the font or change the colors or change the background or change everything, you couldn’t because your HTML had all this styling information kind of embedded into it, and the content and the visual design for that content were sort of fused together, much in the way that it is for print. In print, it makes sense. You print the book. The book is done. But on the web, lots of times those files might live five, 10, 50 years and by sort of permanently fusing anything like a visual styling or layout to the actual content itself, you’re really messing yourself up for the future. And it doesn’t seem like it at first. I think that’s one of the mistakes that people who are new can easily make is not understand how important this concept is. They just kind of like, “Yeah, okay. Blah, blah, blah. Let’s go.” But five years from now, when you’re trying to port all of your content from one content management system to a different content management system, you’re trying to make an API out of it so you can feed that content to your mobile app, or you’re dealing with the television system or the refrigerators of the future because in 2016 and something we can’t even imagine yet has been invented, if you’ve got some kind of stuff embedded in your HTML that has to do with assuming what device you’re using or what browser people are using or what the visual styling with the visual look of the company is in 2012 then you’re really just shoving yourself into a box. And I’ve worked with a lot of projects, especially projects like big universities, where they’ve used a content management system but they didn’t really put things into fields and they didn’t really structure their data very well, and they just kind of have one big empty block space in the form, a just big space to just dump it all there, and a lot of times what’s there is HTML that looks like it was written in 2000 or in 1996, and it’s got styling in it. It’s got fonts in it. It’s got colors in it. It’s got like all— You know, they’re like, “Oh, look at this website that we have for our university. It’s so cool and we got this yellow and green, or this blue and purple, or this green and purple or orange, and oh I want to make this little, I’m going to write a press release and in the middle of my press release I want to put this little contact information and I want to make it with a yellow background on that contact information. I want the font to be bigger.” So then they use HTML to do that.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And what they don’t understand is that when the site’s redesigned, then that yellow and that big— and that font is permanently stuck there.</dd>
+
+<!-- 45:51 -->
+
+<dt>Jen Robbins</dt>
+<dd>Right. Well I think for— So CSS is clearly like important but if you’re a visual designer coming from this as a graphic designer or visual designer, CSS is your toolkit. HTML is fine. There’s your backbone. That’s part of web design. But for your visual design tools, you’re going to use CSS and you need to get really handy with it. Talk about the growing mountain syndrome. Like CSS, it’s great and exciting because different browser-makers and different, like Adobe, they’re inventing all of these new CSS3, now it’s all modularized so there’s lots of inventions of different ways to do layout and they’re actually getting adopted really rapidly. So there’s a lot more to learn all the time, but again you can start really simply. What I recommend is like, if you’re new to CSS there are properties. A property is like, I don’t know, a font style or a color or a background pattern. There’s <code>font-family</code> would be the font. And <code>font-size</code> is the size of the text. And there are all of these standardized properties that you can assign to elements on the page. And then the way you call the element is you use a selector, and there are all different types of selector types. Sort of the most basic type would be like an element selector. So you’re going to say, “All paragraphs,” — you’re going to call it by its element name — “should be blue.” So you write a little style that says <code>p { color: blue; }</code>. So,…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<!-- 47:32 -->
+
+<dt>Jen Robbins</dt>
+<dd>You can start really simply. And I recommend, you need to learn some selector types. But you can start simply with just like element— I recommend learning element, class, id, grouped where you can put things separated by commas and do paragraphs and headings and blockquotes all with one line. And also contextual, like list elements but only when it’s in an unordered list, or list items only when it’s in— You can like specify it based on its context.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, like if it’s a paragraph in an <code>article</code>, make it this— make it <code>12pt</code> or make it <code>14pt</code> but if it’s not a paragraph not in an <code>article</code> then make it <code>12pt</code>.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right. So, you can, I say you can but I did get pretty far with just those selector types…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…in creating designs. Now, it gets, as CSS3 goes on they’ve added lots more selector types which give you really cool strategic, like, fine tuning where you don’t need to add anything to your markup. You can just, like, just get in there and specify styles for different parts on the page. Like the, all the odd number list items. You could—</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah the first paragraph.</dd>
+
+<!-- 48:52 -->
+
+<dt>Jen Robbins</dt>
+<dd>The first paragraph, right. But that comes later. You know, like you can start with— You can get really far with just a few selector types. You can also get really far with just a few properties. Just start, if you’re just starting out just look at all the things that control fonts, colors, and backgrounds. And you can, if you throw in padding and margins in there, padding within— Once you understand that CSS perceives everything as being in a little box, and you can think, “Oh, I need a little space in this box. I need a little space around this box.” You can get pretty far. You can make a nice looking webpage using — a one-column webpage — using just fonts, colors, backgrounds, and some margins. From there, if you want to move on, I think the next step is doing some page layout stuff. So, floating elements to the left or right to make columns, positioning things to make columns, I talk about that a lot in my book. And then you’re doing layout with CSS, and that would be I would say phase two of where you go. And as you get more proficient with CSS, you start adding more selector types, and you really feel powerful. It’s like, I love learning new selector types, because it just lets you get in there and grab things and do things to them. You can get into fancier properties like there are a lot of CSS properties now that we needed to use graphics for in image tags in the content and a way that feels dirty now, you know? [laughs] But making rounded corners can be done with a simple style rule, with a <code>border-radius</code> property. And also gradients, you can fade colors from one to another. And basically it’s creating a graphic on the fly. The browser is making the graphic for you based on written instructions in a style rule. And that’s really cool, you know there are— It makes the webpage leaner. You’re not shoving a lot of big graphics over the pipes. And now CSS is going— Once you take on all of those things, you might want to go out into the newer things like you can do certain animation techniques. You can transform things: skew them, scale them. All with stylesheets. You can make like nice little transitions. So, instead of when you put your mouse over a button, instead of going from like blue to yellow in one snap, it can kind of fade into yellow. And it just feels smoother. It feels nicer. Feels a little more like software. There are all sorts of things you can do with CSS. But you don’t need to learn it all at once. You know, like I said: fonts, colors, backgrounds, some of the spacing things, and you can make a decent-looking webpage that way, you know?</dd>
+
+<!-- 51:43 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, I think especially since a lot of web design right now is because of fonts, because there’s all sorts of choices around fonts, it seems like the trend right now is just get really simple and very elegant and keep things kind of clean.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yes.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>So, I feel like if someone’s a desginer and has a strong visual aesthetic, that some of what that is actually really easy to code. Just picking out one or two fonts and learning how to hook the fonts up and picking out font sizes and maybe one color, you know, instead of all the fonts being black it’s like a tint blue/dark gray color.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<!-- 52:25 -->
+
+<dt>Jen Simmons</dt>
+<dd>And you can actually make something fairly beautiful with only a very rudimentary understanding of CSS. If you have a visual kind of feeling — aesthetic, or whatever — to your work already. Yeah, CSS is kind of awesome. I think it’s easy to forget. And it’s fun. I think a lot of what people are doing designing in the browser— I’ve seen a lot of designers who feel like, “I can’t think like that. I can’t design in the browser. I can’t design in code,” which is justifiable. I think sometimes you get really visual in your thinking and you don’t want to think about code. But I think a lot of people who do “design in code”, at least the way that I do it, I’m not really— I don’t open up a code editing window and write green text on a black background with like only code.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I’ll start the webpage and have it in, my favorite is Firefox, but you can do this really in any web browser now. And I’ll open up the web inspector and I’ll click over into— In Firefox, I use what’s called Firebug. Again, it was one of the earliest tools but it’s not the only tool. It feels like everybody has a tool like this now. And be like, “Okay, I have box. I put a border on my box. And now I’m going to try out a rounded corner. Oh, with <code>4px</code>. Hmm. No, let me look at five. No, let me look at eight. No, look at 12. 10. Eight. Six.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>10. Eight. Like, that’s my design process.</dd>
+
+<!-- 54:00 -->
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Eight! I like eight. And then I’ll [laughs] go over to my code editor and write eight, and then I’ll come back and look at how it looks.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And I feel like that’s the kind of thing where, you know, beginners can even sort of start to get that kind of a workflow going where you’re thinking about the code but also really looking at the visual result and you’re going back and forth. And I find that much more gratifying than doing it in Photoshop. Because in Photoshop you’re like, it’s the same process as messing around with the tools until you get the look that you want, but it doesn’t, the rounded corner isn’t actually quite exactly the way it will look on the web. Or the fonts…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>14pt font doesn’t look exactly like a 14pt font on the web.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>I’m still using Photoshop for— Just because I am so fluent in it. But I’m finding I don’t work on a whole page in Photoshop. I’ll work on— I use it like a sketchpad almost. I can change colors and everything there, and I get a sense of, I don’t know, I just like that as my little paint box.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>But then I very quickly, like, just get my <abbr title="Red Green Blue">RGB</abbr> values and copy it into, you know— I work out the way it, like, to use a gradient as an example. I work that out in Photoshop to get the mood and then I pretty quickly get it into…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Into CSS.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…into CSS. You know, copying the points and whatnot. So…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>But it works that way for everything. But, yeah, like it’s not going to replicate what the text actually looks like in a browser. But for some reason, I am personally just more comforatable working out my visual ideas there…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…for lack of a better word. I don’t end up— Some of my app work I’ll comp up the whole thing there because you know what your screen size is and everything is fitting in one— It’s still more akin to print, but web isn’t like that anymore and Photoshop just isn’t as good of a tool for comping an entire page as it used to be. So, you know, I haven’t quit it. [laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<!-- 56:04 -->
+
+<dt>Jen Robbins</dt>
+<dd>I use it just to work out visual ideas. But yeah, it’s—</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Well, and I think, I think everybody does everything a little differently and I think actually most of us change it constantly. I think the only correct way— I think the official, like what are the real professionals doing these days. I think everybody is wandering around not really sure which tool we want to use is the official… [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah, no kidding. I think about that a lot. Like, nothing’s quite fitting…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…right yet.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And Photoshop’s one of them for sure.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And I think CSS is another for sure. And I think for anybody who has not had a chance yet to use CSS because you haven’t known how to use it, this is a good— Like, getting this tool as another tool can really be— And once you do a little bit of it and start to really understand it, then it might end up being a little more efficient for certain parts of your process.</dd>
+
+<!-- 56:58 -->
+
+<dt>Jen Robbins</dt>
+<dd>Right. You know, I have like drawn the line for my personal, like what I do, I drew the line at JavaScript. Like, I do HTML great, CSS great, but like JavaScript I only kind of dabbled just because my brain doesn’t like it that much. [laughs] My brain doesn’t think like a programmer’s brain does, and you know what? That’s okay! Because there’s lots of people who do the programming. But even in my role as a visual designer, I’m using HTML and CSS as a design tool to communicate my visual ideas and how things should work and how I designed the interface to unfold at different sizes and whatnot. So when you say, “Should designers code?” I don’t think that necessarily means that every designer needs to program the entire site to production quality and launch it. It just means, like, you’re gonna need to code just to even communicate your ideas now and especially if your calling yourself a web designer. It’s going to be assumed that you know at least HTML and CSS. And these days JavaScript is becoming so much more integral to it that that’s just becoming part of the job expectations as well.</dd>
+
+<!-- 58:13 -->
+
+<dt>Jen Simmons</dt>
+<dd>Well, and I feel like, I mean I totally agree with you that a good place to start with CSS is to learn colors, fonts — especially the basic fonts that are already baked into the web browser — backgrounds, and then yeah get into like boxes and borders and all those kinds of things. Even into some animation, some transitions and the hover links and…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…all the different styling you can do with visited link stuff. But, at some point it feels like you got to jump off the deep end, and the deep end, at least for me the thing that was really hard was layouts.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm</dd>
+
+<dt>Jen Simmons</dt>
+<dd>That CSS layouts is a whole other creature and was very— It was hard to understand because the mental model is odd. Like the mental model for making paragraph text a darker shade of black is easy. Like, you point to the paragraph, you tell it which color, black. [laughs] Like, that’s it!</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You’re right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>[laughs] But the mental model for, “How do you make a two-column layout?” — you know you have a main column and a sidebar — is like, you float the sidebar…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>[laughs] Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…so that it’s floating around?!</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You add a margin, declare space for— I know.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And a negative margin to make it be the left sidebar, even though it’s second in the source order? Like, what are we—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<!-- 59:32 -->
+
+<dt>Jen Simmons</dt>
+<dd>And then you absolute position something and you relative position the content, like the container it’s in so that it…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah. So it sounds like there are more intuitive tools in the works in CSS…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…that will just behave a little more like a page layout program like InDesign…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, behaves especially like—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>So, that’s coming up. I’m excited about it. It feels a little daunting again. It’s like, “Oh gosh, a whole another thing that I need to learn.” But, maybe, you know, you learn that and you’re so glad to leave floats behind the way that like it was actually pretty nice to leave table layout behind.</dd>
+
+<!-- 1:00:12 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, and I think, I mean so what happened is we used to, you know, originally when the Web was invented everybody assumed that it was just all going to be a piece of paper with one column like you’re writing a paper for school.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Or you’re writing a research paper for theoretical physicists. [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Which is exactly what it was! [both laugh]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Which is exactly what it was! So, and then a lot of people got in there and they were like, “Wait, I want images and pictures and colors and I don’t want it to be just as if I typed this paper on a typewriter. I want this to be like I made a brochure in PageMaker. So, we started, exactly, using tables to put things in different places, which is just evil! And no one should be doing that anymore. [laughs]</dd>
+
+<!-- 1:00:59 -->
+
+<dt>Jen Robbins</dt>
+<dd>Well, yeah. No, not anymore.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Using tables…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>But at the time we didn’t have a stylesheet system. We only had…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>We didn’t have any choice.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. Yeah. No, it— I don’t mean—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Which is a shame because I know that, I know from being in the room with these people in ‘93 that there were people, like, pitching stylesheet systems from the very, very beginning, but just nothing caught on. And even when we did have a— I think the first stylesheet spec was maybe in ‘96 but it wasn’t until 2000 that anything, any browsers really implemented them.</dd>
+
+<!-- 1:01:30 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>And people started really using them.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>So, we ended up with this kind of crazy layout system of floats and positioning. And it’s interesting because there are limitations on what’s possible, and this is one of the places where I feel like a great— The differences between a decent web designer and a great web designer is that a great web designer understands even if you can’t write the CSS they deeply understand what’s possible with layouts in CSS, especially now with using responsive web design, which kind of took the old-school layout possibilities and cubed them.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Which, like, we used to be in one dimension and now we’re in three dimensions. Not literally, but in a certain kind of way. And lots of times, I would meet designers or I would see the work of designers who really had no idea how the web layout system works, CSS layout system works, the current one. And you would kind of— You could tell from their Photoshop comps that they, they were drawing things that actually weren’t possible or there were things that were easily possible that they sort of assumed were going to be hard, so they were not doing them because they thought they were hard, even though they were easy. Or they were doing things that, I mean, literally impossible. Like, you would just be like, “Uhh, this is not a good idea.” And so I feel like in some ways, as the Web matures and the industry matures and what’s expected from a web designer matures, I feel like even if you don’t learn all of the code or especially the production quality level code for layouts, if you really want to be a web designer you’ve really got to be able to learn what is and is not possible in the layout system, and invest that time. Even though there are new layout systems coming, I mean we sort of have this one, there’s kind of two worlds, two pieces to it. This sort of one, two-faced system. But now there’s some new ones coming, and the cool thing is that there’s not one new one coming. People said we need something better, but instead of trying to agree on there being one perfect new thing, there’s going to be a bunch. Not a bunch, but two or three. Four. So, and they’re still too early to use them and it’s not— They’re not mature enough yet. But, I think people will still use the first one a lot, actually.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep.</dd>
+
+<!-- 1:03:52 -->
+
+<dt>Jen Simmons</dt>
+<dd>And of course it will still continue to work. It will never stop. It will never break. And then we’ll add to it, these other possibilities. And when they hit, when they do become, you know, ”Hey we can use this today,” I think web design is going to change pretty radically pretty quickly, because you’re going to start to see a lot of interface patterns and a lot of layout patterns that we’ve— It’s almost like we forgot that they could have existed because they can’t exist on the Web…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…so we don’t expect them to exist, and so they haven’t existed, and then—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Well, same thing with typography.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You know, for so long we just— It’s like, “Okay, is it Georgia or Verdana? [laughs] Those are your choices.” And, you know, when you only had six reliable fonts, that just wasn’t part of the web designer job. Well, wow! I’ve had to start thinking about fonts again, and start, like, getting reacquainted with all of the different font possibilities and start being, you know, designing typography again. And I think, you know, the same thing will happen when we have more rigorous layout options. We’re going to have to start going back and reusing some of our old print tricks and conventions. Like, wrapping around shapes. It’s just, like, you don’t do that anymore because it’s just too much of a pain. But, let’s— What is the new, the new CSS for doing like wrapping around an irregular shape? Do you remember the name, Jen?</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I’ve already forgotten them. Because I studied them and then I was like, “Oh, we can’t use these yet…”</dd>
+
+<dt>Jen Robbins</dt>
+<dd>We can’t use it yet, right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And then they changed. There were some pretty radical changes that happened and I haven’t gone back around to them, but—</dd>
+
+<!-- 1:05:34 -->
+
+<dt>Jen Robbins</dt>
+<dd>Yeah. It’s sort of interesting to know that these things are on the horizon and it’s like it might be part of our web designer toolkit again. But again, you can get that in your own time. There’s so much you can do with just a few selectors, just a few properties, and sort of build up from there.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Well, and your book you do go into some basic layouts and sort of walk people gently through how to—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>I do! Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. So if they could buy your book and work their way through your book—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Hey, can I— And speaking of buying my book, O’Reilly has my book for 40% off the print and 50% off the digital versions. So, there’s a promotion called— It’s a back-to-school promotion. If you go to the— When you checkout, not just my book but any book, with a code B2S2, so like back to school two, when you checkout you get 40% off. And that’s through September 11, 2012.</dd>
+
+<!-- 1:06:39 -->
+
+<dt>Jen Simmons</dt>
+<dd>That is cool.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah, it’s very cool. Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I’ll put that in the show notes as well. The show notes. So people can go to <a href="http://5by5.tv/webahead/33">5by5.tv/webahead/33</a> to get to the show notes for this episode and see all the links. People in the chatroom have been putting awesome links in here.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Oh! I can’t wait to see them!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Transition just dropped in A List Apart. There’s <a href="http://www.alistapart.com/topics/topic/layout">a list of all the articles about layout</a>, along with some others. So, we’ll be putting those in the show notes for people to go check out.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Awesome!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And one thing about your book that I found kind of fascinating is that you’ve got quizes in there.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right. Well, I wanted— You know, there’s so many people who just like need to learn this for their job, or for their church, or people— I get a lot of emails from all types of people, you know, stay-at-home moms, people who are programmers all their lives but feel like they want to go a little more towards the visual end of things. There are so many people that are just taking it all on themselves as a solo project. So, I wanted the book to feel like a class. You know? In a book. However, it’s found its way— It’s a really popular book for as a course book for beginning web design classes, and the teachers really like having some prepared quizes. There are exercises all the way along, so I do it in little steps. And like when I think that theres like <em>You need to make sure you’re getting this</em>, I’ll put an exercise in there so you can try it out yourself before we move on. I build a foundation and make sure you’re comfortable with it, and then take it to the next level. Make sure you’re comfortable there. And then at the end, there’s just a little quiz. It just makes sure you got the major points of each chapter. But yeah, I wanted it to be a self-contained Web Design 101 course that you could just read at home and take the tests and feel like you’re in one of my classes.</dd>
+
+<!-- 1:08:34 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>I tried to write it very conversationally, too. You know, so it sort of feels like me just talking to you and telling you the stuff.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, and that— One thing that I, I remember when I was learning— ‘cause I— Recently, I have a lot of friends who are also professional web designers and I’ve become part of different communities. But, that was not true until I guess about five years ago. And for the first 10 years of me being involved or 12 or eight or something, of being involved with the Web it was always sitting by myself with my one friend who knew about as much as I did and we would read, you know, a magazine that came out, because this was kind of before blogging took off or before I knew which blogs to go check out, you know? And just sort of reading a little bit here and a little bit there and then trying to learn and trying to teach each other. It’s great. You can learn a ton that way. But I always felt kind of insecure because I worried about the holes in my knowledge. I worried that maybe I totally understood this, that, and this other thing about CSS, but there was this whole other piece that I was missing or that I never heard of and I didn’t even know I was missing it. Or maybe I had heard of it, but I couldn’t even begin to figure out how to learn what it meant or when I was supposed to use it. The holes scared me the most about being self-taught. And when I read your book, it kind of struck me that not only is there a lot of juicy stuff in there to, like— “Oh, I should learn this, because this will help me with understand paragraph tags.” It also— You do these little tangential, “Oh! And by the way! There’s this insanely complicated thing that I’ll just mention [both laugh] and you can go look it up if you want to!” And I was like, this book has no holes in it. Like, this book will come through and take my Swiss cheese of knowledge and like shove things in the holes and help me feel more secure and stronger about what I know, because I know that I know what I need to know.</dd>
+
+<!-- 1:10:46 -->
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>That makes me want— Does that make sense?</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Jen, I want to thank you for that, because that was really, that meant a lot to me to have a very complete thing starting, building a foundation from square zero, you know? You don’t know anything. I’m going to tell you just all the sort of basics you need as a foundation, and I also like spend some time like setting up— There’s some important concepts in web design right now that you need to know about. So I define those really early just to give context. Like, “Here’s what you’re working in.” Like, “Here’s why semantics are important.” You know? And it just builds some basic vocabulary around things like progressive enhancement. You know, ”What‘s progressive enhancement? What‘s that? Why is it important?” So that later when we’re just talking about code, you know, and it’s like, “Not everyone’s going to see your rounded corners, but who cares? It‘s progressive enhancement. Think of it as icing. You know, like as long as people can read your content, you’re good. But for the people who can see a little extra, you know they got the enhanced version, awesome!” You know, so I try to fill in those big concepts. And then there’s just stuff that you need to know is out there and you need to know is available but there’s no way you can put everything in one book, particularly one aimed at beginners. But I don’t hold anything back from them. It’s like, “You should know that there’s this incredibly complex thing that people are doing. You might get there some day [laughs] depending on—” You know, some people buy this book just to make a website for some community group or their family, and some people are buying it’s like, “Wow. I’ve been unemployed for a year. I think I could learn this web design stuff and I’m going to, like, plot my careerpath.” And I try to address all of those different types of people coming to it. And then there’s also the designers who’ve been designing for, you know, a dozen years in Photoshop and making wireframes and they want to learn how to prototype, you know, and learn some code for those reasons. So, yeah, lots of different people coming to the, you know, web design world and needing to learn the code. And now that, like, ebooks are based on— HTML and CSS and web technologies are being used everywhere.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>O’Reilly is starting to format books in HTML and CSS.</dd>
+
+<!-- 1:13:02 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>For print! Like they’re, they have one tool that will format everything. And ebooks, the ePub format is based on HTML. You could make iPhone, you know, you could make apps in HTML, CSS. It’s really become the language for all manner of spreading information and doing things. You know, building applications and tools. So, if you’re going to learn a technology you can really go in a lot of different directions using HTML and CSS and JavaScript.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. I feel like they really should start teaching super basic HTML in elementary school. Like, when you’re learning, you know, how to write.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah, like how to markup things.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, like about the time when you started to learn cursive writing. You know, I don’t know if they’re still teaching cursive writing or not, but to put in there a little bit of, like, the concept of HTML and how to mark stuff up and how that works on the Web.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You know, it’d be great to get kids basic programming skills really early on.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Because it’s not— And you know, it’s not for everybody. In fact, you know real strict programming and coding isn’t for me. I don’t really think of HTML and CSS as programming.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, I don’t—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>It’s a language. It’s a language you learn but it’s not that logical, like if this then that. You know, my brain doesn’t like to do that.</dd>
+
+<!-- 1:14:25 -->
+
+<dt>Jen Simmons</dt>
+<dd>Well, it’s like everybody should learn math to a certain place. And some people…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…are going to become math professors and theoretical physicists. And the rest of us are not. [laughs] I feel like everybody should know. It would be helpful I think for everybody. Good job skill for almost anybody to know a little bit of HTML, a little bit of CSS.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yep. Sure.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>But yeah, the one— Another thing I was impressed with your book that you were kind of alluding to a moment ago is it’s not just the technology but it’s also the culture of web design, where like knowing what progressive enhancement means or knowing what— And I think probably anybody who’s listening to this show, especially listening to the end of this episode, is interested in that. Interested in the culture of the Web or the culture of the web industry maybe. And I haven’t really seen another book that kind of introduces that to people in such a good, easy way. And one last thing, one last— I just, I like it so much I just want to pimp it, but the…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>[laughs] Thank you so much!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>[laughs] I feel like for professors or high school teachers or any age who— especially because I used to teach classes as a professor and it was so tough to know what to do because some people had no idea how the Web exists at all. No concept. Don’t even know, don’t even— If you said, “What’s HTML?” they have no idea. Alongside of people who have already built, you know, four sites for three clients and, and they’re like they have to start with the 101 before they can move to 201 and then 301 and it’s a challenge. So, I feel like a book like this is a decent book for that situation because you can really walk people through baby steps. But meanwhile, the people who don’t, haven’t, who kind of aleady done all the baby steps, like there’s a lot in the book for them as well. That they can—</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right, if you just need to get up to speed with what’s new in HTML5 and CSS3 it would be great for that too. Because, you know, it’s a beginner book. I haven’t left anything out. Like, every HTML5 element is mentioned in the book and every CSS property, that it’s, you know, well supported is demonstrated. And even the ones that aren’t well supported are at least mentioned so you know that they exist and what’s coming up. So yeah, nothing is left out and nothing is dumbed-down. But it’s just…</dd>
+
+<!-- 1:16:37 -->
+
+<dt>Jen Simmons</dt>
+<dd>And that’s a challenge.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>It walks you through in sort of a, I think you used the word gentle, sort of a gentle way, you know?</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>It’s like a, you can do it! [laughs] You know? Because if I could everyone can, you know?</dd>
+
+<dt>Jen Simmons</dt>
+<dd>That’s cool. So, we should wrap up, but I’ll take one question here from the chatroom. Bravo is asking, “How do I find a community of web designers that would take me under their wing and mentor me?” I get emails like this a lot, too.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>You know, a lot of, I don’t know where Bravo is but I know there are meetups, all different slices of technology have meetups in all different cities. We have, I’m near Providence and we have <a href="http://www.meetup.com/ux-meetup">User Experience Designer Meetup</a>. There is <a href="http://www.designersandgeeks.com">Designers with Geeks</a>. There are all different, like, meetups. And I know Boston has like over a 100 different technology meetups on web design and Drupal and whatever technology you can name. But you know if you could find a meetup that might be helpful to find people in realspace, you know in your community. But then online, you know people like to talk about this and people like to help each other, so. Where would you recommend, Jen, for finding people online?</dd>
+
+<!-- 1:17:56 -->
+
+<dt>Jen Simmons</dt>
+<dd>I think it’s tough. I think it used to be a much more, a much smaller world when the mountain was more like a hill.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>People can go and listen to episode, whichever that was, where Dan and I rant for an hour and however long about suggestions on where— like places to keep up. And in some ways our conclusion — that was <a href="http://5by5.tv/webahead/13">episode 13</a> — our conclusion was like Twitter. Like, just follow really smart people on Twitter to keep up with all the information.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>But when it comes to community, I mean I think sometimes face-to-face can be really helpful and if there isn’t a meetup near you, you could start one. And maybe you use the <a href="http://meetup.com">meetup.com website</a> and maybe you don’t. Maybe there’s a much better way. A lot of listeners are in other countries that are not the U.S. There’s got to be ways and places all over the world where people are getting together and teaching each other these things. There’s something about that feeling of connection and community with people who are, you’re sharing back and forth different kinds of information and learning and being able to admit, “Hey, I’m really stuck. Can you help me?” and, ”Oh! I get that! Sure, I’ll come and explain this thing to you,” and yeah. Maybe that’s all we have… [laughs]</dd>
+
+<dt>Jen Robbins</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>…to say. Of course, there’s always places online. Forums, email lists were the original and forums were the original places that people got together and…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Right. And there’s still, you know, like CSS forums and places where you can ask questions and people usually chime in. I think there’s a forum on CSS Tricks, <a href="http://css-tricks.com">css-tricks.com</a>. I think there’s a place where you can ask questions and find people to help with that end of things. I might be mistaken but I think I’ve seen a forum there.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah, probably. I think part of what happened— like, it used to be you could go to a site and it was easy to kind of have a feeling of community because there weren’t that many people commenting. And now as things have gotten bigger and bigger, it’s gotten a little bit harder to have that feeling of community, especially as comments start to get really snarky, and mean, and more annonymous, and…</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>But I’m sure there are places out there. I’ll put the CSS Tricks forums in the show notes.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah. Confirm that it exists. [laughs]</dd>
+
+<dt>Jen Simmons</dt>
+<dd>I just found it! <a href="http://css-tricks.com/forums">css-tricks.com/forums</a>.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Great!</dd>
+
+<!-- 1:20:27 -->
+
+<dt>Jen Simmons</dt>
+<dd>Yeah. Yeah, alright, well thank you so much for being on the show.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Thank you for having me on the show! I’m really honored. The show is great and your guest list is like a hall of fame of web design, so I…</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Aww thanks!</dd>
+
+<dt>Jen Robbins</dt>
+<dd>…am just really happy to be here. Thank you so much. This is fun!</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Yeah! Thank you. People should check out and here, look I went and looked up the information I should have had earlier about the Accssibility Summit. It’s <a href="http://a11ysummit.com">a11ysummit.com</a>, which is a A-eleven-Y, or <em>alley</em> maybe— I don’t know how you pronounce that, but people abbreviate accessibility A-1-1-Y a lot because there’s 11 letters between “a” and “y”. [laughs] And so it’s shorter to put A-11-Y. But <a href="http://a11ysummit.com">a11ysummit.com</a>. You can use the coupon code “webahead” for 20% off, which is a good deal. So thanks again so much to Environments for Humans for sponsoring a whole series of The Web Ahead.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>They are awesome.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>They are awesome, and they’re making some new things possible. So, if you’ve not already subscribed, or what is it? Followed The Web Ahead Twitter account, I highly recommend going over to <a href="http://twitter.com">Twitter.com</a> if you use Twitter.com and <a href="http://twitter.com/thewebahead">find The Web Ahead</a>. Follow us. There will be some big annoucements coming up soon. Very, very soon. Big, big annoucements. I have a soundboard behind me with some cables still in their packages that I’ll be playing with, both to improve the quality of the sound of the show that I’ve been doing and to do some new stuff, mysterious new stuff. You can follow me on Twitter, <a href="http://twitter.com/jensimmons">@jensimmons</a>. You can follow this other Jen, <a href="http://twitter.com/jenville">@jenville</a>. You’re jenville on Twitter.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>I’m jenville, yep.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>To keep up with you, hear all the cool stuff you’re doing. And people should check out your book’s website, right? Learning—</dd>
+
+<dt>Jen Robbins</dt>
+<dd><a href="http://learningwebdesign.com">learningwebdesign.com</a>. Yep, it has the table of contents and lots of links and you get a little overview of the book.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>And you’ve got exercise material stuff. So people can download code.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah, all the exercises that are in the book when you need materials, those are also available on the website.</dd>
+
+<dt>Jen Simmons</dt>
+<dd>Which is super helpful. Alright, well, I’m going to let you go.</dd>
+
+<dt>Jen Robbins</dt>
+<dd>Yeah Jen, thank you!</dd>
