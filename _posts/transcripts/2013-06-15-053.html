@@ -157,13 +157,13 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <dt>Jen</dt>
-<dd>…and it’s in 20pt font, right? Pixel, sorry. There’s no points on the Web…</dd>
+<dd>…and it’s in 20<abbr title="point">pt</abbr> font, right? Pixel, sorry. There’s no points on the Web…</dd>
 
 <dt>Both</dt>
 <dd>[laugh]</dd>
 
 <dt>Jen</dt>
-<dd>A 20 pixel font. And I say I want this to be— Is it 50% or is it 50, I forget, the scale—</dd>
+<dd>A 20<abbr title="pixel">px</abbr> font. And I say I want this to be— Is it 50% or is it 50, I forget, the scale—</dd>
 
 <dt>Val</dt>
 <dd>Scale is out of 1 technically.</dd>
@@ -202,3 +202,102 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <!-- 7:58 -->
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>Yep. And then, you know, translate’s kind of the same where that moves it around and it’s, you know, it just does the same thing where it just changes its position, very similar to what changing what its <code>left</code> and <code>top</code> properties would be, but it’s translating instead. So—</dd>
+
+<dt>Jen</dt>
+<dd><code>transform: translate</code>, right?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yeah, <code>transform: translate</code>. Because as if transform wasn’t confusing enough,…</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>Val</dt>
+<dd>…<code>transform: translate</code>—</dd>
+
+<dt>Jen</dt>
+<dd>Let’s toss another T-word in there.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>So—</dd>
+
+<dt>Val</dt>
+<dd>Were they just really liking the consonants or something? I don’t know.</dd>
+
+<!-- 8:26 -->
+
+<dt>Jen</dt>
+<dd>So <code>transform: translate</code> means, “Hey, when you calculate where this goes on the page, I want you to put it where you thought you were going to except— No, wait a minute! I want you to…”</dd>
+
+<dt>Val</dt>
+<dd>Yeah, move it over a little bit. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>“…count, do some math from that place where it would have been, and I want you instead to move it this far on the x-axis or this far on the y-axis or <code>translate3d</code> would be…”</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>“…in 3D space too.” Right? So you could—</dd>
+
+<dt>Val</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>And that’s a good way— I mean, it’s interesting with CSS layouts. CSS layouts are already hard enough, but now suddenly you could jigger something, place it somewhere else on the page by using <code>transform: translate</code>…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and say, “I just need you to move it over from where you thought it was going to be.”</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And now that— And like you said before, it’s not an animation property. This is just a do-what-I-tell-you-now property?</dd>
+
+<dt>Val</dt>
+<dd>Yeah! Exactly. I mean, we can animate it, and we can transition it, but technically on its own it doesn’t do any of that. Though it does come in handy in the sense that, kind of like what you were just saying, if you were laying out a page, you’re never going to do that with <code>transform: translate</code>, right?</dd>
+
+<dt>Jen</dt>
+<dd>The whole page.</dd>
+
+<dt>Val</dt>
+<dd>That just feels weird?</dd>
+
+<dt>Jen</dt>
+<dd>That would be crazy.</dd>
+
+<dt>Val</dt>
+<dd>So, if you stick to— When you’re animating and transitioning, if you use that <code>transform: translate</code> to move things around, you’ve kind of created a nice separation where you know your animations won’t mess with your layout, hopefully. Or there’s less chance of it. I suppose you could still make a mess, but it helps separate things and keep it a little more straight in your brain.</dd>
+
+<!-- 9:50 -->
+
+<dt>Jen</dt>
+<dd>So you might want have wanted to use <code>transform: translate</code>, you do your regular layout to do sort of the inital state…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and then you use <code>transform: translate</code> to mark where something will end up,…</dd>
+
+<dt>Val</dt>
+<dd>Yeah, I do that a lot.</dd>
+
+<dt>Jen</dt>
+<dd>…and then you animate it, you animate it across from where it started to where it ends up.</dd>
+
+<!-- 10:05 -->
