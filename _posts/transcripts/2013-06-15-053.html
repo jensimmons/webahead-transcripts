@@ -48,13 +48,157 @@ permalink: 53/
 <dd>…you‘re a consultant.</dd>
 
 <dt>Val</dt>
+<dd>Mmm-hmm. Yeah, I do basically, mostly freelance web design. Design things, work with various teams and small agencies to kind of, you know, work together. Make awesome web stuff. So that’s pretty fun. And then I also teach a lot of workshops. I teach workshops on CSS animations and also teaching designers how to program. So, those are both really, really fun things to do.</dd>
+
+<!-- 3:58 -->
+
+<dt>Jen</dt>
+<dd>Nice. And we finally met in person when— It was <a href="http://rustbeltrefresh.com">Rustbelt Refresh</a>.</dd>
+
+<dt>Val</dt>
+<dd>Yeah! Which seems like it was just yesterday but I think it was like two months ago. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>It seems like it was a million years ago. [laugh]</dd>
+
+<dt>Val</dt>
+<dd>No, that was a fun time. It was like…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…first time in Cleveland in a very long time and it was a fun, fun conference.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. They did a good job putting it together.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So let’s talk about animations. So, what’s the deal? You wrote this book for Five Simple Steps, this little pocket guide book which we can talk about more…</dd>
+
+<dt>Val</dt>
+<dd>Yeah!</dd>
+
+<dt>Jen</dt>
+<dd>…as we go. But, there’s transforms,…</dd>
+
+<dt>Val</dt>
 <dd>Mmm-hmm.</dd>
 
-<!-- 3:37 -->
+<dt>Jen</dt>
+<dd>…there’s transitions, and there’s what is officially called animation…</dd>
 
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
 
+<dt>Jen</dt>
+<dd>…because it uses the word <code>animation</code> in the property of CSS. I mean, also I tend to use the word animation to just mean animation. Like anything moving. But—</dd>
 
+<dt>Val</dt>
+<dd>Well, that is what it means, right? Like the technical definition or just like the dictionary definition of animation is giving something movement, right?</dd>
 
+<dt>Jen</dt>
+<dd>Giving it breath, is what it actually means. [laughs]</dd>
 
+<dt>Val</dt>
+<dd>Yeah, yeah. I think that’s the literal one. And so it’s like— I like to call it transitive formations because I think the terms are just so confusing. You know both transitions and animations can make things move, so technically they are both animating. And transforms technically don’t cause any movement but, gosh that name sounds like it should! So, your transforms— And then transforms are the things you might transition or animate. So, it gets really confusing.</dd>
 
+<dt>Jen</dt>
+<dd>Yeah, you confused me already.</dd>
 
+<dt>Val</dt>
+<dd>So— Well, transforms basically just change the way something appears and we can do that in 2D or 3D. We can skew it, rotate it, scale it, do all sorts of crazy just horrible things to whatever [laughs] the image or <code>div</code> is. We can kind of stack those on top of each other, right? Like if you have a transform, you can translate something on one axis, you can scale it, and you can also skew it and just do all this stuff. But that will only affect the way it looks. It won’t cause any change of state. Like, you’ll just see it instantly be skewed or instantly be rotated. So transforms just change the appearance. Transitions—</dd>
+
+<!-- 6:04 -->
+
+<dt>Jen</dt>
+<dd>So, let’s just back up a second.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So transform— If, let’s say you have a box,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…then your transform could make your box be rotated five degrees.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, it could make it like literally rotated. It could make it like a funky parallelogram. You know, skew it a little to one side.</dd>
+
+<dt>Jen</dt>
+<dd>What are the other— Let’s go through— Let’s go through what the things are that transforms can do, then we’ll, like, we’ll talk about the other ones.</dd>
+
+<dt>Val</dt>
+<dd>Oh man, I wish I had the list in front of me because there’s a bunch. But you can rotate, and you can rotate along— You can just rotate, sorry, like just that’s it or you can rotate along any of the three — you know, x, y, or z axises— Axes, rather. Oh goodness, that was a great sentence. So you can translate along any of those, or rotate on any of those.</dd>
+
+<dt>Jen</dt>
+<dd>So you can— You can rotate,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…you can skew,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. You can scale. Or you can translate.</dd>
+
+<dt>Jen</dt>
+<dd>…or you can scale, right? So that’s one where, like you could have— I mean, this is something that I’ve found interesting because if I have a word…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and it’s in 20pt font, right? Pixel, sorry. There’s no points on the Web…</dd>
+
+<dt>Both</dt>
+<dd>[laugh]</dd>
+
+<dt>Jen</dt>
+<dd>A 20 pixel font. And I say I want this to be— Is it 50% or is it 50, I forget, the scale—</dd>
+
+<dt>Val</dt>
+<dd>Scale is out of 1 technically.</dd>
+
+<dt>Jen</dt>
+<dd>Oh.</dd>
+
+<dt>Val</dt>
+<dd>So if you wanted 50%, you would make it…</dd>
+
+<dt>Both</dt>
+<dd>.5</dd>
+
+<dt>Jen</dt>
+<dd>Right, so I could say, “Okay, I’ve got 20pt and I’m going to make it scale to .5 so now it’s 10pt font. Or I could say I want it to scale to 2…”</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>“…so now it’s a 40pt font. Or I could alternatively make my font be 10pt,…”</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>“…-pixels, or 40px or 20px or—” You know? So it’s like this other way—</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Like, <code>transform: scale;</code> is like a different way to make anything on the page be bigger or smaller than it would have been already.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<!-- 7:58 -->
