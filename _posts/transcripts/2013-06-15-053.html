@@ -578,16 +578,289 @@ permalink: 53/
 <!-- 20:10 -->
 
 <dt>Jen</dt>
+<dd>Yeah. So, a transform you might say I want this box. You know, I’ve got a link and I’m going to make it a big box and normally I want it to be blue. It’s square and straight. And when I hover, I want it to be red and have rounded corners and be rotated 45 degrees.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>If I just use transforms, I can have it jump.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>So in the hover state it would jump from the straight blue square box to, you know—</dd>
+
+<dt>Val</dt>
+<dd>Yeah, you know, just like a hard cut. It would not be pretty.</dd>
+
+<dt>Jen</dt>
 <dd>Yeah.</dd>
 
+<dt>Val</dt>
+<dd>[laughs]</dd>
 
+<dt>Jen</dt>
+<dd>It would meep, meep. Meep, meep. Meep, meep. But if I put a— But if I— If I use the transforms, but I also toss into the mix a transition then the transition can have it fade from red to blue…</dd>
 
+<dt>Val</dt>
+<dd>Yep.</dd>
 
+<dt>Jen</dt>
+<dd>…through the state of purple, and it could— You could see the square corners morph into rounded corners and you could see the box that’s a flat with the horizon turn 45 degrees.</dd>
 
+<dt>Val</dt>
+<dd>Yeah!</dd>
 
+<dt>Jen</dt>
+<dd>Right. And you can set the timing on that as well, right? So you could have that happen very quickly…</dd>
 
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
 
+<dt>Jen</dt>
+<dd>…like over a quarter of a second, or you could have it happen very slowly. You could take 10 seconds or a minute,…</dd>
 
+<dt>Val</dt>
+<dd>Take— Yeah, you could take as many seconds as you want, though…</dd>
+
+<dt>Jen</dt>
+<dd>…an hour, [laughs]…</dd>
+
+<dt>Val</dt>
+<dd>It might be a very sad hover effect if takes an hour. But, you know, whatever you want to do! [laughs]</dd>
+
+<!-- 21:38 -->
+
+<dt>Jen</dt>
+<dd>And transition, can you basically apply transition to like anything?</dd>
+
+<dt>Val</dt>
+<dd>Most of us seem to be setting transition on all, which basically means, “Hey, if any property whatsoever changes on hover or some other changeable— some other way you can change properties, transition all of them using these rules.” You can also target it. Like if you know you’re only going to change the background color on hover let’s say, you can just say “Hey, transition the background.” But if you say <code>transition: all</code>, all of your properties — anything that changes that is transitional — will, you know, have a nice smooth transition based on the timing and the easing that you pick.</dd>
+
+<dt>Jen</dt>
+<dd>So is— Transitionable means, I mean can you transition what font you’re using?</dd>
+
+<dt>Val</dt>
+<dd>No. They have <a href="http://www.w3.org/TR/css3-transitions/#animatable-properties">a list in the spec</a> of the transitionable properties. There are definitely properties not on that list that you can transition, and I don’t know if that’s like a living document that’s going to be updated or not. But you can’t transition things like the font your using but you can transition the color of it and its positioning and its, you know, rotation and all that. So they do have a list but I don’t think it’s complete, at least not since I last checked.</dd>
+
+<dt>Jen</dt>
+<dd>We should um— So, I mean clearly the things you’d want to transition typically…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…are background color, opacity, corners — square corners, rounded corners. Anything like that.</dd>
+
+<dt>Val</dt>
+<dd>Any of the transforms we just talked about. You know, there’s really no shortage of things you can transition. [laughs]</dd>
+
+<!-- 23:13 -->
+
+<dt>Jen</dt>
+<dd>And this is where it does feel like the biggest problem right now is a lack of imagination. Like, we’re not—</dd>
+
+<dt>Val</dt>
+<dd>Yeah, and I think it’s also that— You know, you can’t— Unless you have a decent handle on CSS you can’t really use this stuff, right? Like you have to have at least — even though it’s a little bit strange even as far as CSS goes — you know, if you knew nothing about CSS you’re not going to just dive in and start doing transitions and animations, and it’s all very code-based. So there’s no good visual way of doing these things. I think that’s the other issue is that a lot of people who maybe do animations traditionally or have a background in it, they’re used to thinking about these very visually, not typing out lines of code to say what should happen. So, I think that’s a barrier too. There’s no good way to do this without writing code yet.</dd>
+
+<dt>Jen</dt>
+<dd>I think, I think I have the right list. So <code>background</code>,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…<code>border</code>s, <code>color</code>, <code>font-size</code>, <code>-weight</code>, <code>height</code>, presumably <code>width</code> yeah <code>width</code>, <code>margin</code>,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>… — interesting one: to transition a <code>margin</code> — …</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…<code>padding</code>, <code>text-indent</code>, <code>text-shadow</code>, <code>visibility</code>, <code>opacity</code>, <code>letter-spacing</code>. I’ve not hit them all but—</dd>
+
+<dt>Val</dt>
+<dd>Yeah. There’s— It’s a long list.</dd>
+
+<dt>Jen</dt>
+<dd><code>left</code> and <code>right</code>, which means if you’re absolute positioning something you couldn’t— So we were talking before that you could move something by transitioning a transform and having it physically move. You could also transition an absolute position of the item and have it move or you could transition the margin of an item and have it move.</dd>
+
+<!-- 24:52 -->
+
+<dt>Val</dt>
+<dd>Mmm-hmm. There’s many options, though apparently— At least there’s been a lot of posts by people that are much more knowledgeable about the inner workings of browsers than myself. A lot of people like Paul Irish and them have been doing a lot of tests to see, you know, which one of those ways of making things move is more performant, and it seems that using transforms can actually gain you a decent amount of performance just as far as that being either, whether it actually becomes hardware accelerated or not kind of depends on exactly what’s going on in the browser. But for the most part everyone seems to agree that using transforms to move stuff around when it comes to transitions and animations is going to gain you some performance. So, that’s pretty awesome.</dd>
+
+<dt>Jen</dt>
+<dd>So your transitioning your <code>transform: translate</code>.</dd>
+
+<dt>Val</dt>
+<dd>Yeah instead of doing <code>top</code> and <code>left</code>…</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Val</dt>
+<dd>…you can go with transforms, it’ll give you better performance.</dd>
+
+<dt>Jen</dt>
+<dd>Transition, transform, [both laugh] translate.</dd>
+
+<dt>Val</dt>
+<dd>If it doesn’t start with a T don’t use it. [laughs] No, but that’s an interesting addition to all of that, is just that using transforms can often get you hardware acceleration…</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>Val</dt>
+<dd>…or other things that are pretty darn handy when it comes to wanting things to perform well and move smoothly.</dd>
+
+<dt>Jen</dt>
+<dd>Yes, and that was something that I was not quite aware of. I was like, “Ahh, I’ll just use all of them and I‘m not going to worry about performance,”…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and I was working on this project which is extremely heavy in animations.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, that was sort of the whole point was for it to be totally crazy-heavy with animations. And I did the navigation as a bunch of round circles, and everything is responsive. So they’re all over the place. And, you know, different places on the page depending on the size of the screen, the viewport. And then when you click on any of them, they all move. And when you click on one of them again, they all move back to where they were. And looking at them on like an Android phone, they looked like crap! They did not move smoothly at all!</dd>
+
+<dt>Val</dt>
+<dd>No!</dd>
+
+<dt>Jen</dt>
+<dd>And I was like, “I should really go look up that whatever-that-was about performance!” [laughs] And I redid— Because I think I had positioned them absolutely because I was like, “Oh! Uh, I want these to be floating in space. I’ll just position everything absolutely using viewport units,"…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…which was kind of awesome.</dd>
+
+<dt>Val</dt>
+<dd>I love the viewport units. [laughs]</dd>
+
+<!-- 27:03 -->
+
+<dt>Jen</dt>
+<dd>Oh viewport units are so awesome. But then I had to rip it all out and redo all of the CSS and all of the layouts for that…</dd>
+
+<dt>Val</dt>
+<dd>Ohh!</dd>
+
+<dt>Jen</dt>
+<dd>…because they were not— It was fine! I mean, the whole point was to be an experiment and the whole point was to, like, learn. So I learned.</dd>
+
+<dt>Val</dt>
+<dd>There’s nothing like learning by making it all over again. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>That stuff’s always a lesson.</dd>
+
+<dt>Jen</dt>
+<dd>So it was really like oh yeah. <code>transform: translate</code>. Transition the <code>transform: translate</code> was <em>way</em> better. And then— Especially on lower-end hardware like a phone.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. So it’s impressive how sometimes even on very small things, you’re like, “Wow! I actually do notice a difference.”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>Because some of that stuff, you’re like “Ehh, you know, I’m only transitioning this one thing here, who cares?” But actually, you should totally care. Even on a couple of things, you could noticeably see a difference, which is pretty cool.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Because what you really want is, you know, what ends up mattering comes over from, like, thinking about video.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>If you have a video that’s 24 frames per second is a typical film and traditionally 24 frames per second is what film was…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…way back in the day and continues to be typically. 30 is more like television. But sometimes there’s a way — in which I will not get into — but there’s a way in which the TV screen gets painted twice because the old school from the ‘40s jets…</dd>
+
+<dt>Val</dt>
+<dd>Ohh yeah!</dd>
+
+<dt>Jen</dt>
+<dd>…the rays on the glass and they would paint half the screen and go back and paint the other half of the screen. So lots of times people think in terms of 60 frames per second is kind of a holdover from that, which in some ways when you’re doing, like, recording of people if you use too many frames per second it kind of starts to look cheap.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>It starts to look like a bad soap opera or something.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<!-- 28:46 -->
+
+<dt>Jen</dt>
+<dd>And so people really love 24 because they think it’s more cinematic than using 30 or 60. And…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…if you’re doing cartoons for television, you know, you’re thinking about 30-whatever-whatever. But I know back in the day when we’d make Flash, and Flash had to run on, you know, modem connections and slow computers, lots of times people would make 10 frames per second.</dd>
+
+<dt>Val</dt>
+<dd>Yeah they would just drop the frame rate and hope that it would catch up or–</dd>
+
+<dt>Jen</dt>
+<dd>And then it starts to look like a flip book almost, right?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>And it makes a difference I think. You know, you’re holding this Android phone and the browser is painting the screen and as that object, that circle is moving from one corner to another corner, it’s like repainting the screen over and over and over, something. Somebody more technical can explain what’s really happening. But the frame rate matters. And so if you end up with like a 10 or 15 frames per second, it’s going to look— You know, or this may have been three frames per second. So they were like looking like it was stuttering, like the computer was freezing and then it would jump over and then it would like unfreeze and freeze and unfreeze—</dd>
+
+<dt>Val</dt>
+<dd>[laughs] Sounds awful. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah! I mean just looked kind of— And it wasn’t always the same, right? So that contributed to this idea of it being kind of broken.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Where once it was redone, you know, if you can get 25 frames per second or 60 frames per second or whatever, whatever it is the browsers are wanting to do, the more frames per second you can get that graphics card to draw the smoother it will look, the more elegant it will look.</dd>
+
+<!-- 30:06 -->
+
+<dt>Val</dt>
+<dd>Yeah, and it’s amazing how even small differences we can actually see. You know, our eyes pick up a lot when things start moving as far as different frame rates. Like you were saying, the soap operas and 24, like you can just—</dd>
+
+<dt>Jen</dt>
+<dd>It’s a big difference.</dd>
+
+<dt>Val</dt>
+<dd>You notice a lot. And you know for things to look right and feel right, they just have to be— They have to be smooth but not just that. Kind of going at that ideal speed, whatever that is. You know it when you see it, but it’s really hard to describe.</dd>
+
+<dt>Jen</dt>
+<dd></dd>
 
 
 
