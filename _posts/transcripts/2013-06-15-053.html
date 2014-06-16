@@ -860,10 +860,219 @@ permalink: 53/
 <dd>You notice a lot. And you know for things to look right and feel right, they just have to be— They have to be smooth but not just that. Kind of going at that ideal speed, whatever that is. You know it when you see it, but it’s really hard to describe.</dd>
 
 <dt>Jen</dt>
-<dd></dd>
+<dd>That’s what was somewhat so profound and beautiful about the original iPhone was that Apple worked so hard on some of these issues…</dd>
 
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
 
+<dt>Jen</dt>
+<dd>…and got really beautiful. And then, you know, as other companies started making very similar products, sometimes they were not nearly as— The animations in the apps and those products…</dd>
 
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…sometimes they were not nearly as beautiful. Graphics card is much cheaper. The hardware is much cheaper. The touch screen is much cheaper. I had an Android 1.6 tablet for awhile [both laugh], like really bad tablet, and it was just unbearable. Like, when you go to scroll the page—</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah, the scrolling on Android used to just kill me everytime I’d try to use it. This isn’t working! I can’t do it! [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>And it was really just the responsiveness of the scroll movement. That was the only thing, and it was driving me nuts.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So now suddenly this becomes part of a frontend developer’s world because if you’re writing CSS for a website, and you’re writing production code — you know, maybe you’re writing prototypes and it’s fine —…</dd>
+
+<!-- 31:17 -->
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…but if you’re writing production code, there’s things that you can do to affect the quality of the result.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, and it’s— It does become a whole ’nother way of thinking about things and a whole ‘nother way of thinking of performance.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>So it can be a big challenge.</dd>
+
+<dt>Jen</dt>
+<dd>So, what else do we want to know about transitions?</dd>
+
+<dt>Val</dt>
+<dd>Umm, I don’t know! [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] So transforms are really not necessarily about motion or movement. Transforms are just about changing what would have been if there were no transforms.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And you can go— That’s where those, where I said if you were drawing a book cover spine, you might do that with a whole bunch of transforms and no transitions at all because a book cover is just sitting there on the page.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Then transitions can not only transition all the new things that a transform can do, it can also transition a bunch of old things that regular CSS used to do by itself.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Like opacity or a color.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Just transform a color.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<!-- 32:30 -->
+
+<dt>Jen</dt>
+<dd>It seems like there are ways that you could, like if someone wants to place to start to just specify a transition—</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah, that’s definitely the place to start. I mean, just to get that idea of— Because it doesn’t just, it’s not like when you transition something you just get one type of transition. I mean, you tell it to transition whatever property you use, and then additionally you get to pick how long it’s going to take, what type of easing or CSS calls it the timing function you’re going to use. And you can get some very very different effects even just changing the timing and the easing. I mean, the amount of time, the duration and the timing function, those have such an affect on just the way things look in the end and the way things feel. There’s a lot you can do with those and kind of playing around with transitions and seeing what you can get out of it.</dd>
+
+<dt>Jen</dt>
+<dd>So you could just put a transition on your hover instead of jumping to a different color—</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Oh yeah. That’s the first place to start. Definitely.</dd>
+
+<dt>Jen</dt>
+<dd>It can be a fraction of a second, but it just fades into the second color…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…and then fades back out to the first color.</dd>
+
+<dt>Val</dt>
+<dd>And even those things, those transitions we do that are a fraction of a second, like, you can see the difference. You know, it gives a completely different feel than something doing a hard cut to its hover state.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>These are just tiny bits of code, but we can change so much of the overall feel of the site we’re working on or the app we’re working on. They’re pretty powerful, and really fun, so you should definitely try them out. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>So the duration is kind of obvious.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Like one second, half a second, four seconds, right?</dd>
+
+<dt>Val</dt>
+<dd>Yeah, it can also take milliseconds if for some reason you’re a millisecond person. Most people I think are better at thinking in seconds, but you know, whatever.</dd>
+
+<dt>Jen</dt>
+<dd>Property, transition property, you define what CSS properties are going to get transitioned.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Delay, that’s interesting. So you could then toss a delay in there that the transition starts…</dd>
+
+<dt>Val</dt>
+<dd>A little late, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…after the trigger, whatever the trigger is.</dd>
+
+<dt>Val</dt>
+<dd>And I want to think, really, at least for me I only feel it comes in handy if you’re multiple transitions. If you’re transitioning multiple things separately or something, because if you hover over something and it doesn’t seem like it reacts to you for awhile, like that sucks. Don’t do that. [laughs] You know, delaying a transition is probably not—</dd>
+
+<dt>Jen</dt>
+<dd>But if you’re going to have something slide in and then explode [laughs]…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…like zoom into you. You could have it slide and zoom in.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, I mean, just like delaying transitions sometimes is not always such a good idea. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So it’s more like if you have a two step animation.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. I use delays a ton with more like the actual animation animation. Pretty much never with transitions. There’s definitely— I’ve seen some fun effects with it. So it’s not like never do it but it’s just, you know, keep an eye on that. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right. Be— [laughs] It’s a superpower that you need to use wisely.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. Be careful. Yeah and I guess the other one would be the timing function, which is basically just describing how the motion should happen. You know, we have keywords like linear, which will let it be the same speed all the way across; ease-in and ease-out, which will change the speed and vary it; and then we also have a couple other keywords as well as defining your own cubic bezier function, which means you can make that motion…</dd>
+
+<dt>Jen</dt>
+<dd>Wow.</dd>
+
+<dt>Val</dt>
+<dd>…and speed up and slow down any way you want using math.</dd>
+
+<!-- 35:45 -->
+
+<dt>Jen</dt>
+<dd>So, this is where calculus comes— If you remember—</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Anybody remembers— I guess you don’t need— I guess you might need to know calculus if you want to create your own bezier functions, but if you just want to not go crazy and— But remembering from calculus — if you ever took any of calculus — that you can, that not only is there the rate of change of something, but there’s the rate of change of the rate of change.</dd>
+
+<dt>Val</dt>
+<dd>[laughs] Wow, we’re getting really deep here. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right? Well that’s what this is. This is a thing. You know, I want, you know— I mean, I imagine this race car driving down the street, right? Your race car has got to go one block. It’s going to start on the one corner and it’s going to end on the other corner. It’s only going one block. So your race car could go fifty miles an hour the whole time, right? Or it could go a hundred miles an hour for the first part, and then slow down and be going at, like, thirty miles an hour at that last part. Or it could be going thirty miles an hour at the first part, and then speed up and be going at a hundred miles an hour at the last part, right? So it’s that kind of thing as far as the timing functions—</dd>
+
+<dt>Val</dt>
+<dd>You have fine-grained control. And the nice thing is you don’t have to do the math yourself.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. No, no, no.</dd>
+
+<dt>Val</dt>
+<dd>I mean, if you wanted to fine tune the numbers between zero and one, go nuts. Or you can use something like the Caesar tool that will let you preview ones and create your own curves. There’s also cubicbezier.com I think it is? I’ll give you the actual links—</dd>
+
+<dt>Jen</dt>
+<dd>But before you get into that, aren’t there a bunch already predefined?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yep.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, there’s like ease,…</dd>
+
+<dt>Val</dt>
+<dd>…ease, ease-in, ease-out, ease-inout, and linear. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right</dd>
+
+<!-- 37:13 -->
 
 
 
