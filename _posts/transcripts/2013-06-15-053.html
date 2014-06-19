@@ -872,7 +872,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>…sometimes they were not nearly as beautiful. Graphics card is much cheaper. The hardware is much cheaper. The touch screen is much cheaper. I had an Android 1.6 tablet for awhile [both laugh], like really bad tablet, and it was just unbearable. Like, when you go to scroll the page—</dd>
+<dd>…sometimes they were not nearly as beautiful. Graphics card is much cheaper. The hardware is much cheaper. The touch screen is much cheaper. I had an Android 1.6 tablet for a while [both laugh], like really bad tablet, and it was just unbearable. Like, when you go to scroll the page—</dd>
 
 <dt>Val</dt>
 <dd>Oh yeah, the scrolling on Android used to just kill me everytime I’d try to use it. This isn’t working! I can’t do it! [laughs]</dd>
@@ -1023,7 +1023,7 @@ permalink: 53/
 <dd>Right. Be— [laughs] It’s a superpower that you need to use wisely.</dd>
 
 <dt>Val</dt>
-<dd>Yeah. Be careful. Yeah and I guess the other one would be the timing function, which is basically just describing how the motion should happen. You know, we have keywords like linear, which will let it be the same speed all the way across; ease-in and ease-out, which will change the speed and vary it; and then we also have a couple other keywords as well as defining your own cubic bezier function, which means you can make that motion…</dd>
+<dd>Yeah. Be careful. Yeah and I guess the other one would be the timing function, which is basically just describing how the motion should happen. You know, we have keywords like linear, which will let it be the same speed all the way across; ease-in and ease-out, which will change the speed and vary it; and then we also have a couple other keywords as well as defining your own cubic Bézier function, which means you can make that motion…</dd>
 
 <dt>Jen</dt>
 <dd>Wow.</dd>
@@ -1040,7 +1040,7 @@ permalink: 53/
 <dd>[laughs]</dd>
 
 <dt>Jen</dt>
-<dd>Anybody remembers— I guess you don’t need— I guess you might need to know calculus if you want to create your own bezier functions, but if you just want to not go crazy and— But remembering from calculus — if you ever took any of calculus — that you can, that not only is there the rate of change of something, but there’s the rate of change of the rate of change.</dd>
+<dd>Anybody remembers— I guess you don’t need— I guess you might need to know calculus if you want to create your own Bézier functions, but if you just want to not go crazy and— But remembering from calculus — if you ever took any of calculus — that you can, that not only is there the rate of change of something, but there’s the rate of change of the rate of change.</dd>
 
 <dt>Val</dt>
 <dd>[laughs] Wow, we’re getting really deep here. [laughs]</dd>
@@ -1055,7 +1055,7 @@ permalink: 53/
 <dd>Yeah. No, no, no.</dd>
 
 <dt>Val</dt>
-<dd>I mean, if you wanted to fine tune the numbers between zero and one, go nuts. Or you can use something like the Caesar tool that will let you preview ones and create your own curves. There’s also cubicbezier.com I think it is? I’ll give you the actual links—</dd>
+<dd>I mean, if you wanted to fine tune the numbers between zero and one, go nuts. Or you can use something like the Caesar tool that will let you preview ones and create your own curves. There’s also <a href="http://cubic-bezier.com">cubic-bezier.com</a> I think it is? I’ll give you the actual links—</dd>
 
 <dt>Jen</dt>
 <dd>But before you get into that, aren’t there a bunch already predefined?</dd>
@@ -1070,9 +1070,521 @@ permalink: 53/
 <dd>…ease, ease-in, ease-out, ease-inout, and linear. [laughs]</dd>
 
 <dt>Jen</dt>
-<dd>Right</dd>
+<dd>Right.</dd>
 
 <!-- 37:13 -->
+
+<dt>Val</dt>
+<dd>So there’s keywords, but they only get you so far. So the— Customizing your cubic Bézier function can just give you a completely different look to things and, you know, sometimes those keywords just aren’t really enough. You’re like, “Ehh, it’s easing out but I just don’t know if I like that enough.” So go make your own curve.</dd>
+
+<dt>Jen</dt>
+<dd>And this is where people who really know animation, you know, maybe they’ve worked in the animation industry…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…totally get into this stuff. And…</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…they would want to know. They would want to be like, “Yes, I’m going to write my own cubic Bézier curve. I already have 12 of them. Here they are.” [laughs]</dd>
+
+<dt>Val</dt>
+<dd>I mean, it’s not quite the same type of curve. Like in AfterEffects you can use a motion editor and just edit your curves. Even some of the later versions of Flash had that, I forget what they called it, but you could edit the curve for your tweens as well. So, it’s definitely something that’s a pretty sophisticated way of controlling motion. So it’s pretty great that we actually have that in CSS as well…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…because I feel like without it, it would be really hard to take this stuff seriously. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>If you only had the keywords, you’re like, “Ehh, boring!”</dd>
+
+<dt>Jen</dt>
+<dd>And there are a bunch of demos. We should find one and put it in the show notes for the show.</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>There are some demos that show you, like, the race car going down the block — as far as ease, ease-in, ease-in-out, ease-out — to just visually see. Because, you know, if you’re doing a hover and it’s going to take half a second, the that difference between ease-in and ease-out is subtle but you could still play with it.</dd>
+
+<dt>Val</dt>
+<dd>Subtle but noticeable.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. But you don’t necessarily have to get into the writing your own thing. You could just kind of learn which ones you like and which ones give you which kind of feeling. Get to know these first.</dd>
+
+<dt>Val</dt>
+<dd>Stick with the keywords first, but then go into the cubic Béziers because it’s a whole new world of just like— The math behind them is kind of crazy math-y, but what you can do with them is just, it’s really useful and pretty interesting. So I’ll give you some links too of some demos on what all of those do.</dd>
+
+<!-- 39:10 -->
+
+<dt>Jen</dt>
+<dd>Cool. So did I say the link? No. So if you want to see the show notes for the show, you can go to <a href="http://5by5.tv/webahead/53">5by5.tv/webahead/53</a> since this is episode 53, and there’ll be a whole page there with all the links from the show to all the stuff we’re talking about today. Alrighty. So anything else about transitions?</dd>
+
+<dt>Val</dt>
+<dd>We should probably get to animations since they’re the more complicated ones. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yes. Before we do that, let me talk about our sponsor today:…</dd>
+
+<dt>Val</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>…CSS Summit. So Environments for Humans, the fabulous folks that put on a whole bunch of different— A few in-person conferences as well as online summits. They’ve been a long-time supporter of The Web Ahead. They have another summit coming up, July 25th through — I just checked this — No! July 23rd! July 23rd to 25th. It’s three days on CSS. It’s online, so you don’t have to travel. You can get to it from any place around the world as long as you can install Adobe Connect software on your computer. You get to watch the speakers live and there’s also like this chat room, so you can ask questions. They’re really great about pushing people to ask questions. So you can ask the speakers questions right there, or say hi, chat with your fellow attendees. So the first day is, like, they’re calling it CSS Training. Selectors, flexbox, regions and grids — Rachel Andrews is going to do a whole session on regions and grids; she was on the show to come talk about new CSS layouts — web typography using CSS instead of images, music videos with CSS3 and HTML5, games. Then day two is advanced CSS: CSS testing. You’re going to talk about animating CSS infographics.</dd>
+
+<dt>Val</dt>
+<dd>Yep!</dd>
+
+<dt>Jen</dt>
+<dd>That sounds cool.</dd>
+
+<dt>Val</dt>
+<dd>Lots of this stuff, just in practice.</dd>
+
+<dt>Both</dt>
+<dd>[laugh]</dd>
+
+<dt>Jen</dt>
+<dd>Performance testing, prototyping, variables and conditionals, complex responsive web design, grid layouts, responsive images. And then the third day is all about preprocessors: Sass and Compass. Sass, Sass, Sass, Sass, and some more Sass. [both laugh] Really great people! This is like an all-star lineup of people, some of which you’ve probably heard of, many of which you haven’t but they’re still kind of awesome people. That sounds very juicy.</dd>
+
+<dt>Val</dt>
+<dd>Very impressive lineup they have. They have— They’ve got a lot of stuff they’re cramming into those three days. I’m impressed.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it looks very juicy. And you get, when you buy a ticket you automatically get access to the recordings, so if you miss something or you want to watch something over and over again, you totally can. And even if you can’t be there July 23–25, you can buy a pass and look at all of the recordings later.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. So many options!</dd>
+
+<dt>Jen</dt>
+<dd>And you can get a discount: 20% off discount with the coupon code webahead, which is awesome. You can buy a ticket to just one of the days or you can buy a ticket to all of the days, and you can also get either like a ticket for yourself because you want to go or you can get what they call a meeting room ticket, which is really I think is really kind of brilliant, where you can have— It’s a ticket for a roomfull of people, so you could get together with your friends at college and borrow a classroom and pool your money and watch it together. Or you could get your company to pay for the bill and get all of the developers that can fit into one room into the room and have everyone watch together so that you get kind of everybody on the same page, understanding certain concepts. Like if you want to move your whole company to Sass so you can get all of your developers to come and watch the Sass day and learn how to use Sass together and really kind of cool. Which is easier, say, than moving your whole company, flying them to a conference or something.</dd>
+
+<dt>Val</dt>
+<dd>[laughs] Definitely easier.</dd>
+
+<!-- 43:26 -->
+
+<dt>Jen</dt>
+<dd><p>Yeah. So, thanks again so much to Environments for Humans for supporting the show. You can go to <a href="http://csssummit.com">csssummit.com</a> to find out all of the details, look at all of the bios for the fabulous people. 20% off again using the code webahead. Thanks.</p>
+
+<p>So, animations!</p></dd>
+
+<dt>Val</dt>
+<dd>[laughs] Yes!</dd>
+
+<dt>Jen</dt>
+<dd>So we’re 45 minutes in…</dd>
+
+<dt>Val</dt>
+<dd>Oh no! [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…on the animations show and we haven’t— Oh we’re totally fine! And we haven’t talked about officially—</dd>
+
+<dt>Val</dt>
+<dd>We haven’t talked about the official animations—</dd>
+
+<dt>Jen</dt>
+<dd>Animations animations. Yeah, because I mean there’s a way in which we’re talking about animating things, making things move.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>And then there’s the animation, the one that where you actually type in the code…</dd>
+
+<dt>Val</dt>
+<dd>The word animation. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd><code>.class { animation: something-or-other }</code></dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So, explain what that is.</dd>
+
+<dt>Val</dt>
+<dd>Well, I guess we can just refer to it as the animation spec? That’s what I usually call it for lack of a better name for it. Basically, it’s a way to make things move with CSS by defining keyframes. So, like we were just talking about transitions being between let’s just say just point A and point B, I mean you only can really do back and forth. Animations can be between point A and pretty much anything, because you can define keyframes in percentages as one of the options is percentages, and those you can go from 0 to 100, and you can also use decimal places. So it’s not infinite but quite neary infinite, the number of stops or, you know, bits along the way of your animations or pieces to your animation or stops along the way of your animation that you want to have. So keyframes define what will happen during the animation, and we have a variety of ways to define those. And then the other part of the animation spec is you then assign those keyframes to a particular, you know, object in your HTML and you say, “Hey, take these keyframes that I’ve named whatever and use these to animate this object.” And that’s where you would add things like the duration and the timing function and a few other properties that we can add to control things and fine tune things basically. So there’s a lot more you can control with animations as opposed to transitions, and it gets a lot— It’s a lot more to write, but you can also control more things.</dd>
+
+<!-- 45:53 -->
+
+<dt>Jen</dt>
+<dd>So what you’re— But what you’re basically, I mean, this is my understanding, so totally correct me when I’m wrong.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>If you’re using transitions or transforms…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…then you’re basically writing CSS the way you would normally write CSS. You’re right there. You’re saying sidebar, you know, rotate 90 degrees.</dd>
+
+<dt>Val</dt>
+<dd>Yeah those all happen right in with everything else.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, you put it right in the rest of all of your CSS, including the transition itself…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yep.</dd>
+
+<dt>Jen</dt>
+<dd>…where you’re saying, you know, “You’re a hover. I want you to do this two second transition.”</dd>
+
+<dt>Val</dt>
+<dd>Yeah, there’s nothing external for a transition. Everything is still within that same block you would have written all the other properties.</dd>
+
+<dt>Jen</dt>
+<dd>And then with animation basically what you are doing is you’re going off someplace else.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Now maybe this someplace else is just higher up in the exact same stylesheet.</dd>
+
+<dt>Val</dt>
+<dd>[laughs] Not like in another room, but yeah.</dd>
+
+<dt>Jen</dt>
+<dd>No, I did it in another file. Like, I made a separate file, right?</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>A little bit like if you’re using Sass and you’re going off someplace else in a separate file or…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…just in a separate part of your— How you have everything organized. And you define a bunch of variables. You like go off in a separate world…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and you define— You just make them up. You’re like <em>ladybug animation</em>, and you just call it <em>ladybug</em> and then you define what that is,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and then you can go into your “regular CSS” and you just call <em>ladybug</em> and the system goes, “I know what that is! That’s an animation that you made up,” and it activates that. Right?</dd>
+
+<dt>Val</dt>
+<dd>Essentially, yeah. Yeah, we create our list of keyframes, you know, which the keyframes are what define the motion, define the animation. You can keep those all out somewhere else. It helps to keep them together somehow, you know, depending on how many you’re doing, whether you do it in a separate file or not.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>I mean, I know for your project it probably made complete sense because you were doing so much. But maybe if you had like three, maybe not so much. But you create those keyframes, those list of keyframes, and you kind of package each up as a set of keyframes. You give it a name. And then once you have those set of keyframes, you can go and assign that to multiple objects, one object, you know or many times over. It kind of gives you that extra flexibility where you have this, this motion, this list of things to change, this animation defined elsewhere and then you go and take that and assign that where you need it.</dd>
+
+<!-- 48:00 -->
+
+<dt>Jen</dt>
+<dd>You can reuse that one—</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>You can reuse that ladybug animation…</dd>
+
+<dt>Val</dt>
+<dd>Oh yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…in 27 different places on different—</dd>
+
+<dt>Val</dt>
+<dd>You can have 27 different ladybugs all using the same keyframes.</dd>
+
+<dt>Jen</dt>
+<dd>Right. The same animation that you defined.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So, and then the keyframes is basically what you’re saying, I mean, anyone who understand animation recognized the word keyframe, right?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>If you ever used Flash, you know, you recognized the word keyframe. It’s like a moment when you’re defining kind of where you want everything to be. So if you have, let’s say you have…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…a square, and you want your square to like bounce around the page in a certain way, but it’s got to zig-zag all over the place. Then those keyframes might be— The first keyframe might be, okay, where’s it going to start…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and then it’s going to zig so you don’t need to define what happens in the middle.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>That’s going to happen with a transition, but you’re going to define the point at which it’s going to like bounce off the corner and change direction. So that becomes a moment, and then it’s going to do something for a while and then it’s going to change what it’s doing. So that’s another keyframe where it changed.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And then it’s going to do something for a while and then— Right?</dd>
+
+<!-- 49:00 -->
+
+<dt>Val</dt>
+<dd>Yeah, so you should just in that case of your zig-zagging square you’d just define basically all the endpoints of where it starts. The first zig, the second zag. Whatever.</dd>
+
+<dt>Jen</dt>
+<dd>The elbows.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, all of the elbows and you could have like 10 of them. You could have three of them. You can define as many keyframes as you need to. So the extra flexibility becomes really obvious compared to like just a transition where you’ve only got two points. Animations, you could zig and zag as much as you wanted.</dd>
+
+<dt>Jen</dt>
+<dd>And then the things that you define at each keyframe could be plain old boring CSS. It could be…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…I want this headline to be green. Then I want it to be purple. Now I want it to be orange. Now I want it to be red. And it would fade— Oh! And I want it to fade. I guess you would have to put that in there,…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…otherwise it would jump.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>So you tell it to transition from one color to the next to the next to the next.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, you can put any properties in there you want. A lot of the time for movement, again we’d use the transforms for the extra, you know, performance. But everything else — like changing your background color, your opacity, your border radius, all of that stuff — is just like regular properties you define in each keyframe. And you can define as many of them as you want. You know, there’s really no limit there. They keyframes can get pretty insane. [laughs]</dd>
+
+<!-- 50:10 -->
+
+<dt>Jen</dt>
+<dd>Yeah. But it could also be— I mean, I avoided it because I was like, “I’m not doing something insane. I don’t need this.” And I was trying to do things simply with a lot of transitions. But I very quickly was like, “Oh, I need this to start at the beginning again.”</dd>
+
+<dt>Val</dt>
+<dd>Yeah, you started running out of, you know, options with transitions.</dd>
+
+<dt>Jen</dt>
+<dd>I just needed really simple things. And I began to realize that an animation with two keyframes was actually a better way to go.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Also because I could reuse it.</dd>
+
+<dt>Val</dt>
+<dd>Because you have more control over— You can reuse it. You can do things like change your direction and just— It’s more flexible. I guess it’s more modular in a way.</dd>
+
+<dt>Jen</dt>
+<dd>It’s more object-oriented. It’s kind of—</dd>
+
+<dt>Val</dt>
+<dd>Picking it up. Use it again. It’s still there. You can use it on something else. There’s just a lot more you can do with the animations. So even if you do have a really simple one that’s only a couple of keyframes, you’re still getting an advantage there that you wouldn’t have if you were trying to transition that.</dd>
+
+<!-- 51:04 -->
+
+<dt>Jen</dt>
+<dd>So I could have an animation that’s like, okay at 0% I want opacity to be 0, and then at 50% I want opacity to be 1, and then at 100% I want opacity to be 0 again.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>And I want it to fade in there. I don’t want it to jump, so I need a transition in there. And it’s going to fade then, so if I say somewhere else, I say I need the fade in and out transition because I decided to call it <em>fade-in-and-out</em>.</dd>
+
+<dt>Val</dt>
+<dd>The animation.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, animation. I just, I don’t know what to call this. I’ll call this <em>fade-in-and-out</em>, because I made that up. Then I can come over here. Say, “Hey, animation fade-in-and-out, be 10 seconds.” So it would take five seconds for something to appear and then five seconds for it to disappear. And then five seconds for to appear and five seconds to disappear. And you can set it to go in a loop and it’ll just keep doing that until it— forever.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Forever.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, so there’s that extra flexibility of just being able to reuse it, change the duration for various properties, or various objects rather. Or yeah, just have it loop infinitely forever and ever.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and the duration is defined when you actually use the animation.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>So like I defined one that was fade in and out. And it was like, I can use this anywhere. And over here I’m going to have it fade in and out over 10 seconds, and over there I want it to fade in and out over one second or two seconds. And over here I’m going use it over 30 seconds.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. Because you had your fade in and out keyframes and then you just assigned those with different properties to different objects and suddenly you had long fade in and outs, short ones, and you only wrote one set of keyframes. So that’s kind of handy.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and that was— That took me a long time to figure out that that’s the way to go, but once I did and then I got the hang of the syntax…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…it made things happen much quicker.</dd>
+
+<!-- 52:50 -->
+
+<dt>Val</dt>
+<dd>I think, at first especially when you first start with them, you’re just like, “Alright, I’m going to write the keyframes for this animation, you know, animation A. I‘ll write the keyframes for animation B.” And then you realize later how similar those two animations were and you could have used one set of keyframes, but I think you just— You have to use them a little before you start making those connections.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, absolutely.</dd>
+
+<dt>Val</dt>
+<dd>You know? I don’t think you can jump right into I’m going to reuse this one! It’s going to be perfect! You just, you kind of stumble upon that and then you’re like, “Oh yeah! Hey, these aren’t— That’s a pretty way to do it! I feel, like you know, so much smarter with these animations now.” [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>And I think, I mean, here— So here you tell me what I should have done. I think I started using animations because I wanted something to loop and repeat itself.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>And I couldn’t— Like I wrote this whole thing with just transitions and I realized it wasn’t going to do that.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, I know.</dd>
+
+<dt>Jen</dt>
+<dd>And so I switched to animations so I could get that to happen. Is there a way to have things loop or, like, reset to first and stay on the first using just transitions or is that only possible with animations?</dd>
+
+<dt>Val</dt>
+<dd>It’s definitely, I think, especially with some help with some JavaScript you could do it, but I would just use animations and it’ll be so much easier if that’s what you’re trying to do. You know, you get that looping over and over…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…and to have things like, you know, stay at the end of the animation and not, you know, not go back, you know, just use animation fill mode as opposed to like removing a class name in JavaScript…</dd>
+
+<dt>Jen</dt>
+<dd>Oh that was the other thing I wanted all the time. And I was like, “Who wrote this?”</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>I wanted it to be like, I wanted state A and then I wanted something to change and go to state B and then I wanted to stay in state B.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. But by default it bounces back and drives everyone nuts!</dd>
+
+<dt>Jen</dt>
+<dd>It bounces back to A! Why are you bouncing back to A? And I could— I just remember hours and hours of trying how to get things to go. And in the end it was like yeah, you an animation and then set the fill state, is it called? What’s that called?</dd>
+
+<dt>Val</dt>
+<dd>Oh animation fill mode.</dd>
+
+<dt>Jen</dt>
+<dd>Fill mode.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Which is defaulted to go either, so you could go forwards or backwards to help keep your states of your first keyframe or your last keyframe at the end. It is— Yeah, I think everyone goes through that. They’re like, “What?! This is so stupid! It just keeps bouncing back to the left when I try to move it to the right!”</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<!-- 54:58 -->
+
+<dt>Val</dt>
+<dd>And then you discover animation fill mode and you set it to, you know, forwards and you’re just like, “Oh!”</dd>
+
+<dt>Jen</dt>
+<dd>Done!</dd>
+
+<dt>Val</dt>
+<dd>That was it? [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Val</dt>
+<dd>I kind of feel like that was like everyone who has dealt with CSS animations has gone through that moment.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>You’re just like, “Oh.”</dd>
+
+<dt>Jen</dt>
+<dd>I think the default should be different than what they are because of course you want it to just stay and be. And then…</dd>
+
+<dt>Val</dt>
+<dd>Yeah how often to you…</dd>
+
+<dt>Jen</dt>
+<dd>…if you wanted it to jump back to A then tell it to jump to A or tell it to transition to A or tell it to wait 50 seconds and then jump to A, you know? But—</dd>
+
+<dt>Val</dt>
+<dd>Yeah, it’s all that stuff that just takes a little getting used to and just like how would have even thought to look for the property animation fill mode if you didn't know it existed, right? Like that’s not— It’s not like when you saw your ball or your box bouncing back to the left when you wanted it to stay to the right. It’s not like you were like, “Oh, that must be animation fill mode,” but that’s not language anyone uses. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Fill mode, to me, would be like, “We’re going to pour a bunch of red paint into this bucket. Would you like us to fill it all the way to the top? Or would you like us to—” [laughs]</dd>
+
+<dt>Val</dt>
+<dd>Yeah! So the naming of some of the—</dd>
+
+<dt>Jen</dt>
+<dd>What is a fill mode? I don’t know what that means.</dd>
+
+<dt>Val</dt>
+<dd>It’s just not intuitive at all. I feel like it’s harder to discover in a way. Because you’re like, “Oh, what might that property be?” You know, sometimes you can guess, but who’s ever going to guess that? So, it’s kind of like once you find out about it you’re extra happy about CSS animatons.</dd>
+
+<!-- 56:13 -->
+
+
+
+
+
+
+
+
+
+
 
 
 
