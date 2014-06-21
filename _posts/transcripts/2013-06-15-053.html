@@ -8,9 +8,9 @@ permalink: 53/
 <dd>
 	<p>This is The Web Ahead, a conversation about changing technologies and the future of the Web. I’m your host Jen Simmons, and this is episode 53! I want to first say thank you so much to today’s sponsor, Environments for Humans, with their 2013 CSS Summit which seems to be kind of awesome! We’ll talk about that later in the show.</p>
 
-	<p>And I just want to say hello! So many of you have tweeted at me or sent emails through the <a href="http://5by5.tv">5by5 website</a> or <a href="http://jensimmons.com">my own website</a> and said like, “Where are you? Where’s the show?” [laughs] It’s been a little while. This has happened before. I don’t really mean for it to happen. It’s just all of a sudden, I don’t know, five weeks have gone by and I haven’t done a show. The show‘s not dead! I’m totally doing this show! I just, I think mostly this spring it’s been— I’ve been, I just went, I just did four conferences — presentations plus an all-day workshops. So, I don’t know, weeks go by. But, here we are, and I’m working on booking more shows in the future into I think the end of June we’re going to do one and then a bunch in July and August, and definitely the show’s around. If you’re a new-ish, newer listener and you’ve not listened to all 52 previous episodes, do that if you want more Web Ahead. They don’t really go out of date, really. There’s one thing and one show that I think is now a little out of date, but everything else is totally current. So, for those of you that have listened to all 50, now 53— 52.1 episodes, sorry. We’ll be back, I promise.</p>
+	<p>And I just want to say hello! So many of you have tweeted at me or sent emails through the <a href="http://5by5.tv">5by5 website</a> or <a href="http://jensimmons.com">my own website</a> and said like, “Where are you? Where’s the show?” [laughs] It’s been a little while. This has happened before. I don’t really mean for it to happen. It’s just all of the sudden, I don’t know, five weeks have gone by and I haven’t done a show. The show’s not dead! I’m totally doing this show! I just, I think mostly this spring it’s been— I’ve been, I just went, I just did four conferences — presentations plus an all-day workshop. So, I don’t know, weeks go by. But, here we are, and I’m working on booking more shows in the future into I think the end of June we’re going to do one and then a bunch in July and August, and definitely the show’s around. If you’re a new-ish, newer listener and you’ve not listened to all 52 previous episodes, do that if you want more Web Ahead. They don’t really go out of date, really. There’s one thing and one show that I think is now a little out of date, but everything else is totally current. So, for those of you that have listened to all 50, now 53— 52.1 episodes, sorry. We’ll be back, I promise.</p>
 
-	<p>So today! Today, we’re going to talk about <abbr title="Cascading Stylesheets">CSS</abbr> animations, transforms, transitions. You can use CSS to make things move around on the page, something that we used to kind of do with JavaScript and then we sort of didn’t. And then we did it with Flash and now we’re not using Flash. But you can totally do a lot of that same stuff. You’re even better in CSS. So, today I have Val Head joining us. Hi Val!</p>
+	<p>So today! Today, we’re going to talk about <abbr title="Cascading Stylesheets">CSS</abbr> animations, transforms, transitions. You can use CSS to make things move around on the page, something that we used to kind of do with JavaScript and then we sort of didn’t. And then we did it with Flash and now we’re not using Flash. But you can totally do a lot of that same stuff or even better in CSS. So, today I have Val Head joining us. Hi Val!</p>
 </dd>
 
 <!-- 2:26 -->
@@ -22,7 +22,7 @@ permalink: 53/
 <dd>Yes, hello everyone. Oh! And for those of you who don’t know, you can listen to the show live. If you go to <a href="http://5by5.tv/schedule">5by5.tv/schedule</a>, you can see the schedule of all of the shows that 5by5 broadcasts live and everytime I have a new episode of The Web Ahead booked, it gets put on that calendar, and you can look and see when the next episode is. And if it’s in a time zone when you’re awake, you can totally listen by going to <a href="http://5by5.tv/live">5by5.tv/live</a> and listen live. There’s also a chatroom you can get into, <abbr title="Internet Relay Chat">IRC</abbr> freenode channel 5by5 or use the web interface on the live webpage. There’s, right there, just get into the chatroom. Yeah. Kind of fun. Kind of cool. It’s fun having people, like right now, there’s people listening right now. And we know it.</dd>
 
 <dt>Val</dt>
-<dd>That’s amazing! I see them</dd>
+<dd>That’s amazing! I can see them.</dd>
 
 <!-- 3:20 -->
 
@@ -45,7 +45,7 @@ permalink: 53/
 <dd>Yes!</dd>
 
 <dt>Jen</dt>
-<dd>…you‘re a consultant.</dd>
+<dd>…you’re a consultant.</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm. Yeah, I do basically, mostly freelance web design. Design things, work with various teams and small agencies to kind of, you know, work together. Make awesome web stuff. So that’s pretty fun. And then I also teach a lot of workshops. I teach workshops on CSS animations and also teaching designers how to program. So, those are both really, really fun things to do.</dd>
@@ -196,7 +196,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>Like, <code>transform: scale;</code> is like a different way to make anything on the page be bigger or smaller than it would have been already.</dd>
+<dd>Like, <code>transform: scale</code> is like a different way to make anything on the page be bigger or smaller than it would have already.</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -266,7 +266,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>And now that— And like you said before, it’s not an animation property. This is just a do-what-I-tell-you-now property?</dd>
+<dd>And now that— And like you said before, it’s not an animation property. This is just a do-what-I-tell-you-to-now property.</dd>
 
 <dt>Val</dt>
 <dd>Yeah! Exactly. I mean, we can animate it, and we can transition it, but technically on its own it doesn’t do any of that. Though it does come in handy in the sense that, kind of like what you were just saying, if you were laying out a page, you’re never going to do that with <code>transform: translate</code>, right?</dd>
@@ -281,7 +281,7 @@ permalink: 53/
 <dd>That would be crazy.</dd>
 
 <dt>Val</dt>
-<dd>So, if you stick to— When you’re animating and transitioning, if you use that <code>transform: translate</code> to move things around, you’ve kind of created a nice separation where you know your animations won’t mess with your layout, hopefully. Or there’s less chance of it. I suppose you could still make a mess, but it helps separate things and keep it a little more straight in your brain.</dd>
+<dd>So, if you stick to— When you’re animating and transitioning, if you use that <code>transform: translate</code> to move things around, you’ve kind of created a nice separation where you know your animations won’t mess with your layout, hopefully. Or there’s less chance of it. I suppose you could still make a mess, but you know it helps separate things and keep it a little more straight in your brain.</dd>
 
 <!-- 9:50 -->
 
@@ -312,7 +312,7 @@ permalink: 53/
 <dd>It does come in handy in that sense despite the incredibly confusing names. [laughs]</dd>
 
 <dt>Jen</dt>
-<dd>It’s really— That’s why I was working on a project about the time we were both at Rustbelt…</dd>
+<dd>It’s really— That’s why I was working on a project about the time when we were both at Rustbelt…</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -330,7 +330,7 @@ permalink: 53/
 <dd>[laughs]</dd>
 
 <dt>Jen</dt>
-<dd>“That’s what life was like back in 2000-whatever when I was learning this for the first time.” Like, “Ohhhh, crap! [laughs] This is harder than I— Woah. This stuff is challenging.”</dd>
+<dd>“That’s what life was like back in 2000-whatever when I was learning this for the first time.” Like, “Ohhhh, crap! [laughs] This is harder than I— Woah. Yeah, this stuff is challenging.”</dd>
 
 <dt>Val</dt>
 <dd>Well, it’s a whole different way of thinking, right? I mean, before we could do— Before we could make things move with CSS — for lack of a better way to lump them together — we were kind of styling pages almost as if we were doing print, right? Like you were making things— You were marking up a document, styling it up, making it look pretty. But it was always still more-or-less static…</dd>
@@ -339,7 +339,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Val</dt>
-<dd>…in that sense. There was no, like, time to it. There was no depth in that dimension. So no when we make things— When you have the ability to make things move, suddenly it’s less of a document and more of an almost, like, a stage depending on how far you want to take it.</dd>
+<dd>…in that sense. There was no, like, time to it. There was no depth in that, I guess, dimension. So now when we make things— When you have the ability to make things move, suddenly it’s less of a document and more of almost, like, a stage depending on how far you want to take it.</dd>
 
 <!-- 12:06 -->
 
@@ -347,7 +347,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Val</dt>
-<dd>And you kind of end up with these pieces of your site almost being more like characters and, you know, having more life to them than just like be blue, have rounded corners, and have a drop shadow. Now you’re like, “Be blue, have a drop shadow, and over two seconds rotate like this,” or something. It’s just— It’s a very different way of thinking about things.</dd>
+<dd>And, you know, you kind of end up with these pieces of your site almost being more like characters and, you know, having more life to them than just like be blue, have rounded corners, and have a drop shadow. Now you’re like, “Be blue, and have a drop shadow, and over two seconds rotate like this,” or something. It’s just— It’s a very different way of thinking about things.</dd>
 
 <dt>Jen</dt>
 <dd>Yeah.</dd>
@@ -368,7 +368,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>Like you can’t— I mean, unless you want to do storyboards the way the films do, or keyframe and draw out the keyframes that you want the way that someone would storyboard a film or a cartoon, but…</dd>
+<dd>Like you can’t— I mean, unless you want to do storyboards the way that films do, or keyframe and draw out the different keyframes that you want the way that someone would storyboard a film or a cartoon, but…</dd>
 
 <dt>Val</dt>
 <dd>People definitely do that even for, you know, website things or animated web things.</dd>
@@ -400,7 +400,7 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <dt>Jen</dt>
-<dd>…you would plan the whole thing out and perhaps even do some 3D modelling of it, which didn’t exist when I was doing it [both laugh] theater design, but it does for people today. But you had no idea. I mean, you would draw a map of where all the lights were going and all the colors you wanted to use, but you had to actually get in the theater and run the cues and say, “I think this— I want this to be a five second transition.” And then you realize that, “No, that should really be three seconds,” or, “No, that should really be eight seconds,” or “No, that should really be 10 seconds.” And you would literally get all of the actors and all of the technicians and everybody who was involved might also be moving pieces of set and people setting of pyrotechnics and people doing music, playing music live, or people— And you would run the cue with lighting and all of the other things. And you’d start a couple, you know, sentences before the cue and then you run a sentance or two after the cue, and you’d be like, “Okay! Looks good to me!” And the other designers, each who had their own department, would be like, “No, I need to—” “No, that looks good to me,” or “No, let’s do that again.” And you like run the cue three, four, or five times and see whether or not it worked. Because there’s no way to know until you get there.</dd>
+<dd>…you’d plan the whole thing out and perhaps even do some 3D modelling of it, which didn’t exist when I was doing [both laugh] theater design, but it does for people today. But you had no idea. I mean, you’d draw a map of where all the lights were going and all the colors you wanted to use, but you had to actually get in the theater and run the cues and say, “I think this— I want this to be a five second transition.” And then you realize that, “No, that should really be three seconds,” or, “No, that should really be eight seconds,” or “No, that should really be 10 seconds.” And you would literally get all of the actors and all of the technicians and everybody who was involved, might also be people moving pieces of set and people setting off pyrotechnics and people doing music, playing music live, or people— And you would run the cue with lighting and all of the other things. And, you know, you’d start a couple, you know, sentences before the cue and then you run it a sentance or two after the cue, and you’d be like, “Okay! Looks good to me!” And the other designers, each who had their own department, would be like, “No, I need to—” “No, that looks good to me,” or “No, let’s do that again.” And you like run the cue three, four, or five times and see whether or not it worked. Because there’s no way to know until you get there.</dd>
 
 <!-- 14:58 -->
 
@@ -541,7 +541,7 @@ permalink: 53/
 <dd>Yeah. Translate. Tranform? Yeah, transform. <code>transform: skew</code>. So, <code>transform: translate</code>, <code>transform: scale</code>, <code>transform: rotate</code>, <code>transform: skew</code>, <code>transform: perspective</code>.</dd>
 
 <dt>Val</dt>
-<dd>And the perspective one kind of works together with anything you’re doing in 3D space. You usually actually for best results set perspective on the containing element, and then you’ll be using the same perspective for all of your 3D transforms, translates, whatever else. So that’s a handy one to set in one place.</dd>
+<dd>And the perspective one kind of works together with anything you’re doing in 3D space. You usually actually for best results set <code>perspective</code> on the containing element, and then you’ll be using the same perspective for all of your 3D transforms, translates, whatever else. So that’s a handy one to set in one place.</dd>
 
 <!-- 18:46 -->
 
@@ -578,7 +578,7 @@ permalink: 53/
 <!-- 20:10 -->
 
 <dt>Jen</dt>
-<dd>Yeah. So, a transform you might say I want this box. You know, I’ve got a link and I’m going to make it a big box and normally I want it to be blue. It’s square and straight. And when I hover, I want it to be red and have rounded corners and be rotated 45 degrees.</dd>
+<dd>Yeah. So, a transform you might say I want this box, when you—. You know, I’ve got a link and I’m going to make it a big box and normally I want it to be blue and square and straight. And when I hover, I want it to be red and have rounded corners and be rotated 45 degrees.</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -602,13 +602,19 @@ permalink: 53/
 <dd>[laughs]</dd>
 
 <dt>Jen</dt>
-<dd>It would meep, meep. Meep, meep. Meep, meep. But if I put a— But if I— If I use the transforms, but I also toss into the mix a transition then the transition can have it fade from red to blue…</dd>
+<dd>It would meep, meep. Meep, meep. Meep, meep. But if I put a— But if I— If I use the transforms, but I also toss into the mix a transition,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…then the transition can have it, like, fade from red to blue…</dd>
 
 <dt>Val</dt>
 <dd>Yep.</dd>
 
 <dt>Jen</dt>
-<dd>…through the state of purple, and it could— You could see the square corners morph into rounded corners and you could see the box that’s a flat with the horizon turn 45 degrees.</dd>
+<dd>…through the state of purple, and it could— You could see the square corners morph into rounded corners and you could see the box that’s flat with the horizon turn 45 degrees.</dd>
 
 <dt>Val</dt>
 <dd>Yeah!</dd>
@@ -620,7 +626,7 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <dt>Jen</dt>
-<dd>…like over a quarter of a second, or you could have it happen very slowly. You could take 10 seconds or a minute,…</dd>
+<dd>…like over, you  know, a quarter of a second, or you could have it happen very slowly. You could take 10 seconds or a minute,…</dd>
 
 <dt>Val</dt>
 <dd>Take— Yeah, you could take as many seconds as you want, though…</dd>
@@ -652,7 +658,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>…are background color, opacity, corners — square corners, rounded corners. Anything like that.</dd>
+<dd>…are <code>background-color</code>, <code>opacity</code>, corners — square corners, rounded corners. Anything like that.</dd>
 
 <dt>Val</dt>
 <dd>Any of the transforms we just talked about. You know, there’s really no shortage of things you can transition. [laughs]</dd>
@@ -663,7 +669,7 @@ permalink: 53/
 <dd>And this is where it does feel like the biggest problem right now is a lack of imagination. Like, we’re not—</dd>
 
 <dt>Val</dt>
-<dd>Yeah, and I think it’s also that— You know, you can’t— Unless you have a decent handle on CSS you can’t really use this stuff, right? Like you have to have at least — even though it’s a little bit strange even as far as CSS goes — you know, if you knew nothing about CSS you’re not going to just dive in and start doing transitions and animations, and it’s all very code-based. So there’s no good visual way of doing these things. I think that’s the other issue is that a lot of people who maybe do animations traditionally or have a background in it, they’re used to thinking about these very visually, not typing out lines of code to say what should happen. So, I think that’s a barrier too. There’s no good way to do this without writing code yet.</dd>
+<dd>Yeah, and I think it’s also that— You know, you can’t— Unless you have a decent handle on CSS you can’t really use this stuff, right? Like you have to have at least — even though it’s a little bit strange even as far as CSS goes — you know, if you knew nothing about CSS you’re not going to just dive in and start doing transitions and animations, and it’s all very code-based. So there’s no good visual way of doing these things. I think that’s the other issue is that a lot of people who maybe do animations traditionally or have a background in it, they’re used to thinking about these very visually, not typing out lines of code to say what should happen. So, I think that’s a barrier too. It’s like there’s no good way to do this without writing code yet.</dd>
 
 <dt>Jen</dt>
 <dd>I think, I think I have the right list. So <code>background</code>,…</dd>
@@ -698,7 +704,7 @@ permalink: 53/
 <dd>Mmm-hmm. There’s many options, though apparently— At least there’s been a lot of posts by people that are much more knowledgeable about the inner workings of browsers than myself. A lot of people like Paul Irish and them have been doing a lot of tests to see, you know, which one of those ways of making things move is more performant, and it seems that using transforms can actually gain you a decent amount of performance just as far as that being either, whether it actually becomes hardware accelerated or not kind of depends on exactly what’s going on in the browser. But for the most part everyone seems to agree that using transforms to move stuff around when it comes to transitions and animations is going to gain you some performance. So, that’s pretty awesome.</dd>
 
 <dt>Jen</dt>
-<dd>So your transitioning your <code>transform: translate</code>.</dd>
+<dd>So you’re transitioning your <code>transform: translate</code>.</dd>
 
 <dt>Val</dt>
 <dd>Yeah instead of doing <code>top</code> and <code>left</code>…</dd>
@@ -707,7 +713,7 @@ permalink: 53/
 <dd>Right.</dd>
 
 <dt>Val</dt>
-<dd>…you can go with transforms, it’ll give you better performance.</dd>
+<dd>…to go with transforms, it’ll give you better performance.</dd>
 
 <dt>Jen</dt>
 <dd>Transition, transform, [both laugh] translate.</dd>
@@ -737,7 +743,7 @@ permalink: 53/
 <dd>I mean, that was sort of the whole point was for it to be totally crazy-heavy with animations. And I did the navigation as a bunch of round circles, and everything is responsive. So they’re all over the place. And, you know, different places on the page depending on the size of the screen, the viewport. And then when you click on any of them, they all move. And when you click on one of them again, they all move back to where they were. And looking at them on like an Android phone, they looked like crap! They did not move smoothly at all!</dd>
 
 <dt>Val</dt>
-<dd>No!</dd>
+<dd>Oh no!</dd>
 
 <dt>Jen</dt>
 <dd>And I was like, “I should really go look up that whatever-that-was about performance!” [laughs] And I redid— Because I think I had positioned them absolutely because I was like, “Oh! Uh, I want these to be floating in space. I’ll just position everything absolutely using viewport units,"…</dd>
@@ -872,10 +878,10 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>…sometimes they were not nearly as beautiful. Graphics card is much cheaper. The hardware is much cheaper. The touch screen is much cheaper. I had an Android 1.6 tablet for a while [both laugh], like really bad tablet, and it was just unbearable. Like, when you go to scroll the page—</dd>
+<dd>…sometimes they were not nearly as beautiful. Graphics card is much cheaper. The hardware is much cheaper. The touch screen is much cheaper. I had an Android 1.6 tablet for a while [both laugh], like really bad tablet, and it just was unbearable. Like, when you go to scroll the page, it just went—</dd>
 
 <dt>Val</dt>
-<dd>Oh yeah, the scrolling on Android used to just kill me everytime I’d try to use it. This isn’t working! I can’t do it! [laughs]</dd>
+<dd>Oh yeah, the scrolling on Android used to just kill me everytime I’d try to use it. I’d just be like, “This isn’t working! I can’t do it!” [laughs]</dd>
 
 <dt>Jen</dt>
 <dd>Yeah.</dd>
@@ -884,7 +890,7 @@ permalink: 53/
 <dd>And it was really just the responsiveness of the scroll movement. That was the only thing, and it was driving me nuts.</dd>
 
 <dt>Jen</dt>
-<dd>Yeah. So now suddenly this becomes part of a frontend developer’s world because if you’re writing CSS for a website, and you’re writing production code — you know, maybe you’re writing prototypes and it’s fine —…</dd>
+<dd>Yeah. So now suddenly this becomes part of a front end developer’s world because if you’re writing CSS for a website, and you’re writing production code — you know, maybe you’re writing prototypes and it’s fine —…</dd>
 
 <!-- 31:17 -->
 
@@ -895,7 +901,7 @@ permalink: 53/
 <dd>…but if you’re writing production code, there’s things that you can do to affect the quality of the result.</dd>
 
 <dt>Val</dt>
-<dd>Yeah, and it’s— It does become a whole ’nother way of thinking about things and a whole ‘nother way of thinking of performance.</dd>
+<dd>Yeah, and it’s— It does become a whole ’nother way of thinking about things and a whole ’nother way of thinking of performance.</dd>
 
 <dt>Jen</dt>
 <dd>Yeah.</dd>
@@ -942,10 +948,10 @@ permalink: 53/
 <!-- 32:30 -->
 
 <dt>Jen</dt>
-<dd>It seems like there are ways that you could, like if someone wants to place to start to just specify a transition—</dd>
+<dd>It seems like there are ways that you could, like if someone wants a place to start to just specify a transition—</dd>
 
 <dt>Val</dt>
-<dd>Oh yeah, that’s definitely the place to start. I mean, just to get that idea of— Because it doesn’t just, it’s not like when you transition something you just get one type of transition. I mean, you tell it to transition whatever property you use, and then additionally you get to pick how long it’s going to take, what type of easing or CSS calls it the timing function you’re going to use. And you can get some very very different effects even just changing the timing and the easing. I mean, the amount of time, the duration and the timing function, those have such an affect on just the way things look in the end and the way things feel. There’s a lot you can do with those and kind of playing around with transitions and seeing what you can get out of it.</dd>
+<dd>Oh yeah, that’s definitely the place to start. I mean, just to get that idea of— Because it doesn’t just, it’s not like when you transition something you just get one type of transition. I mean, you tell it to transition whatever property you use, and then additionally you get to pick how long it’s going to take, what type of easing or CSS calls it the timing function you’re going to use. And you can get some very very different effects even just changing the timing and the easing. I mean, the amount of time, the duration and the timing function, those have such an effect on just the way things look in the end and the way things feel. There’s a lot you can do with those and kind of playing around with transitions and seeing what you can get out of it.</dd>
 
 <dt>Jen</dt>
 <dd>So you could just put a transition on your hover instead of jumping to a different color—</dd>
@@ -990,7 +996,7 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <dt>Jen</dt>
-<dd>Delay, that’s interesting. So you could then toss a delay in there that the transition starts…</dd>
+<dd>Delay, that’s interesting. So you can then toss a delay in there that the transition starts…</dd>
 
 <dt>Val</dt>
 <dd>A little late, yeah.</dd>
@@ -999,7 +1005,7 @@ permalink: 53/
 <dd>…after the trigger, whatever the trigger is.</dd>
 
 <dt>Val</dt>
-<dd>And I want to think, really, at least for me I only feel it comes in handy if you’re multiple transitions. If you’re transitioning multiple things separately or something, because if you hover over something and it doesn’t seem like it reacts to you for awhile, like that sucks. Don’t do that. [laughs] You know, delaying a transition is probably not—</dd>
+<dd>And I want to think, really, at least for me I only feel it comes in handy if you’re multiple transitions. If you’re transitioning multiple things separately or something, because if you hover over something and it doesn’t seem like it reacts to you for awhile, like that sucks. Don’t do that. [laughs] You know, delaying a transition is probably not a popular thing.</dd>
 
 <dt>Jen</dt>
 <dd>But if you’re going to have something slide in and then explode [laughs]…</dd>
@@ -1029,7 +1035,7 @@ permalink: 53/
 <dd>Wow.</dd>
 
 <dt>Val</dt>
-<dd>…and speed up and slow down any way you want using math.</dd>
+<dd>…and speed up and slow down in any way you want using math.</dd>
 
 <!-- 35:45 -->
 
@@ -1040,13 +1046,13 @@ permalink: 53/
 <dd>[laughs]</dd>
 
 <dt>Jen</dt>
-<dd>Anybody remembers— I guess you don’t need— I guess you might need to know calculus if you want to create your own Bézier functions, but if you just want to not go crazy and— But remembering from calculus — if you ever took any of calculus — that you can, that not only is there the rate of change of something, but there’s the rate of change of the rate of change.</dd>
+<dd>Anybody remembers— I guess you don’t need— I guess you might need to know calculus if you want to create your own Bézier functions, but if you just want to not go crazy and— But remembering from calculus — if you ever took any of calculus — that you can, that not only is there the rate of change of something, but you can change the rate of change. So—</dd>
 
 <dt>Val</dt>
 <dd>[laughs] Wow, we’re getting really deep here. [laughs]</dd>
 
 <dt>Jen</dt>
-<dd>Right? Well that’s what this is. This is a thing. You know, I want, you know— I mean, I imagine this race car driving down the street, right? Your race car has got to go one block. It’s going to start on the one corner and it’s going to end on the other corner. It’s only going one block. So your race car could go fifty miles an hour the whole time, right? Or it could go a hundred miles an hour for the first part, and then slow down and be going at, like, thirty miles an hour at that last part. Or it could be going thirty miles an hour at the first part, and then speed up and be going at a hundred miles an hour at the last part, right? So it’s that kind of thing as far as the timing functions—</dd>
+<dd>Right? Like, that’s what this is. This is saying, I want, you know— I mean, imagine this race car driving down the street, right? Your race car has got to go one block. It’s going to start on the one corner and it’s going to end on the other corner. It’s only going one block. So your race car could go 50 miles an hour the whole time, right? Or it could go 100 miles an hour for the first part, and then slow down and be going at, like, 30 miles an hour at that last part. Or it could be going 30 miles an hour at the first part, and then speed up and be going 100 miles an hour at the last part, right? So it’s that kind of thing as far as the timing functions—</dd>
 
 <dt>Val</dt>
 <dd>You have fine-grained control. And the nice thing is you don’t have to do the math yourself.</dd>
@@ -1055,7 +1061,7 @@ permalink: 53/
 <dd>Yeah. No, no, no.</dd>
 
 <dt>Val</dt>
-<dd>I mean, if you wanted to fine tune the numbers between zero and one, go nuts. Or you can use something like the Caesar tool that will let you preview ones and create your own curves. There’s also <a href="http://cubic-bezier.com">cubic-bezier.com</a> I think it is? I’ll give you the actual links—</dd>
+<dd>I mean, if you wanted to fine tune the numbers between zero and one, go nuts. Or you can use something like <a href="http://matthewlein.com/ceaser/">the Caesar tool</a> that will let you preview ones and create your own curves. There’s also <a href="http://cubic-bezier.com">cubic-bezier.com</a> I think it is? I’ll give you the actual links—</dd>
 
 <dt>Jen</dt>
 <dd>But before you get into that, aren’t there a bunch already predefined?</dd>
@@ -1064,10 +1070,10 @@ permalink: 53/
 <dd>Mmm-hmm. Yep.</dd>
 
 <dt>Jen</dt>
-<dd>I mean, there’s like ease,…</dd>
+<dd>I mean, there’s like <code>ease</code>,…</dd>
 
 <dt>Val</dt>
-<dd>…ease, ease-in, ease-out, ease-inout, and linear. [laughs]</dd>
+<dd>…<code>ease</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, and <code>linear</code>. [laughs]</dd>
 
 <dt>Jen</dt>
 <dd>Right.</dd>
@@ -1114,7 +1120,7 @@ permalink: 53/
 <dd>Oh yeah.</dd>
 
 <dt>Jen</dt>
-<dd>There are some demos that show you, like, the race car going down the block — as far as ease, ease-in, ease-in-out, ease-out — to just visually see. Because, you know, if you’re doing a hover and it’s going to take half a second, the that difference between ease-in and ease-out is subtle but you could still play with it.</dd>
+<dd>There are some demos that show you, like, the race car going down the block — as far as <code>ease</code>, <code>ease-in</code>, <code>ease-in-out</code>, <code>ease-out</code> — to just visually see. Because, you know, if you’re doing a hover and it’s going to take half a second, the— That difference between <code>ease-in</code> and <code>ease-out</code> is subtle but you could still play with it.</dd>
 
 <dt>Val</dt>
 <dd>Subtle but noticeable.</dd>
@@ -1123,7 +1129,7 @@ permalink: 53/
 <dd>Yeah. But you don’t necessarily have to get into the writing your own thing. You could just kind of learn which ones you like and which ones give you which kind of feeling. Get to know these first.</dd>
 
 <dt>Val</dt>
-<dd>Stick with the keywords first, but then go into the cubic Béziers because it’s a whole new world of just like— The math behind them is kind of crazy math-y, but what you can do with them is just, it’s really useful and pretty interesting. So I’ll give you some links too of some demos on what all of those do.</dd>
+<dd>Stick with the keywords first, but then go into the cubic Béziers because it’s a whole new world of just like— The math behind them is kind of crazy math-y, but what you can do with them is just, it’s really useful and pretty interesting. So I’ll give you some links too of some good demos on what those all do.</dd>
 
 <!-- 39:10 -->
 
@@ -1140,7 +1146,7 @@ permalink: 53/
 <dd>Yes!</dd>
 
 <dt>Jen</dt>
-<dd>…CSS Summit. So Environments for Humans, the fabulous folks that put on a whole bunch of different— A few in-person conferences as well as online summits. They’ve been a long-time supporter of The Web Ahead. They have another summit coming up, July 25th through — I just checked this — No! July 23rd! July 23rd to 25th. It’s three days on CSS. It’s online, so you don’t have to travel. You can get to it from any place around the world as long as you can install Adobe Connect software on your computer. You get to watch the speakers live and there’s also like this chat room, so you can ask questions. They’re really great about pushing people to ask questions. So you can ask the speakers questions right there, or say hi, chat with your fellow attendees. So the first day is, like, they’re calling it CSS Training. Selectors, flexbox, regions and grids — Rachel Andrews is going to do a whole session on regions and grids; she was on the show to come talk about new CSS layouts — web typography using CSS instead of images, music videos with CSS3 and HTML5, games. Then day two is advanced CSS: CSS testing. You’re going to talk about animating CSS infographics.</dd>
+<dd>…CSS Summit. So <a href="http://environmentsforhumans.com">Environments for Humans</a>, the fabulous folks that put on a whole bunch of different— A few in-person conferences as well as online summits. They’ve been a long-time supporter of The Web Ahead. They have another summit coming up, July 25th through — I just checked this — No! July 23rd! July 23rd to 25th. It’s three days on CSS. It’s online, so you don’t have to travel. You can get to it from any place around the world as long as you can install Adobe Connect software on your computer. You get to watch the speakers live and there’s also like this chat room, so you can ask questions. They’re really great about pushing people to ask questions. So you can ask the speakers questions right there, or say hi, chat with your fellow attendees. So the first day is, like, they’re calling it CSS Training. Selectors, flexbox, regions and grids — Rachel Andrews is going to do a whole session on regions and grids; she was on the show to come talk about new CSS layouts — web typography using CSS instead of images, music videos with CSS3 and HTML5, games. Then day two is advanced CSS: CSS testing. You’re going to talk about animating CSS infographics.</dd>
 
 <dt>Val</dt>
 <dd>Yep!</dd>
@@ -1167,7 +1173,7 @@ permalink: 53/
 <dd>Mmm-hmm. So many options!</dd>
 
 <dt>Jen</dt>
-<dd>And you can get a discount: 20% off discount with the coupon code webahead, which is awesome. You can buy a ticket to just one of the days or you can buy a ticket to all of the days, and you can also get either like a ticket for yourself because you want to go or you can get what they call a meeting room ticket, which is really I think is really kind of brilliant, where you can have— It’s a ticket for a roomfull of people, so you could get together with your friends at college and borrow a classroom and pool your money and watch it together. Or you could get your company to pay for the bill and get all of the developers that can fit into one room into the room and have everyone watch together so that you get kind of everybody on the same page, understanding certain concepts. Like if you want to move your whole company to Sass so you can get all of your developers to come and watch the Sass day and learn how to use Sass together and really kind of cool. Which is easier, say, than moving your whole company, flying them to a conference or something.</dd>
+<dd>And you can get a discount: 20% off discount with the coupon code webahead, which is awesome. You can buy a ticket to just one of the days or you can buy a ticket to all of the days, and you can also get either like a ticket for yourself because you want to go or you can get what they call a meeting room ticket, which is really I think is really kind of brilliant, where you can have— It’s a ticket for a roomful of people, so you could get together with your friends at college and borrow a classroom and pool your money and watch it together. Or you could get your company to pay, foot the bill and get all of the developers that can fit into one room into the room and have everyone watch together so that you get kind of everybody on the same page, understanding certain concepts. Like if you want to move your whole company to Sass, you can get all of your developers to come and watch the Sass day and learn how to use Sass together and really kind of cool. Which is easier, say, than moving your whole company, flying them to a conference or something.</dd>
 
 <dt>Val</dt>
 <dd>[laughs] Definitely easier.</dd>
@@ -1175,7 +1181,7 @@ permalink: 53/
 <!-- 43:26 -->
 
 <dt>Jen</dt>
-<dd><p>Yeah. So, thanks again so much to Environments for Humans for supporting the show. You can go to <a href="http://csssummit.com">csssummit.com</a> to find out all of the details, look at all of the bios for the fabulous people. 20% off again using the code webahead. Thanks.</p>
+<dd><p>Yeah. So, thanks again so much to Environments for Humans for supporting the show. You can go to <a href="http://csssummit.com">csssummit.com</a> to find out all of the details, look at all of the bios of the fabulous people. 20% off again using the code webahead. Thanks.</p>
 
 <p>So, animations!</p></dd>
 
@@ -1183,19 +1189,19 @@ permalink: 53/
 <dd>[laughs] Yes!</dd>
 
 <dt>Jen</dt>
-<dd>So we’re 45 minutes in…</dd>
+<dd>So we’re 45 minutes in and we haven’t on the animations show and we haven’t—</dd>
 
 <dt>Val</dt>
 <dd>Oh no! [laughs]</dd>
 
 <dt>Jen</dt>
-<dd>…on the animations show and we haven’t— Oh we’re totally fine! And we haven’t talked about officially—</dd>
+<dd>Oh we’re totally fine! And we haven’t talked about officially—</dd>
 
 <dt>Val</dt>
 <dd>We haven’t talked about the official animations—</dd>
 
 <dt>Jen</dt>
-<dd>Animations animations. Yeah, because I mean there’s a way in which we’re talking about animating things, making things move.</dd>
+<dd>Animations animations. Yeah, because I mean there’s a way in which we’re talking about, you know, animating things, making things move.</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -1216,7 +1222,7 @@ permalink: 53/
 <dd>So, explain what that is.</dd>
 
 <dt>Val</dt>
-<dd>Well, I guess we can just refer to it as the animation spec? That’s what I usually call it for lack of a better name for it. Basically, it’s a way to make things move with CSS by defining keyframes. So, like we were just talking about transitions being between let’s just say just point A and point B, I mean you only can really do back and forth. Animations can be between point A and pretty much anything, because you can define keyframes in percentages as one of the options is percentages, and those you can go from 0 to 100, and you can also use decimal places. So it’s not infinite but quite neary infinite, the number of stops or, you know, bits along the way of your animations or pieces to your animation or stops along the way of your animation that you want to have. So keyframes define what will happen during the animation, and we have a variety of ways to define those. And then the other part of the animation spec is you then assign those keyframes to a particular, you know, object in your HTML and you say, “Hey, take these keyframes that I’ve named whatever and use these to animate this object.” And that’s where you would add things like the duration and the timing function and a few other properties that we can add to control things and fine tune things basically. So there’s a lot more you can control with animations as opposed to transitions, and it gets a lot— It’s a lot more to write, but you can also control more things.</dd>
+<dd>Well, I guess we can just refer to it as <a href="http://www.w3.org/TR/2013/WD-css3-animations-20130219/">the animation spec</a>? That’s what I usually call it for lack of a better name for it. Basically, it’s a way to make things move with CSS by defining keyframes. So, like we were just talking about transitions being between let’s just say just point A and point B, I mean you only can really do back and forth. Animations can be between point A and pretty much anything, because you can define keyframes in percentages as one of the options is percentages, and those you can go from 0 to 100, and you can also use decimal places. So it’s not infinite but quite neary infinite, the number of, you know, stops or, you know, bits along the way of your animations or pieces to your animation or stops along the way of your animation that you want to have. So keyframes define what will happen during the animation, and we have a variety of ways to define those. And then the other part of the animation spec is you then assign those keyframes to a particular, you know, object in your HTML and you say, “Hey, take these keyframes that I’ve named whatever and use these to animate this object.” And that’s where you would add things like the duration and the timing function and a few other properties that we can add to kind of control things and fine tune things basically. So there’s a lot more you can control with animations as opposed to transitions, and it gets a lot— It’s a lot more to write, but you can also control more things.</dd>
 
 <!-- 45:53 -->
 
@@ -1281,7 +1287,7 @@ permalink: 53/
 <dd>Mmm-hmm.</dd>
 
 <dt>Jen</dt>
-<dd>…and you define— You just make them up. You’re like <em>ladybug animation</em>, and you just call it <em>ladybug</em> and then you define what that is,…</dd>
+<dd>…and you define— You just make them up. You’re like <em>ladybug</em> animation, and you just call it <em>ladybug</em> and then you define what that is,…</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -1337,7 +1343,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Jen</dt>
-<dd>…a square, and you want your square to like bounce around the page in a certain way, but it’s got to zig-zag all over the place. Then those keyframes might be— The first keyframe might be, okay, where’s it going to start…</dd>
+<dd>…a square, and you want your square to like bounce around the page in a certain way, but it’s got to zig-zag all over the place. Then those keyframes might be— The first keyframe would be, okay, where’s it going to start…</dd>
 
 <dt>Val</dt>
 <dd>Mmm-hmm.</dd>
@@ -1366,7 +1372,7 @@ permalink: 53/
 <dd>The elbows.</dd>
 
 <dt>Val</dt>
-<dd>Yeah, all of the elbows and you could have like 10 of them. You could have three of them. You can define as many keyframes as you need to. So the extra flexibility becomes really obvious compared to like just a transition where you’ve only got two points. Animations, you could zig and zag as much as you wanted.</dd>
+<dd>Yeah, all of the elbows and you could have like 10 of them. You could have three of them. You can define as many keyframes as you need to. So the extra flexibility becomes really obvious as compared to like just a transition where you’ve only got two points. Animations, you could zig and zag as much as you wanted.</dd>
 
 <dt>Jen</dt>
 <dd>And then the things that you define at each keyframe could be plain old boring CSS. It could be…</dd>
@@ -1390,12 +1396,12 @@ permalink: 53/
 <dd>So you tell it to transition from one color to the next to the next to the next.</dd>
 
 <dt>Val</dt>
-<dd>Yeah, you can put any properties in there you want. A lot of the time for movement, again we’d use the transforms for the extra, you know, performance. But everything else — like changing your background color, your opacity, your border radius, all of that stuff — is just like regular properties you define in each keyframe. And you can define as many of them as you want. You know, there’s really no limit there. They keyframes can get pretty insane. [laughs]</dd>
+<dd>Yeah, you can put any properties in there you want. A lot of the time for movement, again we’d use the transforms just for the extra, you know, performance. But everything else — like changing your background color, your opacity, your border radius, all of that stuff — is just like regular properties you define in each keyframe. And you can define as many of them as you want. You know, there’s really no limit there. They keyframes can get pretty insane. [laughs]</dd>
 
 <!-- 50:10 -->
 
 <dt>Jen</dt>
-<dd>Yeah. But it could also be— I mean, I avoided it because I was like, “I’m not doing something insane. I don’t need this.” And I was trying to do things simply with a lot of transitions. But I very quickly was like, “Oh, I need this to start at the beginning again.”</dd>
+<dd>Yeah. But it also could be— I mean, I avoided it because I was like, “I’m not doing something insane. I don’t need this.” And I was trying to do things simply with a lot of transitions. But I very quickly was like, “Oh, I need this to start at the beginning again.”</dd>
 
 <dt>Val</dt>
 <dd>Yeah, you started running out of, you know, options with transitions.</dd>
@@ -1498,7 +1504,7 @@ permalink: 53/
 <dd>Yeah.</dd>
 
 <dt>Val</dt>
-<dd>…and to have things like, you know, stay at the end of the animation and not, you know, not go back, you know, just use animation fill mode as opposed to like removing a class name in JavaScript…</dd>
+<dd>…and to have things like, you know, stay at the end of the animation and not, you know, not go back, you know, just use <code>animation-fill-mode</code> as opposed to like removing a class name in JavaScript…</dd>
 
 <dt>Jen</dt>
 <dd>Oh that was the other thing I wanted all the time. And I was like, “Who wrote this?”</dd>
@@ -1513,10 +1519,10 @@ permalink: 53/
 <dd>Yeah. But by default it bounces back and drives everyone nuts!</dd>
 
 <dt>Jen</dt>
-<dd>It bounces back to A! Why are you bouncing back to A? And I could— I just remember hours and hours of trying how to get things to go. And in the end it was like yeah, you an animation and then set the fill state, is it called? What’s that called?</dd>
+<dd>It bounces back to A! Why are you bouncing back to A? And I couldn’t— I just remember hours and hours of trying how to get things to go. And in the end it was like yeah, you an animation and then set the fill state, is it called? What’s that called?</dd>
 
 <dt>Val</dt>
-<dd>Oh animation fill mode.</dd>
+<dd>Oh <code>animation-fill-mode</code>.</dd>
 
 <dt>Jen</dt>
 <dd>Fill mode.</dd>
@@ -1525,7 +1531,7 @@ permalink: 53/
 <dd>Mmm-hmm. Which is defaulted to go either, so you could go forwards or backwards to help keep your states of your first keyframe or your last keyframe at the end. It is— Yeah, I think everyone goes through that. They’re like, “What?! This is so stupid! It just keeps bouncing back to the left when I try to move it to the right!”</dd>
 
 <dt>Jen</dt>
-<dd>[laughs]</dd>
+<dd>Right! [laughs]</dd>
 
 <!-- 54:58 -->
 
@@ -1542,7 +1548,7 @@ permalink: 53/
 <dd>Right.</dd>
 
 <dt>Val</dt>
-<dd>I kind of feel like that was like everyone who has dealt with CSS animations has gone through that moment.</dd>
+<dd>I kind of feel like that’s like everyone who has dealt with CSS animations has gone through that moment.</dd>
 
 <dt>Jen</dt>
 <dd>Yeah.</dd>
@@ -1554,19 +1560,19 @@ permalink: 53/
 <dd>I think the default should be different than what they are because of course you want it to just stay and be. And then…</dd>
 
 <dt>Val</dt>
-<dd>Yeah how often to you…</dd>
+<dd>Yeah how often do you want it to…</dd>
 
 <dt>Jen</dt>
 <dd>…if you wanted it to jump back to A then tell it to jump to A or tell it to transition to A or tell it to wait 50 seconds and then jump to A, you know? But—</dd>
 
 <dt>Val</dt>
-<dd>Yeah, it’s all that stuff that just takes a little getting used to and just like how would have even thought to look for the property animation fill mode if you didn't know it existed, right? Like that’s not— It’s not like when you saw your ball or your box bouncing back to the left when you wanted it to stay to the right. It’s not like you were like, “Oh, that must be animation fill mode,” but that’s not language anyone uses. [laughs]</dd>
+<dd>Yeah, it’s all that stuff that just takes a little getting used to and just like how would have even thought to look for the property <code>animation-fill-mode</code> if you didn't know it existed, right? Like that’s not— It’s not like when you saw your ball or your box bouncing back to the left when you wanted it to stay to the right. It’s not like you were like, “Oh, that must be <code>animation-fill-mode</code>,” but that’s not language anyone uses. [laughs]</dd>
 
 <dt>Jen</dt>
 <dd>Fill mode, to me, would be like, “We’re going to pour a bunch of red paint into this bucket. Would you like us to fill it all the way to the top? Or would you like us to—” [laughs]</dd>
 
 <dt>Val</dt>
-<dd>Yeah! So the naming of some of the—</dd>
+<dd>Yeah! So the naming of some of these things is just—</dd>
 
 <dt>Jen</dt>
 <dd>What is a fill mode? I don’t know what that means.</dd>
@@ -1576,14 +1582,606 @@ permalink: 53/
 
 <!-- 56:13 -->
 
+<dt>Jen</dt>
+<dd>Yeah. And then, as you were eagerly pushing people to think about, you can do very complicated things with this.</dd>
 
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
 
+<dt>Jen</dt>
+<dd>I’m more excited about the simple things, because I think that they’re more likely to be needed or used on a normal project…</dd>
 
+<dt>Val</dt>
+<dd>Yeah, yeah.</dd>
 
+<dt>Jen</dt>
+<dd>…kind of a normal website. And I like it. I like thinking about everyone using something.</dd>
 
+<dt>Val</dt>
+<dd>Oh yeah.</dd>
 
+<dt>Jen</dt>
+<dd>You know, you’re building the next my local news web newspaper website .com and you, you know, it’s a traditional newspaper website. You’re not going to go crazy. It’s not a video game. But you— There might be little ways that you want to add animation or add…</dd>
 
+<dt>Val</dt>
+<dd>Yeah.</dd>
 
+<dt>Jen</dt>
+<dd>…transitions so that it’s more— It’s clearer to people what’s happening.</dd>
+
+<dt>Val</dt>
+<dd>It just gives it more, like, a different personality…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…than straight cuts. And that’s where the modularity of animations— You know, you were talking about your fade in and out animation. Like, it’s super simple. You can reuse it. That’s awesome and the fact that we can make more complicated ones is also awesome…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…but in a completely different use case. You know, it’s kind of nice to have that flexibility where we can do this really simple stuff so easily now and we can also go really crazy and make insane, humongously complicated things all with CSS.</dd>
+
+<!-- 57:26 -->
+
+<dt>Jen</dt>
+<dd>Yeah! And you were mentioning before JavaScript, but…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…I was working as much as I could to not use any JavaScript…</dd>
+
+<dt>Val</dt>
+<dd>Yeah, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…because CSS is faster.</dd>
+
+<dt>Val</dt>
+<dd>It is, and I think the thing is when you’re doing CSS animations and transitions you can do all the actual, like, motion of the transitions and the animations in CSS and then just do some basic, like, class switching in JavaScript to help manage those better. So JavaScript isn’t causing any motion. It’s literally just, like, toggling some classes, changing class names to retrigger animations or, you know, change properties on animations. So, using them together is probably about 500 times more fun than using one alone.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>If I had to pick a number. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Well, that’s— That is absolutely true. So there’s a way you could— People could use JavaScript and they have in the past, and they will continue to in the future to use JavaScript to create animations, to make things move around on the page.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And there are plenty of times where that’s going to be the correct solution, especially if you’re doing something very complicated.</dd>
+
+<dt>Val</dt>
+<dd>Or older browsers, you might have no choice.</dd>
+
+<dt>Jen</dt>
+<dd>Or older browsers. Or you love JavaScript. [both laugh]</dd>
+
+<dt>Val</dt>
+<dd>Well even then I would ask you to consider using CSS for the motion.</dd>
+
+<!-- 58:36 -->
+
+<dt>Jen</dt>
+<dd>But if you have a situation where you could accomplish the same motion using CSS or JavaScript,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…my sense is that, you know, 10 out of 10 developers who know will tell you that you should do the motion with CSS, because it’s going to render, it’s going to paint to the screen, way faster.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, that’s always the case is the rendering is just going to be better.</dd>
+
+<dt>Jen</dt>
+<dd>It’s going— CSS will kick JavaScript’s ass. The JavaScript does’t have to run…</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>You know, instead of having complicated JavaScript you just have simpler code.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. You can still use JavaScript for the logic of, you know, when does something open and when you want it to move you assign it the class that triggers the animation. There you go.</dd>
+
+<dt>Jen</dt>
+<dd>Yes, well— That’s, that’s the thing though. That’s the thing, I mean, what can you animate using CSS beyond hover without using any JavaScript?</dd>
+
+<dt>Val</dt>
+<dd>Well you can use some things, I guess like target. I feel like it just gets very— Even with hover if you’re doing too much on hover just with CSS, I feel like it gets very fragile and difficult to control. So that’s where the JavaScript logic of just—</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>You know, I know when this has been hovered over so I will do this thing and then have a little bit more logic than just, like, is the hover on or hover off to make things, you know, keep going even if you moved your mouse if they should be, or just timing things out. You know, you can do a lot with delays on CSS animations for sure, but maybe just for your own sanity you’d rather just use JavaScript to take care of what order those should happen and at what time they should.</dd>
+
+<!-- 1:00:04 -->
+
+<dt>Jen</dt>
+<dd>Yeah. I mean, that to me was another big lowering point, is like okay I can totally make a transition on a hover. That’s cool. I can change the color, maybe it’s a button. That color, the background color of that button changes, or you know whatever. But I want to do something where you’re using a touchscreen and when you touch this button this thing shows up. Or the thing that was there slides over to the side. Or all these— You know, I got a whole bunch of different ideas. When I click the button or the link, I want to make a transition for the whole page to flip or I want the page to scroll and then like this thing that was down at the bottom, this dinosaur comes out and eats the thing we were looking at. Like,…</dd>
+
+<dt>Val</dt>
+<dd>[laughs] That sounds like a fun one.</dd>
+
+<dt>Jen</dt>
+<dd>None of those things are going to happen on hover alone. Like you need JavaScript. You have to write JavaScript to trigger the event that’s going to cause the animation to happen.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And so you’re writing— You’re writing what’s happening in CSS but basically you’re targetting the CSS to a class.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So you need a class.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>So maybe on your HTML element or maybe on your body element, you’re adding a class that says hover-on or lady-bug-activate or…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…dinosaur-go or whatever class— [laughs]</dd>
+
+<dt>Val</dt>
+<dd>I like your class names. Yeah, you can just— I mean, just by doing that class switching you suddenly got this…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…great little thing where you have the logic advantages of JavaScript to be able to, you know, not just do things on hover and just on things that CSS kind of doesn’t know about.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Val</dt>
+<dd>You swap those classes and then you’ve got the motion happening with CSS. You’ve got that advantage there. And you’ve got JavaScript handling, I guess kind of like conducting the whole thing.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>And that’s a pretty smart way to get things done.</dd>
+
+<dt>Jen</dt>
+<dd>You could put your classes on the buttons or on the links.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, this is where some people sort of — and they’re doing it wrong —…</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…they— Instead of using <code>a</code> or instead of using a <code>button</code>, they’re using— They just make <code>div</code>s, and they’re like, “Oh, click on my <code>div</code> and then I’ll change the class on the <code>div</code>. And then I’ll activate all of the JavaScript— I mean, all of the CSS, and we’ll use CSS to style this so it looks like a link or it looks like a—” And that’s bad for accessibility because now you’ve just turned a page into a whole bunch of <code>div</code>s.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Like you need to go ahead and use a link where that’s appropriate or a <code>button</code> if it’s a form or if it’s a button, if <code>button</code> is the correct semantic element. But you can put your classes on those little things. Like you can put your classes on the whole page, on the <code>body</code> tag or on the <code>html</code> element or you could put your classes on individual things on the page. Yeah, but that’s what you’re doing is you’re basically swapping classes in and out.</dd>
+
+<!-- 1:02:47 -->
+
+<dt>Val</dt>
+<dd>Yeah, and I have— I’ll put a link in the show notes or I’ll give you a link. I have posted a little transition— I mean tutuorial — oh goodness, too many T words — <a href="http://www.netmagazine.com/tutorials/get-more-out-your-css-transitions-jquery">tutorial on <cite>.net</cite></a> a while ago that actually shows how to do that: just swapping classes to trigger transitions in a super simple example that’s kind of just a really handy way to do it, so—</dd>
+
+<dt>Jen</dt>
+<dd>Yes! Because there are lots of people who don’t know JavaScript,…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…who aren’t about to go write a big video game in JavaScript tomorrow, but—</dd>
+
+<dt>Val</dt>
+<dd>[laughs] Changing some classes is just a tiny bit of JavaScript and it’s not— It’s nowhere near that. It’s not as hard as writing a game, definitely.</dd>
+
+<dt>Jen</dt>
+<dd>Yes. And in order to do this stuff, really, you need, you need this JavaScript to swap out the classes.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. And, you know, <a href="http://jquery.com">jQuery</a> will do that or straight up JavaScript will do it.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Val</dt>
+<dd>Whichever one your prefer to use, I guess, is what it comes down to, but—</dd>
+
+<dt>Jen</dt>
+<dd>Or get somebody on your team to, like, write the JavaScript for you and Skype it to you and then you can put it in your thing and you can cut and paste it.</dd>
+
+<dt>Val</dt>
+<dd>Even better if you can like trade the JavaScript code, or like a beer for the JavaScript code you need, or like a cupcake or something, so much easier.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, do that.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And there’s tons of examples out there. I mean, that’s what’s kind of nice about this stuff. One of my favorite places to go to see what other people are doing and what is possible is over at CodePen, Chris Coyier’s CodePen.</dd>
+
+<dt>Val</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>And you can go to CodePen, which is <a href="http://codepen.io">codepen.io</a>, and you can click on the tags— There’s a button that says “<a href="http://codepen.io/tags/">tags</a>”, because people have tagged their code examples, their little projects in CodePen world. And there’s a couple of them. One is <a href="http://codepen.io/tag/Animation">animation</a>, which has right now it has 1,110 things.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Just a few.</dd>
+
+<dt>Both</dt>
+<dd>[laugh]</dd>
+
+<dt>Jen</dt>
+<dd>One is— <a href="http://codepen.io/tag/css%20animation/">CSS animation</a> is another. <a href="http://codepen.io/tag/animated/">Animated</a> is another. <a href="http://codepen.io/tag/transitions/">Transitions</a> is another. <a href="http://codepen.io/tag/animate/">Animate</a>—</dd>
+
+<dt>Val</dt>
+<dd>Yeah I don’t know how— I don’t think they’re super strict with the tags,…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…but you can definitely poke around and find some good stuff.</dd>
+
+<dt>Jen</dt>
+<dd>What’s the other— I mean, there should be a transform one. Oh, <a href="http://codepen.io/tag/transition/">transition</a>, <a href="http://codepen.io/tag/transitions/">transitions</a>, and— Wait, is there another one? They’re not in alphabetical order so it’s kind of hard to—</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>But, you know, all of the words we’ve been saying today and tripping over ourselves, you can like go click on transitions and you can just see all the ones that people have self-tagged transitions. And some of them are very, like, totally <em>this is a video game</em>. Or <em>this is a really crazy animation of ugliness</em>.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Or <em>this is a super—</em> Some of them, you know— I mean it’s a joke sometimes even. Or this one is like super subtle and a really beautiful example of something you might not have though of.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, there’s some really great things on CodePen and that people come up with. It’s amazing.</dd>
+
+<!-- 1:05:17 -->
+
+<dt>Jen</dt>
+<dd>I think there’s a tag that people have been using called <a href="http://codepen.io/tag/css%20only/">css only</a>. Oh, <a href="http://codepen.io/tag/pure%20css/">pure css</a>. I was looking at that a lot too.</dd>
+
+<dt>Val</dt>
+<dd>Ahh I guess that would do it.</dd>
+
+<dt>Jen</dt>
+<dd>Because I was trying to get away from the animations that use JavaScript and look at more things that were just CSS animated only.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And then the cool thing about CodePen is you could just fork their repo and copy their stuff and edit it.</dd>
+
+<dt>Val</dt>
+<dd>Yeah and make your own version.</dd>
+
+<dt>Jen</dt>
+<dd>Make your own version and contribute it back so that everyone’s learning. Yep.</dd>
+
+<dt>Val</dt>
+<dd>I like CodePen. It’s a good site.</dd>
+
+<dt>Jen</dt>
+<dd>When you learn this stuff make a CodePen, ping me on Twitter, and I’ll put out the word, show people on The Web Ahead that you did this.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, I just use CodePen for an entire workshop actually. I had everyone working in CodePen and basically just going from pens I started from them and saving their own copy and building out animations and it worked really well.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. If you don’t— If you’ve never used CodePen you should go check it out, because it’s basically you get a pane for editing and writing HTML, one for CSS, and one for JavaScript. And you can— Everytime you ever look at somebody else’s example you can sit there and edit their code and just mess around, you know, in your own copy. You’re not editing the original, and see what things do and learn and then if you like it and you want to keep going or you want to contribute yours as another example you can fork it and sort of keep the code under your own— You know, you’re not stealing you’re just you’re forking their thing. That’s why it’s there. You can do that so you can learn more stuff.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, that’s what it’s for.</dd>
+
+<!-- 1:06:47 -->
+
+<dt>Jen</dt>
+<dd>Yeah. Do you have other resources that you point people to that are good places to learn, espcially— I mean, there’s two things people want to learn, right?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>One is, “How do I write this code? My code’s not working. How do I fix it? What’s the deal?” And the other one is, “I need to have a vision for what’s possible. I want to see things so I can have a wider vision. I’ll figure out how to do it later. I’ll have somebody else write the code for me.”</dd>
+
+<dt>Val</dt>
+<dd>Yeah, I mean, well I guess for learning stuff I should totally plug my book. That’s a really good space for learning how to use the animations and what to do with those. I actually have been keeping a nice <a href="https://gimmebar.com/collection/4eafff562f0aaaa072000003/ui-animation-tips-tricks-and-doing-it-right">Gimme Bar collection</a> of, you know, sites that have done some really fun animations with CSS or really quality ones that are very CSS-based. So I’ll send you the link to that as well as kind of like a little, mini just links that I’ve been putting together and probably put in a Tumblr or something easier to find. Just a really good example of where people have used motion on the Web. And yeah, and things like CodePen, too. I mean, it’s not usually fully built-out sites or anything there of course, but just these little tid bits are just— You can pick up so much from those and just learn some really great approaches from what other people are doing there and sharing.</dd>
+
+<dt>Jen</dt>
+<dd>So your book. I’m going to back you up.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. That’s okay.</dd>
+
+<dt>Jen</dt>
+<dd><a href="http://www.fivesimplesteps.com/products/css-animations"><cite>CSS Animations</cite></a>, put out by <a href="http://www.fivesimplesteps.com">fivesimplesteps.com</a>.</dd>
+
+<dt>Val</dt>
+<dd>Yay!</dd>
+
+<dt>Jen</dt>
+<dd>It’s also— It’s one of these little— It’s literally more like a booklet.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, it’s like a pocket guide. That’s what they were calling them.</dd>
+
+<dt>Jen</dt>
+<dd>And it’s $4 US, or £2.</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yep.</dd>
+
+<dt>Jen</dt>
+<dd>Isn’t £2 like what you spend on coffee or something? Like, it’s—</dd>
+
+<dt>Val</dt>
+<dd>I think any time I’ve— I think I’ve always spent more on coffee when I was over there, but I really like fancy coffee, so— [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>So if a coffee is £3…</dd>
+
+<dt>Val</dt>
+<dd>Yeah, it can’t be much less than, you know— Coffee can’t be much more than that, I mean.</dd>
+
+<dt>Jen</dt>
+<dd>And they don’t exist in paper. You—</dd>
+
+<dt>Val</dt>
+<dd>They don’t! That’s the only disappointing thing about them. They’re ebook only so far.</dd>
+
+<dt>Jen</dt>
+<dd>So PDF, ePub, or mobi…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…so you can put it on your Kindle or your Nook…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…or your iPad or just open it on your computer, and it’s short. So it’s…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…like you don’t have to dedicate 47 hours to read it. You can just say, “That’s awesome. Yes.” Please download the ebook, and open it up, and bam. You’re reading— And in that book you really do speak— You’re specifically writing about animation animation, right?</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm. Yep.</dd>
+
+<dt>Jen</dt>
+<dd>Not all the stuff we talked about today, but about the third one.</dd>
+
+<!-- 1:09:10 -->
+
+<dt>Val</dt>
+<dd>Yeah, just the animation spec and mostly due to the length they keep the pocket guides in around 5,000 words. So, that way you literally can sit down in a couple of hours and read them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>So I just stuck with the one thing because I figured in that short amount of space, if I tried to cover everything it wouldn’t be useful to anyone. So it’s all just about the animation spec. There’s lots of code examples, also all on CodePen oddly enough. Should start, I don’t know, see if I can work us some sort of deal where, promotional deal with Chris. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] He’s not sponsoring the show this week, but—</dd>
+
+<dt>Val</dt>
+<dd>Yeah, well I wanted to put all of the examples from the book somewhere that if you are sitting there reading this, you could just, like, pop over and try out the code and that’s kind of tough with downloadable examples. But if you can just pop over to a live CodePen you can be like, “Oh cool. If I change the <code>fill-mode</code> this happens. I get it!” Like, the stuff is much easier to remember when you see it happening. So I wanted to kind of compliment the written part with some stuff you can just quickly jump into and mess around with and, you know, that’s how— That’s why this stuff is fun. You can just pick it up and mess around with it a little bit and see what else you can do. So that one’s all about animation, but definitely— Definitely worth a couple of hours of your time to totally understand what’s going on there and hopefully come up with a bunch of ideas to make really awesome animation-based stuff for yourself.</dd>
+
+<!-- 1:10:25 -->
+
+<dt>Jen</dt>
+<dd>Yeah! And like I was saying to you I think before the show, or did I say it during the show?</dd>
+
+<dt>Both</dt>
+<dd>[laugh]</dd>
+
+<dt>Jen</dt>
+<dd>I mean this stuff, this stuff was just harder to learn…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and more like— It reminded me of what it was like to learn CSS in the first place.</dd>
+
+<dt>Val</dt>
+<dd>Yeah. It’s definitely a different mindset and like we’ve talked about before too is the syntax is just— The syntax and the naming of some of these things is just nicely different enough that it does throw you for a loop. You’re like, “What? Oh. Okay. I guess that makes sense but that is not how I usually write my CSS properties. Thanks for throwing me that little—” [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right. There’s definitely— Yeah. Which, I forget which one. There’s something in there that, like, it’s basically a parentheses and a series of things and I expected them to be separated by commas and they were separated by spaces, or expected them to be separated by semicolons and they’re separated by commas or something. And I was like, “This is just not the way that we normally write CSS. Like, who wrote this spec because this doesn’t make sense.”</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Just enough to trip me up a little bit.</dd>
+
+<dt>Val</dt>
+<dd>Yeah, but it’s nothing terri— I mean, yeah, you get tripped over it once or twice and then you get used to…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…the syntax and where there’s commas and where there’s not, and you’re off to the races making crazy stuff happen. Your blue zig-zaggy square or whatever else. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah yeah.</dd>
+
+<dt>Val</dt>
+<dd>So it’s a really fun part of CSS to play with and just this whole new aspect of powerful things we can use for our designs, for creating demos, or you know whatever else we want to do. It’s just we have this whole dimension of motion and it’s kind of amazing…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…and it’s really fun.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. No, and I definitely believe that we— I mean, this is being said a lot, has been being said a lot in the last several years, that we— I mean John Allsopp originally wrote this spec in whatever, 13 years ago. That we— It’s been too easy for us to think of the Web as the mediums that came before it…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…pushed into a digital space. So it’s print on the Web. It’s video. It’s a television set on the Web. It’s, you know, an audio player, whatever, on the Web.</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>It works just like radio, you know? It works just like the music industry. It works just like the publishing industry. It works just like the film industry. It works— Right? And so we’ve been kind of adapting and morphing all of our best practices from all of these other mediums into this new medium…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…but we’ve been stuck— I mean, we’re making a transition. It’s a transition that will take an entire generation. And we’re only…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…maybe, you know, part way into the first half of the first transition. And thinking of, you know, a newspaper article on a website, so far what we’ve done is here’s the newspaper article and here’s a whole bunch of ads…</dd>
+
+<dt>Both</dt>
+<dd>[laugh]</dd>
+
+<dt>Jen</dt>
+<dd>…in sidebars. Oh and the ads move! Look at the ads! Look at me! Look at me! Look at— Right? We’re sort of anti-training ourselves to avoid animation because it’s been so annoying. But we’ve been, you know and okay— And so, that’s one model. Oh, the blog is another model. Oh, the Facebook, social media is another model. But we have— We— We’re just— I feel like a big part of what’s possible and a big part of what is coming has to do with the fact that the page is not static. And the page does not have to be two dimensional. It’s not just X and Y. That there is a Z axis there, and we haven’t been using it. And, I mean, with iOS7 and Apple, I know people are giving them a really hard time right now, but I’m really impressed with what I’ve seen and I think something that we haven’t been talking about at all in this snarky complaining…</dd>
+
+<dt>Val</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…is all the work they’ve been doing about having a Z axis, and having there be opacity, and having there be multiple panels of depth, and having those move one overtop of the other, and using motion as a user experience…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…interface element, and figuring out like, okay so if I have this thing, and I click that thing and this thing slides over and the thing that slid over I can see that it slid over because it slid over [laughs] and it’s a little translucent and so I can see the things underneath them and they’re still moving and they’re like moving a little bit or they’re shimmering or…</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…that there’s an entire other way in which we can and perhaps should, but more likely just the people who crush everyone else will be designing in the, you know, over the next 10 years, is using the Z axis plane and things being able to move.</dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And it’s this CSS that we’ve been talking about that is letting us do that. And it’s already— We’re not even talking about a spec that’s under discussion to come in 2015. Like, this is a spec that— I mean, I’m looking, <a href="http://caniuse.com/#feat=css-animation">CSS animation on caniuse</a>. With a webkit prefix — which is needed heavily —…</dd>
+
+<dt>Val</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…it works on everything but IE 9 and further back. So— and Opera Mini, but— </dd>
+
+<dt>Val</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>So—</dd>
+
+<dt>Val</dt>
+<dd>No, I totally agree on that. It’s like…</dd>
+
+<dt>Jen</dt>
+<dd>We control it today.</dd>
+
+<dt>Val</dt>
+<dd>There’s a lot of just different interactions that we’re getting with things like apps and the apps in your iPhone…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…and everything that, like, has changed the way your general person who uses technology thinks of how interactions should work,…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Val</dt>
+<dd>…and motion and depth are two very powerful ways to communicate things and to affect your user experience to make it better, to give it a certain feel, a certain personality. And now we’ve got a native way to actually add that to the Web. We don’t have to use, you know, a third party plug-in.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Val</dt>
+<dd>So I think that’s really just— We’re at a very interesting starting point for that, and there’s a lot of— There’s just so many more options we can use on the Web now to, you know, make it feel more like an app let’s say, or just look more polished in a way we never could do before, so— I’m pretty excited.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So thank you for being on the show.</dd>
+
+<dt>Val</dt>
+<dd>Oh thanks for having me! It was fun!</dd>
+
+<dt>Jen</dt>
+<dd>People can <a href="http://twitter.com/vlh">follow you on Twitter at vlh</a>.</dd>
+
+<dt>Val</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>Very short handle there.</dd>
+
+<dt>Val</dt>
+<dd>I know. I couldn’t get Val, so I went with my initials. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>V-L-H. And you have a website, <a href="http://valhead.com">valhead.com</a>.</dd>
+
+<dt>Val</dt>
+<dd>Yep, that’s right!</dd>
+
+<dt>Jen</dt>
+<dd>People can follow me on Twitter — <a href="http://twitter.com/jensimmons">jensimmons</a> — or the show — <a href="http://twitter.com/thewebahead">thewebahead</a> on Twitter. Thank you again so much to Environments for Humans and their CSS Summit. Go check them out: <a href="http://csssummit.com">csssummit.com</a>. I think that’s it.</dd>
+
+<dt>Val</dt>
+<dd>Thanks!</dd>
 
 
 
