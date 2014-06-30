@@ -5,6 +5,748 @@ permalink: 69/
 ---
 
 <dl>
-	<dt>Jen</dt>
-	<dd>...</dd>
+
+<dt>Jen</dt>
+<dd><p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host Jen Simmons and this is episode 69. I want to first say thank you so much to today's sponsors, Media Temple and Squarespace. And then introduce the topic.</p>
+
+<p>Today we're going to talk about accessibility again. We talked about it about a month ago in episode 64. So now we're on 69, 64 Dale Cruse came on the show and talked about accessibility. He especially, he and I when we chatted, we talked especially about, kind of a giant rant, an hour and 14 minute long rant on why. Why everybody should make their websites accessible. And if you don't, you're bad. But I got some mail and some tweets and some feedback that people are like, yeah, on board, cool, that's cool, yes, uhhh... but can you help me out? Can you tell me more about how? So that's what we're going to do today.</p>
+
+<p>So my guest today is Luke McGrath. Hi Luke.</p></dd>
+
+<dt>Luke</dt>
+<dd>Hi Jen.</dd>
+
+<dt>Jen</dt>
+<dd>And you are over in the UK, hanging out where you've written a kind of great book that Dale mentioned that I subsequently bought and read. [Luke laughs] About the WCAG.</dd></dd>
+
+<dt>Luke</dt>
+<dd>Yeah, a good introduction. Not heard that before, but that's nice to hear.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, how to meet the web content accessibility guidelines 2.0. We talked about that on the show, with Dale, Dale and I talked about it. The WCAG 2.0. And you, so with this book, you basically read the spec.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, I spent a long time reading the spec. There are a lot of pages. Pages within pages and subpages and definitions and clauses. If you try and read the whole thing, it's going to take you awhile. I had to for a project I was working on. But I thought, I don't want to do this again. [Both laugh] So I started to write a reference book for myself, really. So that the next time I did a project, I wouldn't have to read 700+ pages.</dd>
+
+<dt>Jen</dt>
+<dd>Wow.</dd>
+
+<dt>Luke</dt>
+<dd>I could organize it for myself and I think it's around 100 pages, my book, so it's still a long book but from 700 we're starting from. Very dense pages at that.</dd>
+
+<dt>Jen</dt>
+<dd>Because a lot of the specs are written not so much for developers and people who make websites but they're written for people who make browsers.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. It seemed to be aimed at people building the technology that we use, not necessarily the content that we look at and we need to be accessible.</dd>
+
+<dt>Jen</dt>
+<dd>And so they can get very detailed into things that maybe we don't need to know if you're not building a browser. Then it gets hard and overwhelming to parse it from the perspective from what I would assume are most of the people listening to the show, people who make websites in one way or another.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. If you read the guidelines in their natural form, you could be reading them forever because they're very much like Wikipedia in a way. There will be a definition that you won't quite know, so you'll have to go and read the definition of that. And that might then have a definition within it that you also don't know about. To read one thing can take you 6 pages maybe because you've got to teach yourself these definitions of things that you also might not have heard. A lot of them, as you say, it may not be relevant to you in the end. But you have to read them to find out whether they are or aren't.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I mean, I'm a big advocate that people go check out the specs and read them. Especially if you're looking for the detail of something or the official something or other.</dd>
+
+<dt>Luke</dt>
+<dd>Absolutely, yeah. There's no real substitute for teaching yourself that way.</dd>
+
+<dt>Jen</dt>
+<dd>But it's hard to get a big picture understanding with something like WCAG.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly, it's no place to start, that's for sure. If you're fresh to this, or even if you have a decent understanding of what you're doing, it's still no place to start really. It's something you want to work your way up to. When you're in the place when you can handle that much detail and understand that many concepts, then is the time to go there.</dd>
+
+<dt>Jen</dt>
+<dd>So tell us about this document and about what you learned. You're an accessibility consultant, so do you do this a lot? Are you working on a lot of websites, making sure that they're accessible?</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, that's pretty much what I do. People find me through my website and get in touch. Often I work with people who know a little bit about accessibility or know why they need it but don't really know where to start. So I tend to sort of work on websites or sometimes software as well. Just guide people, really, just to consult with them and advise them on the best steps to take and how not to get overwhelmed, I think, is a key to a lot of it.</dd>
+
+<dt>Jen</dt>
+<dd>What do you think... tell us about WCAG. What's the deal with this standard?</dd>
+
+<dt>Luke</dt>
+<dd>The WCAG goes back to, I think, 1999 was 1.0 for the first one. It's a big project by the W3C to set a standard for the way content online should work and how it can be accessible and open to as many people as possible. It's a fantastic piece of work, to standardize and lay down this in black and white for people to read is quite an achievement, really. So the first one was 1999. The one we use now, 2.0, is 2008. So there was a good iteration process between the two and 2.0 was a much more useful standard. I think a lot was learnt between the two. And 2.0 works very well because it's a lot more neutral in terms of technology and it's a lot more future-facing as well. It's not a case of we're expecting 3.0 anytime soon, although it has been a good 6 years between the two. Because 2.0 is quite future proof and is still being expanded upon.</dd>
+
+<dt>Jen</dt>
+<dd>There was something that I was thinking about as I was reading the beginning of your book again today. In a way, it's really, the web is so remarkable. It's very unique in a way because the content that goes on the web, it's not like a physical book with paper or a television screen where, kind of old school, you turned on the TV at a certain time and you watched that particular bit of television and you turned it off and that was the only option you had. In the past all these different mediums - records and audio and turning on the radio, listening to a show, turning it off - in order to get that content, it was a very specific way in which you were going to consume that content. It was frequently dictated by the distribution channel itself and you needed to kind of adapt yourself and your listening, viewing, reading habits towards that medium. If you couldn't do that, if you can't see at all and you read using your fingers in Braille, then the blank piece of paper, I mean, a regular piece of paper with ink printed onto it doesn't do anything for you. Or if you need to leave and go to work and you've got to go, then you can't keep watching TV or keep listening to the radio. And it seems like the web is so very different in that it's really allowing content to morph and change, to adapt to the needs to that particular person, on that particular day, doing whatever that they're doing. If we put content on the web in a way that's very web-like, that's the way that the web wants us to do it, then it's going to automatically be adaptable. It's going to be something that can morph and move and be in this bucket and then switch and get poured into this other bucket. For this person, they read it, for this person they skim it, for this person they listen to it, for this person they, I don't know, do something else with it, save it in a time capsule for later. [Both laugh] I think people have a very hard time imagining when they're making a web, quote unquote, page, that's what they're actually doing. They're pouring this liquid content into a whole system where it might come out in all sorts of different ways. This document, the WCAG, is a reminder of, "Hey, your content needs to be flexible and needs to be able to adapt and morph and move and here's some details of exactly how to make sure that's going to happen."</dd>
+
+<dt>Luke</dt>
+<dd>That's right, yeah. If you go back to the very early days of the web, that was the whole idea. That this content should be accessible by anyone. Because it was such a huge leap forward from, even say a mass market thing like a newspaper that can be printed daily, to leap that onto a screen and have it accessible from anywhere in the world on all the technology, obviously they had a lot less technology then, but a computer screen and a computer and you could read it from anywhere and at anytime. You're right, that's what the WCAG tries to get back to. Because in between there's been this expansion of content and different ways to build things. With the amount of platforms available for people to produce their own content these days, you've got WordPress and Blogger and all these other kinds of things, sites that... people just need that little reminder, a little guideline to say, "Yeah, the web's great but make sure you use it with these standards in place and then you'll get the real benefit of the web."</dd>
+
+<dt>Jen</dt>
+<dd>I thought we'd go through some of these guidelines. There's, it looks like there's 4 major sections. One, two, three, four. And then inside of those sections there are some subsections and then there's 11 total.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, yeah. Should we run through the 4 sections?</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>Luke</dt>
+<dd>The word is pour. P-O-U-R. Is how we remember it. They're the 4 standards by which the guideline's broken down. P is for perceivable, which is a chunk of guidelines, a lot of them have to do with people using their senses. They're kind of visual things, visual cues for people to read things or audio things as well. And moving on from that, O stands for operable. Which is anything where a user's got to take an action. So maybe filling out a form or using a menu, focuses on those kinds of things. U, understandable. This is more content based, more about the way content is written and presented so that people can understand it. And R is robust. There are only two guidelines that come under robust, which we can talk about, but robust is really the technology component of it. It's about having a website that passes cleanly, if you like. Adheres to HTML and other standards. It's a good way to, if you remember an accessible website is a POUR website, I find that an easy way to remember it.</dd>
+
+<dt>Jen</dt>
+<dd>Pour with a U. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>Pour with a U. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>So perceivable, operable...</dd>
+
+<dt>Luke</dt>
+<dd>Understandable and robust.</dd>
+
+<dt>Jen</dt>
+<dd>Understandable and robust. Alright. So let's talk about perceivable. There's 4 sections inside of here. I know this because I'm looking at the contents, the table of contents of your book. [Laughs] I'm cheating. Yeah. So let's talk about these 4 guidelines here. We're going to do this quickly because this is an audio podcast and this is less than an hour and we're not going to get into a lot of the details, but just to give people a big picture.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, I think probably one thing that's worth talking about just before that is maybe the levels.</dd>
+
+<dt>Jen</dt>
+<dd>Ok.</dd>
+
+<dt>Luke</dt>
+<dd>And the conformance levels, A, AA and triple A.</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>Luke</dt>
+<dd>Because they'll have a guide on how people approach the guidelines. It probably helps structure things. So as an overview, the 3 levels: Level A is the lowest level of accessibility. Which a lot of people use as a base standard for accessibility. It's things that are quite simple to do and have quite a large impact on accessibility. And AA is the standard that a lot of government institutions like to aim for. It's also for people who are from America who deal with Section 508, is the standard that maps across. Again that level AA standard is probably the most popular standard to reach for a lot of places. And then you've got triple A, or AAA, which is the really, really high level accessibility challenges, if you like. It's the kind of stuff that has, often has less impact and takes more work but is often still very worth looking doing. It's probably the one that gets the least attention being the hardest to do and sometimes with less reward for doing it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it feels a bit to me like single A is sort of, minimum, everybody should at least be reaching single A on everything we ever do. Double A feels like, ok, really, everybody should reach double A. Maybe if you have some obscure project that no one's ever going to go to your website, then fine. But if you've got $100,000 website or more, if your company is putting some money into putting content on the web or building some kind of application on the web, then you really should be looking into and thinking about everything. Double A, maybe there's a couple exceptions in double A, that you make a decision that we're not going to do this and this, but we're going to decide not to do that. We're not just going to accidentally not do it. And then triple A feels a bit like, that's the super steep mountain. There may be a really good reason to reach for certain parts of that spec, especially if you're building a website for people to get seeing eye dogs or something. When you absolutely have to make sure that it's completely accessible to every screen reader, ever, always.</dd>
+
+<dt>Luke</dt>
+<dd>That's probably a good way to look at it. There are things in triple A that are definitely worth doing for everyone. For some things it can be kind of an artificial way of looking at it, but it's helpful certainly as a way in. It's probably a good way to look at it, is triple A is... I've never advised a site to aim for triple A. Often it's impossible and we can talk about that when we talk about some of these guidelines. But there are still things within triple A that are definitely worth achieving.</dd>
+
+<dt>Jen</dt>
+<dd>I like that it's... I mean, "like" is the wrong word... but it's clearly a, it's a continuum. It's not an on or off thing. It's not like you are accessible or you're not accessible in one big swoop. There's things to look at and think about and make decisions about.</dd>
+
+<dt>Luke</dt>
+<dd>There are. When you're approaching the guidelines, you've got to always remember that even a perfect triple A site might not be accessible for everyone because the continuum of ability and disability is just so broad. These guidelines can't possibly make a site accessible all the time for everyone.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Luke</dt>
+<dd>One of the things people mustn't do with the guidelines is see them as a checking exercise and assume either that their work is done or there's nothing more they can do.</dd>
+
+<dt>Jen</dt>
+<dd>Some of what we talked about, what I talked about with Dale on the previous episode, had to do with... there are plenty of things in these guidelines that are not simply for people who have a very specific disability, but actually make the content accessible for all kinds of people. A wide range of different people. All sorts of people on just different days. Sometimes you have a headache and this bothers you more than this other thing. There's just a wide... human beings come in really strange shapes and sizes and variations. [Both laugh] So this is not for a tiny minority of humans. These guidelines really can affect and impact everybody.</dd>
+
+<dt>Luke</dt>
+<dd>Everyone using a website, absolutely.</dd>
+
+<dt>Jen</dt>
+<dd><p>Let me jump in here with our first sponsor. Media Temple. And then we can jump back into the perceivable guidelines.</p>
+
+<p>For years, Media Temple's grid service has been the web hosting choice of more designers, developers and creative professionals than any other platform. If you're looking for a place to host a website or actually to host 99 websites, 100 websites, or something in between, Media Temple is a really great option. That's because a single grid account can host anything from your individual portfolio site to a hundred different client projects. And the grid is ready for all kinds of different content, all kinds of different systems. Hundreds of servers work together in a cloud to keep your sites online no matter how much traffic is hitting your site at that moment. It's all managed through their custom, simple control panel. You get o log in and configure things from a control panel that's actually pretty easy to use. And it's backed by their 24/7 live support. You can reach them in chat or on their ticketing system, through email. Pretty quickly, 24 hours a day, 7 days a week. They also have virtual private server solutions, if you need something even more complex and powerful. They have both DV and DV Developer hosting plans. And they have this new system, they have a premium WordPress hosting plan that, I don't know if I'm supposed to tell you this, but right now, at least for the next couple weeks, it's like 50% off right now. It's a whole system set up just really for WordPress. Where you can go in and bam, you've got a bunch of WordPress websites. You get unlimited bandwidth. They automatically update core for you and update all the security updates that you need. There's a staging environment, one-click staging environment. Really fast and rock solid, designed to handle WordPress very, very, very quickly. So go check that out as well. You can go over to mediatemple.net and use the coupon code TWA when you sign up and you'll get 25% off your first month of whatever you sign up for. So thanks so much to Media Temple for supporting The Web Ahead. A huge help in making this show possible.</p>
+
+<p>So let's get into this, guidelines, 1.1.</dd>
+
+<dt>Luke</dt>
+<dd>1.1, good place to start. What 1.1 is, is perceivable. This is a good one to start with because this is one, a lot of people who maybe don't know too much about accessibility or development yet can really get their heads around. It's something that a lot of people probably are doing because 1.1 is all about alternatives for your non text content. Things like images, adding ALT text to an image or a video. Things that, you know, developers probably, most of them are already doing.</dd>
+
+<dt>Jen</dt>
+<dd>These are the things that... accessibility, you should do it correctly, you should use ALT tags. That's really basic and also it's remarkable how often that does not happen. So if anybody who's listening to this is responsible in any way for adding content to the web, and you don't know what we're talking about, you need to go Google the letters A-L-T [laughs], A-L-T tag and go find out. Because, yeah. There's no reason in 2014 that images should be going on the web without some sort of alternative description of them.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. If you don't know where you are with this first guideline, there's probably some research you need to do for yourself.</dd>
+
+<dt>Jen</dt>
+<dd>Maybe you're new. Maybe you're a student and you're just learning. You just got here.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Welcome.</dd>
+
+<dt>Luke</dt>
+<dd>You've got to start somewhere</dd>
+
+<dt>Jen</dt>
+<dd>Go look up ALT.</dd>
+
+<dt>Luke</dt>
+<dd>This is a great place to start and probably this is why they made it 1.1.1.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And where this breaks down a lot is someone will build a content management system and they just don't bother to put a field for adding ALT text to an image. Or they do the training for all the people who add content to the system and nobody ever talks about ALT text. So people are adding images and they're not putting descriptions on those images.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. Fortunately, a lot of people are doing this because this is one of the ones that crosses over well with SEO and online marketing. One of the strategies there is to have good ALT text. With that, you've got to be careful, because ALT text in terms of accessibility in WCAG is the key is that the text gives the same information as the image. So it's not a... sometimes in SEO you get a bit of keyword stuffing going on. That's not the aim here. The aim is, if someone can't see that image or they have images turned off, they need to get the same information as that image conveys to a person who sees the full image.</dd>
+
+<dt>Jen</dt>
+<dd>Which does happen to help with Google, indexing that image and then knowing what that image is. But yeah, you're right, don't stick, "Casino, casino, casino." [Both laugh]</dd>
+
+<dt>Luke</dt>
+<dd>No, it's not a... this is one of the things why it's always good to speak to someone. There's doing it, adding ALT text, but you've not passed. You've passed the guideline when that ALT text is accessible ALT text.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and there are times when you should not put ALT text on something. I kind of want to go through these quickly and not get too detailed into anything. But knowing when to write ALT text, when not to write ALT text, and how to write good ALT text... it's a bit of a skill. Just like knowing how to write a great caption or knowing how to write a great opening paragraph to an article that you're putting in a newspaper website. There's skill there, journalistic skill or authorship skill or whatever. There's a little bit of skill to knowing how to write good ALT text.</dd>
+
+<dt>Luke</dt>
+<dd>Absolutely, it's not checking a box saying the ALT text exists so therefore you pass. One of the examples I often use is just try and think, what's the purpose of the image? It doesn't have to be an image, it could be an audio or a video, but image is the easiest to get your head around I think for starters. One example that I use is an image, say there's an image for a forest. The purpose of that image is just to be a forest. You don't need your ALT text to say, "1,564 green trees" [Jen laughs] because that's not the purpose of it. People understand what a forest is, so you can just say, "A forest." It's not getting too complicated or too wordy. Just try and really get in your head that, why is that image there and for the people who are seeing the image.</dd>
+
+<dt>Jen</dt>
+<dd>And then 1.2, there's... [counts]... I don't know, a bunch.</dd>
+
+<dt>Luke</dt>
+<dd>There's a bunch of these and these cut across various levels of compliance from single A to triple A. The 1.2, they're time based media I think. Is that the right word?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah...</dd>
+
+<dt>Luke</dt>
+<dd>I think from memory, it's about time based media, which is a fancy way of saying audio or video, really. Things like podcasts, videos, with or without audio as well. A lot of these are, for example, 1.2.1 is all about adding text transcripts. Which I know is something you spoke to Dale about on the episode that he was on. About how, your idea, you want to add some text transcripts, as many as possible, to cover the podcast that you've been doing.</dd>
+
+<dt>Jen</dt>
+<dd>We've got 11 now. Eleven out of 69. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>Up to 11, see?</dd>
+
+<dt>Jen</dt>
+<dd>We've got the last... starting at episode 55, we have... we're missing one, 63, and then we don't have the last two episodes. If anybody's interested, they can check out the transcripts at transcripts.webahead.info and there's also information there if you're interested in helping out in the effort to get more transcripts written up. I'm hoping perhaps to get a sponsor to sponsor the transcripts, in which case, we'll just have them. I'll get them banged out every week.</dd>
+
+<dt>Luke</dt>
+<dd>That's a good idea. There are always clever ways you can help yourself with accessibility. Get a sponsor.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, a sponsor would be great. Someone who could just cover the costs, just sort of...</dd>
+
+<dt>Luke</dt>
+<dd>Exactly. The thing is, that's a great example of, you don't have to have fulfilled compliance today, you just have to have the answer to your problem. It's, "Ok, I'll get these transcripts made over time and I'm aware that's going to take time and energy and resources but here's my plan and I will get there."</dd>
+
+<dt>Jen</dt>
+<dd>And so for video, you could have a transcript... I mean there's many ways to do it. One is to have closed captioning on a video.</dd>
+
+<dt>Luke</dt>
+<dd>Yup. Closed captioning. Which, again, quite early on this can be quite scary for people. Because they did make the video and so often they're content producers more than anything. Where do you go through to get, how do I put captions on this? How do I even begin? This is a good example, really, of how they can be a little scary at face value but once you start looking at some tactics... you've got to remember, a lot of people are fulfilling these guidelines, so they're far from impossible to achieve. So captions and using something like YouTube has the option to quite easily upload the transcript and you can time captions from that to match the speakers. That's a pretty good system on YouTube for doing that. A lot of other video hosting providers can do that. You can do it yourself, if you've got a good CMS.</dd>
+
+<dt>Jen</dt>
+<dd>There's also, I can't remember a name right now, but there is an open standard happening for video captioning. I know Mozilla was helping to lead that effort.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, yes.</dd>
+
+<dt>Jen</dt>
+<dd>It's embarrassing that I don't already know.</dd>
+
+<dt>Luke</dt>
+<dd>Can't help you with the name, but... [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>I should know this. See, on some days I do know this. Today I don't. Because there's, you know, a lot of the video hosting services have added it as a sort of, their solution, like their particular set of tools. So if you want to use YouTube, it's a piece of cake. But if you're trying to not use YouTube or if you're wanting to self-host your videos for some reason, there is actually an open source standard.</dd>
+
+<dt>Luke</dt>
+<dd>There's a standard, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>I should have a guest on to talk about that standard. [Luke laughs]</dd>
+
+<dt>Luke</dt>
+<dd>I think this guideline is a great example because, one, it's something that goes beyond ability and disability because a lot of people watch videos at work or where they can't listen to sound or where they don't have speakers. This is another great example of something that will apply to everyone. You can open up your videos by adding captions. Which is quite a simple process if you go through it. I suppose a bit of advice about writing captions, what I would say is, think similar to ALT text. You must obviously give any dialog that's spoken but focus on the meaning, don't get too bogged down by being absolutely precise about every single word. You'll see this if you ever watch subtitles or captions on television. Often things can be made a little more concise. As long as the meaning's not changed, then that's probably the way to go.</dd>
+
+<dt>Jen</dt>
+<dd>There was something I was transcribing of myself recently where I was heavily rewriting it. It was not The Web Ahead, it was something else... oh, I think a talk I gave, and I posted the transcript of the talk on my own website. And I, meanwhile, rewrote and restated things [both laugh] the way I wish I had said them the first time. Instead of leaving my dumb mistakes and language in there. I was thinking about that a little bit, like, "Is this ok that I'm doing this?" It's fine. I'm totally going to fix it right now.</dd>
+
+<dt>Luke</dt>
+<dd>That's fine, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>It's like my own blog post of my previous, you know, it's a little bit blurry as to, is it really a transcript of a talk or is it a blog post based on a talk?</dd>
+
+<dt>Luke</dt>
+<dd>Sure. No, it can also be a good chance to, like you say, tidy things up and crystallize a few thoughts as well.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's embarrassing to realize, "I left whole words out of that sentence and that sentence didn't really mean a whole lot." [Laughs] Or, I think it does mean, if you can hear the person's tone of voice, then the meaning carries through. But if you remove the tone of voice, you remove the audio completely, then the words themselves don't quite hold up. That's where it felt like the right thing to do, to go in and fix the words so that the purpose and the meaning is conveyed even when the tone of voice is missing. </dd>
+
+<dt>Luke</dt>
+<dd>Exactly. That's always the target there, purpose and meaning. Rather than slavish devotion to matching things up.</dd>
+
+<dt>Jen</dt>
+<dd>There's some things here about the difference between having a live event and a pre recorded event.</dd>
+
+<dt>Luke</dt>
+<dd>That's broken down by the level again. The live stuff's often much further along.</dd>
+
+<dt>Jen</dt>
+<dd>And it's much more... if you're broadcasting live television on a network television station, you do have the budget to have somebody transcribe live and broadcast that live. And it's probably already happening for closed captioning, so just hook that up to the website as well and you'll carry over that content that's already being made.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Now, if you've got some tiny little website, you're probably not going to do live captioning or sign language interpretation.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly, that's a great point for us to pick up on about these guidelines, is you can take that one trade off for most people because they won't be doing live broadcasts. You don't always have to come to it and say, "Oh dear, there are 50 guidelines to meet." You can get in there and start crossing some of them out. If you've not got live video, if you've not got a podcast</dd>
+
+<dt>Jen</dt>
+<dd>Or any audio or video.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly. A simple blog might not have those things at all, so take them off and keep moving.</dd>
+
+<dt>Jen</dt>
+<dd>Then the next thing, 1.3, "adaptable".</dd>
+
+<dt>Luke</dt>
+<dd>Adaptable. So where we are... 1.3.1</dd>
+
+<dt>Jen</dt>
+<dd>You wrote in general about 1.3. "Some disabled users will need to view a website as simply as possible to understand it. When doing so, they should still have all the regular information available to regular users." And then there's subsections in here.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, 1.3 has got a few sections. I think the majority of the users are down at the single A level. These are things about, really things you should be doing anyway, again. There's things like making your website clear and easy to follow so, making it readable in a logical order. Having an opening to your article at the start of it and then moving down the page. These are very simple things that many people naturally do without thinking about accessibility at all. But if you move away from these things, that's when people can become confused and find it hard to follow, what you're writing.</dd>
+
+<dt>Jen</dt>
+<dd>That's when everybody starts to get confused and finds it hard to follow. But if someone is already having problems with memory or they're already having problems reading or they're already having problems paying attention, then those frustrations with bad design or bad content or bad writing or just craziness, flashy ads everywhere, like, whatever. [Luke laughs] It feels like more and more, a lot of the big media company websites that we read, you go to the webpage, you click on a link someplace and you land on this webpage deep inside the website and you're expecting to read an article but instead you get a big overlay banner asking you to download an app and you're like, "No, I don't want that." Then the page, like, fills in and then it moves again and then it repaints it again and then another JavaScript library loads and it repaints it again and meanwhile you've already started reading and the page is moving up and down. Then you're reading the middle of an article and in the middle of the article they're, like, putting in photos and text that are trying to trick you into clicking and leaving the article. It's like, I just got here. Why are you trying to get me to go somewhere else? "If you like this, then you might like that," and the "Check out this thing," and "Breaking news." Just stop. Stop. Can I just... read this, and read it in a way that's clear? I think we, many of us, are increasingly frustrated with things like that and increasingly concerned that the web is like that because of the way advertising rates are paid and clicking of banners and metrics that are telling executives those are good things and that's successful. It's great that people come to your website, read the first 2 paragraphs and leave for another article because you get more money because it loaded more ads. You don't care about them reading the article or liking the content of your site or trusting your brand name. You only care about how many clicks they've made.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, I think the key there is, as you say, that you don't care at that stage.</dd>
+
+<dt>Jen</dt>
+<dd>But it's also violating accessibility. You could potentially be breaking the law by doing that. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>That's right, exactly, because there's not a lot of movement in terms of actions against companies or websites at the moment. But there are certainly things starting to happen in that field. In the UK we have the equality act, which applies to the deliver of services and websites are providing a service. If you're cutting out people because of the way you're delivering that service, then you could very well be breaking the law.</dd>
+
+<dt>Jen</dt>
+<dd>It's a rant that I can get on easily, probably on any show with any topic. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>I think the key with this one is that having that care over how people interact with your content in the first place. That's everyone but also people who might need that extra little bit of help in focusing or reading in order. It's keeping it simple and just thinking, what's the best way for someone to consume this information? That's ultimately what you want. If you've spent the time to write that content, you want it to be consumed and then, ultimately, perhaps shared or some further action taken. But if that's not clear, then you'll never get that anyway.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. There's some details here around, design your forms well and use bold and italics correctly. It just ties right in to good user experience design.</dd>
+
+<dt>Luke</dt>
+<dd>Absolutely, yup. I think forms are a key because they can be tricky. Forms can be unnecessarily complicated. So I think a lot of this is to remove fields that you don't need the information on. If you're asking for 200 things from someone, they're probably not going to fill in that form anyway. If you can slim that form down and make each field very clear, with a clear label of what you're asking for, and really just simplify that task to the things that you need and to make it clear how to fill in each field, then you're on the right track.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And really great, short, concise help text. Making things as short, short, short as possible.</dd>
+
+<dt>Luke</dt>
+<dd>Absolutely. Nice, succinct, clear help text. Something like a placeholder text can do a perfect job for this and take off a few guidelines in this section. If you're asking for someone's date of birth, put a little placeholder text there with the format you need it in. Because as we know, the format between a UK website and a US website might change. This is not necessarily an ability thing at all, this could be just a cultural difference that you're trying to overcome.</dd>
+
+<dt>Jen</dt>
+<dd>A lot of this applies, as well, for people who speak difference languages. Maybe they are not completely fluent in the language that your website is written in.</dd>
+
+<dt>Luke</dt>
+<dd>Definitely.</dd>
+
+<dt>Jen</dt>
+<dd>I think people forget that, especially in the US. It's very easy for everybody to assume that everybody's completely fluent in English, which is not true. If the website's simple and clear, it's going to be much easier for somebody who has a mid level understanding of English but not a total mastery of it.</dd>
+
+<dt>Luke</dt>
+<dd>Absolutely.</dd>
+
+<dt>Jen</dt>
+<dd>And understanding header tags in here. Understanding the difference between an H1 and an H2, H3, all the way to H6.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly. Again, it's stuff that developers should know, but, again, won't always necessarily put in place. Or if you have a poor CMS, this may not happen. But it's stuff that you know, fortunately, quite easily tick off. Get your headers in the right order. Use them correctly. Have one H1 for your page and then nest H2s, H3s, underneath that.</dd>
+
+<dt>Jen</dt>
+<dd>We're already pretty far into the hour and I want to talk about all of this, so I want to go much faster. But then also it's a little bit weird, because it's like, ok, well, do we really need to explain the difference between an H1 and an H2? Uh. We could just say, "Read your book." [Both laugh] But that's not helpful. We want to be helpful. </dd>
+
+<dt>Luke</dt>
+<dd>No, that just helps me. We can't do that.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. [Laughs] On the one hand, there's probably a lot of people that are already bored. Like, "I already know that. I knew that 20 years ago." But there are a lot of people who don't know the difference between an H1 and a... when should you use an H3 or when should you use an H4? People who are professional, senior developers are using the wrong headline. [Both laugh] So, I don't know what to say here except, if you feel like you're understanding of when to use the right HTML element is a bit confused, then go learn it. Just go find any kind of HTML book and just read the part at the beginning. It's not that hard to find information about this. I think what might be more hard is for any of us to set aside our ego for a moment and just say, "You know what? I really should go nail that. I don't quite get that yet. Let me take a time and I'll secretly go find out. Pretend that I knew it all along and really learn this." But let's move on. Let's see if we can go faster. Colors. Gets into color contrast. Let's just talk about color contrast a little bit.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, ok. Color contrast is... there are two contrast ones. There's one at level AA and one at level triple A. With this one I always say, just go straight for triple A. Because why do less than you should, really? The key to contrast is, it's not always thinking black on white but that works the best for a lot of people. It's all about having a really distinct contrast between the text content on your website and the background color that you use. That's all it is. There are various color contrast checkers that you can Google very easily. Put in your hex colors for text, put in your hex colors for your background, and they'll tell you if you meet the guideline or not.</dd>
+
+<dt>Jen</dt>
+<dd>There's also some tools that you can drop into a toolbar and then click on parts of your website and it will show you, "You're within double A," or "You're within triple A," or "You're really close to being in double A but you're not quite there yet."</dd>
+
+<dt>Luke</dt>
+<dd>That's right, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>I've used tools like that. You just said, "Hey, everybody should go for triple A, why not?" I have the opposite feeling as a designer. I frequently come in right under the minimum requirement for double A. [Luke laughs] Like, right above. Where I just... triple A... I can't. Because I like grey on grey. I like dark grey on light grey. Or maybe a medium dark, dark brown on a light brown. There's a way in which a color can be really beautiful. I think more than anything I see it where the link color on someone's website is not a good color contrast. Where the links just don't stand out. They're either too much like the other text around them and they don't have underlines or they are too close to the background color. Sometimes people will do a dark grey text and a really light grey link on a light grey background. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>That's right, and I think as well, people often forget about if the link changes when it's been used, as well. It will completely disappear once you've used it and you'll never find it again because it's now the same color as the text or the background.</dd>
+
+<dt>Jen</dt>
+<dd>I've had to, working on projects with other people, other people have really taught me this. To go in there with a little tool and make my medium light grey just a little bit darker, a little bit darker, a little bit darker... ok, I know it will be more beautiful in that medium light grey but go ahead and make it just a little bit darker. I'll just cross over into meeting the double A standard. Or maybe meeting the triple A standard. And then I'll leave it there. It's balancing art with, hey, people need to be able to read this. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>People have got to read it otherwise, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Again, it's a wide range of different kinds of people who have trouble with contrast issues. Part of that is color blindness as well. There's great tools for testing color to make sure if someone is colorblind that they're going to be able to still see with enough contrast.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, that's right. One of the ones actually on this same thing, in 1.4, is... this is a triple A one... is visual presentation. Which is all about that because for a lot of people, black on white, that doesn't work at all. There can be some color blindness issues that cause... mixes of colors that we could never think about to be the most readable for those people. One of the ones, it's called visual presentation, it's 1.4.8, is about offering... you've probably seen this. It's often in the top toolbar. Where people can customize the background and the text color to their own liking. That's kind of the ultimate thing that you can do. Being a triple A, that is quite intense to find resources and developing that thing to control all your website. But it's a CSS implementation to your style, really. That's getting as close as you can get to covering everyone's needs in terms of color and the way your website looks and is readable to them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, you could offer a couple options. One is a high contrast option, one is a medium contrast option.</dd>
+
+<dt>Luke</dt>
+<dd>That's right.</dd>
+
+<dt>Jen</dt>
+<dd>There are days when too much contrast really gets to me. Like, too black on white. It's just, ugh, too much. A little bit of subtly can really help on the eyes. But then for other people they really need it to the other way. So, yeah. Resizing text. That's something that used to get talked about a lot. In the middle of the web standards movement, it felt like there was a lot written on blogs and in CSS tutorials about how to make sure that people could resize the text on the page. About making sure that the default size is a nice, medium, medium-large size. Somehow, for some reason, I feel like this has just disappeared into the background as all these other things have come up. I see so many websites, especially technical documentation websites. [Luke laughs] Like, "Let's write lots of technical documentation and we'll make the font 12 points." Like, tiny font. Light grey. The contrast isn't big enough. Hopefully this is not the case, but if people have coded it in a certain way, then you can't even resize it.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. With this one it's probably fallen between a few movements, in that, like you say, a lot of this text size debate has gone away and people have gone for this... I find a 12 to be quite an average. That's probably a good average for what people are using. It should be much bigger than that.</dd>
+
+<dt>Jen</dt>
+<dd>It's so small. I feel like 16 is the default.</dd>
+
+<dt>Luke</dt>
+<dd>I think 16 is probably... is that on the default of what it was once upon a time? On the flip side of that, when people have built more responsive websites, they've kind of parceled off resizing text into that. So they're saying, "It still looks ok on a phone. At least it's within the borders of the phone." But the font might still be far too small.</dd>
+
+<dt>Jen</dt>
+<dd>I see a lot of people setting the default for wider screens at 16 points and then defining the default for phones at 12 or 11 point. I'm just like, wait, that's the place where I need it to be even bigger. What are you doing making it even smaller? Because a screen is not only smaller but the dots per inch is smaller. If I look at 16 point on my regular monitor and I hold up my phone next to it and I look at 16 point on my phone, it's actually significantly smaller on the phone. I like 16 everywhere. But I see people who are big advocates of 12 on the phone. Part of it is that I am now in my mid 40s and these other people are in their mid 20s and, yeah. Just wait, just wait a couple decades. You, too, will be complaining about the size of text being too small.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly. I think that's a good highlight to be this is important. Across the world, so many countries have aging populations and it's only going to go that way. As the next few generations do grow up with technology being first nature to them, you're not going to be able to get away with 12 points.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, 12's great when you're printing something. I don't think it's good for websites. I also think that it's not just about your eyes. It's important for people who are having a little bit of a hard time seeing. But just in general, if you make something super readable, people will be able to scan it much faster. And we read so much these days and we try to read so quickly and we just speed read, speed scan the first half of something and then we move on. If it's easy for someone to comprehend, they'll keep going. If it's hard, they're going to leave and they're not even going to think about why. They're just going to do it. if the purpose of putting content on the web is to have people read it, which is a big if, [both laugh] because some people don't seem to want that to happen.</dd>
+
+<dt>Luke</dt>
+<dd>It might seem that way.</dd>
+
+<dt>Jen</dt>
+<dd>But if you want people to read it, make it easy to read. That has a lot to do with good typography and line height or leading, as it used to be called. Anyway. We're not going faster. I'm just going on and on and on. [Laughs] Images of text!</dd>
+
+<dt>Luke</dt>
+<dd>Ok. Hate images of text. Hate them. They're very often unnecessary. The problem with this one is people, again, who haven't got images enabled or don't view images in their browser, they can't see what's going on. You're presenting some text that, again, you want to be readable, but you've made it in a way that a lot of people aren't going to be able to read it. There are options where it's available. For example, if your logo is text based. There's no problem there of having your logo as an image as long as you've got a good ALT text. Which is often, in that case, the word that's used. But wherever possible, do not use images of text.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, Drupal the software, the CMS, is very mandated accessibility, double A at the minimum. The whole system is built so that you've uploaded a logo, you type in your site's name, and they're both showing. Then if you want to hide one of them, you can. You don't necessarily need an image of your company and the word of your company in the web text. But a lot of the best web developers for Drupal, who are smart people who are doing great work, when you hide one of those, they don't actually hide it. If you don't want to have the company name printed on the page, it doesn't visually get printed into the page but it's still printed into the DOM. You have the logo and you have the company name in the website which makes huge differences for things like, when you make a bookmark, or when you use something like Instapaper or Readability. The name of the website is on the webpage. It's surprising sometimes how many times that really ends up mattering and if you have a website and you have a logo and you don't put the name of the company anywhere on the page, you just have the logo and maybe ALT text on the logo, it's sort of like, well, your website has no name. [Laughs] I mean, that might not always technically always be the case but there are plenty of times when that is the case and it's like, "I did this thing with this website and now I don't know which website that is because there's no name on this website." It feels like there's some techniques that I like out of Drupal and that's one of them. It feels like logo, if you want to make your logo into an image, the name of your company or yourself or whatever, in text as a certain font in a very, very specific way and you want to make an image out of that, fine. Cool. If you want to make anything else on your website text and you're going to turn that into an image, you're doing it wrong. No longer allowed. [Laughs] Don't. Use a web font. There's no reason in 2014 to be taking text and turning it into images.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. It's more effort. Just use a font.</dd>
+
+<dt>Jen</dt>
+<dd>It's so much effort.</dd>
+
+<dt>Luke</dt>
+<dd>This is people going out of their way to get it wrong, sometimes, I think.</dd>
+
+<dt>Jen</dt>
+<dd>Well, when we did it, we did it for 10-15 years because we wanted to use other fonts than the 5 fonts on the web. But now there are more than 5 fonts on the web.</dd>
+
+<dt>Luke</dt>
+<dd>A lot more, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Retire 2004. [Luke laughs]</dd>
+
+<dt>Luke</dt>
+<dd>I suppose what you mention is key for people thinking about accessibility. They might have a legacy site with issues like that. It's looking at what you've got and seeing things like that, "I could pick up a few points here just by deleting some images and writing a few words of text."</dd>
+
+<dt>Jen</dt>
+<dd>It has to do with SEO and with, you know.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. Headings are very good for SEO and having things spelled out in parsable text. Ideal.</dd>
+
+<dt>Jen</dt>
+<dd>Low, no background audio. What's the deal with auto play audio, background audio on websites and accessibility?</dd>
+
+<dt>Luke</dt>
+<dd>Auto playing anything, but auto playing audio is a bad thing. I think a lot of people agree on that but you still get it. The reason it's bad is it draws focus away from what people are trying to do. This can be especially bad for people who have difficulty focusing or parsing things in the first place. They're trying to read something. It goes back to your example earlier, if something starts playing, that's going to pull their eye away and they're going to try to stop it. Suddenly, scrolling around the screen, trying to find, "Where is this thing that's playing that I never asked to play in the first place?" Or one of those adverts where it's a video that just starts playing.</dd>
+
+<dt>Jen</dt>
+<dd>Those are the worst, where it's a video.</dd>
+
+<dt>Luke</dt>
+<dd>As soon as you load the page, there's a video playing, and you think, "I didn't press play, I didn't ask for this." And your attention's gone. If you already have an issue with that, that can be a killer for you on that site or that page. It's just something simple like giving control to your users and having a play button rather than an auto play. And having a very clear pause button as well.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah or having a policy in your company that says, we don't allow advertisements that auto play audio for our audience. That's just not going to be acceptable. And accessibility is one reason.</dd>
+
+<dt>Luke</dt>
+<dd>A good reason.</dd>
+
+<dt>Jen</dt>
+<dd>There are cases, though, where maybe the audio should auto play. I don't know if YouTube does this for default for everyone or if it only does it by default if you change your settings on YouTube and then they stay that way. But if you're going to a page that is a video, YouTube video, it auto plays. Or certain TV shows, I'm on the CBS website, and I want to see the latest episode of Survivor and it starts auto playing right away. That feels like a bit of an exception because the primary purpose of going to that webpage is to see that particular video.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, that's a good point about how the guidelines have got to be taken with context in mind.</dd>
+
+<dt>Jen</dt>
+<dd>I've seen that debated though. I've seen people have an accessibility debate about that example. Should a TV show or a video auto play? And some people say it's more accessible if it does and some people say it's more accessible if it doesn't.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. I think we're probably on the same page here. For me, if you're going to a YouTube video page, rather than maybe someone's channel page or something else. But if you're going to a specific video page and I think as long as the video in that case has got a very clear stop button that's easy to access and is keyboard accessible and so on, or a pause button, then you can be ok with that. Perhaps to the letter of WCAG maybe not always. I'll say it again about these guidelines, it's always worth thinking about context with them and not being a slave to them. User experience has got to come first.</dd>
+
+<dt>Jen</dt>
+<dd>I've seen people sometimes, too, get a little bit frustrated and be like, "Not everybody agrees in accessibility about what the right thing to do is in a situation like this. So therefore, I'm not going to think about this anymore." </dd>
+
+<dt>Luke</dt>
+<dd>Exactly. There's no accessibility police [Jen laughs] watching over you for these kinds of things. If you've got the interests of your users at heart, then you'll be ok. If you get a ton of complaints from your users saying, "We can't use this," then you'll know you're wrong.</dd>
+
+<dt>Jen</dt>
+<dd>It feels like it's a bit unclear. There isn't a "those people should tell us how we're supposed to do it and then we'll just do that."</dd>
+
+<dt>Luke</dt>
+<dd>One of the things that I've tried to do... and you know, I'm self taught in this and came to it new with not much knowledge of it initially. There's certainly a line between very hardcore people who will tell you what to do and other people who will engage in a dialog and talk you through these things. I would say for people don't be frightened away if you come across the accessibility police early on. Don't be disheartened by that. At the end of the day, it's about people and helping people out.</dd>
+
+<dt>Jen</dt>
+<dd>It seems like there's some grey areas in much the same way that everything having to do with design and development of your website is going to be a judgment call and a grey area and that this is just one more.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. There were ones, specific ones in section 3, you've got things like explaining unusual words to users. There's no guidance for what an unusual word is. That's your call. There are grey areas in these guidelines built into them.</dd>
+
+<dt>Jen</dt>
+<dd>Let's move to principle 2, operable. There's other stuff in 1, people can check it out. But this first one is something that comes up, I think, most when people talk about accessibility, which is keyboard access.</dd>
+
+<dt>Luke</dt>
+<dd>Yes, this is a good one because people do know a little bit about this. This one is really just about making your site just as usable to someone who hasn't got a mouse, either connected or can't use a mouse. And only accesses it through a keyboard. It's about making sure that people can tap through your website in the right order, a logical order, to go through your menu and then perhaps down the elements on the page. It's a common sense one, I'd say, but again it's one that not everyone puts in place early on.</dd>
+
+<dt>Jen</dt>
+<dd>This is, I think, where people get stuck. Because how do you test this? How do you figure out whether or not people can go through your website using a keyboard and not a mouse?</dd>
+
+<dt>Luke</dt>
+<dd>The first thing to do would be to take your mouse out. Throw it away for a day. Try and complete whatever goal it is that your website has. So if your website is aimed at selling something, try and buy something without using your mouse. Or try and sign up for a newsletter or read some content just by using your keyboard. You'll probably be surprised at how quickly you get stuck somewhere.</dd>
+
+<dt>Jen</dt>
+<dd>How is it supposed to function? What does it look like if somebody doesn't use... so, ok, I can't use my whole computer without using my mouse because I don't know how to do that. [Luke laughs] But I can go to a website and I can make it be in the front. There it is. Then I put my mouse on the side of my desk and... how is it supposed to work that I can just use a keyboard and do all the things that I would normally do with a mouse?</dd>
+
+<dt>Luke</dt>
+<dd>You've got options here. One of the common ways is tabbing. It should tab logically through the elements. This is related to guideline, another guideline which is focus visible. As you tab, there should be a visible focus, a border or a highlight around the element that you're on. You should be able to tab through elements in a logical order. From the header through the menu to the content, perhaps, is often going to make sense. Or if you're on a form, through each field, sequentially, until you get the submit button. To take any action often is going to be the enter button. And some sites, it's also good if you can use the arrow keys as well, to be a bit more nuanced about where you want to go on a site. If you maybe want to jump out to a sidebar or so on.</dd>
+
+<dt>Jen</dt>
+<dd>'Because that's not how it seems to work. [Laughs] If I want to click on... I go to a well built store that's supposed to be really well done and I hit... well, first of all, here I am and I get an overlay. [Luke laughs] So I'm cheating, use my mouse to dismiss the overlay.</dd>
+
+<dt>Luke</dt>
+<dd>Often the first thing is, can you get out of that overlay with a keyboard? And often you can't. In that case, if there is an overlay, the important thing there is to have focus on a little "x" in the corner. So that someone can just "enter" out of that but that's very rarely the case.</dd>
+
+<dt>Jen</dt>
+<dd>Which we would all love, because we all just want to make the thing go away.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>And then I hit "tab" and I go into this search, there's a search box. Now I have focus on the search box, I can search. But I can't touch anything else on the page. This page is full of products and with a mouse I could click on any of these links or any of these images and I could buy all these things. But right now I can't because none of these links are... I can't get to any of them.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly. It's amazing how many popular sites, sites you think are well built and well designed, fall down on this one.</dd>
+
+<dt>Jen</dt>
+<dd>It should work that I can just tab from item to item to item to item to item?</dd>
+
+<dt>Luke</dt>
+<dd>That's right. It's not the only accepted way to be keyboard accessible, talking about the WCAG guidelines, but it's a very common one that people use. To tab through or to arrow key through elements.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I cannot find a website that works that way.</dd>
+
+<dt>Luke</dt>
+<dd>No. I find sometimes even when this is done, if there's not that focus visible, it's very easy to get lost. You might be tabbing through something and you have to constantly look in the address bar to find out where the link's going, because you're not sure where on the page you are. There's a lot to keyboard. It's something that can be implemented, especially at the design/development stage, and it's very easily tested. It's really one of the key ones to look at. The best way to tackle these is often, which one of these guidelines is going to have the most impact for my users? This is a big one because there is a large percentage of people who don't use a mouse or can't use a mouse or may not have use of the mouse for a certain period or so on. This is a real key one for people to read up on and invest time in, I think.</dd>
+
+<dt>Jen</dt>
+<dd>It feels like if more websites would just work using only the keyboard, many of us would just use the keyboard. It would be easier on our hands, it might just be faster at that particular moment to use the keyboard instead of a mouse for a particular task.</dd>
+
+<dt>Luke</dt>
+<dd>On forms, I tend to use keyboard without thinking about a mouse if I'm filling in a form, I like to tab through from one field to another.</dd>
+
+<dt>Jen</dt>
+<dd>The one I always get stuck on is state. I can go through the address and type everything, tab, type, tab type, tab, and then I get to US state and it gives me a drop down list. But I don't dare hit return... I know it's going to fail in there. [Luke laughs] The other thing I've seen is, more and more sites are using the web and web technology and a web browser, presenting the thing in a web browser as a way to build an application rather than building a Mac or a PC application, a Windows application, and a service online, this awesome thing, hey check it out, you can use our service, you pay, everything's in the cloud, it's fabulous. But they are building an application that has no keyboard anything, on any of the buttons or anything. It basically requires a mouse. That just feels like somewhere where things just fall down. Like, great, use the web to build an application, that's awesome. But don't just think you're building a bunch of links on a webpage, you're actually building an application, you need to build it like an application. Use application quality code and powerful tools in order to get this done.</dd>
+
+<dt>Luke</dt>
+<dd>That's right. Although often people don't think these guidelines apply to stuff like that, but I think the key to remember is that they're the "Web Content Accessibility Guidelines," they're not specifically website accessibility guidelines. If your content, if people can get to it via the web, then you need to be paying attention to this.</dd>
+
+<dt>Jen</dt>
+<dd>Maybe you can send over some links about where people can go for more resources on keyboard. Tutorials or specific stuff where people can go find out more about how to get around using a keyboard, how to test, how to do QA and test for this. And also how to do it, how to create a site in a way, present content in a way that's going to work. Because I feel like this is a huge one that I still feel like we're not giving a lot of really good examples.</dd>
+
+<dt>Luke</dt>
+<dd>No, I think you could do a show on keyboard probably. And not cover it all.</dd>
+
+<dt>Jen</dt>
+<dd><p>I know writing JavaScript you really need to be writing JavaScript in the correct way in order to have focus and to handle focus, as well as linking and stuff.</p>
+
+<p>Let me jump in here with a second sponsor and then we're going to see... man, we're so... like we should be wrapping up the show right now. [Luke laughs] And we're halfway through the spec. I don't know what to do about that. But let me first tell you about Squarespace.</p>
+
+<p>This episode is brought to you by Squarespace. The all in one platform that makes it fast and easy to create your own professional website, portfolio and online store. For a free trial and 10% off you can go to squarespace.com and enter the code JENSENTME4. Even better, you can go to squarespace.com/webahead, check it out. I really love their little video, too. I just keep playing it to listen to the music. [Laughs] Their little demo video. And I was over there today and I started from scratch again and I was... it's just so shockingly easy to get going. You want to see beautiful, elegant design to be something easy? You just sort of click and then you're over here and you click this thing and they're like, "Oh, what's your user name and email address?" And you're like, "Oh, it's this." And then, bam, your website's done. [Laughs] You have a website and then right there you're already configuring your website, you can change the content, you pick out the template, you change your mind, you want to pick out a different template. They really do make it easy to add content to the site and to style that content and to adjust it and change the layout of your content on the page. And everything that you do is going to automatically be responsive. So you pick out a template and that template is responsive. You rearrange, you say, "I want this little, I'll make a form and put this form on the right. And then I have this text telling people how to contact me and I put that on the left. Oh, but look on the phone, they're one on top of the other." Kind of automatically. It's not going to let you build an old school, fixed width website. It's just going to really help you without you necessarily needing, or mess with a lot of the technical stuff behind the scenes. They take care of all that for you. And you can easily connect your Twitter account, Facebook, LinkedIn, Pinterest, Instagram, Google. I was looking at this, basic information, fill out the form, they want to know the address, perhaps you have a business, they want to know, "Oh, a restaurant, where's the restaurant?" And bam, they put a map right there on the page for people to see where that restaurant is located. Or you have a business with hours, that your store is open particular hours, just like a form you fill out. What are your hours on Monday? What are your hours on Tuesday? And hit save and bam. All that content's presented in the correct way so that it is easy for users to read and get to and get to on their phone and set up all the way that it's supposed to be set up. Which really makes a project focus on content rather than focusing on all the technical stuff behind the scenes. Which many of us, many of the people listening to this show, totally know how to do that stuff from scratch. But you don't always have time. And maybe you have a project that you just want to build a website really quick and get it up there and have it and launch it. It's a hobby or it's a side business. You want to have a shop, you want to sell some things. You can actually use Squarespace and get to the point of the thing much, much, much faster rather than getting bogged down in figuring out the technology behind the scenes. They also have these kind of amazing videos, over at helpdesk.squarespace.com where you can learn... they have a 52 minute video on how to use the Squarespace commerce store. They're got a 50 minute one on getting started. They've got a 30 minute demo on how to build a restaurant website. Or a 20 minute demo on how to build a wedding website. So there's a ton of help for you. They've got 24/7 support, you can call them and talk to real people. Live chat during the week. You can try them out for free, you don't have to have a credit card, you can just, like I said before, before you know it, bam, you've got a website and then later you can decide whether or not you want to sign up and pay. Their plans start at $8 a month. If you sign up for the year, that $8 a month includes the domain name. If you use the coupon code JENSENTME4, you get 10% off of whatever it is that you're signing up for. Thank you so much to Squarespace for supporting the show and making it possible. Thanks.</p>
+
+<p>Here's another one that drives me nuts for normal, regular, whatever, every person on the planet but also is a big accessibility consideration. Enough time. [Both laugh] Carousels. This made me think of carousels. We could have an hour long discussion on the pros and cons of carousels. I see these carousels and people put content in them and like, "Read out fabulous quotes that people have said about us." And they've got 5 of them and you get, like, 4 seconds to read the quote then [swoosh sound] it goes away. And then there's another one [swoosh sound] it goes away. There's another one. And, like, I can't read them. They're going too fast. [Laughs] And there's no pause button. It's like, wait, actually, I wanted to read that. I want to hit pause and go back. Or maybe one where there's a whole big piece of art with a link and I can't click the link because it keeps going too fast. [Both laugh] Ah, the things we build without realizing what we've done. So yeah, this one. 2.2.1 is like, don't do that.</p></dd>
+
+<dt>Luke</dt>
+<dd>No, don't be doing that. This is probably, like a lot of it, it's giving control to your users. If you're putting no controls at all on the carousel, then you're not helping. People are, like you say, they've gone and you can't pause it for anything. A lot of this is about giving control. Again it's similar to not, what we spoke about earlier, about not auto playing things. Let people decide how they want to interact with things that do move and have time stamps on them.</dd>
+
+<dt>Jen</dt>
+<dd>What's the recommendation? Is it to not have a carousel? To have a carousel but not auto advance it? Or if you want to auto advance it, you can, but make sure it's long?</dd>
+
+<dt>Luke</dt>
+<dd>Not auto advancing is the standard here. I'm not a fan of carousels anyway, so I often advise against them. I don't find that people tend to use them and focus on them. They often split the focus by however many slides are on the carousel so, I mean, that's more of probably a personal thing than anything else. With the guidelines, it's about having... don't auto play it and let people control the movement to the next section.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think studies are showing that people are not using carousels and the reason that we see so many of them is because people sit in meetings and argue about which things should be at the top of the page. And rather than having that argument, that people feel like, "Well, we'll just put all of them on the top of the page. We'll put that in the carousel." That's really about the meeting and the people not being able to decide what's important. It's not really about the people that are going to the website.</dd>
+
+<dt>Luke</dt>
+<dd>No. That one, it's about control. Give your users as much control as you can. Let them play it when they want to play it, let them move to each slide in their own time.</dd>
+
+<dt>Jen</dt>
+<dd>It seems like there's something here about, if you're building some sort of, people buying tickets really fast or something, or there's a competition.</dd>
+
+<dt>Luke</dt>
+<dd>There are two here. There are timing adjustable and there's having no time limits at all. Again, this is different levels. The first level is, you might have a time limit on your site. For example, if you're selling tickets, and you've probably seen this, where you've reserved your ticket and then maybe you've got 15 minutes to complete the purchase because they have to put those tickets back on sale. Or perhaps your bank might log you out after half an hour or so, just for security reasons just to confirm that it's still you at the computer. The key here again is control. Where you can, don't have a time limit, certainly don't have an arbitrary time limit. But where there are good reasons, for example, using security or the nature of your business. You have to have those tickets back on sale, you can't have someone sitting on them because that's your business model. Give those people control, so have a warning that time limits are coming up. For example, if you're logged in to your bank account online and you've been in there 29 minutes, have something come up. We don't often like to use pop ups but this can be a place where they can be useful to grab attention and say, "Look, you've got another minute, do you want to stay logged in?" Just have that keyboard accessible, of course, just have that option for them to carry on rather than just throwing them out after a certain amount of time and never mentioning it to them.</dd>
+
+<dt>Jen</dt>
+<dd>Because it could be somebody who has a strong disability and they are using a point or something.</dd>
+
+<dt>Jen</dt>
+<dd>Exactly. It's going to take time or perhaps dyslexia or some reading disability that means they're simply going to take much longer than you would expect your average user to take and you have to give them that time. There's nothing wrong with saying, "Look, my website really does need this for security reasons," or so on. But with everything it's about giving that user to your control and saying, "They can confirm it, it's still me logged in to my bank and let's carry on here."</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, or making it a half an hour limit instead of a 5 minute limit.</dd>
+
+<dt>Jen</dt>
+<dd>Exactly, be reasonable with your limits.</dd>
+
+<dt>Luke</dt>
+<dd>Don't time yourself and make it a race with everyone else to do it.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>Luke</dt>
+<dd>Think about the worst case that you can accept here and think about that.</dd>
+
+<dt>Jen</dt>
+<dd>Then there's some things here about... is this right? Pause, stop, hide? Is this where they're talking about blinking and interruptions?</dd>
+
+<dt>Luke</dt>
+<dd>Exactly, all kinds of this kind of stuff which, you know, a lot of this can be taken out of the equation by, as we said earlier, removing that annoying, blinking, auto playing flashy content that a lot of sites who really don't seem to care about their users, do put in there. Where it is used, these rules help make it more accessible. There are limits on how quickly something can flash. For this there are issues with epilepsy and other such seizure-based things that can come from that. You'll see it on television, on the news, where they'll say, "This story has flashing images," because that's a safety issue. You shouldn't ignore that because you're not a TV channel. If you're broadcasting some content, you have a responsibility in that case to do so safely. That's a real key one, 3 flashes or below.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Headaches, migraine headaches and such, can be made worse with things like that. Or somebody with a motion disorder, it just makes you feel queasy. It's just too much. </dd>
+
+<dt>Luke</dt>
+<dd>That's right, that's right.</dd>
+
+<dt>Jen</dt>
+<dd>It's interesting because I think some of these things around accessibility are things like, "We haven't really thought about that before. That's smart. We should really stop and think about that for a moment. Maybe adjust our design or push ourselves in a direction we haven't thought about before." But some of these things, a lot of them, are just, "Don't do those annoying things that you actually, designer, or smart developer, didn't want to have done anyway. But they're being done by the ad driven people or the metrics driven people or the people who care more about something besides what the users need." And it feels like in some ways, those accessibility guidelines then become a weapon. [Laughs]</dd>
+
+<dt>Luke</dt>
+<dd>That's right, because you do find that a lot of people who are reading these are not necessarily the decision makers but they can use these guidelines and take them to those decision makers and say, "Look, this says we should not be flashing at people. It can be dangerous. Let's not do that."</dd>
+
+<dt>Jen</dt>
+<dd>And they become an ally, a friend. Like, I can go to this meeting and say, "No more ads like this." [Both laugh] "Stop it with these ads!" You have a compelling reason besides, I don't like them. You could say, "Everybody doesn't like them." And yeah, they could induce seizures, which is not funny. That part's not funny at all.</dd>
+
+<dt>Luke</dt>
+<dd>That's not at all. Often it's the business case that gets through so you can say, "Look, we're excluding customers here. Let's not do that."</dd>
+
+<dt>Jen</dt>
+<dd>This starts to get into navigation. Which is another... it feels like when we talk about accessibility, the big 3 things everybody thinks about are screen readers, keyboards, and navigation is a big part of that. How do you get from... you land on the page, how do you find the navigation, or how do you get around the navigation to get to the content of the page?</dd>
+
+<dt>Luke</dt>
+<dd>Getting around, that's a key one. That's 2.4.1 bypass blocks. All that is, you've probably seen this, it's just adding a "skip to content" link right at the top of your header. Which, when followed, will drop you down to where the main content is. All that takes to implement is an anchor in the content and a link above it. But the great benefit that has is especially to people using screen readers or assistive technology is, when they land on a page and move sequentially through it, they might have to go through your top navigation menu on every single page and that's really going to annoy them and they're not going to hang around for long. But if you put that first link as your "skip to content" link, they only have to listen to one link or follow one link and they're at the content they wanted rather than hearing your whole menu every time they refresh or move to a page that has that menu on it.</dd>
+
+<dt>Jen</dt>
+<dd>I've seen this done two different ways. One is to put the navigation at the top. When I say top, I don't mean visually at the top, I mean in the DOM, in the actual HTML. If there were no CSS and no JavaScript on the page, what would you get? You'd get HTML. At the very top. To put the navigation there and to, right before, as you just said, right before the navigation put a "skip to content" link or anchor button. An <code>&#60;a&#62;</code> button not a <code>&#60;button&#62;</code> button. It will jump you, if you click that, it jumps you over the navigation and goes straight to the content. The other way to do it is to put the content right at the top and to put all of the navigation at the bottom and to put right at the top, right before the content, to put a link that says, "skip to navigation." In which case someone can hit the page, they hear the header, then they can skip to the navigation if they need it or want it. But if they don't do that, then it takes them directly to the content. Which way do you think is better?</dd>
+
+<dt>Luke</dt>
+<dd>For me, it's the "skip to content" link above a menu that skips the menu. Probably because of the way sites have been built for so long now, a lot of people expect to have that menu at the top and in view. If they are navigating, they can do so straight away. Neither's really right or wrong because the purpose is still fulfilled by either one. It's really a case of personal choice. For me, I like the "skip to content" to be before a menu and skipping over a menu because a lot of that's where menu's are and that's where people expect them and you can help people out in some ways in accessibility by fulfilling expectations. Having that unusual site does put extra strain on people, especially people who have different issues with visiting sites and focusing or making their way around. At times, it can help to be consistent with the way things are done.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, yeah, yeah. That makes sense. Because the argument is, with CSS you can create whatever kind of visual layout you want to and that the content should really be structured for being scraped and put into other things, like an app like Readability and Instapaper and used with screen readers and Google and this and that and the other. And then use CSS to make it look however you want it.</dd>
+
+<dt>Luke</dt>
+<dd>That, like I say, with that one there's... you're not wrong to do either. If your site is designed that way and that's a great way to you to get your content read and accessible to people, then do that.</dd>
+
+<dt>Jen</dt>
+<dd>It's just interesting, you could do it either way. But you're right, in that it really doesn't matter as long as you have that skip link. Then the skip link itself is typically hidden visually.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, it can be activated by the first tab a lot of the time. When someone's tabbing, which is often something used by people using assistive technology or a keyboard as they only navigator, then when you press that first tab button, you'll then be focusing on the "skip to content" link. Which might then appear or it might stay visually hidden but it's the first element.</dd>
+
+<dt>Jen</dt>
+<dd>A similar one, a little later, is focus order. In that the order of the content itself in the page, without regard to CSS, needs to be in an order that actually makes sense.</dd>
+
+<dt>Luke</dt>
+<dd>Sure. This is another thing that goes to good HTML practice, I suppose. Having that breakdown of header, content, footer and sidebar, in a logical order. It's very hard to imagine, sometimes, the way people with certain disabilities use and look at a website. They can be looking at them in a very, very different way to the way that you've planned to develop them and the way that you've imagined people will look at them. But by keeping elements in a logical and correct order so that the navigation menu is a nav and the links are there and then your content is, talking purely code based here, goes in that order. Then you've got your other elements, the sidebar, sometimes it comes before the footer or after the footer but it makes sense to do so in that order depending on your page. It's really just about thinking about, strip away everything you have of presentation wise, and does this, underneath it all, run in the correct and logical way?</dd>
+
+<dt>Jen</dt>
+<dd>I was giving a presentation last year and the year before about layout and about how to do responsive design. For me, when I first heard of responsive design, now, however many years ago that was, it was very confusing. It was very hard to figure out how to design a responsive website. For me, the thing that I anchored myself to, like a boat blowing around in the waves, just tied to some rock, like, "What's the one thing I can reach out and tie a rope to and hold on to?" Was the order of content in the HTML. I was doing all these presentations where that was my first thing, was, "Ok, you guys, remember what happens if you turn off CSS? Here, look, let's install Developer Toolbar, a tool that will let us do that. Let's go to this random website. Let's turn of CSS and just look at the content in the HTML." And it's amazing to see how many sites where the content is in a very strange order that makes absolutely no sense. It was done that way because the people who wrote the CSS were trying to achieve a certain layout and either the layout they wanted to do was impossible to do with a clean, normal, happy bunch of HTML or they just didn't know how to do it. Because you can do some crazy stuff with CSS layouts but they just didn't know how to do that and... yeah. I feel like that, for me, that became, or was already, but even more became the kind of, "No." The first thing I do is put the HTML in a really great order just for its own sake and then you can do whatever you want with CSS. Frequently, that order, whatever that order is, it's almost always, that's typically the order you're going to want to have on a skinny, skinny page anyway, on a phone.</dd>
+
+<dt>Luke</dt>
+<dd>That can be a good way to look at it. When this screen's at it's narrowest, what order would I want this to be in? That would make sense to my users?</dd>
+
+<dt>Jen</dt>
+<dd>That's also the perfect order for someone using a screen reader or someone using a keyboard to navigate through and works great for things like Instapaper and Readability or Read It Later or Readr or whatever today's app is. And if someday Siri reads websites to people, in their cars or Google Glass is reading websites out loud to people... in none of those context does the CSS matter. In all of those situations the only thing that matters is the HTML. Maybe JavaScript but likely just HTML.
+
+Well, I think we have to stop. [Luke laughs] At 90 minutes. I wanted to go through everything here. I think people will get the idea. There's section 3 and 4.</dd>
+
+<dt>Luke</dt>
+<dd>Yeah, it carries on. Four is fortunately small. Four is only two guidelines. We did good.</dd>
+
+<dt>Jen</dt>
+<dd>And three is a lot of... [reads] focus, navigation... I mean, some more information, more details, really, about some of the same kinds of ideas we've been talking about.</dd>
+
+<dt>Luke</dt>
+<dd>That's right, yeah. Some of it's dealing with errors, which can come in forms, and making sure you suggest ways for your users to fix any errors that they do make. There are things about assigning your language is a very easy one. For one of them all you have to do is set your page language and you're done. Again, some of them are stuff that you can do already or you can quickly learn how to do if you are new to it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, that's an easy one to skip. You just think that of course it's written in the language I read and write but really you should tell the robots which language that is.</dd>
+
+<dt>Luke</dt>
+<dd>Make sure it is, yeah. Just briefly, look at three. It's stuff about readability, this one. It's stuff about unusual words, abbreviations and reading levels. It's one for content writers in that sense, more than developers. It's about producing content that people can read and it's very simple, explains clear content that, you know, you should be aiming for anyway.</dd>
+
+<dt>Jen</dt>
+<dd>Anybody who stops to think about great writing is going to think about those things but that doesn't always come up with accessibility and I would really say, we should care even more about our content because that is accessibility.</dd>
+
+<dt>Luke</dt>
+<dd>Exactly, exactly. And there's a crossover with accessibility and people who are new to your industry or your niche or whatever you're writing.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's so easy for humans to think that all the other humans are just like them.</dd>
+
+<dt>Luke</dt>
+<dd>[Laughs] They're definitely not.</dd>
+
+<dt>Jen</dt>
+<dd>And to remember to define things. Well, thank you for coming on the show.</dd>
+
+<dt>Luke</dt>
+<dd>It's been a pleasure, I've enjoyed it.</dd>
+
+<dt>Jen</dt>
+<dd>If people want to read the rest of this book that we didn't discuss or read the details that we skipped over, where can they find it?</dd>
+
+<dt>Luke</dt>
+<dd>They could go to my site, which is <a href="http://wuhcag.com/">wuhcag.com</a>. That's W-U-H-C-A-G dot com. There's a page there, there's a checklist that you can go through and find links and articles on all the guidelines and there's the book as well, which sort of brings it all together in a way that you can work into your workflow if you're designing or redesigning something.</dd>
+
+<dt>Jen</dt>
+<dd>And do you have a book-book? A paper book? There's a PDF here, right?</dd>
+
+<dt>Luke</dt>
+<dd>It's a PDF, yeah. For now, it's version one. It's a PDF. It's love to get it into more formats and I'm hoping to do so maybe later in the year. But PDF for now. But I'm always also available on Twitter or on the contact form via my site. Always happy to help people with questions where I can.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. So your Twitter is...</dd>
+
+<dt>Luke</dt>
+<dd>My Twitter is <a href="http://twitter.com/lukejmcgrath">@lukejmcgrath</a>. That's linked up from my site as well. Hopefully I'm easy enough to find. Always happy to engage in people and talk about accessibility and help people out where I can.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. The link to your website as well as your Twitter and everything else will be in the show notes for this show which people can find at <a href="http://5by5.tv/webahead/69">5by5.tv/webahead/69</a>. We'll put all the links there. Including, hopefully, a link to the transcript for this show.</dd>
+
+<dt>Luke</dt>
+<dd>Of course.</dd>
+
+<dt>Jen</dt>
+<dd>If and when we're able to make that happen. So that's it. You can follow me on Twitter, <a href="http://twitter.com/jensimmons">@jensimmons</a>, or follow the show, <a href="http://twitter.com/thewebahead">@thewebahead</a>. And I'm sure I'll have other people on talking about other things with accessibility. But hopefully, I hope this has given people some more practical answers to how to make the WCAG guidelines. Thanks.</dd>
+
 </dl>
+
