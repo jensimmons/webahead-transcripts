@@ -1,0 +1,373 @@
+---
+layout: transcript
+title:  "Advanced Accessibility with Derek Featherstone"
+permalink: 77/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+    <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I’m your host Jen Simmons and this is episode 77.</p>
+    <p>I first want to say thank you so much to today’s sponsor, <a href="http://lynda.com">Lynda.com</a>, for supporting the show. Then we’ll jump right in.</p>
+    <p>My guest today is Derek Featherstone. A well known accessibility expert and speaker, he leads the team at <a href="simplyaccessible.com">Simply Accessible</a> in Ottawa, Canada.</p>
+    <p>Hi, Derek.</p>
+</dd>
+
+<dt>Derek</dt>
+<dd>Hello, Jen.</dd>
+
+<dt>Jen</dt>
+<dd><p>It’s funny, I somehow got through a couple years of shows without doing one specifically focused on accessibility, to my error and shame. Then the last several months I’ve set out to fix that and this will now be the third show since March that we’re talking about accessibility. I’ve always talked about it as part of everything else, but really there needs to be more of a discussion directly about it.</p>
+	<p>Of all the people that I could have invited to be on the show, you’re kind of the biggest hero somehow, the person whose name I see around a lot as an expert in knowing about this stuff. I’m really honored to have you on the show, thanks for joining us.</p></dd>
+
+<dt>Derek</dt>
+<dd>Thank you for having me. It’s kind of exciting. I like a few different things in this world and I’m passionate about a few different things in this world, and accessibility is one of them. Speaking and being able to teach people things is another. So an opportunity like this is kind of cool for me.</dd>
+
+<dt>Jen</dt>
+<dd><p>For anybody who hasn’t listened to the whole back catalog of The Web Ahead, <a href="http://5by5.tv/webahead/64">episode 64</a> with Dale Cruse we talked a lot about why you should care, why people should stop sitting on the sidelines thinking, “oh whatever, I’m fine, we don’t need to think about that.”</p>
+	<p>Then in <a href="http://5by5.tv/webahead/69">episode 69</a> I had Luke McGrath come on and talk about WCAG. He’s written a book about it that goes through it, so on that show in an hour and a half we tried to go through the whole WCAG spec and rattle off everything that’s in it, hilariously, and we got through maybe half of it with links and resources for people to go learn more about the other half.</p>
+	<p>There’s a lot more to accessibility. We haven’t yet talked about ARIA roles. I think I’ve seen your talks around advanced tips and tricks, and I think there’s a lot that we can talk about.</p>
+	<p>If people are in the chat room listening live and you have questions, I’ll keep an eye on that as we’re recording and it would be great if you could add your questions in there.</p>
+	<p>When you go and talk to people and you speak at conferences, what are some of the biggest obstacles that people run into or the biggest questions that come up where people are saying, “This is hard. I’m stuck. What should I do?”</p></dd>
+
+<dt>Derek</dt>
+<dd><p>I think the biggest obstacle or barrier that people face, and this is maybe not for individuals because there are lots of individuals that know something about accessibility, but I still think the number one barrier that people face out there is that lack of awareness. When I say lack of awareness, I don’t mean necessarily in terms of accessibility in general, because a lot of people know something, they get the gist, they get the concept. I think there’s a lack of awareness of the significance that something really small can make or have in an interface in terms of somebody with a disability using it.</p>
+	<p>I think one of the biggest things that we see in our work is a really fundamental requirement. Whether I’m at a conference or doing a training for a client, or we’re actually doing an assessment of what they’ve built, probably the biggest barrier is keyboard access. When we’re building, or when things are being spec’d out or mocked up, for whatever reason there is nowhere near enough being done for keyboard accessibility.</p>
+	<p>I think that’s probably the number one obstacle that people face. I like to think of it this way. People talk about things like headings, “We need proper headings on there. We need to have really great links that make sense in context,” and there’s a whole list of things that people talk about. I usually say that keyboard access is kind of a fundamental precursor to all of that, because it doesn’t matter if you can’t understand it if you can’t even get to that content in the first place.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>I was talking on one of those previous shows with somebody about keyboard access and I was realizing, as I was saying things trying to get my brain to unscramble and put words in the proper order, I don’t even know how to ask the right question about this. What is it that people should be thinking about when they’re making sure that their site has proper keyboard access?</p>
+	<p>How can they test that more easily, or double check to see that they’re doing it? And is it developers that really need to do that or is there something on the design level as well that needs to happen?</p></dd>
+
+<dt>Derek</dt>
+<dd><p>There are multiple sides to accessibility. There’s dealing with things at the design level, dealing with things at the development level, dealing with things at the content level. Keyboard access is probably something that is really mostly a partnership between design and development. 
+	<p>On the design side, I think one of the reasons that keyboard access doesn’t get built in the way that we want it to in many cases is because it wasn’t in the spec, or it wasn’t in the functional requirements, or it wasn’t in the mockup, or it wasn’t spelled out as to how the keyboard flow should go in a particular interface. One of the things that we often do or that we encourage people to do is get design teams and development teams together to actually work through a mockup of an interface and start talking about what the keyboard order should be based on the tasks that people are trying to complete with that particular page, screen, widget, or whatever it is.</p>
+	<p>I think a big part of it is that at the design level things aren’t fully specified, so it doesn’t carry through, it’s not seen as something that needs to get done at the development stage. That’s what needs to happen on the design side, is a really good thought process into how someone is going to do this with a keyboard.</p>
+	<p>The second piece of it is more to do with actual development techniques. The biggest barrier that we face in terms of keyboard access from a development perspective is a lot of libraries or code snippets that people find out there, they copy and paste it into their site, and for whatever reason functional items are built with divs, spans, sections, and asides that have JavaScript based click handlers on them. Those click handlers work for a mouse user, but they don’t work for a keyboard user.</p>
+	<p>So there are a lot of hoops that you have to jump through to make those kinds of things work for a keyboard user. People don’t do that, or they don’t know, or they’re not aware, or they haven’t tested it with it a keyboard, or they don’t necessarily build it with keyboard access in mind, they’re building it with those clicks coming from a mouse in mind. The second piece of that is that they don’t consider that maybe there is a better option.</p>
+	<p>If you put a div on a page, you can make it clickable by first making it focusable with the keyboard, and secondly making it so that it is clickable by attaching the click handler. So you can still make a div clickable. The question that I always ask people when we’re working with developers is: If you want to make it clickable, you can go to that point of making it a div, giving it a tab index value so that you can focus on it and give it that click handler, but why do that when there’s probably element out there in the first place, like a link?</p>
+	<p>That’s one of the biggest problems is that we’re using divs and spans and making them clickable instead of just using a button or a link. It’s simplicity at its best, I think. A big part of it – and I get this – every development team that we work needed to be done with the thing that they’re working on yesterday anyway. There’s a huge amount of pressure on designers and developers to produce things as quickly as we can and get them out there in the world. That leads us maybe to use a library that we drop in, and maybe that library for everything that is a button actually uses a div or a span that they’ve made clickable.</p>
+	<p>That poses huge barriers and that’s probably the biggest one, that need for getting things out there rapidly and not necessarily having the time to think or taking the time to think, “What is this thing and what am I doing with it? What’s the simplest possible element that I could use for this?”</p></dd>
+
+<dt>Jen</dt>
+<dd><p>I feel in a way like performance is a little similar, in that you get a PDF or a stack of Photoshop documents from a designer with requirements, or you get tickets from a product owner, there’s no baked in description of how it’s supposed to also go fast, or how the page should download fast.</p>
+	<p>Developers’ culture in the past has just been “get it done as fast as you can, quick and dirty, it doesn’t matter.” Then you launch a website and there’s 47 JavaScript files. It feels like the culture has changed in the development world to say, “Hey, you can’t do that.” You have to think about performance every step along the way as a developer, even if your bosses or the people above you are not telling you that you have to.</p>
+	<p>Then there is a movement, as well, to say, “Let’s set a performance budget for this site,” or, “Let’s something in testing that when we go through QA (if there’s a QA team on a bigger site) that performance is a factor, that we don’t launch this thing if it’s not fast, or we don’t launch it if it’s not under a certain budget of bits and bytes, and how big it is.”</p>
+	<p>It feels like accessibility really could benefit from the same thing, where maybe there is a specific requirement that comes from above for developers – that would be great, designers should be thinking about this stuff – but for developers who aren’t getting those requirements to still be doing it the same way that you’re thinking about performance.</p>
+	<p>You must see with clients a level with QA where there are QA testers for keyboard access, through a screen reader, or even just without fancy tools just basic stuff to make sure that things aren’t broken.</p>
+</dd>
+
+<dt>Derek</dt>
+<dd><p>We definitely see that all the time. I’ve kind of made it my mission, so to speak, I don’t want a QA tester testing for basic keyboard accessibility, I want a developer to be doing that and I want that to be done jointly between the designer and developer to spec out how that should work. “What’s the keyboard access on this date picker widget? What’s the keyboard flow? What keystrokes do we use to move from one day to the next, or for the arrows that let you choose the month, or a widget that lets you choose the year in the date picker?”</p>
+	<p>I want that to be spec’d out earlier because what ultimately we want to do at the QA level is not testing for whether or not basic keyboard access has been done, what I want at the QA level is validating the keyboard accessibility has been provided and that the QA people can start checking for things like keyboard efficiency.</p>
+	<p>We see a lot of things where you’ll have an interface where there is keyboard accessibility, but completing a particular task takes 30 keystrokes instead of three. That’s the kind of stuff that I would rather a QZ person be checking and finding in terms of efficiency, not having the QA person even checking to see if there is keyboard access in the first place. I want that to be the responsibility of the developer. So the QA people don’t have to be, “Ugh, do I really have to check this for keyboard access again?”</p>
+	<p>We often talk about it as a requirement for something to make it to QA testing is that it already has basic keyboard access taken care of.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>It’s funny, it feels like sometimes how the QA team is run and what the QA testing standards are going to be, we don’t talk about that very much in our industry. I don’t see that talked about at big conferences, I don’t see that being talked about. We haven’t really talked about it much on this show.</p>
+	<p>Yet, I feel like in some ways that’s the place where everything goes dysfunctional; where the QA team is still testing IE6 and they’ll just throw bug after bug about IE6, but they don’t know the first thing about screen readers, they don’t know the first thing about keyboard accessibility, and they’re not testing on phones, they don’t have a touch screen device anywhere to be found. I’m thinking especially enterprise level, conservative, sort of traditional corporate teams this is the culture. They cannot let go of old versions of IE, but they won’t pick up an Android tablet.</p>
+	<p>What year is it? We should be testing on a whole bunch of different devices, including accessibility. You should be testing keyboard access not just for people with disabilities, but for everybody. When you’re sitting there filling out a form and you want to fill it out really quickly, you hit tab and you end up accidentally submitting the form that’s only half filled out, or having the page disappear and you have to go back and redo the whole page again.</p>
+	<p>We all see things that are that broken all the time and it affects everyone, and it completely blocks people who are depending on keyboard access or depending on screen readers.</p></dd>
+
+<dt>Derek</dt>
+<dd><p>I think that’s a big part of it is that somewhere along the way in the process things like keyboard access – not even talking about keyboard accessibility, just keyboard access – is not built into functional requirements, or it’s not something that is seen as a mandate, or people forget about it. When we’re working with teams and I show somebody something about keyboard accessibility they never forget it, they totally understand the concept. As soon as they’ve seen it, they realize, “Oh, I totally didn’t think about that here, I get it.”</p>
+	<p>Keyboard access and keyboard accessibility is really critical. It’s not just for screen reader users. That keyboard functionality is useful for everybody, whether you’re using a screen reader, or you have low vision and you’re using a magnifier/reader combination, or you’re using something like Dragon Naturally Speaking because you have mobility or dexterity impairments, it really doesn’t matter, you could be a sighted keyboard user, maybe you have Cerebral Palsy and you use a stylus to type and it just takes you a really long time to do it. All of those things are reasons for keyboard access, but as you said, keyboard access is for everybody.</p>
+	<p>If it was built into more projects as a functional requirement – and we’re seeing it in a lot of our projects that we work on where people are going Agile, so they have user stories and things like that, things like keyboard accessibility are built right into done when criteria and requirements for somebody being able to close a story, it has to have keyboard access. So things are improving, but for whatever reason a lot of people still miss these things somewhere in the process along the way.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd><p>It seems really smart to fit it into every ticket like that, because if you don’t and you have a big team and a big project, then all of these bugs – they’re bugs for lack of keyboard access on this particular form, lack of keyboard access on this particular widget, on this particular feature – and you just end up with those bugs piling up.</p>
+	<p>That’s where I think people come back around and say, “We don’t have the funding for accessibility,” or, “We don’t have the time for accessibility. It’s not a priority.” Well, that’s because you have two years of bugs to fix. If you hadn’t let two years of bugs pile up like that – and you don’t let two years of bugs pile up like that for all these other things, like IE6 – then you wouldn’t have to find a chunk of budget to go fix it, you would have already had it all working.</p>
+</dd>
+
+<dt>Derek</dt>
+<dd><p>That’s the thing. This makes sense to people usually when we talk about it, but it’s always more expensive to retrofit and go and fix something after the fact than it is to build it in right from the beginning. Accessibility is no different.</p>
+	<p>You would never go and build an application and get to the end and say, “Oh, we missed all the security on this. We need to go back and add security back into everything.” You would never do that.</p>
+	<p>You were kind of talking about it before in terms of performance. Performance is now something where that is being mandated that this won’t launch unless we have these particular measured performance criteria met from a bits and bytes perspective, a page load perspective, or whatever it is that you’re measuring. If that was an ending criteria in how we’re going to measure the success of this project, you would never bring that up at the end and say, “By the way, you’re two weeks away from launch, now you have to take everything you’ve done and get it to load in under 150 milliseconds.” You would never ever do that.</p>
+	<p>Accessibility shouldn’t be any different, but for whatever reason it is. Because somebody didn’t know, or it wasn’t specified at the beginning, or things weren’t built in with checkpoints all along the way into project milestones or into user stories, or to whatever it is that you’re doing. It kind of blows my mind that we still see that kind of thing happen. And it happens, usually once.</p>
+	<p>We were working with a small client here and they had a $20,000 budget for a project and they delivered on that. This was their client’s fault as well. That client came back and said, “By the way, is this accessible?” So the end client really dropped the ball in terms of telling this vendor that they needed to make sure that this was accessible. So on a $20,000 project we were looking to estimate what it would take to get it to be so that it passes a minimum level of accessibility. It was basically another 50% on top of the project budget because we were going to have to go back in and retrofit it.</p>
+	<p>There were some really significant accessibility issues, keyboard being one of them. But, if we had gone and built that accessibility in from the beginning, instead of looking at 1.5X more through a retrofit process, maybe it was going to take them longer to build some accessibility in because there are additional things to do there but instead of 1.5X the project budget maybe it would be 1.1X the project budget, an extra 10% instead of an extra 50% that they needed.</p>
+	<p>That usually happens once and then people will look at it differently and say, “Wow, this costs a lot.” Accessibility gets a bit of a bad name sometimes because people think accessibility is expensive, complicated, and hard. It’s only complicated, hard, and expensive because you didn’t build it in from the beginning. You’re going back and you’re spending all kinds of money trying to rewrite stuff. That is not cool.</p>
+	<p>Not only does it cost you in terms of financial resources, but it also costs you in terms of time because you have approved designs that have made their way up the chain, they’ve been approved and signed off, and now you come back and say, “We need to make a design change for accessibility.” You’re shooting yourself in the foot because you have a design that was already approved that people were counting on, that people were excited about, and then you have somebody coming in and saying, “To make this truly accessible we have to make some changes to the design.” That doesn’t do anybody any favors; that makes accessibility the enemy rather than a partner.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>I think that it is very similar to performance and to mobile itself. The last two or three years the whole industry has been waking up to mistakes and changing process to stop those mistakes from happening. In the end, they’re ending up with a much better website, a much better product, a much better set of content, a much better whatever is being created. It feels like accessibility is another really important layer.</p> 
+	<p>It’s not just so that it is accessible to all kinds of people, but also all the things that go with it; progressive enhancement, making sure your markup is really clean, and making sure your content is stored properly. There’s a whole bunch of things that are sort of woven together, a level of craftsmanship in saying, “We’re not just going to draw something in Photoshop and then make whatever pile of code we make and check whether or not it looks like Photoshop, and if it does we’re going to ship it.” It’s more complicated than that. It’s not a Photoshop drawing, it’s a living breathing website that’s all sorts of different sizes, widths, and fits on different devices with different kinds of input, different kinds of output, different kinds of realities.</p> 
+	<p>Looking at things through the lens of accessibility, especially something specific like the WCAG spec, gets everybody a concrete reality, this is the reality you should be living in.</p> 
+	<p>You mentioned libraries. It feels like people are always asking, “Which JavaScript framework should I use? Which HTML template system should I use? Which open source CMS should I use?” There are lots of different reasons to use or the other. I remember for however many years I would constantly ask the question, “Which jquery library should I use to make a slideshow? I have to build another slideshow, let me check around and see if there is an even better jquery library out there.”</p> 
+	<p>It used to be that you pick a slideshow based on what buttons it came with by default, or how easy you could rewrite the code to make it look the way that it needs to look. Then it became, “Let me pick a slideshow that’s responsive out of the box.” Well, also you should pick a slideshow that has keyboard access, or maybe not have a slideshow at all. But, if that ship has sailed and you can’t not have a slideshow, pick a library where the keyboard access is present, the markup is clean and good, and it’s going to work for screen readers.</p> 
+	<p>It takes zero minutes longer, you already have to shop around, you already have to make a decision, you already have all these things you have to think about in deciding which library to use. It doesn’t longer and it’s not harder to pick one that is well done with accessibility as well as everything else.</p>
+</dd>
+
+<dt>Derek</dt>
+<dd><p>I think that’s a big piece of this, too, is the libraries. A lot of libraries are built without accessibility in mind because people didn’t know. What ultimately ends up happening is people go back in there and say, “I want to use this library, but I can’t because its accessibility is just not there.”</p> 
+	<p>I think this is a really good thing when you make accessibility fixed to a library, assuming that they’re fixed properly and there’s no fundamental misconceptions or assumptions that are faulty when people are making fixes, the concentrated efforts of a few get distributed out to everybody.</p> 
+	<p>That’s one of the only ways to scale accessibility for enterprise level clients is to take those individual components that you’re going to need, start with a reasonable base, and then make that baseline accessible and build that in to the pattern library. I’m talking about different kinds of libraries here, but it’s the same concept. We take concentrated efforts of three or four people to make this one thing really accessible, pop that into your company’s pattern library, and then that gets distributed to everybody who needs it and here’s our standard, this is what we have, this is what we do, this is already approved for accessibility, this is the Koolaid you guys need to drink. That’s the kind of thing that makes accessibility scalable and useful for large sites, for anything that’s big where scalability of people’s time and knowledge is critical.</p></dd>
+
+<dt>Jen</dt>
+<dd>Have you seen tools on the design level? You were talking about keyboard access. In a way I guess if you’re making a Photoshop drawing or a PDF or something, then print it out and get out a pen and draw if someone is tabbing through with the keyboard where they should go from here to there to here. Are there other tools, templates, or things that people have used to solve that problem or do that task? </dd>
+
+<dt>Derek</dt>
+<dd>There’s not a lot that I have seen. There are some prototyping tools that people use. I think of quick tools like Axure where you basically are creating clickable walkthroughs and things like that. Those actually don’t work very well from a keyboard perspective. They’re great in terms of a point and click type walkthrough, but they’re so dependent on the order in which things were added to the screen. If you’re mocking something up and wire framing it, you put something on the screen and then you drag it somewhere else later on and you’re adding other things, you’re going to get a really wacky keyboard order for prototyping things like keyboard access.</p> 
+	<p>I haven’t seen any tools that are interactive that do that. That doesn’t mean they don’t exist, but certainly we haven’t seen anything on the projects that we’ve worked on or in our own work. I like the idea of, and we do this workshops in all the time when we’re teaching designers and developers this kind of stuff, just what you said, we’ll take a screen, whether it’s a wire frame or a Photoshop, we’ll print it out, and we’ll actually get two or three designers working with two or three developers talking through what should happen in terms of keyboard access.</p> 
+	<p>Even just in terms of source order or the order in which those keyboard focusable controls are experienced in the interface and where they need to be, you’ll look at something simple, or it looks to be simple, and you’ll have all kinds of differing opinions on what the order should be and what keyboard access should be like, what should happen in this scenario or that scenario. I love that because it shows people on teams that if this is what it was like when we were actively talking about it, if we don’t talk about it then we’re screwed, we’re going to have no agreement at all.</p> 
+	<p>The thing that is most important at the end of the day when we’re doing things like that, and I love getting people talking to one another about it, is that even though there are differing opinions that the team ultimately comes to “here’s how we’re going to do it for our thing, let’s all agree on this,” and then it’s documented, and then there’s no guesswork.</p> 
+	<p>One of the things that will slow down a developer is taking a design where they have to look at it and then have to do all kinds of guesswork in terms of implementation. If the keyboard order and source order and things like that are spec’d out that’s a huge bonus because the developer doesn’t need to think about that, because it’s already decided, it’s documented, we know what the success criteria is. It’s a great tool because the QA person also now knows what they need to do or what they should be testing.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>I also think it’s hard sometimes for developers to get momentum on something. “We’re building this site, no one has talked about keyboard access, let’s do it,” because they are getting tickets to build individual bits of the site. You’re doing this block in the sidebar, you’re doing this thing over here, you’re doing this one content type. They don’t have the authority to architect the whole thing. They may have eight people on the team and they may be trying to talk to everybody else and say, “Hey, I have these people who are agreeing with me so there’s three of us out of eight who are willing to work on this.”</p> 
+	<p>Something like, “What’s the keyboard access for the homepage and how are you going to click through?” if that’s not a ticket then they have no time to build it. If they’re trying to fit it into the tickets that they already have but their bosses don’t agree with that or the tech lead isn’t on board with that, then it can be really frustrating as a developer knowing that you want to do better quality work but you don’t have the authority to make it happen.</p>
+</dd>
+
+<dt>Derek</dt>
+<dd><p>We talk about things at a couple different levels with the people that we work with. We often talk about there are things that are accessibility related bugs, but there’s also a whole bunch of things that are bigger than a bug. Keyboard access and sorting that out is one of those things that we consider to be bigger than a bug, because it’s something that goes across the entire site.</p> 
+	<p>You do have things that are just straight up “it’s a bug, here’s the fix, you need to go and make this change,” but the advantage of the bigger than a bug type issues is that kind of stuff bubbles up. I’ll talk lean / agile for a little bit from an accessibility perspective. The beauty of things where we’re building something, we’re testing it, we’re learning from that, and then we’re using that for the next iteration, if you’re thinking of sprint planning, at the end of those sprints you have retrospectives where these kinds of things come up. We make adjustments to our plan so that the next time we’re creating the next sprint and we’re putting together which stories we’re going to try to get done and accomplished in this sprint, the accessibility starts to get added back into it.</p> 
+	<p>If you’re looking at building this piece of functionality that’s going to be three story points, we can look at those things and because we’ve done a retrospective together as a team we can come back to it and say, “It’s three story points to build it, but we need to add an extra two for accessibility on this one because we’ve never built a widget like this before. We know that it looks pretty complex from a keyboard perspective, so we need to add in some extra points from an accessibility perspective.”</p> 
+	<p>Then the next time you’re building a widget like that, you adjust again after your next retrospective. “We added two story points to this for accessibility when in reality we only needed one. Let’s make sure that anything we consider to be a complex user story,” maybe set a threshold, “this has three points, therefore we need an extra two points for accessibility on this because it’s the first time.”</p> 
+	<p>For smaller things you may look at it and say, “We’ve done this a whole lot of times before, we don’t need any extra points for accessibility on this particular story because we’ve already done it. It’s in our pattern library, we know we’re good.”</p> 
+	<p>I think that’s where it really starts to help some of those issues, if all you’re looking at is bugs all day, accessibility bug after accessibility bug, you treat accessibility like it’s just this technical thing. When you start to see that some of these things are bigger than a bug and they require more than just technical chops, then it becomes more collaborative and more likely that things are going to bubble up to a higher level so that those conversations do happen, so that those three developers that look at and they want to make their components highly accessible that that stuff gets up to a higher level as a project requirement or as a functional requirement and it gets dealt with throughout the team. Then the next time you know a project is coming it’s going to spread there.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd><p>We’ve been talking specifically about big teams, but I know there are probably lots of people listening who don’t work on big enterprise teams of 50 people with spring planning meetings and all that. I’ve been happy to focus on that because I feel like that’s where sometimes this is the hardest to solve.</p> 
+	<p>You think it’s a technical problem, “Oh, accessibility is so hard,” but it’s not a technical challenge, it’s a human challenge. The technical pieces are actually not that hard at all, it’s all this culture of the team and functional requirements, when is this going to come up and where are we going to get the budget to actually get permission to spend time on thinking about this stuff, that’s where it gets really hard.
+	I want to get from you a tutorial – we’ll put a link in the show notes at <a href="http://5by5.tv/webahead/77 ">5by5.tv/webahead/77</a> – because I feel like there’s still so much to figure out about exactly how to understand, how to plan for, and how to build keyboard accessible websites. I imagine you have resources on that so that we could give people tutorials and such. </dd>
+
+<dt>Derek</dt>
+<dd>Definitely.</dd>
+
+<dt>Jen</dt>
+<dd>What are some other things that come up where people get stuck or teams get stuck when it comes to making accessible websites? </dd>
+
+<dt>Derek</dt>
+<dd>There are quite a few things that end up being real barriers to people. Anything dealing with forms, for whatever reason. Forms are pretty straightforward, but there’s still a lot of things where we end up with unlabeled form fields, where for whatever reason somebody didn’t use a label to label that form field. For whatever reason, that’s a little bit trickier than it probably should be.</p> 
+	<p>Form labels is a big deal for people with different disabilities. It’s not just screen reader users, it’s also people with low vision that use a magnifier and reader combo, or people that are using Dragon Naturally Speaking to try and activate an interface. Forms are a pretty significant barrier.</p> 
+	<p>There are still other barriers. Text alternatives – I know you’ve talked about this in past shows, but text alternatives are kind of a critical thing in that if there is an image on the page that’s a functional image, it has some meaning to it or it’s conveying some content, or maybe it’s an image that is part of a link, that needs to have a text alternative for people that can’t see image. We forget about a lot of that stuff when we’re building interfaces, for whatever reason. It could be a library thing or it could be a drag and drop, bringing some kind of a script into your work that doesn’t provide alt text.</p> 
+	<p>Then there are other barriers, like having text alternatives for people that can’t hear. That’s a pretty significant barrier that people who are deaf or people that rely on a text based format to consume content don’t necessarily get the access that they need in order to be able to use the interface or participate in a process, or whatever it is.</p> 
+	<p>We often think about things like captions or audio description for somebody that can’t see the contents of a movie, we think about all these things like transcripts and captions and audio description as alternative formats. They’re an alternative to us because we don’t need them, but for somebody that needs them they’re not an alternative format, they’re the primary format. That’s a barrier that we see quite often as well.</p> 
+	<p>There are so many other things, but I’m kind of going with the biggest barriers here.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>It seems like some of the ones you just mentioned are really not that hard. People who are building websites, they’re building a CMS, they’re building a content management system, they’re creating a new content type, and they’re creating a tool that someone else will come along later and add content to the website. As they’re building that tool there are many design considerations, things that professional designers are frequently never consulted about but could be. When they’re not consulted, the developers are there making design decisions.</p> 
+	<p>It just seems so simple. You added a field for an image and you did not check the box that makes the alt field also show up, and you should. If you just check this little checkbox when you’re building the CMS out, or sometimes it’s a line of code, then you can have an alt text emerge and you can write a little bit of help text right there to help people understand what they’re supposed to do with that field. It’s just one of those little wiggly things that is super easy for a lot of people not to think about, but it’s also super easy for people to think about, then –bam– you’ve got a field for alt text and it’s not a problem. You don’t even have to build anything, it’s all built in for you; you just have to activate it.</p></dd>
+
+<dt>Derek</dt>
+<dd>Exactly. </dd>
+
+<dt>Jen</dt>
+<dd>The form field stuff too. All you have to do is actually label the forms. Just do it. I don’t know how many times we can say that or I don’t know what else to say about it.</dd>
+
+<dt>Derek</dt>
+<dd><p>I think a lot of things that happen with forms is that labeling form fields looks really straightforward when you have a form field and a label beside it, or a form field with a label above it, but there are lots of scenarios where there’s text that’s on a form where as a developer you might look at that form and say, “I don’t know what to actually make the label, because there are three different pieces of text beside this form field. I don’t know what should be the label and what shouldn’t be.” Things like that.</p> 
+	<p>There’s a lot of things where if we had a standard. If everything was a simple form it would be easy to do, but some of the designs that people are asked to code aren’t things that necessarily a developer is going to look and push back on the designer and say, “We need to change this design because of accessibility.” What they’re going to do is code it and get it out the door, they’re going to test and make sure that it works, and by works we mean the information saves to the database. So they aren’t necessarily thinking about performance or effectiveness with assistive technologies.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>There’s a little tip in there. If you’re handed a mockup of a form and there are no labels next to the fields, everything is a placeholder text inside the field so it’s really sleek and clean, no external label, as a developer I feel like the very first thing you should think about is all those labels still need to be there, you’re just going to visually hide them.</p> 
+	<p>Or in other situations; I use Drupal a lot and I’m building something out and the label appears or the headline appears, or there is some piece of text that appears by default as I’m building the system and then I know I don’t want it to be there, I want it to go away, but rather than making it go away by removing it completely or by hitting display none in the CSS and making it disappear, I’ll use another little bit of CSS, which in our world is called element-invisible where it makes the thing go away visually, but it makes it stay in the dom, it’s still in the HTML. If anybody is using anything else, in any other situation where they’re not looking at using the CSS of the visual page, then they they’ll get that label.</p> 
+	<p>I think that’s just a way to switch your brain around. You as a developer have the super power that you don’t have to literally follow the design, there are things that are invisible in the world and you will control them and you can decide whether they’re going to exist or not exist. You need to make a little bit of a judgment call there and be careful and don’t just make things go away, make them exist but be invisible.</p></dd>
+
+<dt>Derek</dt>
+<dd><p>That gets to be a fairly tricky judgment call to make as well, to be honest. There are lots of times where we’ve seen people use a strategy for text and they’ll use the same strategy for a functional piece of code. In many cases, you actually want to use display none, depending on what you’re doing.</p> 
+	<p>We see people take menus, like submenus or mega menus, and that submenu will show up when you hover the mouse over a navigational top level item and it will disappear on the mouse out event. For a keyboard user, they tab to that high level or that top level navigation and then the submenu was hidden off the screen and it wasn’t fully hidden, so now a sighted keyboard user is going to be tabbing through things that are off the page and they can’t see where the focus is.</p> 
+	<p>You want to be really careful when you’re hiding things and how you choose to do it, because there are methods to hide things where you’re hiding it visually but it’s still in the dom and available not just for a screen reader user. In many cases that screen reader user, if we’re hiding a submenu off the screen but you can still tab to it, a screen reader user doesn’t care. They’re focused off the screen, but that doesn’t really matter to them because they’re hearing what the sub-items are, so they’re going through that sub-navigation.</p> 
+	<p>For somebody that is a sighted keyboard user, we never want to focus on something that is off the screen. If we’re focusing on something that is off the screen, whether it’s not visible or it’s positioned off left or off to the top, it’s clipped, or whatever. If you’re tabbing to something that’s off the screen, your first action should be to bring it back onto the screen so that when you’re tabbing to it the user can actually see what they’re tabbing through.</p> 
+	<p>It’s a pretty tricky judgment call.</p></dd>
+
+<dt>Jen</dt>
+<dd>It’s complicated. </dd>
+
+<dt>Derek</dt>
+<dd><p>It is. A lot of accessibility is simple, but there are cases where I’ve seen people create libraries of code or they’ll put together an example and they’ll say something like, “We’re going to hide this, but we’re not going to use display none because display none is bad for accessibility.” I’ll read it and I’ll immediately say, “This is wrong.” For true accessibility in many cases you want to use display none.</p> 
+	<p>When I have that submenu off the screen, I want it to be display none so that a keyboard user can’t get to it until I decide it’s time to bring it back into the page. When I bring it back into the page, then instead of making it display none we bring it back and make it display block.</p> 
+	<p>There are all kinds of ways to hide content and you have to be really careful about what you do in which scenarios.</p></dd>
+
+<dt>Jen</dt>
+<dd>So you have to really think about do you want it to be completely gone or do you want it to be visually invisible but actually here, and think about all the use cases you just talked about.</dd>
+
+<dt>Derek</dt>
+<dd><p>Yes, you have to think about it. I don’t care, you can make it visually hidden, but you have to think about how you’re using it. If there’s interaction with that component and it needs to come back on the screen for a mouse user, then you would want to make sure you do the same thing for a keyboard user.</p> 
+	<p>Things like hidden labels, we can’t just think about a screen reader user. A screen reader user will get those hidden labels, but a voice recognition user doesn’t necessarily get them. If we’re hiding labels, there are things there that they may not be getting.</p> 
+	<p>From a cognitive disability perspective, hidden form field labels can be a problem.</p></dd>
+
+<dt>Jen</dt>
+<dd>I just blew through the reality for everybody that if there’s only placeholder text, as soon as I click into placeholder text if the label was never there then I may or may not remember what it is I’m supposed to be typing. I may wonder, “Which field of the address is this?”</dd>
+
+<dt>Derek</dt>
+<dd>Exactly. It’s even worse for dates where you need to know what format it should be in.</dd>
+
+<dt>Jen</dt>
+<dd>Day first or month first.</dd>
+
+<dt>Derek</dt>
+<dd><p>Exactly. We see things all the time where people are asking about wanting to use a placeholder as the label. I’m going to get very rule-centric here. My first answer for most things is “it depends,” but as a blanket rule you really should not be using a placeholder as a label, because of exactly that.</p> 
+	<p>The placeholder is supposed to be there as a hint or some extra information, but not critical information. It’s there to help somebody avoid making errors. It shows the format of the date, for example, but there should still be a label that’s outside the field that says this a birth date, a travel date, or whatever it is.</p> 
+	<p>That placeholder is really designed to be something that is an additional benefit that’s going to make it easier to fill this form out because I can see that and I have access to that placeholder. But people are using the placeholder as a label all the time and that has a pretty significant impact.</p></dd>
+
+<dt>Jen</dt>
+<dd>That’s why it’s called a placeholder, it’s supposed to be a small example that disappears quickly. I find it crazy when they don’t disappear, when I click into somebody’s placeholder text and it’s just there as real text hanging out and I have to delete it before I can type.</dd>
+
+<dt>Derek</dt>
+<dd><p>That’s exactly why placeholder was invented, because what we used to do with that was if we wanted an example in there of what kind of text to put in or whatever it was, we used to stash that in the value attribute. Then people were seeing things where those default values were being submitted and used and not valid at all because people would look past those things and say, “That’s already filled out, I don’t need to fill it out.”</p> 
+	<p>The placeholder was invented for exactly that purpose, but even it poses problems. I think I remember hearing about studies where people seeing a placeholder in there made them think that they didn’t have to do anything with it, they thought it was already done.</p> 
+	<p>We want to study this stuff, as well. We have a mechanism that we play around with and basically what we do is we always have a label with the form field, but in cases where we do have the placeholder and that placeholder by default disappears at different times depending on the browser that you’re working with, what we do is we have the form label, we have the form field and the placeholder inside of it, and as soon as you place the focus in the form field and start typing, the former value that was in the placeholder we take that and we clone it and append it to the label so that the placeholder doesn’t disappear as you’re typing. It will actually self-propagate itself up into the label as an additional piece there so that somebody who needs to see that placeholder once it’s gone they’re getting it reflected in the label in addition to the label.</p> 
+	<p>So it would say “Birthday:” and then the placeholder would be “MM/DD/YYYY,” we would take that placeholder format and stash it up in the label so that it’s there as a reminder. Not just for people with cognitive difficulties, but for people that get distracted because they have kids or because they’re in the middle of filling out a form and something happens and they go off to another tab and then come back. There’s all kinds of scenarios there where it just makes that better for everybody.</p></dd>
+
+<dt>Jen</dt>
+<dd>There’s so much to talk about with form design and making it as clear, efficient, and simple as possible, letting people put in all kinds of crazy answers and having all the data get normalized and be okay and not just reject people, “You didn’t put a dash in your date, you put a space, so no form submission for you.” Study after study proves that the better you design your forms and the more elegant, easy, and error free they are, the more money you’ll make on your store, the more success you’ll have with your campaign, the more people you’ll have interacting with you in the way that you want. And that’s true for everybody, including every kind of device, every kind of piece of technology, every kind of person, so it extends into accessibility.</dd>
+
+<dt>Derek</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>These things that you’re saying about labels and such, to really do great form design you have to think about all that stuff.</dd>
+
+<dt>Derek</dt>
+<dd><p>Absolutely. I’m glad that we talked a little bit about form design, because that’s one of the other big barriers. It’s not that this is just form design where we see this, but a lot of forms and a lot of sites in general have multiple column layouts and we create responsive versions where things drop into a single vertical stack where we just stack things on top of one another rather than having them side by side. I love that that’s happened, because it’s kind of like a renaissance for people with low vision.</p> 
+	<p>The experiences that you have using a multicolumn layout on something like a mobile phone very much reflect a lot or some of the experiences that someone with low vision has using a full site on a desktop, because they’re zoomed into a very small portion of the screen at any given time.</p></dd>
+
+<dt>Jen</dt>
+<dd>They have a tiny viewport, even on a big screen.</dd>
+
+<dt>Derek</dt>
+<dd><p>Yes, exactly. That small viewport, you’re looking at just this tiny little slice. We see things all the time testing with real people that have low vision – we’re not just making this up, this is what real people have problems with. Those error messages and hints that are off to the right hand side or calls to action off to the right hand side are very often missed because they’re outside of that field of view.</p> 
+	<p>If you take a form where you have a label on the left, the form field in the middle, and then a message on the right that says it’s required, or must not be blank, or numbers and letters only with no special characters; because that’s in a three column layout, somebody with low vision will have more difficulty with figuring out what they need to do in that form.</p> 
+	<p>You see this all the time. When you see a layout like that on your smartphone and you tap into a field to start typing, what happens to you is the phone interface zooms in on just the field, you type in what you were going to type, and then you can hit the little next field button in the interface and you move to the next field, but you don’t see what the label is so you don’t know what you’re supposed to fill out. What do you have to do? You either scroll it back over, or you have to hit done and scroll back out, see what that field is, and then go back in. That zooming in and out and reorientation is something that a low vision user feels all the time.</p> 
+	<p>These multicolumn layouts that we drop down into a single vertical stack for mobile to make it easier, actually makes it way better for somebody with low vision because they get a really nice line of sight where they can see here’s the field label, then I put requirements underneath that, and then I put the form field underneath that, so we create this vertical stack where I can see what I need in a zoomed in scenario to be able to complete the form.</p></dd>
+
+<dt>Jen</dt>
+<dd>So many fascinating details to really grasp, to remember. To me they’re not different from each other, they all do fit together like a puzzle and responsive design is part of that.</dd>
+
+<dt>Derek</dt>
+<dd><p>It absolutely it. It’s a really critical piece. I do a workshop that’s all about responsive and accessibility and looking at some of the overlap between the two and how they fit well. And they do fit well together, they really do. I love the proliferation of these touch screen devices with zoom capabilities because it just gives designers and developers some insight into some of the things that can be a real pain for people with low vision.</p> 
+	<p>When I describe that scenario of filling out the form on a phone, it’s not like it was impossible, but it sure slows you down. That’s the same kind of thing with somebody with low vision. The fact that the error messages are off to the right or maybe the call to action is off to the right hand side, it’s not that it makes it impossible to find, it makes it more difficult to find and it slows somebody down to where we’re not as efficient.</p></dd>
+
+<dt>Jen</dt>
+<dd>Right, it’s really annoying. Any time you annoy people you’re going to have a really good chance of having them go away.</dd>
+
+<dt>Derek</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>If you’re building a website for a reason and you don’t want them to go away, then stop making them want to go away, no matter who they are.</dd>
+
+<dt>Derek</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd><p>Maybe people who have to deal with this kind of crap all the time are more patient with it, but that’s not something to rely on. They should not be patient. They should not have to be annoyed like that. None of us want to be annoyed like that.</p> 
+	<p>This does make me think, though. I think lots of times when I’m talking to people about responsive design they want to know, “What are the break points?” and lots of times people will design to 320 and then they don’t design any smaller. It feels like a better way to go is to design down to as small as you can.</p> 
+	<p>At some point, 50 pixels wide is ridiculous, but at some point there are going to be people who are down in a viewport smaller than 320. It could be all of us if we buy watches this fall for Christmas, but it could also be someone using the phone that you’re used to that’s only 320 but they have it zoomed in such a way that their viewport is even smaller than 320.</p></dd>
+
+<dt>Derek</dt>
+<dd><p>I think that’s kind of a critical piece. One of the things that happens in responsive design is that we have these break points that are determined based on viewport size and you can’t make viewport a proxy for anything else. It is what it is, it is the viewport size.</p> 
+	<p>I actually went and saw my father-in-law about three or four weeks ago and I was shocked at what I saw on his computer monitor. He had about a 27 inch monitor and his resolution was effectively 800 x 600, it was one step up, it was something like 832 x 624. I talked to both he and his wife about it and I said, “Tell me more about your setup here. Does it work for you?” They were happy to talk about it.</p> 
+	<p>I think they’re on a Windows XP machine and it was set at that resolution and I said, “Tell me why.” She said, “We have it set up like that because we’re blind.” They’re not blind, they can see, but they’re certainly older and their vision is not what it used to be. Imagine what that’s like; an 800 x 600 screen on a 27 inch monitor.</p> 
+	<p>We sometimes make these assumptions with break points that if you’re less than 768 width that you’re on a tablet. That’s not true. If his desktop resolution is 832 x 624, he could easily have a nice physically big window that’s 500 to 600 pixels wide that has nothing to do with the capabilities of the machine. We can’t assume that viewport means anything other than this is the viewport size.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>That’s where SVG and web fonts can really help, because they’re not blowing up images. Websites that have SVG for images and web fonts will draw nice beautiful edged stuff really big so they can see it.</p> 
+	<p>I’m just going to ask you one last question. Pinch to zoom being off on websites. I could tell you what I think. I end up going to a lot of websites and I can’t see something and the pinch to zoom is disabled.</p></dd>
+
+<dt>Derek</dt>
+<dd>Not cool. There are hundreds of use cases for it. </dd>
+
+<dt>Jen</dt>
+<dd>Not cool, don’t do it.</dd>
+
+<dt>Derek</dt>
+<dd>Totally not cool. </dd>
+
+<dt>Jen</dt>
+<dd>It drives me crazy. </dd>
+
+<dt>Derek</dt>
+<dd><p>It has an impact on people with disabilities. People with low vision in particular need that ability. There’s two things. People will always say, “But they have zoom tools that they can use.” I’ll just use iOS as an example, but it exists in Android as well. In iOS you can turn on zoom and you can zoom the entire interface to increase font size and make things better.</p> 
+	<p>The reality of it is if you disable pinch to zoom, the way people do it is they set a meta viewport tag that says user scalable = no, and what ends up happening is you can’t zoom, you can’t double tap to zoom in on just a paragraph that you need to read. What you do in that case is you force people to use the assistive technology rather than allowing them to just have that flexibility within the browser.</p> 
+	<p>The bottom line for me is, just the same as you, just don’t do it. The rendered text that you get by double tapping to zoom or pinching to zoom when you increase the size of a block of text, when that renders it’s still clearer text than if you use the assistive technology zoom where things become pixilated. It’s not nearly as bad as it used to be, but things still get pixilated.</p></dd>
+
+<dt>Jen</dt>
+<dd>The pixels get blown up rather than the content getting blown up. </dd>
+
+<dt>Derek</dt>
+<dd><p>Yes. It ends up being something where if you double tap to zoom and get in on that content, you zoom in on it immediately but it kind of gets redrawn with a really smooth good looking outline again. Whereas, if you’re using the assistive technology there is no redraw or reflow to accommodate anything, it just blows everything up and makes the pixels bigger.</p> 
+	<p>That’s probably an overly simplistic view of technically what’s happening, but that’s the effect that it ends up having.</p></dd>
+
+<dt>Jen</dt>
+<dd>It’s just a whole other step. You have to go over here to get this other thing and do this thing. Some people are going to do that and some people are going to have no idea that it even exists. </dd>
+
+<dt>Derek</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd><p>But everybody knows how to pinch to zoom on a touch screen device – everybody who uses a touch screen device, one of the first things you learn is how to zoom. If you’re looking at a photo, you can zoom in on your photo and you can zoom back out again.</p> 
+	<p>I think I asked a couple weeks ago on Twitter, I was so frustrated, “Why are people even doing this?” I ended up feeling like there are two reasons.</p> 
+	<p>One is because they’re using frameworks where that’s the default and they don’t know what we’re talking about and they don’t change, which is just crazy. (A) Why should frameworks that have that by default be out there? (B) Why do they get any respect or get used? (C) Why don’t people go switch the meta viewport tag themselves? It’s just a lack of experience or lack of understanding.</p> 
+	<p>Then the other reason it seems is that people do it on purpose because they’re doing other crazy things with the layout that if they let people zoom in then the layout breaks. Usually those crazy things have to do with advertisements, like if they want ads in an overlay or something, or they’re putting an advertisement that’s pegged at the bottom of the page so that no matter how far you scroll that ad stays down there the whole time, or other kinds of navigation with position fixed.</p> 
+	<p>I just feel like “stop doing that.” Either go write your layout better or go get better layout code, because there are ways to get around some of those bugs. Or just don’t do it, that’s not on the table then. If it’s going to be buggy, don’t disable zoom as a fix to your bug.</p></dd>
+
+<dt>Derek</dt>
+<dd><p>There’s a third one that I learned about. I spoke at the EDGE Conference in London, England earlier this year, put on by the people at Financial Times. It was an awesome conference. One of the things that came out of it that I learned was that people are putting “user scalable = no” on there because there is a delay, it’s a performance thing. There’s a 300 millisecond delay in clicking or tapping on a link because the device needs to determine whether or not you’re actually tapping on a link or you’re scrolling or doing a double tap to zoom in.</p> 
+	<p>If you tap and hit a link but you are double tapping and you actually want to zoom in on it, you might be hitting that link accidentally, so it has to build in the delay to wait to tell is the person going to be doing a double tap or are they doing a single tap. So there’s a 300 millisecond delay that it waits for, so people are getting rid of user scalability because they don’t want that delay. I was blown away but this, that 300 milliseconds makes a difference.</p> 
+	<p>So people are doing it for that reason, pure performance that when they tap on the link if user scalable is set to no, it doesn’t wait for a double tap to zoom because you can’t and so it goes and activates that link right away.</p></dd>
+
+<dt>Jen</dt>
+<dd><p>That’s probably why those frameworks have it set up that way, because people are obsessing about that tiny delay and bragging that this browser doesn’t have it anymore and this framework gets rids of it. That’s cool if you want to make things a tiny bit faster, a tiny bit more responsive, a tiny bit more like we’re touching magic when we touch these glass screens, but not at the expense of something like I want to be able to zoom into this photo and see it better when I’m on my little tiny phone and I want to see the detail better, or when I can’t see this thing and I need to zoom in to see the phone number better, or I’m reading the whole page like this because the text is small and I’m having a hard time seeing it, or whatever reason.</p> 
+	<p>Destroying human usability for whatever it ends up being, whether it’s 2% of the users or whether it’s 30% of the users, in order to please geeks in this super geeky way is just not acceptable to me.</p></dd>
+
+<dt>Derek</dt>
+<dd>That’s the thing. Usually when people are talking about performance, what they really mean is speed. To me, accessibility, usability, and the way people actually do things actually counts as part of performance.</dd>
+
+<dt>Jen</dt>
+<dd>Get the human brain to click faster. </dd>
+
+<dt>Derek</dt>
+<dd>Usually when people say performance they mean speed. Which is fine, but that’s one metric, it’s not the only one.</dd>
+
+<dt>Jen</dt>
+<dd>And speed is perceived by humans as part of the human experience, but that’s not the only piece of the human experience. </dd>
+
+<dt>Derek</dt>
+<dd>Exactly. </dd>
+
+<dt>Jen</dt>
+<dd>Well, thank you so much for being on the show today. This was great.</dd>
+
+<dt>Derek</dt>
+<dd>I was very happy to be here. We could do it any time you wanted to. This is episode 77, if you wanted to have me on for 99 or some other number again, I would love to come and talk to you more about things. </dd>
+
+<dt>Jen</dt>
+<dd>Sure, we’ll definitely have you back. There are quite a few people who keep returning, there’s just so much to talk about.</dd>
+
+<dt>Derek</dt>
+<dd>There is.</dd>
+
+<dt>Jen</dt>
+<dd>People can also follow you on Twitter <a href="http://twitter.com/feather">@feather</a>.</dd>
+
+<dt>Derek</dt>
+<dd>I am <a href="http://twitter.com/feather">@feather</a> on Twitter, I got that early on in November 2006. I’m number 12,000 or something. </dd>
+
+<dt>Jen</dt>
+<dd>You’re a very cool kid.</dd>
+
+<dt>Derek</dt>
+<dd>That’s what I’m going to pretend to be anyway.</dd>
+
+<dt>Jen</dt>
+<dd>And you have a website. </dd>
+
+<dt>Derek</dt>
+<dd><p>I do have a website; <a href="http://SimplyAccessible.com">SimplyAccessible.com</a>, where we write all kinds of accessibility related articles.</p> 
+	<p>I have a secret to tell you as well. I thought it was really cool that this episode was sponsored by <a href="http://lynda.com">Lynda.com</a> because earlier this year I recorded a new course for Lynda.com and it should be coming out sometime soon. It’s in their Foundations of UX series and it’s all about accessibility. It’s a UX perspective on accessibility and understanding accessibility from that perspective. Hopefully it gives people some things to think about and then hopefully it will lead to some other ones, too. I really enjoyed making that course. I thought it was kind of cool that this episode happened to be sponsored by Lynda.com.</p></dd>
+
+<dt>Jen</dt>
+<dd>Nice. You’ll have to tweet when it comes out and if people haven’t used their seven day free trial yet they can run over there and use it to check you out. Nice. </dd>
+
+<dt>Derek</dt>
+<dd>Absolutely.</dd>
+
+<dt>Jen</dt>
+<dd>People can also follow me <a href="http://twitter.com/jensimmons">@jensimmons</a> on Twitter or the show <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. Otherwise, we’ll be back next week.</dd>
+
+</dl>
