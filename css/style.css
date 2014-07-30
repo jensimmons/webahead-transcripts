@@ -7,6 +7,7 @@ body {
   margin: auto 3em;
 }
 
+h3,
 dd, 
 small,
 p,
@@ -36,6 +37,13 @@ a:active {
 }
 h1 {
   line-height: 1.2em;
+  margin-bottom: 0.25em;
+}
+h3 {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;  
+  margin: 0;
 }
 h1 a {
   text-decoration: none;
@@ -46,7 +54,7 @@ hr {
 }
 small {
   line-height: 1.45em;
-//  font-style: italic;
+  font-style: italic;
   font-size:0.9em;
 }
 small em {
@@ -125,6 +133,7 @@ footer[role=contentinfo] ul {
 @media (min-width:560px) {
   header,
   main h1,
+  main h3,
   dd,
   footer > *,
   footer[role=contentinfo] ul {
