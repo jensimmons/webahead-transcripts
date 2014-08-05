@@ -11,6 +11,14 @@ http://jensimmons.com
 The Web Ahead
 http://5by5.tv/webahead
 
-Superstar Transcribers include:
+Superstar Transcribers & Contributors include:
 Jenn Schlick, http://jenn.io 
+Jason Neel, http://jasonneel.com
+Matt Sugihara, http://mattsugihara.com/
+Eliot Sykes, http://www.webdevbreak.com
+Cheryl Colan, https://github.com/cherylcolan
+Joe Watkins, https://github.com/joe-watkins
+Ross Penman, http://rosspenman.com
+Anna Debenham, http://maban.co.uk
+Karen McGrane, http://karenmcgrane.com
 Rev.com, http://rev.com
