@@ -1,0 +1,1511 @@
+---
+layout: transcript
+title: "Git with John Albin Wilkins"
+permalink: 40/
+---
+
+<dt>Jen Simmons</dt>
+<dd>This is The Web Ahead, a weekly conversation about changing technologies and the future of The Web. I’m your host Jen Simmons, and this is episode 40! I want to say thank you so much to today’s sponsor, <a href="http://incontrolconference.com">The In Control Conference</a>, along with <a href="http://cssdevconf.com">CSS Dev Conf</a>. We’ll talk more about them later in the show. So, this week, this show got planned very last minute. Sometimes there’s these gaps in the schedule, and I kind of like, I realized I’ve kind of like waiting and seeing what happens and seeing if there’s something happening, some kind of neat suddenly popping up, discussions popping up on Twitter or online somewhere. And that’s exactly what happened this week. I think it was three days ago, there was a bunch of tweets going around. Some of the people I follow, some really well-known, amazing designers — web designers — who were like, “Ugh! Git! Ugh! I don’t quite understand Git! Git drives me crazy! I’m so frustrated! Oh, I’ve been meaning to learn that!” And I thought that’s a really good subject for The Web Ahead. Maybe we should do a show about <a href="http://git-scm.com">Git</a> and do a kind of practical show for people who maybe want to learn Git, or maybe know they should be using it, or they already are using it and they’ve looked at some tutorials but they’re still kind of frustrated or they don’t quite understand how it works. Sometimes I find that— Sometimes tutorials are very how-to — step 1, step 2, step 3 — but what makes sometimes this technology hard is not knowing a bigger picture, not quite understanding the mental model or the kind of the what’s going on bigger than the, “Oh! You should type <kbd>git -m-</kbd>”, you know, like that stuff is good but then if you don’t quite ever piece together the mental model then sometimes that stuff’s hard. So, John Albin Wilkins is the guest today. He and I have worked together on quite a few projects and he— I was asking and talking to a lot of people on Twitter about this. He raised his hand. I was like, “John would be great!” So, hello John!</dd>
+
+<dt>John Albin Wilkins</dt>
+<dd>Hello!</dd>
+
+<dt>Jen</dt>
+<dd>I was really glad that you volunteered to come on the show with me and talk about Git. John, for people who don’t know, he’s a really kick-ass <a href="https://www.drupal.org">Drupal</a> developer. He has maintained <a href="https://www.drupal.org/project/zen">the Zen theme</a> for many, many years. The Zen theme is kind of starter kit theme in the Drupal world that I highly recommend and love and recommend to people all the time. He’s also the lead of the initiative to make Drupal 8 much more mobile-friendly and put a lot of mobile best practices in place. He co-authored the <a href="https://www.drupal.org/node/1849934"><cite>Drupal 7 Module Development</cite></a> book, and a bazillion other things. And you’re also about to start writing a book about Sass and Compass for O’Reilly.</dd>
+
+<dt>John</dt>
+<dd>Yes, I sure am. Yeah, like I’m talking to the— my future editor this week. And we sort of came to agreement this week. So, it’s like breaking news.</dd>
+
+<dt>Jen</dt>
+<dd>Breaking news!</dd>
+
+<dt>John</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>I love breaking news.</dd>
+
+<dt>John</dt>
+<dd>I hadn’t told anybody until I told you.</dd>
+
+<dt>Jen</dt>
+<dd>Yay! More new breaking news on The Web Ahead. Yeah, so I mean, Drupal Drupal Drupal. That’s how we know each other. And the Drupal community, in fact, switched from <a href="http://savannah.nongnu.org/projects/cvs"><abbr title="Concurrent Versions System">CVS</abbr></a> to Git a number of— now maybe two years ago? So I feel like there was a lot— There was a period there in the worlds that we live in, there was this big surge of discussion about Git and a lot of camps and tutorials and conference sessions to help teach people Git, and sort of this group effort to learn Git all at once. I feel like— At least that’s how I learned Git, was in that period of time.</dd>
+
+<!-- 3:53 -->
+
+<dt>John</dt>
+<dd>Oh definitely. Before Drupal switched over to Git, they were using CVS, which is a really now painful to use version control system. But when we started using it 10 years ago, that was it. There was nothing else that you could use, so. And yeah, during that time, that’s when everybody that I knew was learning Git and it was— There was a lot of people who didn’t understand how the system worked, and I ended up teaching a lot of people how to use Git. There were a couple of conferences for Drupal, DrupalCons, where I just, like, taught people how to use Git, especially front-end developers and designers.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, there’s nothing like— Because, I mean, there was a period there where you could just go into <abbr title="Internet Relay Chat">IRC</abbr>, into one of the Drupal chatrooms — and it really had nothing to do with Drupal; it just happened to be a community of people — and ask any dumb question you ever wanted to about Git. And there’d be like six people who would be like, “Here! I’ll help you. I’ll walk you through that”, [laughs] which was really, really nice. So, I’m hoping to kind of do some of that today on this podcast episode. Let’s, let’s just start with super basic: what in the world is <a href="http://en.wikipedia.org/wiki/Version_control">version control</a> and why in the world does somebody want to use it?</dd>
+
+<dt>John</dt>
+<dd>Right. So, yeah I think it really is useful to look at sort of the history of version control a little bit, just so that you sort of build this mental model because Git is such a new, new way of doing things that trying to explain it without any sort of background of how the ways used to work, it’s very challenging. So, like, let’s go back to the very beginning. Original version control was basically I’ve got this file. I’m working on it. I want to keep a copy of this current version, and I just, you know, go into the Finder and hit Duplicate, right? And now I’ve got the same filename that says space copy at the end. And then I edit the filename to add like a date, right? And that’s version control. You just keep old copies of the file around.</dd>
+
+<!-- 6:00 -->
+
+<dt>Jen</dt>
+<dd>And a lot of people still do. I mean, there’s probably plenty of— majority of people listening to the show right now who are like, “Oh yeah! I’ve done that. I got Photoshop Awesome Design 1, Awesome Design 2, Awesome Design 3, Awesome Design 4, [laughs] Awesome Design Final”…</dd>
+
+<dt>John</dt>
+<dd>Yeah, and my favorite— Yes, Awesome Design Final 2.</dd>
+
+<dt>Jen</dt>
+<dd>…Final Final The Real Final. Yeah. I mean, that is version control. You are attempting to have multiple versions…</dd>
+
+<dt>John</dt>
+<dd>Sure.</dd>
+
+<dt>Jen</dt>
+<dd>…and control the situation. [laughs] You might not be succeeding in controlling it very well, but. Or maybe you are but it’s very manual. It’s very human-created, the situation.</dd>
+
+<dt>John</dt>
+<dd>Right. And sort of the next step beyond that was— There was a system called <a href="http://www.gnu.org/software/rcs/"><abbr title="Revision Control System">RCS</abbr></a> that I used way back in the paleolithic era when I went to college. And it was a program that could help you make, you know, copies basically of your— backup copies of all of your files that you could later go back and sort of compare old versions to new versions and it would sort of do this transparently in that you’re editing a file and then you would tell RCS, “Hey! Save a copy of this”, and it would go and it would make, you know, basically a new commit as they call it. But it would, you know, there would be no like cluttered file system with all these different copies of the same file. It would be sort of hidden inside the RCS repository. But it only worked on your computer. If you wanted to share your work with somebody, you were working with on a project together with somebody, it just didn’t work. You basically— You had to share the computer in order to share the repository, so umm.</dd>
+
+<!-- 7:47 -->
+
+<dt>Jen</dt>
+<dd>Yeah, and as a bit of a tangent, it almost seems like <a href="http://en.wikipedia.org/wiki/Time_Machine_(OS_X)">Time Machine</a> is sort of doing something like that, where it’s in your own personal world.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>If you’re using Time Machine, you know, your Apple operating system, Macintosh operating system is taking a snapshot of your computer every day and sort of keeping that so that if you realize when you open up your Excel spreadsheet on Tuesday that, “Oh my gosh, where— I worked on this all last week and on Friday it was perfect and now it’s Tuesday and everything’s missing”. You can kind of open up Time Machine and go back in time and get the one from Friday before you accidentally erased everything, and— So it’s a very different kind of thing than, you know, Git but it’s solving the same problem: the problem of, you know, we need to have some backups here. We need to have some ways to keep track of things. We need to make sure that if we make a mistake and accidentally delete everything, we can go back in time and we can get it back.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm. Yeah. And the only difference between Time Machine and a version control system is that usually in version control system you tell them explicitly, like, now is when I want to make a backup copy, right? Like, I’ve just make this significant change, I want to save this copy of, you know, so that it can compare it later to, you know, my new current version, right? And Time Machine just does it every hour.</dd>
+
+<!-- 9:07 -->
+
+<dt>Jen</dt>
+<dd>Yeah, you don’t really have much control over what it’s doing.</dd>
+
+<dt>John</dt>
+<dd>But I’ve actually heard of people who use modern version control systems now and they just set up like a repeating process so that every like 15 minutes it goes and makes a new commit automatically. So like while they’re authoring this book, it’s just making commits every 15 minutes and they just get this nice, like, Time Machine-like repository of all of their changes since they started creating— since they started writing the book, which I thought was an interesting way—</dd>
+
+<dt>Jen</dt>
+<dd>Yes. So then you were talking about being on a team. I mean, that’s what people use version control for is I’m on a team and there’s— I mean, right now you’re in Taiwan and I’m in New York City in the United States, and two—</dd>
+
+<dt>John</dt>
+<dd>It’s really early here by the way.</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Yeah.</dd>
+
+<dt>John</dt>
+<dd>It’s 3 am.</dd>
+
+<dt>Jen</dt>
+<dd>It’s almost 3 pm here, and it’s almost 3 am there. You actually went and had your first sleep and then woke up to do the show. Thank you very much. And you sound very awake, actually.</dd>
+
+<dt>John</dt>
+<dd>Yeah. Well, actually — do a complete tangent here — I started using a standing desk. It is remarkable how much more awake you feel getting out of bed and standing up than it is if, like, getting up and sitting at a desk and putting your head down on the desk and [both laugh] going back to sleep.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, so if we’re on the same team, we’re on separate continents, we want to share files, you know you work while I’m sleeping and then I get up and I work while you’re sleeping and we want to be able to— We’re working on a website — let’s just, I don’t know, a website might be a good idea — together, and we have all of these files, a version control system can keep track of who did what and it’s a way for us to send our work to each other as well.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And so CVS was next, right? After RS— err, -CS.</dd>
+
+<dt>John</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>CVS.</dd>
+
+<dt>John</dt>
+<dd>I think it was RCS. Anyway. Nobody cares anymore. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Nobody cares.</dd>
+
+<dt>John</dt>
+<dd>CVS. Nobody even cares about CVS.</dd>
+
+<dt>Jen</dt>
+<dd>No.</dd>
+
+<dt>John</dt>
+<dd>So CVS was the next, you know, iteration of version control system. And basically people said, “Oh well let’s have a central server that, you know, has the repository on it and, you know, everybody can— They can check out the most recent version onto their working area, right? On their computer and start editing the file. And when they’re ready to make their change, they push that commit up to the central repository and then everybody else can go and get that new, new commit.” And that’s basically the way it worked. And it worked very well, as long as everybody was online.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<!-- 11:48 -->
+
+<dt>John</dt>
+<dd>And, you know, as soon as you like lose your network connection or, like, you travel — you get on a train, or a plane or whatever — and not being able to get to the central server and not being able to make like a series of commits— So, like, “Oh, I’m going to do this feature,” and, “Oh! I finished this feature. Well I’m on the plane. I’m going to work on another feature.”, and like have no way to actually commit your changes because you don’t have access to the central server, that was a huge problem. So that’s when this idea of distributed version control systems came about.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and after CVS came <a href="http://subversion.apache.org/"><abbr title="Apache Subversion">SVN</abbr></a>, and SVN is very similar. I mean, this is where—</dd>
+
+<dt>John</dt>
+<dd>Yeah, I just basically skipped over that in the history.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and I mean it’s kind of the same, right? It’s not at all— And again, this is not going to be a higher-level, sysadmin-level kind of explanation. Because, honestly, I don’t know. I use these tools because I need them for a functional reason, and then beyond that I just don’t care. I’m really glad that there are other people who care, and there definitely, you know, it’s awesome, it’s a great thing to get into, but I think that for many, many people, especially people who work more on the content side or the business side or the design side, you know, it’s a practical— It’s a tool. We don’t care.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>But there were a lot of— I know with SVN and CVS, there’s just all these places where you just start to try to do something and it would, you’d have a problem and getting out of those problems became, I don’t know, it’s like everybody on the planet started using all of these things and the original ideas we realized, “Oh, that simple way to do the CVS system was a good idea we thought, but it turns out that it’s not so good. Okay, let’s make it one level more complicated to try to make it solve all these more problems.” And then, “Ohh wait. Oh, okay! That’s really, you know, that doesn’t— That’s— The basic stuff is easy, but the medium, intermediate stuff is very— Ugh, okay, let’s start over!” So then, Git was intvented.</dd>
+
+<dt>John</dt>
+<dd>Well I— Yeah, I’m going to jump in and in support of Subversion slighly, even though I was about to skip over completely in the history,…</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>John</dt>
+<dd>[laughs] …because CVS was really awkward. Some of its commands were just mind-numbingly confusing, and Subversion said, “Hey! We can reimplement CVS and do it better.” So basically that’s what they did.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<!-- 14:10 -->
+
+<dt>John</dt>
+<dd>But it still had this problem of, you know, “I would like to make, you know, changes to the repository when I’m not connected online.” And that’s where distributed version control systems came in and there’s actually a lot of them. There’s like <a href="http://mercurial.selenic.com">Mercurial</a>. And Git is just one of the distributed version control systems. And basically the way a distributed version control system is— One of the first commands you ever learn in Git is <code>git clone</code>, right? And that— It’s named very appropriately. When in a distributed version control system, you’ve still got that central server, although that’s more of a convention. Like, everybody agrees that, “Hey, we’re going to have this repository over on <a href="http://github.com">Github</a> — be the central place where we all collaborate together, or like in the Drupal world we have a whole bunch of repositories sitting on Drupal.org’s infrastructure on their servers and we all agreed together that those are the repositories that are going to be the central authoritative repository. But that’s really just a convention because when you do a <code>git clone</code>, you’re literally cloning the entire repository. You’re taking the entire repository and making a copy of it on your computer. So then you can do all the things that you used to do with a, you know, a CVS or Subversion system. You know, make, you know, a commit. You can do that all locally.”</dd>
+
+<!-- 15:42 -->
+
+<dt>Jen</dt>
+<dd>And by entire repository, you mean like…</dd>
+
+<dt>John</dt>
+<dd>I mean everything. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…like all the files. So if there’s 50 files in your pile of files and each of those 50 files has 10 copies for some magical reason. They all have exactly 10, which makes no sense, but let’s just say— Then that’s, you know, 500 files. When you have all 500— Well, it doesn’t really work that way, but pretend. You’ve got the equivalent of a history with all of the changes that were ever made, and all the information about who made which change, and all the notes that everybody wrote about what change they made and why they made it, and the dates they made it, and the number that it got — the sort of crazy number-letter long thing that’s sort of points to that, that particular moment in time — all that information is on your computer on the plane, and there’s a copy of it on my computer in my house, and there’s a copy of it on the computer that we said is going to be the official computer because we just made that up and said that’s going to be the official one. That’s in the closet in the office and there’s— Right? So, everybody’s got the entire history.</dd>
+
+<!-- 16:50 -->
+
+<dt>John</dt>
+<dd>Yeah. It’s literally cloned. Like, everybody has a copy of Dolly the sheep, right? It’s an exact copy.</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Yeah.</dd>
+
+<dt>John</dt>
+<dd>And this becomes, you know, quite powerful because you’ve got all the revisions of all the files locally. So, one of the things that you can do with a CVS system that’s really useful — when I say CVS I mean the old systems — was you could say, “Hey, I want to— This one thing’s not working properly. I want to compare it to an old version and see when it stopped working.” Right? And so you can do what was called a <code>diff</code> and basically look at the differences between your current version and whatever old version that you choose. And CVS would go, “Oh okay! You want to compare these two versions,” and it would, like, spit out this thing that you could look at and see all the differences, right? And again, if you didn’t have access to the central server you couldn’t do that.</dd>
+
+<dt>Jen</dt>
+<dd>You had to be online.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm. Right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And now…</dd>
+
+<dt>Jen</dt>
+<dd>You don’t.</dd>
+
+<dt>John</dt>
+<dd>…everybody has a clone of the entire repository. You don’t have to have any network connection. You can just ask your local Git repository, “Hey, I want to see the difference between this version of the file and this other version of the file.” And it goes, “Okay! Here you go.”</dd>
+
+<dt>Jen</dt>
+<dd>The thing that I’ve also noticed that, you know, away from the whatever — the mind, the thinking about the big picture, and to the like just specific reality of what this means — is that it feels like now developers and other people who use Git you make what is called a commit. Like, you sticking a flag in the ground saying, “This is a moment in time when I want to save everything and sort of package it up for everybody else to get access to it.” You make those in moments where it makes sense. Like, “Oh, I need to redo all the links with blue instead of green. Okay, I’m finished. Now I’m going to jam a flag in the ground. Okay, now I’m going to go work on the redesigning the fonts and making the fonts look different. Okay, now I’m done. I’m going to jam a flag into the ground.” And it used to be more— I mean, you know, it sort of the best practice but it feels like people do that more where commits tend to be these moments of completeness or units of, “Okay, this is really ready to go. This is ready to be sent off to other people.” Maybe in part because it’s faster, because you don’t have to be online, because you can just quickly make commits right there, boom, on your own machine. Yeah.</dd>
+
+<!-- 19:24 -->
+
+<dt>John</dt>
+<dd>Well, the— With a, you know, central repository system like CVS, you know, it was quite a bit of work to actually make sure you have network connection and then when people would make commits they would be extra careful about it. And the reason for that is because of what’s called merge conflicts, right? Actually merge conflicts didn’t happen that much in CVS now that I think of it because you would try to make a commit and if somebody else had already make a commit ahead of you and you didn’t have that version it would say, “No, you can’t do that. Sorry.” And then you would get— Actually, yeah, so you would have a merge conflict now that I think of it. It just wouldn’t be actaul—</dd>
+
+<dt>Jen</dt>
+<dd>It’d just be like, “Sorry.” [laughs]</dd>
+
+<dt>John</dt>
+<dd>“Sorry, you can’t commit that.”</dd>
+
+<dt>Jen</dt>
+<dd>You can’t do that.</dd>
+
+<dt>John</dt>
+<dd>Somebody else changed that same file, and you’d be like, “Argh!”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And then it’d be your job to try and figure out how to…</dd>
+
+<dt>Jen</dt>
+<dd>What to do.</dd>
+
+<dt>John</dt>
+<dd>…merge in this the official repository says is the latest commit and what you thought was going to be the next commit.</dd>
+
+<!-- 20:23 -->
+
+<dt>Jen</dt>
+<dd>Yeah, I mean what you’re talking about just to back up is, like, you and I are working on a project together. We’re both writing CSS. There’s a file called files.css. I’m changing it. You’re changing it. We…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…thought we were taking turns. I was going to work on it Tuesday and you were going to work on it on Wednesday [laughs] because that’s how we have to work, but it turns out we worked on it at the same time. So now what’s going to happen?</dd>
+
+<dt>John</dt>
+<dd>Or like, I forgot to make the commit when I went to sleep and, you know.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So now what? Now— I mean, you know, it used to be with CVS you had to literally schedule who was going to work on it when. And then with SVN you could try to merge them together. The idea being that like what if I changed a bunch of stuff on the top of the file and you changed a bunch of stuff on the bottom of the file and we didn’t actually even touch the same part. Can’t the robots be smart enough to say, “Oh look! John changed lines 100 through 200 and Jen changed lines 6,000 through 6,100. I can just smash those together. I can see which happened later, and just always choose the later thing.”</dd>
+
+<dt>John</dt>
+<dd>Yeah. And then version control systems did get smarter like that. So, it wasn’t just a matter of like, “Oh we both edited the same file” it was like you literally had the same line in the same file before you would get this conflict. So, you get— You could— Like, I could edit the top lines and you could edit the bottom lines and we both could commit and not have any problems.</dd>
+
+<dt>Jen</dt>
+<dd>And that’s, that’s the thing that I really do love about Git the most, is it feels like that example and about 42 others, it just used to always— You get these error messages and I’d be like, “I don’t know what’s going on and this is driving me crazy and I don’t know what to do.” And it feels like with Git that that happens much less often. That there are times when Git, the robots that are trying to keep track of everything kind of throw their hands up in the air and say, “This is complicated and I don’t know what to do. You need to do this, human, and tell me what to do with it.” But that those moments happen less often.</dd>
+
+<dt>John</dt>
+<dd>I agree. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>It does know what to do a lot of the time. Yeah. But that’s the kind of idea as merging is where things kind of get weird, or what do you do if you’ve got more than one file that doesn’t match. How do you know, you know, which one to use? And there’s actually more than one way to kind of smash them together. Which way do you want it smashed, and—</dd>
+
+<dt>John</dt>
+<dd>Yeah. I wonder if it’d be useful to talk about commits and the how— what are called branches, and you know, looking at the log of changes and talking about the tree of all of the commits. That’d be a useful time to talk about that now.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I do want to say before we do that though, because we should, but we— It’s— I mean, right now we’re talking about code. I’ve mentioned CSS specifically. You could do this with PHP. You can do this with Ruby. You can do this— Write code code. But you could also can do this with other types of files when you’re using Git. And I’ve seen people start to do that more and more, where you can actually put your <a href="https://www.omnigroup.com/omnigraffle">OmniGraffle</a> documents into a repository. You can put your Photoshop documents into a Git repository. You can put, you know, the Word document with the contract from the client or the requirements that are in an Excel spreadsheet, or— You can put all of those things into a Git repo. Now, code Git will try to merge. You know, you can say this is CSS. There’s a line 72 and a line 75 and I’ll just smash them together. It’s not going to do that with your Photoshop file. It’s just going to say, “Oh! The Photoshop file changed. I’m just going to change the whole file from the old one to the new one.” It’s not going to be like, “Oh, look, layer four in Photoshop [laughs]—”</dd>
+
+<dt>John</dt>
+<dd>That would be sweet if it could do that.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it does not do that. It just— It just takes the whole thing. I think it’s called a binary file and just replaces the older binary file with a newer binary file. But, I think for those people who don’t write code, for those people who do handle contracts and requirement spreadsheets and, you know, design files that are not code files, I think it’s interesting to think about using Git for that. And I’ve been really pleased on projects where, you know, there’s a team working and some of the people are making Photoshop files and they keep changing them, and meanwhile some other people on the team are writing code files. And it seems like the code files, in the past, the code has been in a Git repo or whatever flavor, the repository. It’s really easy to know what the newest code is. But the Photoshop files keep emailing them to each other or they put them in something like Basecamp or in a project management system. You’re supposed to go manually download the new copy every morning but you forgot, and so now you spent two hours writing CSS based on the wrong file. Like, I’ve been on a team where people put all of the Photoshop files into the repo as well and sometimes that can be a really great solution to,…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…you know, final-final, final-final-real-final [laughs]…</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…to know which one is <strong>the</strong> file.</dd>
+
+<!-- 25:28 -->
+
+<dt>John</dt>
+<dd>So it used to be the system administrators would, like, what you just described would make them hear fingernails on chalkboard, because they’re like, “<strong>You cannot put that big of a binary file into the system repository! [shouts]</strong>”</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>John</dt>
+<dd>But that was back when we had itty-bitty tiny hard drives, really. I mean, [laughs] because it would keep a copy of every single version of that file. So like, if you had a hundred meg. Photoshop file, it would keep, you know, 17 copies of [laughs] each of that file, and it would be full copies. So you’d have like 17 times a hundred megs., right? That was how much space you would be using for that one file.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<!-- 26:06 -->
+
+<dt>John</dt>
+<dd>Which is why the system admins would go crazy. But now we have bigger hard drives and it’s not that big of a deal.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and faster connnections. That’s only going to work if you’re in a place around the globe where you have a faster connection. If you’re paying per megabyte, then you probably don’t want to do that. And you probably don’t want to put your giant video files into your Git repo because that could take up more space than you want. If you’re changing them over and over and over again. So there are, you know, definitely reasons not to do it, but it’s kind of exciting, especially as a person who is a designer and all the different files that designers can use. You can totally— Designers can use this too. Designers can put all of their work in there, share work, keep track of things, have backups, etcetera etcetera, shove every thing up to Github so you’ve got an off-site backup.</dd>
+
+<!-- 27:00 -->
+
+<dt>John</dt>
+<dd>So [inaudible username, 27:00 mark] in the chatroom says that there’s a visual version control system, called <a href="https://layervault.com">LayerVault</a>, which I have not used or heard of, so I guess we’ll leave that an exercise to the reader to, err the listener [laughs] to figure out if that’s actually useful for like Photoshop and video stuff. So.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So, okay. So branches and the other stuff you said. [laughs]</dd>
+
+<dt>John</dt>
+<dd>Right. So, now comes the tricky part in the audio podcast where I try to describe, you know, the beauty of the tree. [both laugh] So when you first create a repository, you basically have to tell it to initialize your Git repository and you say, “Okay, here’s all of my files, and I’m going to create what is called a commit that just says, you know, here’s all the files”, right? This initial commit is often what the commit log message says. So, Git will take a snapshot of those files and store that as a commit. And next to that commit, it’s got this really long hexidecimal number, which is called a <a href="http://en.wikipedia.org/wiki/SHA-1#Cryptography">SHA-1</a>. And you’ll see this in technical stuff a lot, and you’ll frequently see this in <abbr title="Graphical User Interfaces">GUIs</abbr>. There’ll be, when you look at the log of commits, you’ll see like this really long hexidecimal number like 52CFEBDDE48D46E6EB52— </dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>John</dt>
+<dd>I’m about halfway through an actual SHA-1. I’m going to stop here. [laughs] And basically, all that is is a unique identifier, right? So it creates what’s apparently a completely random, really long 32 digit— err, hexidecimal digit. And that’s just so that it can keep track of all the commits individually and it has like a unique name. But that unique name is really awful for most human beings to remember. Like, I’m not going to remember that if I want to compare my most recent version with the very first version in the repository. I’m not going to remember that that first version was called 52CFEBDDE48D— You know, right? So, Git allows us to basically add labels to these things, and as we go and add another on top of it this new change, if you sort of try to visualize a, like a dot for the first commit. And then a little line sort of going upwards, and then a second dot for this second commit, and as you add new commits that line continues upwards and new dots and sort of like a big sort of connect-the-dot thing that goes upwards from the initial commit. And that’s the start of a very simple tree, and you can think of this just like in nature, right? So you just have the initial, the trunk of the tree coming out of the ground. Nothing really interesting yet. But it sort of just comes straight up. And Git will label that sort of initial trunk of your tree with a label called the master branch. So it’ll be called master.</dd>
+
+<!-- 30:42 -->
+
+<dt>Jen</dt>
+<dd>Yeah, the—</dd>
+
+<dt>John</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>I don’t mean to interject in here. The— The way you’re describing it is in a vertical line and sometimes I see it drawn horizontally when people draw this visually, and it’s like a timeline with these dots…</dd>
+
+<dt>John</dt>
+<dd>Sure.</dd>
+
+<dt>Jen</dt>
+<dd>…as if it were, you know, moments in time on the timeline. And it used to be that that— I didn’t even know it was called a SHA-1. By the way, Larry in the chatroom is telling us that it’s a 48 character—</dd>
+
+<dt>John</dt>
+<dd>Oh, 48. Okay.</dd>
+
+<dt>Jen</dt>
+<dd>Not— Just to be accurate. The— It used to be that they would count it like this is commit #1. This one is 2. 3. 4. 5. And my first reaction in seeing something like this crazy, long number that’s not even just numbers — it’s got a bunch of letters in it — is like why? [laughs]</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Can’t you just number them like 1, 2, 3— But it turns out numbering 1, 2, 3 creates problems.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm. Yep. So Subversion used to number them 1, 2, 3.</dd>
+
+<dt>Jen</dt>
+<dt>Yeah.</dt>
+
+<dt>John</dt>
+<dd>So like R1, R2, R3, which stood for revision 1, revision 3, you know so like…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…we just have this linear list of numbers which made it sort of relatively easy to remember the…</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>…secret commit number for whatever version that was that you were thinking of.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. You’d be like, “That’s R627”.</dd>
+
+<dt>John</dt>
+<dd>Yeah. But that assumes a central server. Now what happens—</dd>
+
+<dt>Jen</dt>
+<dd>It assumes people are not working at the site and time and different parallel universes. And if–</dd>
+
+<dt>John</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, if one person is on 761 and somebody else is on 761, then who gets 762? Who gets 763? What if everybody’s on an airplane? How do you know what— And that’s why it’s this giant, giant long number. Because Git makes a number up, and it’s like, “Oh, it’s 65439Q — not Q — CEF-something”, and then it’s— They make up another number over here, and make up another number oveer here, and everybody gets off their airplanes and jams them all together. The odds are that two commits have that same crazy number are, like, a gazillion bazillion never going to happen. So, [laughs] it’s okay because everything is uniquely numbered and the numbers don’t actually mean anything and—</dd>
+
+<dt>John</dt>
+<dd>Yep. Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Everything has a number that is different than everybody else’s number. Even if they were working on separate airplanes for a year or something, the odds of their being a problem is very, very small.</dd>
+
+<dt>John</dt>
+<dd>Right. Exactly. So if you’ve got two people who got an identical clone of the repository at this paricular time, and then they both go and create commits at practically the same time, you just can’t give it the same number. So, like, you’ve got— Everybody’s got five commits and I go to make the sixth commit, you can’t call it commit #6 because somebody else just did the same thing at the same time and there’s no way to sort of [laughs] to resolve that fundamental problem with counting.</dd>
+
+<!-- 33:34 -->
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah, and mostly, you know, humans don’t need to see the 48 number, the character number, and if you ever do need to handle the number they usually get— they do get abbreviated and you can just use the first — I don’t know what it is — five digits or something and…</dd>
+
+<dt>John</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>…not worry about it. But really the whole point is that—</dd>
+
+<dt>John</dt>
+<dd>Yeah, the only reason I brought it up is because you’ll see those in documentation all the time.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And— confusing.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>Really, from an everyday standpoint, you don’t really need to know that there’s a really long number associated…</dd>
+
+<dt>Jen</dt>
+<dd>No.</dd>
+
+<dt>John</dt>
+<dd>…with it. But the sort of fundamental thing that’s important to understand is that Git does track each of these commits individually and it has a unique identifier for each commit so it knows what to do with them. And then we basically add these sort of human-friendly labels to what’s going on…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…so we can keep track of what’s going— So this master branch. The master label is basically pointing at the most recent commit that’s in our repository.</dd>
+
+<dt>Jen</dt>
+<dd>But this imagining a line with dots all on it being this, the branch, the long— it’s a timeline, the thing—</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, when I first started using Git, I first first started using it on Github and I found Github incredibly helpful to figuring this stuff out, because they actually do have a graph visually. If you’re working on any project, there’s a tab called “Network”, and you can click on that. You can actually go over to Github now and just look at any, I think you can just without an account just go to Github.com and click on anything that’s there, anybody’s project, and then click on the “Network” tab and you can see a graph, literally of this exact thing: a big line with a bunch of dots on it. And I think if you hover over the dots, like, more information will show up about what each of those dots is. Each dot representing a commit. Each dot representing a pile of files or pile of changes or, you know, maybe some files got added, some got deleted, or something happened and they were packed up into a thing. And then branches, you’re going to explain branches.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Branches are where you can—</dd>
+
+<!-- 35:50 -->
+
+<dt>John</dt>
+<dd>So, let’s say I wanted to start working on a second version of the site, right? So I’ve got this master branch where we’ve been working on this site together, and we don’t want to, like, lose the current version of the site while we start working on the new version because invariably, you know, a month into we’re hacking on the new version there’s going to be some giant security hole or, like, you know the client needs, like, this one thing done really, really fast and you have to make changes to the current version at the same time as working on the new version. So what you end up doing is creating a new branch. And this is basically— So we got this dotted line extending the air. We tell Git, “Hey, I’d like to create this new branch, and we’ll call it version2”. You can name your branches whatever you want. So we’re going to create this version2 branch, and then when we make a commit to that version2 branch, it’s just basically going to create like a little line off of the most recent commit that we’ve done, sort of angling off to the right. And now we’ve got literally a branch coming off our main tree. As we add fixes to our current version of the site, the master branch will continue straight up, and then we’ve got this sort of side branch for version2.</dd>
+
+<dt>Jen</dt>
+<dd>It’s literally, literally a parallel universe. Like, in this universe, we have a homepage that has six boxes on it. But we’re thinking about maybe doing it differently. We’re designing this from scratch, and we’ve got the homepage with the six boxes. And so we want to try out what it might be like if we have a homepage with eight boxes, but we don’t want to destroy the one with six boxes, and we don’t really want to start a whole separate project. This is all one website, so let’s create a parallel universe, and in the parallel universe we’ll change all the stuff around and we’ll try out a design with eight boxes, and change all the colors and make the type bigger, and whatever else that gets requested. And then we got these two different worlds, and you can kind of switch, like literally just switch from one world to the other world and back and forth. And be like, “Clickity-click-click. Oh okay, let’s look at with six boxes, look at it, talk about it in this meeting. Clickity-click-click. Oh, now we’re back to the world with eight boxes.” It’s pretty powerful. And one of the— That’s one of the things that’s very easy with Git: make branches. And it’s easy in such a way that once you know how to use Git, and we haven’t yet talked about the tools and how exactly to do this stuff, but once you learn that kind of stuff, making branches and switching between the branches is relatively not hard. I don’t know if I should say easy, but it’s not that complicated. And it means that you can take bigger risks sometimes. Maybe you’re going to start working— You got everything working and you finished this thing that you were doing. It took you four days and it’s all done, and now you’ve got to start working on a new thing and the new thing is going to be kind of weird and hard and you’re afraid you’re going to break everything, and you kind of don’t want to mess up the perfection of the fact that it works right now, [both laugh] so maybe you make a new branch. And you’re like, “Okay, I’m going to go off in my branch in the parallel universe world, and I’m going to do all this risky stuff that I’m not really sure how to do. And if I screw it up completely, I can just go back to the other world where everything works and throw away that whole branch. And just be like nevermind. Go away.” [laughs] And it just goes away! And then you don’t— You know, you can back up in a certain kind of way. You can get back into the working universe where everything works. It’s great for teams too because maybe you’re on a team and everybody’s sort of pushing all their really, really finished work to master and that’s the convention that you have, the agreement you have with each other, that master’s always going to be stuff that really, really works. And maybe each person is on their own branch so that you can do a bunch of stuff on your branch and somebody else can do a bunch of stuff on their branch, and you don’t kind of mess each other up unless you want to.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Or sometimes people make a separate branch for each ticket. You know? They’re like, “We got 700 tickets to get done for this project. Let’s make a branch for every single ticket, and that way we’ll know where the work is for each ticket.” You can do that if you want to. I think the way a team’s structure themselves and the way they set up a project is really up to the team and up to the project to figure out what makes sense. But those are some of the ways that I know people have worked if they want to, you know. Or sometimes people just [laughs] do what I do and just shove everything into master until my colleagues are like, [laughs] “Will you stop breaking everything?! You really need to make branches for what you’re doing.” And I’m like, “Oh, okay!” [both laugh] That’s probably the most common—</dd>
+
+<dt>John</dt>
+<dd>Yeah. Feature branches are really useful, especially when you’re, like, you know intentionally breaking something in order to redo it. It can be very disrupting if you just continue to work, you know, make all of your changes on the master branch, which is what everybody else is using. And you’re breaking as they’re, you know, pulling those new changes over. Their site is being broken in the exact same way as you’re doing it intentionally, except that they don’t know what’s going on. Right? [laughs] So, if you instead create a new feature branch like this, you know, instead of creating a branch called version2 you just say my-crazy-feature, right? So I’m going to call my-crazy-feature, new branch, and do all my work there because everybody else is still working off of the master branch they’re not going to see your work until you decide to put it back onto the master branch. And the way that you do that is what’s called merging, right? So we’ve got, we’ve got this new branch that shoots off to the right from the master branch, and that’s what’s called diverging, right? Because they split from this common ancestor point and now you have two separate lines of parallel development, right? Once you stop breaking the site and you’re like, “Hey! It actually works now!” you can do what’s called a merge and you will literally take the very end of your feature branch and the very end of the master branch and knit it back together. So you’ve got a line coming off of your feature branch and a line coming off of your master, and they come together to a single point and that’s a new merge commit that merges those two separate branches back into one branch.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it’s pretty miraculous [laughs] actually.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Because it maybe that you’ve been on a branch for a month, and it maybe there are 14 other people who’ve been working on master and you may have changed a lot of stuff and didn’t change a lot of stuff that everybody else did, and meanwhile they changed a bunch of stuff and that’s all got to get smashed together in a way that hopefully actually really works.</dd>
+
+<!-- 43:00 -->
+
+<dt>John</dt>
+<dd>Git does a really good job of merging stuff together.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>Technically, Subversion had merge capabilities but they did not work so very well. There’s, like, all this sort of computer science-y ways of merging trees and graphs as they call it, and they were just real crap at it back when Subversion was created and it got a lot better since then, so. That’s— Somebody in the chatroom was saying, “Can you describe octopus merges?” and we said, “<strong>No!</strong>” [both laugh] But that’s like one of the computer science-y terms that, for strategies of how to smush the stuff back together.</dd>
+
+<dt>Jen</dt>
+<dd>I like saying smush back together rather than— [laughs]</dd>
+
+<dt>John</dt>
+<dd>I like to— I like to alternate so that people remember it’s— It is a merge. This is what a merge is. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yes. Yes. That’s true. Yeah, you’re using the real—</dd>
+
+<dt>John</dt>
+<dd>It’s not like two bananas and you smush them together. [both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>No, using the real words is good because then also you can Google those real words and— I just frequently don’t remember them. It’s funny. It’s like once it works it just— Yeah. And also merge is a word that’s used— I mean, let’s say I’ve cloned the repository. The repository perhaps was born somewhere else in the world. So now I have a clone on my computer, and I’m working, and I’m working locally, and I’m doing a bunch of things, and I work all day, and I make three commits during that day at three different moments when I feel like things have kind of been finished. And then I get to the end of the day and I want to take all my work and shove it off to the rest of the team. I haven’t done that yet. Maybe for some reason I’ve just kept everything to myself. I feel like no, now I’m really, really ready to share this work. And so then I’m pushing it. And I push it off into whatever, wherever it goes. And then later—</dd>
+
+<dt>John</dt>
+<dd>There’s actually— Well, I was going to say: whenever you push it, there’s a couple of things that might happen.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>Right? One is that nobody else has made any changes to the repository, this sort of central repository that everyone’s decided is the central repository. If no one’s made any other changes, the central repository goes, “Oh! Here’s new commits from Jen. No problem,” and it just merges them in with, like, the master branch if you’re working off a master branch, right? The other thing that might happen is, “Oh, well John happened to have made some commits ahead of time and we’ve aleady added these extra commits to the master branch. So my master branch is different from your master branch, and I cannot just add your commits directly on top of it.” So it’ll say, “Hey! No! You can’t do this yet because you were missing some of my commits.” And all you have to do— It’ll interrupt your <code>git push</code> and say, “Stop! You can’t do this now because you’re missing commits.” And all you’ll have to do is do a <code>git pull</code>. So then you’re basically— What a <code>git pull</code> is, actually, it’s two steps: it’s fetching all the recent commits from the remote server, and then doing a merge. So when you think about it, even though you’re both working on the master branch, you still have diverged, right? Because your master branch used to be the same like three commits ago, but has diverged because you’ve got these new commits on the remote server that you don’t have on your local server, and you’ve got some commits on your local server. So you effectively have this, this branch of the remote master and your local master. And so when do a <code>git pull</code>, it’s fetching the commits from the remote server and then it does a merge. It, you know, stitches these two lines of development back together. So it takes the remote master and your local master, creates a new commit that stitches them back together, and then says, “Okay! I’ve pulled and it was— There was a clean pull.” So, like it’s done a clean merge. So now you’ve merged them back together but you’ve still just sort of done that locally. And now you can push again, and it’ll push that merge commit to the remote server and say, “Okay, look, I just merged my work in with yours. Is this good?” and they should say, “Yeah! Works for me!”, because it just looks like a new set of commits that apply cleanly now to what it thinks of as the authoritative master branch.</dd>
+
+<!-- 47:18 -->
+
+<dt>Jen</dt>
+<dd>And what you just described I think is one of the moments when people hit the wall for the first time. You’ve cloned the repo. I’m working. I did a bunch of stuff. I made my— And we haven’t talked about even how to make a commit yet. We can back up and do that. But I made a bunch of commits and I go to push them, and I get an error message. That error message, right there in that moment, is the thing that I think is the number one “What?!”</dd>
+
+<dt>John</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>And that— Watching people try to solve that is a place where I’ve seen people really screw things up, and in fact in ways that I didn’t— I would have never thought was even possible. [laughs] So, that was one of the first things that I felt like was a big— Okay, now I’m starting to get it, is once I knew okay I go to push, I get this error message that I don’t quite understand. What that means is I need to pull. Heh. Sometimes that error message, the words and the error message, are pretty clear. Sometimes they’re really not. Like, Git Tortoise is a <strong>terrible</strong> tool. It’s a…</dd>
+
+<dt>John</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>…tool that you can use on a PC that puts some Git— some powers of Git into your browser actually. And you can right-click in the browser and do some stuff. And I don’t remember what it tells you for that message, but whatever it tells you makes it sound like you should click a checkbox and hit the button, and when you click the checkbox and hit the button you, like, screw things up. Like it just— Don’t do that. [laughs] First I’d recommend do not use Git Tortoise, but if you’re going to use Git Tortoise then absolutely be careful about what I’m talking about. But there’s— Sometimes there’s, you know, there are tools that will offer you a chance to check a box and force and you just— The answer is no. Don’t do that. Don’t, don’t, don’t. No, no, no, no. What you need to do is pull.</dd>
+
+<!-- 49:08 -->
+
+<dt>John</dt>
+<dd>Wait, wait, wait. So Git Tortoise told people to do a force push? Because basically if a— Force push is a term that’s in Git and basically that means that you’re going to be the bully. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Wipe everything else out and just do what I ask.</dd>
+
+<dt>John</dt>
+<dd>You’re going to push yourself. You know, push commits out of line and say, “Screw you!” You know, “I’m taking your lunch money.” You know, “The master branch is what I said it is, and I don’t care what all of the other stuff,…”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>“…all these other commits that people are making.”</dd>
+
+<dt>Jen</dt>
+<dd>I don’t— Git Tortoise was doing another thing, and I don’t remember if it was that tool or another tool, but there have been tools that I’ve seen — especially early on in the Git world, maybe they’ve changed since — but this was a year or two, two years ago where the tools would be like, “Hmm. I seem to be having trouble. Would you like me to force?” [laughs]</dd>
+
+<dt>John</dt>
+<dd>That’s— That’s a really bad collaborative tool.</dd>
+
+<dt>Jen</dt>
+<dd>It’s really bad. Because, basically you’re saying— It’s basically saying, “Hmm. It seems like some other people did some work. Would you like me to erase it for you?” [both laugh]</dd>
+
+<!-- 50:05 -->
+
+<dt>John</dt>
+<dd>Yes! That’s exactly what it’s saying.</dd>
+
+<dt>Jen</dt>
+<dd>And the answer is no! So, one thing is don’t— If you see an option to— If you ever see an option that says, “Would you like me to force?” the answer is no, unless you’re a master and a ninja and you know this better than what I’m explaining then fine, go, do whatever you want. But if you’re a [laughs] a person who’s still learning this stuff and there’s an option to force, the answer is never.</dd>
+
+<dt>John</dt>
+<dd>The ninjas are all on the command line anyway.</dd>
+
+<dt>Jen</dt>
+<dd>The— Yeah. The— But really, this problem. You’re going to go to push. It’s going to go, “blurp blub blub da blub blah, I can’t,” heh. And you’re going to go, “Uh”, and the next step is to pull. Just pull. However, whatever tool you’re using, pull. Because for whatever reason, it really wants to do the merge on your computer. It doesn’t want to do the merge up on Github or off in the ether somewhere. It wants that merge process to be handled while you are watching on your computer locally. So you have to pull and get all the stuff from everbody else and then do the merge where you are, and then once the merge is done take the whole merge, the whole merge — and this is where it Git Tortoise screws things up — and send that whole merge back up to the Universe. Git Tortoise gives you the opportunity to pick through that merge.</dd>
+
+<dt>John</dt>
+<dd>I can tell you why Git— I can tell you why it does want you to do it locally, is because like I said, you know, Git does a really good job of smushing the stuff back together most of the time.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>It’s when the things go wrong that you need to try to massage the two bananas back together locally. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] The peel is not fitting around the smashed bananas.</dd>
+
+<dt>John</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. The— Yeah. And it will— We should talk about that in a minute, is how to— Because that’s the number two problem that I see. The first one is, you know, you don’t— You didn’t realize you didn’t pull because you don’t always have to and you forgot that you might need to, and then you got lost. And then the second problem is what to do when you do pull and you have a merge conflict. But yeah, that’s where Git Tortoise would go wrong, is Git Tortoise would give you the opportunity once you did the merge locally and you would successfully finish the merge, it would supervise the pushing all of those files and it would give you the opportunity to only push some of them and not the rest. Some of the commits and not the rest of the commits, or like cherrypick through the merge and only send some of the stuff. I was on a team once where many people were doing that and they would be— They would basically be deleting work because they weren’t pushing the entire merge. They were only pushing some of it. It just— It was— I don’t know why that’s an option in Git Tortoise, but yeah.</dd>
+
+<!-- 52:47 -->
+
+<dt>John</dt>
+<dd>I get in this habit of right— Like I’ve just made a commit and I want to push it up to the server, and I go, “You know what, I’m going to check and see if there’s any new commits from other people before I push my stuff.” So I’ll do a <code>git pull</code> first and do a <code>git push</code>. So I don’t…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…because I remember to do that, I don’t often see the problem where I push something and it says, “No! You can’t.” I don’t see that error message very often.</dd>
+
+<dt>Jen</dt>
+<dd>Because I—</dd>
+
+<dt>John</dt>
+<dd>I used to see it a lot because I’d forget to do it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. No, it’s a good habit. If you just always pull and then push, you’re fine.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>The thing you do have to do though before you pull, is you have to commit everything that you’ve done. So if I sit here and I work for three hours, and I commit the things I did, and then I work for another hour and I do not— I haven’t committed those. They’re like half-baked. I got all this stuff sort of not finished. But I want to push what I already finished, and I— So I need to pull. I can’t pull with sort of half-done stuff. I have to figure out what I want to do with everything that’s half-done. And I have to commit it or I have to sort of, if I want to be more advanced, put it in another branch or move it off into what’s called a stash, or like there’s options. But basically I need to go ahead. Usually I just go ahead and commit everything that I have. Then you can pull. Then it will merge. And then you can push that whole merge. I think this is where people are like, “That’s too hard! I don’t understand what you’re talking about!” [laughs]</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Because I get it. I get that— I mean, I can hear ourselves. I can hear myself out loud, going “I want this to be simple.” It is a little complicated, but it— I feel like once you’ve done it a dozen times—</dd>
+
+<dt>John</dt>
+<dd>And speaking of complicated [inaudible username, 54:31 mark] in the chatroom was just asking can you describe rebase right now. And while technically it’s related to what I just described, they would horribly confuse 99% of the people…</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>John</dt>
+<dd>…at this point, so maybe we can cover it, like, in IRC or something. If we get to it at the end of this conversation, great. But it’s a more advanced topic right now.</dd>
+
+<!-- 54:50 -->
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>So.</dd>
+
+<dt>Jen</dt>
+<dd>But, so you work locally,…</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…you make a commit, you pull everybody else’s stuff, I don’t really— You just, maybe you see some things go by. It’s something— You see the word merge flash by, and then you push.</dd>
+
+<dt>John</dt>
+<dd>Yeah. If you do a <code>git pull</code> and there’s no commits on the remote server, then it just goes, “You’re up-to-date already.”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>“No problem.”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And if you do a <code>git pull</code> and there’s commits on the remote server that you don’t have, it will, you know, it’ll merge it together and create a new commit for you on your local system.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And then when you push, you’re going to be pushing, you know, all the commits. You may— Plus this merge commit up to the remote server, so—</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>That is this concept of merging and these things together that you’re absolutely right. That is the first thing people will, like, don’t get and it screws them up and they never want to use Git again, because they see these error messages, like “I don’t know what to do!”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So, I’m debating whether we should talk about merge conflicts or we should go back and talk about how to make a commit.</dd>
+
+<dt>John</dt>
+<dd>Hmmm. I think let’s go back and talk about how to make a commit because some of the tools we need to do a merge conflict, you know, you actually describe the tools themselves…</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>John</dt>
+<dd>…and if we haven’t described how to make a commit, that might be useful. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>And let’s— This is a good place. Let me jump in here with, talk about our sponsor because sponsors are cool. [laughs] The In Control Conference, which is coming up in December in Hawaii, December 3 and 4. There’s a bunch of pre-conference workshops on December 2. There’s two days of sessions on December 3 and 4, all of what is called The In Control Conference. And then on December 5, there’s another day called The CSS Dev Conference. All of these are in Honolulu, which is kind of cool, especially I think I’ve been talking about this conference for the last several shows as if everyone lives in the United States, which is just dumb. I’ve been reading a book about adventures in South America, reminding myself that, like, I really need to cut it out assuming everybody’s in the United States. For a lot of people…</dd>
+
+<dt>John</dt>
+<dd>Yeah, I for one live on a different tropical island in the Pacific.</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Yes. Well, and like getting to Hawaii is way— How far is it to Hawaii from where you are?</dd>
+
+<dt>John</dt>
+<dd>It’s about halfway between here and San Francisco, so.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. So this is a really good thing that a lot of people who are in Asia might want to check it out because it’s a lot closer than— Because a lot of these speakers tend to speak in Europe or in the U.S., but this is a chance for people who are in other continents to see them without travelling nearly as far. Karen McGrane, Kristina Halvorson, Chris Coyer, Jessica Hische, Brad Frost, Dave Rupert. Really smart people, all talking about really fabulous things, many of which they’ve been on this show, talking about CSS, talking about content strategy, about mobile, HTML5, jQuery, how to build a modern website with great technique, great business strategy, great architectural strategy, how to get it done in the amount of time and with the number of resources that you have. Real specifics and big picture stuff. And then the CSS Dev Conference is a whole day just about CSS, with a lot of other really smart people: Jonathan Snook and Paul Irish and bunches of people. You should go check out <a href="http://cssdevconf.com">cssdevconf.com</a> and <a href="http://incontrolconference.com">incontrolconference.com</a>, and you can look, you know, look at the schedule and the dates and the fabulous hotel on the beach in Hawaii and check out all of the information. There’s also—</dd>
+
+<dt>John</dt>
+<dd>Yeah, so if I can jump in here a little bit.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>Sometimes people don’t know these names and I’ve been updating my bio since I’ve been working on the Sass and Compass book, but I’ve been doing this stuff for almost 20 years. Like next April it’ll be 20 years that I’ve been on the Web, and the people that you listed off, like my jaw dropped open. It’s like wow! These are a great list of people that you definitely want to go see them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, you know, like Dan Cederholm. [laughs] Yeah. That’s who I learned CSS from literally reading his books. Yeah. There’s a coupon code: ALOHAAHEAD. If you use that code, you get a hundred bucks off. You can always go check out the show notes to go look that code up again and figure out how to spell it, get the links to these two conferences. The show notes, by the way, are at <a href="http://5by5.tv/webahead/40">5by5.tv/webahead/40</a>, where you can see all the links to things that we’re talking about and whatever else that we want to put in there once we get done. So thank you so much to Environments for Humans, the folks who are putting on these two conferences. They’ve been sponsoring quite a few episodes of The Web Ahead this fall, and it’s been a giant help. So yes, you listener can help the show by going to their websites and checking them out even if you think that Hawaii is a pipe dream. You can go get specific about your pipe dream. [laughs] Let them know that you’re thinking about them because they sponsor the show. So thanks.</dd>
+<dd>Commits. So, John, how do you make a commit?</dd>
+
+<!-- 1:00:50 -->
+
+<dt>John</dt>
+<dd>So, I was— Say the— Let’s start right at the very beginning, which is you’ve never used Git before and you’re like, “Oh, I definitely don’t want to use the command line,” so you’ve installed some <abbr title="Graphical User Interface">GUI</abbr>. I’ve got <a href="http://git-tower.com">Git Tower</a> here in front of me right now, which by the way has a 30-day trial, which is what I’m using right now because I usually use the command line. [laughs] But, the first thing that any of these tools will ask you is basically, you know, “Tell me your name. Give me your contact info.” And the reason for this is because not only does Git keep track of each version of the file, it keeps track of who edited the file in that commit, right? So, the author of the commit is, you know, is you, right? So it needs to know your name and your email address. And that’s a convention. That, Git uses. It has to know both of those things. A lot of people don’t like putting their email messages on, like, pubicly available servers. They’re afraid of spam and all that stuff. And there are some really easy solutions to this: One is use a fake email, which I think kind of sucks. Don’t use that. The other one is to, you know, we’ve all got like three or four Google accounts. Why not just create another Gmail account [laughs] for that, which is what I did. So, like, I’ve got virtually.johnalbin@gmail.com which I’m using using for all of my commits. And it’s a real email, and I check it occasionally. But, it needs to know my name and my email address. And all of these tools will ask you for that so that it can identify you when you make a commit. So, if you’re using the command line, you basically— Actually no, let’s do it from the GUI standpoint, because most of the people don’t want to use the command line. In Git Tower, it’ll show you a list of all the files that have been changed, which is very convenient because you don’t want to browse through the entire project just to find the one file that you edited, right? So it just lists all of the things that have been changed. And then there’s a little checkbox next to each of those files that says “Staged”. It’s unchecked and you just need to check it to stage it. And the reason for this is that some version control systems will just, when you make a commit, it’ll check in every single change that you’ve made in the entire project. And Git says, “You know what? You need to tell me explicitly which files you want to add to this commit before I make a commit.” So you basically have to take all of the files that you want to be in the commit and stage them. So you, in the GUI, you click the checkbox that says “Staged” and if you’re on the command line you would say <code>git add</code> and then the filename, and you would be adding the file to the staging area. So now you’ve got all of these files that are in your staging area, and then you can actually make the commit. And in Git Tower, it’s just a button that says “Commit”, right? And it’ll pop up a dialog saying, you know, “Give me a commit message”, right?Because I want you to describe briefly what changes that you made so that people can get a sort of a human-readable message of this change that you just made, instead of having to actually look at individual files to see what changes you’ve made and sort of figuring out from the context of this giant context of the project what happened, right? So describe it in human terms what you’re doing for this commit. And then you fill that in in the commit log, and then you say, “Okay, <kbd>Enter</kbd>” or whatever, and it takes that commit message, it takes your name and email, and bundles it all up into a commit.</dd>
+
+<dt>Jen</dt>
+<dd>Yep.</dd>
+
+<dt>John</dt>
+<dd>What do you think? Is that a good description?</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] I think so. Yeah. I think it’s also good illustration of sort of what it’s like to do it from a command line versus from a GUI, because I feel like learning to do it from the command line then there’s a mental model that I need of, “Okay, so there’s— I can’t see them — they’re invisible — but there’s a bunch of files and some of them have changed and the rest did not. So then I need to know which ones changed. So there’s a command I can run. It’ll give me a list. And then I need to tell it to put everything into a staging area, and then I need to actually make a commit out of what’s in the staging area, and if I’m not sure what’s in the staging area I can always ask it and it will tell me what’s in the staging area…”</dd>
+
+<dt>John</dt>
+<dd>Right. And the—</dd>
+
+<dt>Jen</dt>
+<dd>It’s like working with all this invisible stuff, and then having to sort of have it in my own head of what’s happening.</dd>
+
+<dt>John</dt>
+<dd>Yeah. So if you’re on the command line, <code>git status</code> will give you basically a text version of the things that you see just naturally in all the GUIs.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>So <code>git status</code> will list all the files that have been changed, but it’ll also list all the files that you’ve aleady staged…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…that are in the staging area. So that’s really useful to know that oh these files are ready to be committed as soon as I decide to make the commit, and then these other files have been changed. And the thing is you can actually add a file to the staging area and then when you go and edit it again after you’ve added it to the staging area, that new change isn’t staged. It’s the old version of the file when you added it to the staging area that it remembers.</dd>
+
+<!-- 1:06:46 -->
+
+<dt>Jen</dt>
+<dd>Right. Right, right, right. Right. That— We can— That’s a little bit advanced. We can get back to that.</dd>
+
+<dt>John</dt>
+<dd>That’s also useful to know, right? So like,…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…“I’m going to make this change and oh! I’ve got these files in the staging area and oh! Wait, I forgot to do this one thing,” and then you go and make that one change…</dd>
+
+<dt>Jen</dt>
+<dd>But it didn’t get it.</dd>
+
+<dt>John</dt>
+<dd>…and you forget to add that…</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>…new change to the staging area and then you go to make your commit and it’s not what you wanted because…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…it’s missing this bit.</dd>
+
+<!-- 1:07:10 -->
+
+<dt>Jen</dt>
+<dd>Yeah, and this is where— And I have— I have so—</dd>
+
+<dt>John</dt>
+<dd>That’s the second place where people get screw up.</dd>
+
+<dt>Jen</dt>
+<dd>That’s true. [chuckles] I have so much respect for people who live on the command line and do tons of work on the command line. I think there’s certain jobs, certain roles in our world that working 100% on the command line totally makes sense. If you’re a sys. administrator that’s what you’re doing. If you’re writing code and you’re very much— your hands are on the keyboard all day, it makes a lot of sense to do a lot of the stuff on the command line. I feel like for designers, even the commands that I know and the command line stuff that I can do perhaps even faster on the command line than through a GUI, I like doing them in a GUI because my brain is in a visual mode and not in a text mode and I want to stay in a visual mode. And also I feel like a lot of this stuff is easier from a GUI because you don’t have to necessarily remember to think about the invisible things and you don’t have to necessarily have the whole mental model in your brain very completely. Like, you were describing with Git Tower. I use Git Tower a lot, constantly actually. It will literally list the files, and then there’s a little checkbox, and you’re like, “Oh yeah! Of course! I have to check the ones that I want.” And you check the ones that you want. You don’t check the ones that you don’t want. Like, that’s completely obvious what that means. You don’t need to know the words staging area. You don’t have to realize that you’re staging. You just— You’re just like, “Ooo! Check, check. Not check. Check.” And then you click the big commit button and it brings up a dialog box. It makes it— It’s clear where you’re putting a message in there, you hit the button, boom! You made the commit. You can see the list that used to have, you know, you had eight files that changed and you committed four of them and now you have a list that’s four files because those are the ones that you didn’t change.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Or when you go to add files or you want to delete files in Git Tower, it’s all the same. You just check all the boxes. If you’ve renamed a file, it seems like it’s going, “Hmmm. This one disappeared. I don’t know where it went. Do you want me to delete it? Hmmm. This one appeared out of nowhere. I don’t know what this is. Do you want me to add it?” And then when you click both it goes, “Oh yeah yeah! You just renamed it.” It’s a R with a yellow, I don’t know what that means. [laughs] Looks good to me! Clickity-click-click-click, go! Where I think with the command line, you do have to have a bit more mastery and to realize I need to do this with these files, this with these files, this with these files. There’s different commands. I need to know what these commands are. I need to spell all of the words correctly. Which is cool.</dd>
+
+<dt>John</dt>
+<dd>Yeah, if you’re on the command line, you definitely need to have a more concrete understanding of the architecture of Git and have these conceptual models sort of in place and ready to go,…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…because it’s really easy to get lost at the command line without them.</dd>
+
+<!-- 1:09:52 -->
+
+<dt>Jen</dt>
+<dd>Yeah, it feels a little bit like, you know, hacking through the forrest without a map. [laughs] When you, you know, on the command line where I don’t really know and honestly I don’t want to know. I just want to get my commit made.</dd>
+
+<dt>John</dt>
+<dd>Yeah. And I’m going to be honest: when I first used Git and there’s a guy out there called <a href="http://technosophos.com">Matt Butcher</a> who I co-wrote— one of the co-authors with <cite>Drupal 7 Module Development Book</cite>, he was on the project with me when we first used Git and man I did not want to use that system ever again after we used it. And because there were no GUIs at the time, it was just command line, and Git on the command line is actually improved so much in the last, like, three years. This was three years ago when I used it. And it had like the most unhelpful error messages ever. [laughs] You know, so these problems that we were talking about that the kind of problems people run into, like I would get those common problems and then the error messages would just say, “No, sorry, you can’t do that. You want to do a <code>git push</code>? No.” [both laugh] That was the error message. “No. Nah. Forget about it. No.”</dd>
+
+<!-- 1:11:00 -->
+
+<dt>Jen</dt>
+<dd>Yeah. Like, it’s more helpful if you remind me that I should pull. [laughs]</dd>
+
+<dt>John</dt>
+<dd>And now the command line does remind you. It’s like, “I can’t push right now because there are commits that you don’t have”, and you go, “Ohh! Okay, that’s a useful error message.” Right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And that’s more complicated. I mean, I think Git from the command line is more complicated than SVN from the command line because there’s, like, three or four steps instead of one or two steps. There are good reasons for it, some of which we’ve already talked about, and there’s no way I want to go back. I mean, I’m actually at the point where I almost feel like saying to potential new clients, “You’re using SVN? I’m sorry, you can’t hire me. [laughs] We’re going to be using Git for this project.” But, it is more complicated.</dd>
+
+<dt>John</dt>
+<dd>Yeah, once you become, like, a real Git master…</dd>
+
+<dt>Jen</dt>
+<dd>You don’t want to go back.</dd>
+
+<dt>John</dt>
+<dd>and by that I mean you have to use it from the command line, that kind of Git mastery. There’s actually a way that you can tell Git to pretend that the Subversion server is a remote Git server.</dd>
+
+<dt>Jen</dt>
+<dd>You can actually do that from inside Git Tower, and I have.</dd>
+
+<dt>John</dt>
+<dd>Really? Oh okay.</dd>
+
+<dt>Jen</dt>
+<dd>There’s a project I’m doing that now with, yeah, with Git Tower when there’s a whole pane for repositories, there’s a place that I just click the button and add a repository, the little drop-down says, “Add Remote Repository”, “Add SVN Repository”.</dd>
+
+<dt>John</dt>
+<dd>Well cool!</dd>
+
+<dt>Jen</dt>
+<dd>You can just boom. And that’s, that’s definitely a good way to work. If you are interested in Git and you want to use Git but you’re on a project that’s using SVN, you can check out the SVN repo through Git and then locally get to do all the juiciness of Git but meanwhile interface with everybody else using SVN. It doesn’t give you everything that Git would give you, but it gives you a lot of it, especially locally. It gives you some of those tools.</dd>
+
+<dt>John</dt>
+<dd>Yeah. If you have any leverage with a client, I would definitely say stop using Subversion. Use Git.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>But, you know.</dd>
+
+<dt>Jen</dt>
+<dd>But my point was that even though Git is more complicated in some ways, it’s still better. And I do think that anybody who wants— I mean, if you’re an aspiring developer and you’re working to learn Objective C or Ruby or, you know, PHP and you’re working on a computer science degree or— I think you should go learn Git from the command line. Like, that’s— that’s a great thing. Maybe you use a GUI for a year or six months until your mental model is in place, and then you start switching over and use a command line so that you can become a super master ninja. But I think for a lot of other people who are— That’s not their career goal. That’s not what they’re doing. They just want to use the tool and they want to get it done. I think using a GUI is a really, really good way to go. And I do recommend Git Tower. They’ve been a sponsor of the show a couple of times. But they haven’t been a sponsor because they were sponsor. They became a sponsor because I asked them to sponsor [laughs] because I love them so much and I really have learned so much from this tool. I wanted to talk about it on the show and they were gracious enough to sponsor past shows. They’re not sponsoring today. We’re just talking about them because I love them. There’s also <a href="https://mac.github.com">Github for Mac</a>, which is free and it also works really — surprise, surprise — really, really well with Github. It’s not as— I haven’t used it personally very much because I got, I kind of got my flow down with Git Tower and stuck with it, but one of the things I feel like Github for Mac and some of the other tools, some of the other GUIs I’ve seen are a bit more— Some, some you feel like developers designed them in a way that makes sense for the developer brain, and then others seem like designers designed them in ways that seem to make sense to the designer brain. So I think what probably makes sense for you if you’re shopping around for a GUI is to sort of try several of them and figure out which one fits better with your brain in the way that things make sense for you and, you know, take the— keep the one that seems most natural. I like Git Tower because it does do— Like, it does submodual support. You can totally do crazy, crazy stuff like submoduals without really worrying about whether or not you’re doing them correctly because it just handles everything. It handles stashes really nicely. You can see what’s going on with your remote. One thing that’s cool about these GUIs is that you’ve got, like, there’s this big tab that says “Commits” right in the middle of the Git Tower window, and I can see the graph that we were talking about, with this line and the dots and the branches right there, along with a list of dates and people and the messages for each commit and the hash or the giant long hexidecimal number.</dd>
+
+<!-- 1:15:44 -->
+
+<dt>John</dt>
+<dd>You know, I said I use command line, but I actually I cheat quite often when I’m looking at the log. I’ll open up a GUI app to look at the log because it’s just way more easy to figure out what’s going on. You can see these, you know, the branch diverging into separate branches and then merging back together, and you can get a text description of all of that stuff, but man seeing it visually with little lines going all over the place just makes it really easy for me to figure out what’s going on.</dd>
+
+<dt>Jen</dt>
+<dd>It’s faster. Yeah.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I can imagine that kind of workflow where you’re sort of— the stuff you do constantly is just quick-quick, bang it out on the command line, but the more complicated stuff— I like, I like— One thing I like about GUIs is they feel safer to me, like it’s going to help me through this [laughs]…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and it’s going to remind me about things that I need to do that I wouldn’t have remembered, or I can go ahead and try. I can risk some stuff and just click some buttons and try some kind of— I know what I’m— I know I sort of have the mental model but not completely. I think I know what I’m doing, but I’m not sure. I can just take like a risk because it will stop me if I’m not doing it correctly, where the command line is a bit more powerful and a bit more willing to go, “Really?! Alright! Let’s do it!” [laughs] You know, like instead of where the GUI’s like, “Noooo! Don’t do that!” [laughs] And I appreciate that as somebody who has not put Git mastery on my list of things to do yet. And I say that like I don’t know what I’m doing, but actually I know Git really, really well. I just know it from a functional point of view. I don’t really know it from a I want to be the person everyone turns to when the Git repo melts point of view. There are people who do that and I love them, but I’m not going to be one of them. So merge conflicts. So, a merge conflict happens when a merge is attempted. For example, I’ve worked locally. I’ve made a bunch of commits. I’ve made a bunch of changes. John’s worked somewhere else. He made a bunch of changes. He made a bunch of commits. And I’ve pulled his changes and I have committed mine and the Git locally on my machine starts to merge them together. And maybe there’s 10 files, and nine of the 10 files merge together just fine, and that tenth file has a conflict.</dd>
+
+<dt>John</dt>
+<dd>Yeah, Git is basically not able to figure out how to cleanly get your changes and my changes together into one file. And it goes, “Uhh! Sorry.”</dd>
+
+<dt>Jen</dt>
+<dd>And usually this happens when, like, if we’re writing CSS and I wrote some stuff on the top and you wrote some stuff on the bottom, it’s going to merge it just fine. But if we both changed the exact same thing in the middle and I’m like, “I want the margin to—”, you know, the margin was 1 em and I want it to be 4 ems and you want it to be 3 ems, Git’s like, “Well, what do you want people? Uh, this doesn’t match.”</dd>
+
+<dt>John</dt>
+<dd>Yep.</dd>
+
+<dt>Jen</dt>
+<dd>And that’s— I mean, the merge conflicts are the most scary situation I think that happens most often because it feels like you can end up in a place where you’re just clicking around, typing around, and you just don’t really know what to do.</dd>
+
+<dt>John</dt>
+<dd>Well, it’s definitely a scary because, you know, a lot of the GUI apps make it seem slightly scary because it’s got this very helpful “Abort” button, [laughs] which I would think would induce a lot of panic in people. [both laugh] Like, “Oh no! It’s an abort!” [both continue laughing]</dd>
+
+<dt>Jen</dt>
+<dd>Why would I need that? Ahhh!</dd>
+
+<dt>John</dt>
+<dd>Yeah, exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and I think the earlier GUI tools didn’t really have much in the way that was very helpful, where the later ones have gotten better and better. Like, I know in Git Tower there’s actually a place where you can configure which GUI tool— Like, there are merge conflict tools out there, right? So I use one, I always forget the name, but then I— It’s, it’s like, “Wait, what TV show does it sound like? <a href="http://www.deltopia.com/compare-merge-sync/macosx/">DeltaWalker</a>!” [laughs] Sounds like DeltaWalker, I don’t know, like John Wayne should be in the tool or something because it— It’s a big file comparison tool, where I’ll be like, “Let me show you this file on the left, and let me show you this file on the right, and you can just scroll and see line by line exactly what’s different between the two.” So, like, you can tell some of these GUIs “Hey, I have a tool for comparing files. Please open these over there and let me go over there and change over there.” But then also I’ve started to find tools where you can just kind of click around and basically you’re trying to tell it— You’re trying to go line by line and say, “Okay, for line 62 I want you to use my copy. For line 75 I want you go use John’s copy. For line 83 I want you to use John’s. For line 91 I want you to use mine.” So it’s always like, “Yours or theirs? Which one do you want me to use?” The other thing you can do is just open the file up in a text editor, because what’s happened I think, I think — correct me if this is wrong — but I think what happens is Git— Oh, now I’m confusing Git and SVN. But it marks the file up.</dd>
+
+<dt>John</dt>
+<dd>It does. Yes. They both do that I think. But yeah, Git does. It marks the file up. It’ll put, like, less-than signs: <code><<<<<</code>, like eight times and then it’ll throw out some Git sort of magic [laughs] text. It’ll say like HEAD, and then it’ll describe— On the next line it’ll describe, like, the one change, and then it’ll put a whole bunch of equal signs, and then it’ll describe the other change, the other version, and then a whole bunch of greater-than signs, right? [laughs] So you can sort of see that oh this is area where you got this conflict, and you can literally just, like, pick the line that you want to use and then delete all the other lines.</dd>
+
+<!-- 1:21:58 -->
+
+<dt>Jen</dt>
+<dd>And is that— Do you think that’s how most command line jockeys handle the situation?</dd>
+
+<dt>John</dt>
+<dd>I hope not, but I bet some of them do. Yes. And so basically you would just need to, like, search the file for a boatload of equal signs, right?</dd>
+
+<dt>Jen</dt>
+<dd>[laughs]</dd>
+
+<dt>John</dt>
+<dd>I think seven. So I’m sure there’s some command line jockeys who just, like, “Oh, I have to go and search files for seven equal signs.” So it looks like Larry does that in the command line, err in the chatroom. He says he does it that way.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I don’t know how other people do it. I just know the way I do it, which is Git Tower pops up some yellow,…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…and I look at the yellow, and I click the buttons that say “Them”, “Me”, “Them”, “Me”, or it’s probably “Us”, “Them”, “Us”, “Them”. And then there’s another button, and I click the button and I cross my fingers. [laughs] I mean, it sounds very non-technical but it is a bit of art, just the box, dark box. Like, I don’t know what’s going on, but I just need to clickity click click and then— But over time it seems less and less traumatic. Like over time it seems less and less of a big deal. Just be like, “Whatever, I want you to do this one and that one and not this one. Okay, go.”</dd>
+
+<dt>John</dt>
+<dd>Yeah. So the funny thing is when I— the way I do merge conflicts is since I’m on a Mac I’ve got <a href="https://developer.apple.com/xcode/">Apple’s Developer Tools</a> and buried somewhere in there is a little utility that will show two files, you know, next to each other and allow you to see the differences and then merge those differences in another sort of window below those two that are next to each other. So it’s like got three panes. So on the top you have your stuff on the left and their stuff on the right, and then below is like okay how do you want to combine these, and that’s— It’s this little app, and I don’t know what it’s called but it gets installed when I install Developer Tools. And then the Git command line, like, magically knows that this thing exists because it’s Apple and I don’t know how that works exactly. So there’s from the command line I’m trying to do a Git merge tool. I’ll tell it, “Hey, I want to use a utility to merge this conflict and fix this conflict.” It’ll say, “Oh okay,” and it’ll list a whole bunch of crazy command line tools that I’ve never used, and say “Do you want to use one of these?” and I go, “Yes?” [both laugh] And then suddenly it opens up this GUI that’s from Mac Developer Tools. So that’s the way I do it. [both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>So it’s different but similar. You’re not quite sure what you’re doing but you click around.</dd>
+
+<dt>John</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>I mean, you whatever around until you just— Yeah. I mean, the idea is it has a problem. It marks— It opens up the file and it marks—</dd>
+
+<dt>John</dt>
+<dd>It allows you to see your change— your version and their version,…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…and you need to basically manually decide, because sometimes you’ve— Like, somebody’s corrected a typo, like a missing comma or something, right? And you edited the lines a different way, right? So you just need to like look at the two changes and go, “Oh, I see how it’s different than—” and just sort of manually fix it.</dd>
+
+<dt>Jen</dt>
+<dd>I feel like there’s also there’s a, you know, what it’s asking you to do is to look at the file and manually merge them together. It’s not— It hasn’t deleted anything. It’s kept everything there. It’s marked which one is yours. It’s marked which one is “theirs” and which could be from any number of different people. It’s just not you. It’s all the people who are not you. And what it wants you to do is erase all of those equal signs and erase all of those greater-than and less-than signs and kind of get rid of all the extra notation and just leave it with the one thing that you want. But, sometimes that can be tricky. Sometimes you’re not sure how to get that done. So, another way to get out of that problem is to just delete the whole thing. Like, just tell it, “I don’t know what I did. Fine. Just do theirs. All of it. Them. Just— I’ll redo my work. I don’t—” Because that’s where I end up feeling like with any of these version control systems. I always want this magic fairy button that just says I don’t know. Don’t erase or change anyone else’s work because I don’t know what they did and I don’t want to make anybody else upset. I don’t want to undo anybody else’s work. If you need to get rid of my stuff, just do it. I don’t care. Do it. [laughs] Make— Make it work. Get me back to a place where I can actually keep going and if I have to redo my work that’s fine. Go. But sometimes in the middle of a merge conflict, I’ll end up with that choice where it’s just like instead of picking through the file you can just say just keep them— their file, everything just them and just get rid of my work and I’ll fix it later.</dd>
+
+<!-- 1:26:57 -->
+
+<dt>John</dt>
+<dd>Yeah. That’s one— Especially if the change is very significant — usually it isn’t — but if the change is very significant, yeah I’ll like… Yeah, sometimes it’s just easier to just redo your work and say, “Okay, use theirs. Use theirs and I’ll edit the files again.” And that’s sort of like the last resort.</dd>
+
+<dt>Jen</dt>
+<dd>Or sometimes— Yeah. Yeah, it is. Or— But sometimes I’ll know that — and this happens more often early on, it happens less and less often I think the more I’ve learned about Git the less often I’m confused, I just actually know what’s going on — but the— but at first it seemed like there are plenty of times where I kind of knew that I hadn’t done anything useful. Whatever was going on in my local copy was just me messing around trying to, like, open the project, set things up, and I didn’t want anything to be kept. I just wanted to get back to the way everybody else has it, which you can do by just delete the entire repo and reclone again. But that wasn’t always the right answer. But yeah, somehow sometimes it was like, “I don’t know! Just get me out of here!” Because the thing is with a merge conflict is you do have to do something about it. You cannot just leave it there. And you can’t just leave it there like overnight and come back two days later. Like, you really need to go ahead and take care of it and get out of that state and then push whatever you’ve done back to wherever everything lives and so that everybody else can keep going and work. I think it seems to me just from my gut that if you sort of ignore it and come back a week later or something it’s just going to be worse. There’s a good chance that everybody else has moved on without you and then the merge conflict is going to be that much more complicated down the road.</dd>
+
+<!-- 1:29:00 -->
+
+<dt>John</dt>
+<dd>Yeah. A good command line— Err, sorry. A good GUI tool definitely is a good way to go for merge conflicts in my, my opinion.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah. And, and somehow like don’t be scared. You can do it. [laughs]</dd>
+
+<dt>John</dt>
+<dd>Like, if I— It’s going to be different in every command line— Ah! I keep saying command line. [laughs] It’s going to be different in every GUI.</dd>
+
+<dt>Jen</dt>
+<dd>Every GUI. Yeah.</dd>
+
+<dt>John</dt>
+<dd>Right. But I’m looking on Git Tower, which I’m testing it right now, I purposely created a merge conflict and basically it shows like a little yellow— no, more like a yellowish tan bar across the top.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>There’s a little yield sign with an exclamation on it after you try to do a pull, right? And then there’s like a “Show Details” button there, and you just click on that and it says, “Solve Conflicts”, and it…</dd>
+
+<dt>Jen</dt>
+<dd>Yep.</dd>
+
+<dt>John</dt>
+<dd>…lists all of the files that are in conflict. And if you click on each of those files, it’ll show you, like, the lines like this is your version and this is their version.</dd>
+
+<dt>Jen</dt>
+<dd>Yep.</dd>
+
+<dt>John</dt>
+<dd>Which do you want to keep, and you just like have to—</dd>
+
+<dt>Jen</dt>
+<dd>It’s a little pull-down menu.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And you just say them, me,…</dd>
+
+<dt>John</dt>
+<dd>Yep.</dd>
+
+<dt>Jen</dt>
+<dd>…them, me. Yeah. Yeah. I love that yellow toolbar, and when because sometimes it goes away. Like, sometimes I click on the wrong thing and I’m like, “Ooo! Where’d it go?! [laughs] Give me the yellow— Like, where—” And as soon as I can find it I’m like, “Okay, good. I‘m good to go.” Like, I’ll from here know how to get through this. Yeah. I mean, it’s not as hard as I’m making it sound. It’s— Yeah. It’s way easier than SVN. So, there’s a couple things that sometimes I find helpful about understanding how a Git repo works. One is that if you leave your command line or your GUI tool, and you just go open up the thing in Finder, or really not Finder. Let’s say your code editor world — like I use Coda — and you look at a list of your files that are in your main directory, your whole project. Maybe it’s a website, maybe it’s something else. On the top level, in the first, you know— Maybe your directory is called <em>project</em>, and so at the top root level of the directory <em>project</em>, if you— inside your tool, you make it show up all the invisible folders. Things can be invisible in Finder. You go open it up in Finder, you’re not going to see it because the stuff is invisible. But if you open it in some kind of tool that lets you see invisible files, it will let you see the invisible directory. And there’s a directory called .git. What is it called? .git.</dd>
+
+<dt>John</dt>
+<dd>No, that’s it. .git.</dd>
+
+<dt>Jen</dt>
+<dd>Just .git.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<!-- 1:31:44 -->
+
+<dt>Jen</dt>
+<dd>And all the information about Git is there.</dd>
+
+<dt>John</dt>
+<dd>Yeah. I mean—</dd>
+
+<dt>Jen</dt>
+<dd>Your Git repo, I should say.</dd>
+
+<dt>John</dt>
+<dd>Basically, you never actually have to go inside that directory.</dd>
+
+<dt>Jen</dt>
+<dd>No.</dd>
+
+<dt>John</dt>
+<dd>But that directory is— It is that repository. So like…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…on, on your, on your local computer that .git folder is the entire repository.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>And all the other files that you see are just basically your working area. Like, this is the most recent commit from the branch that you’re working on checked out to your working area and these are all the files that are all over your file system that you normally are editing…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…in any tool you want, right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. It’s—</dd>
+
+<dt>John</dt>
+<dd>.git is the actual repository, and then everything else is just your working area.</dd>
+
+<dt>Jen</dt>
+<dd>Well and the idea that there’s a parallel universe, this is the universe that you’re in, the other files. And if you go into your GUI tool or you use the command line and you change branches, then you can actually watch it in your— You know, I can open up Git Tower and switch branches, and meanwhile I’m looking at Coda and the list of files in Coda and the files will like disappear and reappear and they’re different because I just switched universes. I went from one universe to the other parallel universe. And if I open those files up, they’re just magically the other ones, and I can save them, I can do whatever, and then I can switch branches and boom, I can be back into the other parallel universe,…</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>…which is kind of freaky but it totally makes sense as well.</dd>
+
+<dt>John</dt>
+<dd>Yeah. Well all the versions and all those different branches, parallel universes, all stored inside the .git directory.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And the reason</dd>
+
+<dt>John</dt>
+<dd>And if you ever accidentally delete that .git directory, all you’re left with is the working files and like, the repository’s gone. You no longer have any Git repository…</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>…if you accidentally delete that Git folder.</dd>
+
+<dt>Jen</dt>
+<dd>And you don’t want to do that by accident, but there might be a reason. You know, sometimes when I’m— Especially when I’m sending something up or I’m learning something and I just want to throw everything away and start over, you can just delete the .git folder, and if you do that then there is no more Git repo. It just goes away, and you can go reinitialize the Git repo and take those files and put them in a different Git repo from the beginning, kind of thing, if you need to for some reason.</dd>
+
+<dt>John</dt>
+<dd>I’ve never— I almost never delete the .git folder, because it’s mostly when I’ve created a repository, I’ve started, like, adding some commits, and then I realize that gosh the work that I’ve just done is not really that useful for anybody else and not even that useful for me. [laughs] And like, I’ll rewrite it and throw away the old Git repository. And you create a new repository and make it look like I was, you know, smart from the get-go.</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Right. Yeah, and I never, never, never, never delete it if it’s a real project that I’m really working on, but if it’s some sort of a personal, experimental, half-baked, oh I screwed everything up again, when you’re in that kind of world, then sometimes you just want to get in there and rip it out. You can just make that go away. But the other file that’s very helpful, that’s right next to the .git file, err directory, is a file called .gitignore. Again, invisible. If you look in Finder, you will not see it. But if you look in a tool that let’s you look at invisible files, you’ll see it right there: .gitignore. And that file is a place where you can list all the things that you want Git to ignore. So, for example, I use Sass, and Sass takes a lot of notes while it does things. The CSS preprocessor. And there’s absolutely no reason for all those notes to be in the repository. There’s no reason that I need to share them with other people. They all get stashed, they get shoved into a invisible directory called .sass-cache. And I don’t want the .sass-cache files in the repo, so in my .gitignore file, right up at the top, it says .sass-cache, and that means, “Hello Git. When you find a directory any place (and frequently there’s more than one in a project), if you find a directory with this name any place, just ignore it. Ignore it and ignore everything in it. Do not put this in the repo.” I’ll also have, like, .DS_Store which is a thing that the Finder shoves those little Finder files that shove everything all over the place. We don’t need the .DS_Store files from the operating system of my Macintosh in the repo. That stuff needs to not be in the repo. Not everybody has a Macintosh. Like, go away. So, sometimes you need to edit this file. You can do so manually. You can also do so from the GUI. Like, when you’re in Tower, you see a file that you’re like— Like, the .sass-cache for example. The .sass-cache directory will show up in Tower as like, “Hey, there’s this directory. Do you want to add it to the repo?” and you can be like, “No, I don’t” and you right-click on it and you say something like please ignore this. Ignore this, ignore all things like this all the time, and it will take that note and put it in the .gitignore file. And then it will say, “Hey, I changed the .gitignore file. Do you want me to commit that?” and you can be like, “Yes, please,” because you want that Git— Sometimes you want this .gitignore file to be shared by the whole team so everybody has the file. They’re all sharing it around.</dd>
+
+<!-- 1:37:06 -->
+
+<dt>John</dt>
+<dd>Yeah. I use .gitignore quite a bit, especially like you said for that .sass-cache directory. And there are other times where it can be useful. You can use it like if you have a— If you’re working on a project where like it’s a <abbr title="Content Management System">CMS</abbr> project, because I work off and on Drupal sites, you’ll have like one folder where as people upload stuff to the web server, it basically just stores all those assets, images, and stuff, Word documents and whatever, all in one directory. Like, the files directory, right? And if you’ve got a— If you get a copy of that from the server and put it on your local system just so you can have like a local duplicate of the real server for your development environment, you don’t want to constantly see that folder that’s not in your Git repository every single time you look at the list of things that have changed, right? So, because Git will always show you like on the command line you do <code>git status</code> it’ll show you all the files that have changed and all the files that are not in your repository, because maybe you want to add them.</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>But if you’ve got all this stuff that you don’t want in the Git repository, it’s going to keep showing you all the stuff that’s not in the Git repository that you don’t ever want to add to the Git repository. And it’s just really annoying. That’s what the .gitignore file is for, is basically Git will pretend that that doesn’t even exist anymore, and it’ll never show you it as an option for something you can add to the repository.</dd>
+
+<dt>Jen</dt>
+<dd>Yep. I frequently .gitignore Zen because I’m working on a custom Drupal theme. I’m not actually using Zen as a parent theme, but I’m stealing code from Zen [laughs] I have a copy of Zen right next to my theme, and I don’t want to put it in the repo because it’s not going to be used. It doesn’t need to get delivered to the client, but I want it right there so I can look at it and steal code from it. [laughs] So I’ll just shove it in there, and then I’ll local .gitignore it so that it just sort of doesn’t ever— The fact that I’ve .gitignored it, it doesn’t even go into the repo. It’s just locally it’s telling it, you know, “Hey, this is— This is something you should ignore and you don’t even need to tell everybody else about it. Just keep it between us.” [laughs] And again, I do that from my GUI and I just right-click and I choose the choice that says, you know, locally .gitignore this. I don’t know what the official command is or anything but it’s an option. Yeah. So, I’m looking at some people sent in questions on Twitter earlier in the week when we were talking about this. Mr. Berger. Mr Berg-g-g asked— said it’d be helpful for an overview of setting up local and server repos. Someone else asked about that too. Like workflow: local, remote. It feels like what people do is you put— I mean, Git is software as well. Like, there’s some Git software that you need on your computer. I believe if you do something like download Tower and install it, Tower will take care of this for you. If you’re doing it from the command line, you have to actually install Git on your computer. It doesn’t come with a Mac operating system. I don’t think it comes with Windows operating system. So if you’re setting up servers, you actually got to actually put Git on each of the servers, right? And then you can clone the repo into each of the servers. So maybe you have a development server and a testing server and a live server, and maybe they’re three separate machines. You can just use the command line and as you set up the server just go ahead and install Git on all three, and then pull or originally clone and then pull those three. And that’s where people will use branches and be like, “We have a development branch. We have a live branch. And when we’re ready, we’ll go ahead and merge whatever we want to out of development into the live branch and we’ll keep– You know, maybe the master branch will be our development branch. The live branch will be the special branch and whoever’s in charge of the server for the live site will go in and pull whatever is in the live branch. Meanwhile, somewhere else, somebody has switched branches, gone to the live branch, merged in what they wanted, not merged in what they don’t want, tested it, and then push all that up. You can set it up a lot of different ways. Different people set it up in completely different ways. I don’t really have a lot of strong opinions about what’s best. I think what’s important…</dd>
+
+<dt>John</dt>
+<dd>Well—</dd>
+
+<dt>Jen</dt>
+<dd>…is for the team to sort of have a consistant idea of what they’re going to do. But…</dd>
+
+<dt>John</dt>
+<dd>So—</dd>
+
+<dt>Jen</dt>
+<dd>…the main idea is there’s one repository, and everything’s on one repository, and you just get to different places, different parallel universes on different machines. But it’s not—</dd>
+
+<!-- 1:42:08 -->
+
+<dt>John</dt>
+<dd>Also, I would say that setting up a Git server— Git on server is certainly not an introductory [laughs]…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…you know, topic that people or, you know, designers who are just trying to figure out how to use Git. But there’s some really good resources online. I actually wrote a blogpost. I had, like, hundreds and hundreds of Subversion repositories from, like, old clients and I just was sick of them and I wrote up a blogpost about converting Subversion to Git, and it does a straight conversion to Git. And so the next step after you’ve converted from Subversion to Git is you want to put them someplace so that other people can access them, right? And Git is very flexible and there’s like three or four different ways that you can set up a server and it all depends on the kind of access controls that you want to have. The easiest way is if you have a server that already has <abbr title="Secure Shell">SSH</abbr> on it. All you need to do is like ensure that Git is installed on the server, and you go and put the Git repository in what’s called a bare repository format. And if you just put it on the server, basically anybody who can SSH to that server can SSH directly to that path to that Git repository, and that basically becomes sort of like the URL to this Git repository on the server. So like, <em>your-SSH-username@servername:</em> — which is just a regular SSH URL, that becomes the URL for accessing Git. And that’s as far as I’m going to go on the podcast to describe that because like I said there’s good online resources. And I would say that, you know, at one time I thought about writing a book on Git, but the problem is that there’s already like a really, really, really good— a really good book on Git already. It’s fantastic, and it’s all online too. So it makes for like competing against that, stupid. [laughs] So—</dd>
+
+<dt>Jen</dt>
+<dd>And what book is that?</dd>
+
+<dt>John</dt>
+<dd>It’s called <cite>Pro Git</cite>. It’s by Scott Chacon, I think that’s how to pronounce his last name. And if you just, like, Google “Pro Git”— Oops, I mistyped Git and I got a completely different thing. Wow! [laughs] If you just type “Pro Git”, it’ll show you that it’s <a href="http://git-scm.com/book">git-scm.com/book</a>, and it’s all online and there’s actually a section on setting up servers. It’s section— chapter 4.4. So, you know, “Git on the Server”.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>This is the book that I read to learn Git and it’s excellent.</dd>
+
+<dt>Jen</dt>
+<dd>There’s also a way to tag. People use tags to kind of a different flag in the ground to say…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…this is the moment where we’re going to release this code, whether it’s maybe a project that you end up saying, “Okay, now this is…”</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>“…a moment. You can download this version. This is a good version to download.”</dd>
+
+<dt>John</dt>
+<dd>Yeah. Well, if you remember— Tags are a really simple concept in that if you remember we talked about how each commit has a unique identifier which is that really long hexidecimal number, right? But then we’ve got these sort of human-readable labels for our branches of development. So like, the master branch is basically a label that points at the most recent commit in this branch of development. And what a tag is, like it’s an additional label, right? So the master label is for— The master branch label will continually follow the branch as it’s developed. It’ll sort of move to a new commit as you add new commits onto the master branch. So it’ll just continually change places. Whereas a tag is a fixed spot. So you say, “I want to tag this commit with version 1.0,” and it’ll remain there forever. You can’t move a tag. It’s like, “This is the spot,” and it’ll always be that commit. And that’s all tag is. It’s just a label that doesn’t move.</dd>
+
+<!-- 1:46:50 -->
+
+<dt>Jen</dt>
+<dd>So transition in the chatroom is asking what’s the best way to get started with Git? Say with a smaller project, maybe using Git for other type of files like Markdown files or something. Yeah I feel like, you know, we sort of talked about well a little bit, tiny bit about Github or we’ve talked about, you know, how do you use Git at work. But I feel like if you were just wanting to get started and you’re sitting there yourself all by yourself, you don’t have to have any sort of remote server repository or anything. I mean, that’s kind of the beauty of Git. We were talking about just using Git on an airplane. You could say, you know, let’s say you’re using HTML and you’re using CSS and you want to— you’re just going to prototype for a new website. It’s not even really the whole website. You’re working on a design. You’re designing in code. You’re just working by yourself on this thing. You could say, “Okay, well I’ve got this organized already. I have— I have a directory. It’s called ‘My Awesome Project’ and in that directory I’ve got my index.html file. I’ve got a CSS directory. I’ve got everything all organized nice and neat.” You can take that directory and make a Git repo— a Git repository out of that directory. And basically what you’re doing is you’re telling Git software, “Hey, please come along, take this whole directory, make a Git repo out of it.” Basically telling it to create a .git, invisible .git, file folder directory and put that inside your project and start keeping track of everything, putting numbers, just giant hash tag numbers on things.</dd>
+
+<dt>John</dt>
+<dd>And it’s incredibly easy. I mean, like, if you’re on the command line you just go to the root directory where you want the repository to be, and you just say <code>git init</code> and it creates a new repository with absolutely nothing in it. Like, no commits or anything. So you have to go and then add all the files that are in your subdirectories, right? And then commit it and make that first commit. And then you’ve got a new repository locally. And then, like, Git Tower, there’s like a repositories pull-down and you can manage your repositories. And inside that dialog box there’s a section where there’s like a little plus sign and it says, one of the options is “Create New Local Repository” and it does basically the same thing but with a GUI interface.</dd>
+
+<dt>Jen</dt>
+<dd>Yep. Big giant button actually on the top right. “Add Local Repository”. Click! And then you—</dd>
+
+<dt>John</dt>
+<dd>Oh yeah! I didn’t even see those. [laughs]</dd>
+
+<!-- 1:49:22 -->
+
+<dt>Jen</dt>
+<dd>Yep. And then there’s a button, you browse, and you point it to the thing and then you hit the— This where I end up making my first mistake everytime, is I always— I’m never really sure whether I should point to the outside of the folder or whether I should get inside the folder. [laughs] And I always do it wrong, and then that’s why I’m deleting everything and going back and doing it a second time because it’s easy to sort of not know like am I supposed to be inside of the thing or am I supposed to be on the outside of the thing pointing at it. But yeah, you just— So you initialize your local repository. And then you can use a Git GUI or the command line, and you can then open that project up inside we’ll say GUI for a minute. Like, you open that project up in your GUI and then you start making changes to your— Well, first thing, right. The first thing you have to do is add all the files into the repository, and then as you make changes to those files you need to then either commit them or delete the changes, get rid of the changes. I mean, that’s one kind of nice thing you can do is like, here I am. I’m going along. I’m making a whole bunch of changes. I’ve made a commit. I like this. It’s done. Or it’s at a place where I’m happy. I’m going to go get some lunch. I come back from lunch. I try some new stuff. I made a mess. Like a real mess. So, I’m just going to right-click on the mess and say get rid of this.</dd>
+
+<dt>John</dt>
+<dd>[laughs]</dd>
+
+<dt>Jen</dt>
+<dd>And then it goes away! And you’re back to where you were before you went to lunch. [laughs]</dd>
+
+<dt>John</dt>
+<dd>Yeah. Definitely create a repository like a playground. You know, something you just mess around and try out different things. And that’s a great way to learn Git. If you’re trying to learn Git on the command line, Jen and I were talking just the other day about <a href="http://try.github.com">try.github.com</a>, which is a— It’s like a online tutorial for learning Git on the command line, but it’s really slick because it’s— Each sort of lesson is shows a little command line on the webpage, but you can actually type real commands into this command line that’s on the webpage. And it really works. It’s really impressive.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. This, yeah. try.github.com. We’ll put it also, the link, into the show notes. It’s really impressive tutorial because it’s— It basically stepping you step-by-step through how to make a repository, how to add files to that repository, how to make a commit, how to do each like each of these things that we’ve been talking about in the abstract, walks you through them, all from the webpage. But rather than walking you through them by saying, “Here’s a screenshot of what it will look like. This is what you should type,” and then meanwhile you’ve got to, like, go open up your own browser or your own terminal window, your own Finder on your own and do everything on your machine. You just do it right there because there’s like a command line window embedded into the website page and it’s actually a real command line. You can do all kind of other crazy stuff on here too, if you know if you—</dd>
+
+<dt>John</dt>
+<dd>And that’s— Yeah. And that’s absolutely the best way to learn is to actually do it…</dd>
+
+<dt>Jen</dt>
+<dd>To do it. Yeah.</dd>
+
+<dt>John</dt>
+<dd>…while you’re like reading about it. And that’s the nice thing about try.github.com is that you can’t go on to the next lesson until you actually type in the thing that it’s trying to teach you.</dd>
+
+<dt>Jen</dt>
+<dd>And I suggest this even for people who are very much learning the GUI route. Like, go check this out too because it will help you. You can learn a few things on the command line. It will reinforce the concepts. And in the end you end up with a Github repo. It like makes you a little Github repo [laughs] as you go through it. And then you can just play with Github.</dd>
+
+<dt>John</dt>
+<dd>Yeah. One of the steps is learning about remote repositories. You know, because you got your local repository where you’re doing your local work and then the remote repository is where, you know, basically the server where everybody is collaborating together. And so the try.github.com, one of the steps is go and create a Github account. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>Quite clever on their part. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Github— We should talk about Github for a minute. I mean, it comes…</dd>
+
+<dt>John</dt>
+<dd>Yeah!</dd>
+
+<dt>Jen</dt>
+<dd>…up all the time because it’s so centric to a lot of what a lot of people are doing, but I mean it’s really kind of amazing. It feels like a space on the Internet where anyone can join in. You can find piles of code that other people have created. You can grab a copy. So, for example, <a href="https://github.com/h5bp/html5-boilerplate">HTML5 Boilerplate</a> is a really great sort of starter kit for front end development for HTML5 on the Web. There’s a zip file. You can just click a button and download the zip file, which is how you might want to grab the code if you do not want to have anything to do with Git. But even better, you can go over and get a copy. You can actually check that— You can’t check the original repository out because that belongs to the people who own the HTML5 Boilerplate project. If you were to clone their repo, you would have all these permissions to be able to edit it and change the files and erase and delete things and add your own stuff and commit all that back. And if you’re one of the people who is working on HTML5 Boilerplate, then that’s absolutely what you should be doing. But if you’re a stranger who just thinks that their project is cool, what Github has you do instead which is not really a Git thing — it’s more like a Github thing — which is that you can fork the project, which basically says, “Hey, I like HTML5 Boilerplate. I would like to edit some of it and have my own version. I want to have a different, you know, I want to fork this project and I’m going to make it HTML6 Boilerplate [laughs] and I’m going to put some unicorn ponies into it.” And then you have your own copy, your own fork of it, and you can make all sorts of changes to your version. You clone it from the Github repository, the Github servers, and do all sorts of things locally and push all those things back up to the Github world. And then you can, because it’s a community and this is how it was set up, you could you know maybe you didn’t destroy HTML5 Boilerplate. Maybe you found a bug and you want to fix that bug. You fork their copy — you have your own copy — you do what you’re doing, and then you— There’s tools on Github to say, “Hey fine folks who are in charge of HTML5 Boilerplate. I found this bug and I not only am going to tell you about it, but I actually already fixed it in my copy of this thing in my fork, so I’m going to suggest that you take this commit that I made and merge it back into the original repo. If you like it, then here. It’s fixed! You can have it.” And so people do that. They collaborate by actually having separate, completely separate forks of the same project so they don’t have to know each other. You don’t actually vet anybody or interview anybody or— You can just kind of get a whole bunch of help from a bunch of strangers. And so that’s I think why Github is so powerful and why so many different people are contributing to projects. Because a lot of those suggestions, a lot of those commits that people come up with are really amazing and you can get a lot of work done very quickly.</dd>
+
+<!-- 1:56:58 -->
+
+<dt>John</dt>
+<dd>Yeah. I mean the collaboration on Github is— There’s a certain style of collaboration. There are different ways you can collaborate, but the collaboration style on Github is quite useful because, you know, you— Like, you said you’ve got this, the official repository for HTML5 Boilerplate like you said. So it’s got all of it’s commits there in perfectly open in the public, but only a couple people have commit access. They only have permissions— Only a few people have permission to make new commits on that repository, right? Because you don’t want to allow everybody to make commits on that. It would just be crazy. So, the collaboration style on Github basically says, “You know what you can do? You can fork it, which makes a complete new clone that you have access to and only you have access to. And then you can make changes to that and then you can notify the maintainers of HTML5 Boilerplate and say, ’Hey, go look at this change. I think you might like it.’” And because both the original and the fork are, you know, publicly available on the Github servers, everybody can look at those, you know, to, you know, look at this new change and, you know, merge it back into the official repository. Whereas if you just cloned the original version onto your local machine, there’s no way for the HTML5 Boilerplate maintainers to see your local computer, right? [laughs] So it’s— Like, there’s no way to collaborate in that sense. So that’s the nice thing about forking is that you’re creating a public clone.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah, and it’s a way to, you know, sort of Github gives you permission to mess with the code without actually having permission to mess with the real code. So if you wanted to be malicious or do something crazy, it’s no big deal. But if you want to do something really helpful, you can do it. And because it’s all right there and because it’s all a bunch of Git repos, that it’s actually quite easy as a maintainer of a project to field those requests and to say, “You know what, I’ve got 15 requests yesterday. These two are really good. Clickity-click. Done.” You know, I don’t have to copy and paste the code from a comment and test it and see and blah blah blah. I can just say, “Yes Github! Please do merge this commit into my official repo that only I have access to, or me and my friends have access to, from this person who I just met.” Yeah, it’s called a pull request. So you can submit a pull request to somebody else’s project. But it makes it really easy to collaborate on a project to say, “Hey I found a bug,” or “I have a new idea about your thing,” or “You know, I think you should also include this.” It’s also a way to say, for example, maybe <a href="http://necolas.github.io/normalize.css/">Normalize</a> — the Normalize reset stylesheets — maybe I really love Normalize but I think it should be different in this particular way because I’m a finicky front end developer and I have my opinion about something and I have a different opinion than Nathan does about how it should work. I want it to be my way. Well then I can just have my own and always use mine and, you know, just have it be different.</dd>
+
+<dt>John</dt>
+<dd>Was that a— Was that a leading question when you picked Normalize or…?</dd>
+
+<dt>Jen</dt>
+<dd>[laughs] Am I— No.</dd>
+
+<dt>John</dt>
+<dd>Because I actually have a clone of Normalize…</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>…[laughs] where I converted it to work better with <a href="http://compass-style.org">Compass</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Uh huh.</dd>
+
+<dt>John</dt>
+<dd>So Sass and Compass. So it’s a Sass and Compass port of the plain.css file of Normalize.</dd>
+
+<dt>Jen</dt>
+<dd>Oh nice. I should go use this. Yeah, see then I can use yours…</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>…because perhaps I use Sass and Compass and I want Normalize with Sass and Compass, so it’s publicly available. I can use yours. And then if something changes in Normalize, then you can say, “Oh look, that new IE10 bugfix they just added—” and you can just sort of merge that back into yours and—</dd>
+
+<dt>John</dt>
+<dd>And in fact, that’s what just happened recently because version 2 of Normalize.css came out, which was great because it— They tagged a 1.0 version, which says, you know, all these browsers are supported including IE6 and then they made some changes and committed a new— They got rid of all the, like, IE6 and IE7 support because it was adding bloat to the code and made a sort of slimmer Normalize.css which they tagged as 2.0, and I had to merge those changes into my Sass and Compass port. And it was relatively straight forward because I just had to do like a merge.</dd>
+
+<!-- 2:01:50 -->
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah, it’s kind of crazy because then you don’t— It’s not all this sort of manual laborious cutting and pasting and you would think that it’s not a big deal but it turns out that when things are easier you’re more likely to do them. [laughs]</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>And something that might take two days suddenly takes two hours, and you’re like, “Ah that’s not a big deal. Go ahead and do that. And now you know I’ll share it with the world. Oh yeah, let me see this thing right here.” So, I highly suggest people checking out Github, both for the just there’s tremendous public things appear like HTML5 Boilerplate and Normalize and there’s all kinds of libraries. I think that’s what people know it best for is this is the place for all those libraries end up living. But then also it’s interesting like I can come into your page and check out all the different repositories that you have. I can see all the forks that you’ve made from other people’s projects. I can fork yours and have my own copy of your copy of their copy. I can also see all the original projects that you’ve created yourself.</dd>
+
+<dt>John</dt>
+<dd>The only thing that I would wish that Github had was a way to differentiate between, like, the this is a— Basically, like, have two levels of repositories for like— Because I’ve got…</dd>
+
+<dt>Jen</dt>
+<dd>Ohhh.</dd>
+
+<dt>John</dt>
+<dd>…what does it say there? I don’t even know how many repositories I have on Github. Let’s say there’s 15 of them, right? And most of those are just like throw away repositories, right? [laughs] I’ve forked a project because I can’t— Basically I’m creating like a bookmark…</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>…of a project. [laughs] So like <a href="https://github.com/woothemes/FlexSlider">FlexSlider</a>, I’ve <a href="https://github.com/JohnAlbin/FlexSlider">cloned</a>, but I actually haven’t made any changes. It’s not really significant to look at my version of FlexSlider. In fact, my version of FlexSlider is almost assuredly out of date because I haven’t merged recently, right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>So I wish there was a way to, like, say, “Hey, these repositories are interesting and you should look at them.”</dd>
+
+<dt>Jen</dt>
+<dd>Right.</dd>
+
+<dt>John</dt>
+<dd>“These other ones, they’re just there. You can look at them if you want to.”</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I was just messing around. I didn’t really do anything useful.</dd>
+
+<!-- 2:04:00 -->
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Yeah, it’s true. It’s also—</dd>
+
+<dt>John</dt>
+<dd>But I guess— I guess it— But the nice thing I guess about Github is that it does sort of sort them in the order that you’ve modified them. So I guess the cream sort of rises to the top and that I’ve, you know, I’ve actually made changes to this repository recently and here’s the stuff at the top.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>That helps a little.</dd>
+
+<dt>Jen</dt>
+<dd>I’m going to— I’m going to put your— You created something called <a href="https://github.com/JohnAlbin/compass-zen-grids">compass-zen-grids</a> and there’s a— I’m going to put <a href="https://github.com/JohnAlbin/compass-zen-grids/network">your network graph</a> in here as an example of a graph. Because these graphs get kind of interesting because then you end up with— You can see all the different people and all the different branches and, like, this person was working on a commit and then this person grabbed it and they were working on it and then it got merged back over here and merged back over there. That’s really how I learned Git is that I was working on things that were on Github and I would push my changes and I would go look at the graph, and I’d be like, “Did that make the thing the way I wanted it to? [laughs] Uh, no. Okay, what did I do? Oh, that’s not what I meant. Okay.” And then I’d change— fix it, then I’d go back and for awhile everytime I ever pushed a commit I would look at the graph to make sure it came out the way I wanted it to, until my mental model really built up, until I really understood what it was that I was doing, how it was that I was bundling files together in the particular commit, how it was that I was merging. Especially when it came to branches and really understanding, like, which branch am I on, which commits were on which branch, when I merge them back what happened, because there’s a couple different ways you can sort of take a whole branch and mash it up in one commit and shove it on top of another branch or you can kind of take all the individual commits that you had all along and keep those commits as separate and put those as separate commits or— There’s some fancier stuff, and I really found that looking at these graphs on Github helped me in a way that nothing else did to understand what I had or had not done. Understanding which commits were on which branch. Seeing what my collegues had done really quickly.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<!-- 2:06:07 -->
+
+<dt>Jen</dt>
+<dd>Yeah. You can also get— You can pay Github some money and get— and have a private— have the ability to create private repos. So I have, for example, I do this with all my clients and then I’ve got, you know, private repos for my clients so that their work is not public, but I get all the fancy tools and as I work on different projects freelance, lots of times there’s not a ready system administrator and remote repository all set up. And they’re like, “What should we do?” and I’m like, “Let’s just use Github.” [laughs] Put everything on Github. And it’s very easy for all the people who are working on the project to just grab everything. They should sponsor. [both laugh] Yeah. Yeah, so I don’t know if there are other— What else do we need to fill in the gaps? If people who are listening live want to toss your questions into the chatroom. One of the things we didn’t talk about that we should talk about— Gosh we’re over two hours now. I wonder if we should just wrap it up. I hope this is helpful. There’s some other links. An article on A List Apart I’ll put in the chat and the show notes. A tutorial on how to use the command line if you’re interested in learning the command line separate from Git issues but just in general. Like, that’s another thing perhaps you’ve been interested in learning. There’s some step-by-step tutorials that I’ve found that are really helpful, learning how to—</dd>
+
+<!-- 2:07:34 -->
+
+<dt>John</dt>
+<dd>Maybe— Maybe I can talk about remotes to try to do that quickly, remote repositories a little bit.</dd>
+
+<dt>Jen</dt>
+<dd>Okay</dd>
+
+<dt>John</dt>
+<dd>Because we talked about, like, the labels that we add to branches and, you know, the labels that we add to tags to make it sort of more human-friendly. We actually do the same thing for remote repositories, and when you do a— like do a <code>git clone</code> of a repository that’s on Github, there’s like a URL. When you go to the project on Github, you can actually see the URL to clone the remote repository, and you sort of copy that and you paste it in your GUI client or whatever and you clone it. And what happens is that Git says, “You know what? You’re never going to remember that URL. [laughs] So I’m just going to give it an easy to remember label. I’m going to call it origin.” And so now you’ve got this remote repository which Git is calling origin and it’s remembered this URL for you. And that sort of meta information of this— It’s kind of like an address book actaully. So you’ve got a list of remote repositories and by default you’ve got like one thing in your address book, which is the name origin and then the actual URL for that remote repository. And a lot of times when you do <code>git pull</code> and <code>git push</code>, this sort of longform of that command on the command line is to actually specify which remote server you want to use. But Git knows that if you don’t specify which remote server, it’s going to assume the origin. But you can—</dd>
+
+<dt>Jen</dt>
+<dd>And you—</dd>
+
+<dt>John</dt>
+<dd>You can add— Go ahead.</dd>
+
+<dt>Jen</dt>
+<dd>The use of the word— Sorry. The use of the word origin is just a habit, right? It’s just a convention.</dd>
+
+<dt>John</dt>
+<dd>Yep.</dd>
+
+<dt>Jen</dt>
+<dd>You could name it frogs if you wanted to.</dd>
+
+<dt>John</dt>
+<dd>Mmm-hmm.</dd>
+
+<dt>Jen</dt>
+<dd>It just happens to be that people say let’s have one official remote repository and let’s call it origin, just ‘cuz.</dd>
+
+<dt>John</dt>
+<dd>Well, it’s— It’s— It’s—</dd>
+
+<dt>Jen</dt>
+<dd>Right? Or is that wrong?</dd>
+
+<dt>John</dt>
+<dd>Yeah, it’s a convention definitely, but it’s a convention that’s sort of enforced by the code inside Git. So when you do a Git clone, it doesn’t ask you what you want to call this, this remote computer. It just…</dd>
+
+<dt>Jen</dt>
+<dd>It just does.</dd>
+
+<dt>John</dt>
+<dd>…calls it origin, right. And you can, you can change the name later if you want to. That’s easy. But—</dd>
+
+<dt>Jen</dt>
+<dd>You’re confusing everybody if you do, but. Yeah.</dd>
+
+<dt>John</dt>
+<dd>Right. It calls it origin by default.</dd>
+
+<dt>Jen</dt>
+<dd>But you could have more than one remote. I mean, you’re only going to clone from— I mean, you can only clone once, so you’re only going to clone from one place. But my understanding of Git is that it is by convention that we sort of say, “This was the official computer. This is the computer that’s on all night and all day. This is the compuer that never goes offline. So let’s call that one the official one and we’ll just all clone from that one.” And Github is a great place to do that. Or there’s others. You know, there’s other services that you can pay or you can set up a server somewhere.</dd>
+
+<dt>John</dt>
+<dd><a href="http://beanstalkapp.com">Beanstalk</a> and <a href="https://bitbucket.org">Bitbucket</a>, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, Beanstalk and— But you don’t have to do that. I mean, it could just be that there’s six people and you’re working on a super, super secret project and you don’t want it anywhere except on your six laptops and, you know, good luck making sure that people are online at the same time [laughs] and so you can push and pull, because if somebody’s offline then you can’t push or pull to their computer. You can’t— I mean, it feels like you could name any one of those as— You could clone from— Maybe this is totally wrong, but—</dd>
+
+<dt>John</dt>
+<dd>Yeah. I— No— I’ve used remote repositories as a way to like help colleagues who are running into Git problems. So, like, I’ll do— I’ll set up a Git remote, I’ll tell Git to add a new remote that’s like Larry’s. This never happens with Larry. Larry’s pretty good with Git. But pretend that Larry’s hit his head under the table and now he’s forgotten what the heck’s going on, right? So I set up a— I add a new remote, which on the command line is like <code>git add remote</code> and then I want to give it a label, so I’ll call it larry and then the actual URL to his laptop, right? And we’re all sort of in the Internet here, err Intranet, inside our office and—</dd>
+
+<dt>Jen</dt>
+<dd>In the bunker. In the bunker. [laughs]</dd>
+
+<dt>John</dt>
+<dd>Yeah, in the bunker. And I specify, like, maybe it’s the <abbr title="Internet Protocol">IP</abbr> address to his computer. I don’t know what it is. Some way that I can connect to his laptop inside the bunker, and I’ll use that URL. And then since I’ve labelled it as larry, I don’t have to remember that god-awful IP address or whatever it was, right? And then I can do fetches and pulls and pushes. And what I’ll do as far as, like, trying to debug— When I’m trying to like help somebody and like debug what’s going on in their repository, I’ll do a fetch. So I’ll basically copy all of their commits from their remote— from their repository, and so that I have a copy of it locally. And then Git allows me to see what does their verison look like because it’ll actually sort of label, like, you know, this is your local copy and this is their copy, and I can go and look and see what their copy looks like, and then try to help them figure out what’s going on, right? Because sometimes I can, like, try to do a merge locally to sort of emulate what’s happening if they’re in a merge conflict, you know, on their laptop. So it’s a, yeah. [laughs] Maybe that got a bit too complicated. [laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I mean, this is the stuff that like you don‘t have to understand this part at all.</dd>
+
+<dt>John</dt>
+<dd>But— But— Yeah. The bottom line is that you can set— You can add additional remote addresses to your address book. So I’ve got this larry remote address and I’ve got the origin which is Github, you know, and you can have Git, you know, push or pull to all of these different remote repositories and do really unusual sort of collaborative techniques. That’s sort of the basic point I was trying to make.</dd>
+
+<!-- 2:13:47 -->
+
+<dt>Jen</dt>
+<dd>Yeah, because maybe your Github is the official one and so that’s where everything, you know, somebody else started it out there. Or maybe you started it out. Maybe you set something up locally, you created the repo out of nothing locally, you added the original six files, and then you go over to Github and you push everything to Github. And so now there’s a repository on Github, and— Or you could do it the other way. You could go to Github, click some buttons, create a repository on Github that has nothing in it, and then clone it from Github to your own computer. But either way, let’s say you’re the person who created it, then you’ve put it on Github, and then you got six people on your team and they all pull it from Github or clone it I should say. Clone it from Github. But then, meanwhile, you have a dev computer or development computer where you’re going to put stuff. You know, and maybe you want to set that up as another remote. Or maybe you want— You know, there’s all sorts of— It feels like there’s all sorts of kinds of ways to do it and I don’t think that most people who are using Git need to understand any of this, but I almost feel like, almost, that it’s sort of helpful to have a vague, confused sense that it’s possible just so that you understand sometimes when you’re using the tools that you’re using, like why it’s as complicated as it is. Like, “Why is there an option here for origin or something else. Like, I don’t need that. I always use origin. Why is there—” Well, because sometimes you might want to have something else there and that’s why it has to be set up that way, because you configure it another way.</dd>
+
+<dt>John</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>But yeah, you don’t have to really understand that stuff if you don’t want to.</dd>
+
+<dt>John</dt>
+<dd>Yeah. And if you’ve got multiple remotes on the command line, you can do, like, <code>git remote -v</code> which will list all of the labels and all of the URLs for your remote repositories. Oh! And there’s one thing that I forgot about command line that I always say when I’m trying to teach people how to use Git on command line, is that <code>--help</code> is your best friend. So like, <code>git remote --help</code> will tell you all about the remote command, you know, how to use it, right? So, <code>git add --help</code> will tell you all about the add command, you know. Use <code>--help</code> all the time. I frequently, and I really mean this, frequently forget some of the, like, switches that I need to use for like— Like, you can rename branches to be something else. Like, say you accidently put a typo and, you know, instead of “version 2” you put “versoin 2”, right? You can rename the branch— I don’t remember how to do that, so I do <code>git branch --help</code> and it tells me, because it gives you help text.</dd>
+
+<dt>Jen</dt>
+<dd>That’s cool. Yeah, and so I think that’s it. I hope this was helpful to people. It’s a— I think it’s challenging to figure out how to explain things for someone who’s not started at all and also explain things so that people who’ve been doing it for awhile but are still a little kind of confused can also get something worthy out of it. So, I hope we somehow hit the right sweet spot for you. Yeah. Thanks, John!</dd>
+
+<dt>John</dt>
+<dd>Yeah, I’ve given sessions with like last all day trying to teach people Git, so you can just keep going and going and learning new stuff, so. Hopefully this is a relatively good intro.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I mean I kind of feel like the bottom line for me is yes, [laughs] Git is really great. It will save you over and over again. It can really help you get out of a jam when you’ve written code that you didn’t like, when you can’t find the Photoshop file that you had last week, like you— It can really help you and save you, and it really does make sharing work much, much, much easier. I wouldn’t want to have to do it any other way. I mean, I can’t imagine trying to use something like Dropbox for CSS. Like, it’s just ridiculous. You’ve got to use a version control system. Out of all of the options out there, you know, perhaps Mercurial or something was— would have been just as good. I feel like that because so many people are using Git and because of something like Github, it’s emerged as the tool, so go with everybody else, you know? Go learn the tool that everybody else is using. And—</dd>
+
+<dt>John</dt>
+<dd>That— That’s absolutely what, like, what Drupal.org did because there were a lot of people inside the Drupal community who were using <a href="http://bazaar.canonical.com/en/">Bazaar</a> and really liked it, and in the end we decided that you know there’s actually a lot more people everywhere using Git. So when went and switched away from CVS, we chose Git because of that, because of everybody’s using it. And it’s really paid off because the GUI tools that have develped for Git, because more people are using it, means that there’s more opportunities for people who don’t want to use a command line to use those. And if we had decided to use Bazaar we would be basically forcing everybody to use the command line and oof, that would not be so good. So.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>John</dt>
+<dd>Git is a great option.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. And I do— I really do feel like designers and business people and content people and product owner people can jump in with this. I mean, there are tools out there that can make this easy enough so that you’re using a GUI and you’re committing your Excel spreadsheets and your OmniGraffle files and your Photoshop files and your HTML and your CSS and your Word documents, all into one repository. And whatever your job is on that team, that you contribute what you’re contributing and other people contribute what they’re contributing and everybody can share all the stuff. And ask your colleagues, I mean ask your colleagues who are much more— who are more code nerds than you are for help and just keep going. It feels like one of those things that when you first start using it, you’re like, “Ohhh!” and then if you just keep going it will— That feeling will wear off and you’ll totally get it. And just like all the other computer tools, like learning the mouse and the Finder and saving in the first place, it will start to make sense and you can totally master it to the point where you’re able to use the tool to get the stuff and to push the stuff and that’s really all you need. Somebody else can set up the remote repositories and the servers and stuff. Yep. That’s my end of the lesson today. So thank you John…</dd>
+
+<dt>John</dt>
+<dd>Thanks Jen.</dd>
+
+<dt>Jen</dt>
+<dd>…so much for being on. And thanks to The In Control Conference for sponsoring. You can follow this show on Twitter, <a href="http://twitter.com/thewebahead">@thewebahead</a>. You can follow me <a href="http://twitter.com/jensimmons">on Twitter</a> and <a href="https://alpha.app.net/jensimmons">on App.net</a> as @jensimmons. John, you’re on Twitter as— You’re johnalbin everywhere?</dd>
+
+<dt>John</dt>
+<dd>Yep. Yeah, <a href="http://github.com/johnalbin">github.com/johnalbin</a>, <a href="http://twitter.com/johnalbin">twitter.com/johnalbin</a>. Yes.</dd>
+
+<dt>Jen</dt>
+<dd>And you’re also at <a href="http://albin.net">albin.net</a>.</dd>
+
+<dt>John</dt>
+<dd>Yep.</dd>
+
+<dt>Jen</dt>
+<dd>And you have a couple articles about Git that I tossed into the show notes. And if people— It would be really great for people to go rate the show and review the show <a href="https://itunes.apple.com/podcast/the-web-ahead">in iTunes, The Web Ahead</a>. I think the new iTunes is about to come out. It should be, and as people are starting to surf around the new software and check out the store yet again, it would be really awesome if they— if the show is at the top of some of those lists as far as, you know, what’s hot and what’s popular and all that stuff. So, you can really help out the show by going over and rating it, writing a review. I read all of those reviews. They really do mean quite a lot to me. So if you’re enjoying the show, if you’re getting something out of the show, I’d really appreciate if if you could go over there to iTunes if you haven’t already and write us a note. Write us a review.</dd>
+
+<dt>John</dt>
+<dd>Is next week going to be a Web Behind episode?</dd>
+
+<dt>Jen</dt>
+<dd>Next week is a Web Behind episode and then the week after that I’m having a guest on to talk about IE10. What’s up with IE10, because it will be out and we’ll need to know what’s up.</dd>
+
+<dt>John</dt>
+<dd>Awesome.</dd>
+
+<dt>Jen</dt>
+<dd>So yeah, tune back in and look at the schedule at <a href="http://5by5.tv/schedule">5by5.tv/schedule</a> to see when it is that we’re recording the shows, and you can join us live. I think that’s it. I think that’s all the pieces that I have to say at the end, so that’s it! Listen later! Talk to you later! Bye!</dd>
+
+<dt>John</dt>
+<dd>Bye!</dd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
