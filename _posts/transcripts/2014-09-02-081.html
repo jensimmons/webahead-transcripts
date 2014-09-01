@@ -1,0 +1,568 @@
+---
+layout: transcript
+title: "CSS Shapes and Regions with Sara Soueidan"
+permalink: 81/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+    <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host, Jen Simmons, and this is episode 81. I first want to say thank you so much to today's sponsor, MailChimp, for supporting the show.</p>
+
+    <p>Today we're going to talk about layouts. About the kinds of things you can do with a webpage and layout out content on a webpage. It's a topic that's been in the tech news — "wow, look at this awesome thing that's coming!" — for a couple of years. I feel like there's so many parts and pieces that we've all been talking about. It still feels like we're not quite there yet. Some of these technologies are in browsers, for sure, and people could be using them. But somehow, even more conceptually, more when it comes to imagining the design of a page and imagining what is possible. It feels like the news about the new stuff hasn't gotten out yet. We're still imagining, or assuming, 12-column, maybe 16-column, even-width'd-column grid systems. The kind of 960-grid systems that a lot of us used back in the day. There's a lot of emphasis on responsive design, for sure, and making some really innovative, interesting responsive designs. But there's still lots more coming when it comes to really changing up how content can be put on a webpage. Some of that is still in the future. Some of that is really not possible yet. But I'm interested in this. I'm super interested in this topic, actually. Because I feel like the technical pieces will fall into place. The harder problem is switching our brains around and switching our design ideas and our process and getting the word out about the new possibilities so people actually use them once they arrive in browsers.</p>
+
+    <p>Today we're going to talk about all of this more. My guest today is Sara Soueidan. Hi, Sara.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Hi, Jen.</dd>
+
+<dt>Jen</dt>
+<dd>I wanted you to be on the show because I think you're great. Really. [Laughs]</dd>
+
+<dt>Sara</dt>
+<dd>Thank you. Thank you. [Laughs]</dd></dd>
+
+<dt>Jen</dt>
+<dd>I've been doing this for now, quite a number of years, and have learned from quite a number of different people. It feels like there have been several rounds, several generations of really generous folks who help everybody else — and by everybody, I mean <em>everybody</em> in the industry — understand what's going on, what's happening, what's next and how to do things, like step-by-step-by-step, how to do this, how to do this. You've emerged... for me, personally, you kind of came out of no where. [Sara laughs] You're just writing all of these amazing articles on your blog and on A List Apart and Smashing Magazine. At a time when it feels like — a lot of the people that I learned from, like Dan Cederholm or some of the other folks — it feels like people can only write that often and this many great articles for so long. A lot of the people who were my heroes 10 years ago, 15 years ago, that I learned from, are not really writing so much anymore. There's now been several generations of people emerge. It feels like you're one of those awesome people. You come out of nowhere, you're writing these blog posts, and everybody's reading all your blog posts because you're the one teaching us how to do this. [Laughs]</dd>
+
+<dt>Sara</dt>
+<dd>Thank you. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>It's very generous of you and everyone else who's done this, of your time. If people don't know who you are, they really should go find out who you are. Because we need you. [Laughs]</dd>
+
+<dt>Sara</dt>
+<dd>Thank you, thank you so much.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. You're doing really great stuff. On your website, which is <a href="http://sarasoueidan.com/">sarasoueidan.com</a>. I'll put that link, and all these other links, in the show notes of course. Which is currently going to be at <a href="http://5by5.tv/webahead/81">5by5.tv/webahead/81</a>, soon to be <a href="http://thewebahead.net/81">thewebahead.net/81</a>.</dd>
+
+<dt>Sara</dt>
+<dd>Cool.</dd>
+
+<dt>Jen</dt>
+<dd>I've been just rambling, rambling non-stop but, uh, hello. [Both laugh] Welcome to the show.</dd>
+
+<dt>Sara</dt>
+<dd>Hi. [Laughs] Thank you, thanks for having me.</dd>
+
+<dt>Jen</dt>
+<dd>You've been writing a lot about SVG but you've also been writing a lot about CSS Shapes and Regions.</dd>
+
+<dt>Sara</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>That's the stuff that I want to talk about today. Tell us about what you're interested in and what got you hooked on regions and shapes and this other kind of stuff in the first place.</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>What got me hooked is a personal preference. I have real passion for print design and magazine design ever since I was a kid. Just like everybody else, I used to just grab a magazine and start looking up at the pictures. But I used to also notice the layout a lot. I loved how the text flowed, how the images were positioned. It was very beautiful. I still did that, even before I found out about CSS Shapes. I still browse the internet sometimes for magazine designs. I wanted to learn Adobe InDesign just to get into magazine design for awhile. But then I got into CSS and didn't get to do that.</p>
+    
+    <p>Then there was this day when I was browsing the <a href="http://blogs.adobe.com/webplatform/">Adobe Web Platform blog</a>. There was this blog about creating non-rectangular layouts and flowing text around different shapes. Among the example shown, there was this magazine layout. As soon as I saw it, my jaw dropped. I fell in love with it the second I saw it. I bookmarked the website and I said, "I'm going to get back to this sometime later in the future." Then awhile later, I did. I started reading the article, which was very simple. There's a <code>shape-inside</code>, you have some shape functions, you just define a function and use it. That's how I started.</p>
+    
+    <p>But I wouldn't have made it through the learning curve without Adobe's Razvan Caliman. He was there when I started. It was supposed to be simple. Just apply <code>shape-inside</code> or <code>shape-outside</code> and you have a different flow of text. I did that and it didn't work out. But at that time, Razvan was the one doing the most amount of work with CSS Shapes. So I reached out to him on Twitter and asked him if I could send him an email and ask him a few questions. Being the very nice person that he is, of course he said yes. I sent him this email with all of these questions that I had, like "I was trying to do this but it didn't work out," and "I was trying to do that but it didn't work and the article said that it should work." He was very nice. He kept answering my questions for a few days. With every question that I asked, I took notes. As usual, most of my notes turn into articles. That was my first ever CSS Shapes article.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's brave of you to ping somebody like that, and it's great for you to turn around and share all of that information with us.</p>
+
+    <p>So, explain shapes. It's a W3C specification. But explain, especially for people who maybe don't even write CSS. They're designers who aren't writing CSS. They're designing the design or they're the product manager or something. Explain what it is that this new piece of CSS does and will let us do once it's fully implemented.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>Coming from a print design perspective, for example. In print, if you have a circular image or a certain shape, and you want to wrap text around that particular shape instead of have it flow in a rectangular area, you can do that in print design. On the web, we couldn't do that before. CSS Shapes allows us to break free from the restrictions of the rectangle. All of the content on the webpages are rectangles because every HTML element is governed by a box model in CSS. This box model is, of course, rectangular. Text normally flows in rectangles. By using CSS Shapes, we can change that. We can change the flow area of an element. Instead of having it be restricted by the boundaries of a rectangle or a square or whatever, you can have it flow around any shape possible. Any shape that you want. Or flow even inside the shapes. But that depends on the different specifications.</p>
+
+    <p>CSS Shapes started as CSS Shapes and Exclusions. They were just one specification but then sometime later, the two specifications were separated. We got CSS Shapes, which contain the shape property, <code>shape-inside</code> and <code>shape-outside</code>. And there was...</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Exclusions got separated. So exclusions is a different... there's <code>shape-inside</code>, <code>shape-outside</code> and exclusions?</dd>
+
+<dt>Sara</dt>
+<dd>Yeah. <code>shape-inside</code> and <code>shape-outside</code> allow us to flow content inside and outside shapes. Exclusions is very similar. But with CSS Shapes you get, for example... let's talk about Module Level 1, which is the one that's being implemented right now. It's already supported in Chrome 37. I updated to 37 just yesterday. It comes with default support for CSS Shapes. You have a floated element. Yeah. Yeah. It's awesome. We've been waiting for this for so long and Safari 8...</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] Yeah, I didn't realize. Of course I knew that. Yes, uh, CSS Shapes shipped yesterday for the first time. [Laughs] I knew that. Right. That's why you're on the show today.</dd>
+
+<dt>Sara</dt>
+<dd>Well, it's been supported in Canary for quite some time.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Let me just explain for some people who don't know these things.</p>
+
+    <p>Canary is the version of Chrome that you can go and get that's that future of Chrome, so you can test things out and try things out. Then also, there's the regular versions of these browsers, right now Chrome 37 is the brand new one. But you can try some of these things out by turning on experimental flags. If you're into this stuff and you want to try it out, there are links in the show notes. Adobe has a great page of how to turn on some of these things or which browser supports what and how to get it turned on. Where you, personally, as the experimenter, can mess around with this, write an awesome blog post about it. But the normal person who is using Chrome isn't going to be able to see any of that work until it actually ships in the real version.</p>
+
+    <p>That's what happened yesterday. It shipped in Chrome 37. I'm looking at <a href="http://caniuse.com/">CanIUse.com</a> right now and it looks like it's also going to come out in Safari 8 both for desktop and mobile.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Yes, exactly.</dd>
+
+<dt>Jen</dt>
+<dd>That means iPhone, iPad, as soon as the new version of iOS comes out, will also be able to see CSS Shapes.</dd>
+
+<dt>Sara</dt>
+<dd>Yes, exactly.</dd>
+
+<dt>Jen</dt>
+<dd>So, sorry, I didn't mean to interrupt. So Level 1... there's two levels. There's CSS Shapes Level 1. Which is the stuff that will ship first. And CSS Shapes Level 2 is also being written right now, that specification, but that's not what's shipping right now. That's the stuff that will ship once it's written and decided on and then implemented. The things in Level 1 are coming out any day now. The things in Level 2 are coming out... I don't know. Do you know when Level 2 might start to ship in browsers?</dd>
+
+<dt>Sara</dt>
+<dd>No. I have no idea, no. But they're still working on it, of course. The reason is <code>shape</code> was divided into two modules. The first one focuses on <code>shape-outside</code> which allows us to flow content around shapes. The <code>shape-inside</code> property — which allows us to flow content inside a shape, which is the one that I'm really interested in the most — was moved to Module Level 2. Module Level 1 is flowing content around shapes and Module Level 2 is going to be flowing content inside shapes.</dd>
+
+<dt>Jen</dt>
+<dd>How I'm going to do this on the website I'm building right now of The Web Ahead is, the pictures of the guests, I'm going to make them all circles. Instead of just having the circle of the person's face by itself and then a column of text an inch away, I'm going to take the bio text and wrap it around the circle so it's curved. Each line of text is a little bit... sticks out a little bit more than the line before it and wraps around the circle.</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>Yeah, it's a really simple and subtle effect but it's really, really nice. These effects can take your design to the next level.</p>
+
+    <p>But CSS shapes come with some serious accessibility problems if they are not used responsibly. I've written an article about this, too, where I've used CSS regions to make this less of a problem.</p>
+    
+    <p>There are certain shapes that are too complex. In the very first article that I wrote, in the last demo, there were three shapes. I was flowing content inside these shapes. For me, I was reading the text inside them. It was normal. I had no problem reading it. But I got a few comments and all of them were saying, the last example is very hard to read.</p>
+    
+    <p>Certain shapes and certain designs may be really, really hard to read, depending on that shapes that you're using. If anyone is going to be using CSS shapes, use them moderately and always make sure that they are readable. Have users test them and different people try to read them. This is very important.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>So, the <code>shape-inside</code> property, which will be coming later, gives you the chance to take... I mean, you basically make a shape. Maybe it's a trapezoid, maybe it's a circle, maybe it's a mushroom, and you... [both laugh]... flow the text inside of that shape, right? You could have a pull quote where the quote is inside a circle. Maybe it's an actual circle, a black circle on white. But maybe it's an invisible circle and the text just is in the shape of a circle.</p>
+
+    <p>What you're saying is, don't go crazy with that. If you're going to make mushrooms and upside down triangles and stuff... it's the same principle for magazine design. Especially back in the 60s and 70s. There were some really interesting — in the U.S. at least, and I'm sure in other places — very interesting, bazaar layouts that were tried out in art magazines and small publisher, maybe artists putting together a magazine in New York or something. There would be a poetry journal and they'd try out some really crazy ideas about how to lay things out on the page. They were literally just cutting things up with X-ACTO knives and pasting them back down with some glue or wax or something. Because it was all freedom. You could do anything you wanted. The magazine was a rectangle but with an X-ACTO knife and some wax you could put the text on the page. You could put part of it upside down, you could do all kinds of crazy stuff.</p>
+    
+    <p>On the web, everything's just been, "Hey, let's make a long rectangular column. And you know what? I have another idea. Let's make another long, rectangular column." [Both laugh]</p>
+    
+    <p>This is a chance to break from that. You're right, don't go crazy. Don't put your text upside down if you think people can't turn their computer screen upside down.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>Yeah, definitely. [Laughs]</p>
+
+    <p>I was also mentioning CSS Exclusions. Maybe if someone's listening, they're like, "Ok, she didn't continue talking about that." The difference between Exclusions and Shapes is... with CSS Exclusions, you have a shape, and you can wrap content around the shape from all directions. You could have a picture, or whatever shape, in the middle of the page, and you have text flowing around it on the right, on the left, on top and bottom. In CSS Shapes, the Module Level 1, which we can use now — especially that there are certain polyfills that you can use for non-supporting browsers — we can only float an element to either direction. Either to the right or to the left and have the text flow only on the other direction. Not on both. That's the main difference between Exclusions and Shapes.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Could you put a shape in the middle of a multi-column layout and have it wrap on each side of the multi-column layout? Like a circle?</dd>
+
+<dt>Sara</dt>
+<dd>Currently, no. In CSS Shapes Level 1, no, we can't do that.</dd>
+
+<dt>Jen</dt>
+<dd>You would need an exclusion there, as well.</dd>
+
+<dt>Sara</dt>
+<dd>You would either need an exclusion or you can use CSS Regions to achieve that effect. You would have to separate the two columns and have each column be a region. Then flow content inside them. Of course, with CSS Exclusions, it's going to be much different. Much easier.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>I was cheating and cramming for this like it was an exam yesterday and this morning. [Both laugh] I was helped out by Rachel Andrew's brand new book and videos.</p>
+    
+    <p>For long-time listeners of the show, you might remember Rachel Andrew was on exactly 18 months ago today. We're recording this on August 27. It will come out next week. February 27, 2013, she was on the show — Rachel Andrew — to talk about CSS layouts. She had written a book that was published, at the time, by 5 Simple Steps called "<a href="http://www.fivesimplesteps.com/products/css3-layout-modules">CSS3 Layout Modules</a>." She just re-published this book yesterday, "<a href="http://www.rachelandrew.co.uk/books/css3-layout-modules/">CSS3 Layout Modules: 2nd Edition</a>," which she is self-publishing. She not only put out the book as an eBook but she made six videos to go with the book. I was just cramming the videos.</p>
+    
+    <p>Something that struck me, as I was doing this, is how these little simple things — "You can wrap your text around a circle. Ok, I got that idea. Moving on. What's the big deal?" — actually are really profound. As I began to look at more and more examples this morning, I began to realize, "This stuff actually is a big deal." These are small changes, technically, but they're artistically really powerful. I think we haven't yet begun to see... I don't think we have any idea yet how different this is going to make everything. And make us think about layout and how, maybe, three years from now, when we look around the web, as people are using Shapes and Exclusions quite a bit, it probably will be one of those things that we think, "Of course we've always had this." When in reality, it's new and it will make what we are doing now look really bad and plain and dated and constrained.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>In a way that, right now, it just seems invisible. Of course you do it as a straight column. What else would you do?</p>
+    
+    <p>What I also wanted to say about Exclusions — sorry for taking over, this is a monologue [Sarah laughs] — Exclusions seem incredibly simple. To the point where I looked at her example in the video and I'm like, "Duh."</p>
+    
+    <p>The New York Times, the old design of The New York Times — the one that came out maybe a decade ago or a little less than a decade ago, that was recently replaced by their responsive redesign. Although if you go to their old archive pages, you can still see the older design on the older pages. Let me see if I can describe this in audio. If you went to their page, the right hand rail, maybe one or two columns, was a lot of ads and links to other things. Ignore that and ignore the masthead, ignore the footer. If you just looked at the article, across the top of the article was a headline and then there would be an opening paragraph of text. Maybe two or three sentences, maybe longer. That paragraph of text would go all the way across the main content column. On the left, there would be a small sidebar, maybe 100 pixels wide or one-fourth of the space wide. It would have things like, "Here are the photos for this article." Or, "Here's the bar chart of data having to do with this article." Or, "Here's a link to the video that goes with this article." It was supplementary content for that article. Meanwhile, the main article would become narrower. The text would be wide at the top and it would wrap around this supplementary sidebar and then it would get wide again.</p>
+    
+    <p>I was handed a design once for a completely different company, completely unrelated, also a media company. They wanted that same shape. They wanted that same flow. It's a really beautiful design, it makes a lot of sense, it signals to people, "Hey, this content goes with this article. But it is a little bit separate from this article. Check it out." But I realized, as a front-end developer, digging into that for days, it's the most horrible inaccessible design if you're going to implement it with floats and old-school CSS layouts. The kind that were available 10 years ago. Because the only way to accomplish that is to take that sidebar material and actually stick it in the middle of the article. That's why a lot of people who use screen readers were always very angry at The New York Times, because their website was fairly unusable with a screen reader. You would get the first column of content and then you'd get all this stuff was that was an aside. This other, weird stuff. Then you'd get the rest of the content. Or if you use something like Instapaper or Flip, it was a flip board app, you would get this really strange result. Because they had taken the real content, the authenticity of the article itself, and they had broken it into pieces in order to do this visual thing. That, to me, was, absolutely not. Visually, it's a beautiful idea, but you can't compromise accessibility like that.</p>
+    
+    <p>But Exclusions does exactly that. You could accomplish that design using Exclusions and you don't have to screw up accessibility. You'd have in the DOM, in the actual HTML, the article in its entirety, all nice and whole. You could put all that aside information at the bottom and meanwhile get that wrapped-around-the-content kind of effect, visually, by using Exclusions. Its very simple, but it's like, "Wow! We've needed this for a long time and this really makes a huge difference and it makes a whole bunch of things that we wanted to do, possible, that really weren't possible before."</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Exactly. It's like you said, it changes the way you think about designs from the very beginning. From the very beginning stages.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. There's always been this tension between print designers and web designers. There's this feeling of, if you just open up a blank page in Photoshop, or InDesign or Illustrator or any program that was made for print, and you start putting things on the page, that doesn't necessarily mean that you're designing for the web. I think in response to that, in the frustrations that a lot of front-end developers have felt when they get emailed PDFs that are actually impossible to implement. What the industry did as a response to that — because many designers came originally from print and many designers don't really understand how CSS works, especially CSS layouts because it's complicated — we just started leaning on 960 grid. Or leaning on, we'll just draw a layout that looks exactly like all the other layouts that you've ever seen on the web. Let's just make columns. We'll have a sidebar, we'll have a main column, we'll have another sidebar, we'll have a masthead across the top and a footer across the bottom. I called this the "I-Beam" layout. It wasn't like that originally on the web. Originally on the web, there was a lot of creativity and a lot of experimentation. Then we got stuck in this "I-Beam" layout for a long time. I'm just so excited that we're going to, hopefully, finally get away from that. The technology will let us get away from it. The question then becomes, will people actually switch the way they think about designing?</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>I'm really more excited about what's coming next. Like I said, Shapes Level 1 is just simple flowing around shapes. But when we're going to be able to float text inside shapes... there's also the Figures specification. Håkon, the father of CSS, is the editor of that specification. There are certain features in that specification that I would also love to see.</p>
+    
+    <p>For example, I said earlier that CSS Exclusions allows us to position an element at the center of the page and have text flow on both sides of it. Of course, on the bottom, too. The last time I read the Exclusions specification, that was doable only by positioning the element absolutely and the content would just flow automatically around it.</p>
+    
+    <p>The way the CSS Figures specification does it, it uses the same concept as float an element to the left and have the text wrap around it on the right, for example. But then we get something called the <code>float-offset</code>. After you've offset your element to the left, you can offset it by a certain amount to the right again. Like I said on the ShopTalk Show, it's similar to relative positioning. You move an element. You position it somewhere in the flow by floating it and then you move it from its position by a certain amount. But the difference between relative positioning and the CSS Figures specification is, when an element is moved relatively, its original space is not occupied by other elements on the page. If you move a floated element by using <code>position: relative</code>, it's going to leave white space in its original position. If you use a <code>float-offset</code>, the text that it flowing around the element is going to take that white area, the white space that the element left behind. It's kind of achieving the CSS Exclusions effect but without using absolute positioning. Just using a <code>float-offset</code>. Which is very, very, very intuitive, in my opinion. I really like that. I would love to see that implemented someday.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Tell us about CSS Figures. That's one I haven't really heard much about. Håkon Wium Lie is writing it. Is there a lot of support for it? Is it also over at the W3C? Is this something that you think is going to happen? Or is this an idea, like a proposal that maybe isn't going to get a lot of momentum?</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>I'm not sure. I haven't seen any real talk about this. Håkon wrote an article awhile back, <a href="http://alistapart.com/blog/post/ten-css-one-liners-to-replace-native-apps">Ten CSS One-Liners to Replace Native Apps</a>. I think he showed some examples using stuff from the CSS Figures specification. But it's not implemented anywhere yet. I don't hear anyone talk about it much, except for him. I don't know if it's getting that momentum that it should get.</p>
+
+    <p>There are certain features that are very similar to CSS Shapes. Which may seem redundant. But there are other features that are really worth looking at.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Yeah. When I very first started hearing about this new layout stuff, I thought, "Ok, why are we going to have three or four different specifications? It's going to be crazy. Everybody needs to get together and agree and come out with one." But my thinking quickly changed once I began to really learn about what's going on. [Laughs] I realized, this is cool. It's cool that there's a whole of different ones. Because we're going to use them in different ways. We can mix and match them however we want. Perhaps, even, if there are some specs that almost overlap. Where you wouldn't use both at the same time. You have to chose one or chose the other. I don't know that would be a problem. That could be very interesting, perhaps. Let the ones that get a lot of support be the ones that people use the most.</p>
+
+    <p>Let me jump in. Let me talk about out sponsor today. <a href="http://mailchimp.com/">MailChimp</a>. MailChimp makes easy email newsletters. Not only easy, but also kind of fun, oddly enough. By the way, I'm going to make this both a spot for MailChimp and an announcement about The Web Ahead.</p>
+    
+    <p>I'm in the process of setting up a real — it's actually going to work this time — email newsletter for The Web Ahead. MailChimp is right. This is pretty darn easy and actually really beautiful. I love Aaron's designs and the whole team over at MailChimp. It makes it really fun to look at this stuff and clickity-click on things and, like, "Look! We have four subscribers right now!" [Laughs]</p>
+    
+    <p>They really have put a lot of effort into designing this software to make sending out email newsletters much easier, much more enjoyable. You can focus on the actual newsletter itself and making the newsletter look beautiful and send emails to people that they're going to like to open. When they get them and they know it's from you, they're going to know, "This will look nice and I can see those photos and I can click on that link and it's going to work and the typography's going to be really beautiful and it's going to be easy on the eyes for me to look at this newsletter." Rather than, you know, we all get those email newsletters where it looks more like spam than an actual piece of something that you want to read. The typography's awful or you get it on your phone or your this or that and it totally doesn't work. MailChimp really does make these work across a whole bunch of platforms.</p>
+    
+    <p>Making email newsletters, the code, the HTML for that, is some of the hardest HTML to write. Anywhere. CSS doesn't really work, you have to use all this old-school hacky... just don't. Just let them do it. They provide a whole bunch of templates, a whole bunch of tools. You can drag and drop stuff. You just drag the images in, you make them the size that you want them. You drag your text in, you put it where you want it. You don't have to worry about trying to code all that stuff. You can make it match your brand, you can share it on your website. You can integrate it into Facebook. It works with all these different social networking tools. You can track results. Who clicked on it, who opened it, who went ahead and did the thing, the action that you wanted them to take when they got the email newsletter. You can collection signups from an iPad, from a laptop, all of the stuff you might expect in 2014, 2015. It just makes sense.</p>
+
+    <p>If you have under 2,000 subscriber, you can send up to 12,000 emails per month. That means six emails to 2,000 people for free. Just to try it out, see how it's working. Which is really kind of cool. So everybody who's got a small email newsletter? Just, don't worry about it. It's on them. They'll take care of it for you.</p>
+    
+    <p>You can go to <a href="http://mailchimp.com/5by5">mailchimp.com/5by5</a> to learn more about their plans, their pricing, their features, everything about them.</p>
+    
+    <p>If you want to join the new Web Ahead email newsletter list, you can currently go to <a href="http://5by5.tv/webahead/newsletter">5by5.tv/webahead/newsletter</a>. Sign up there. You can up my number from four [laughs] to something more than four. And if you signed up before... I announced this last year or the year before. 5by5 was setting up email newsletters for every show and it was supposed to email you automatically when the show came out. That way, if you didn't want to subscribe in a podcast, an iTunes or something, and you didn't want to check the website all the time, and you aren't using Twitter, you could get the newsletter with all the show notes sent straight to your inbox, your email inbox. Or maybe you do get it all those other ways but you wanted the show notes in your email. You could sign up. But somehow, it never worked for The Web Ahead. All the pieces didn't quite get hooked up. Not on the MailChimp side, but on the 5by5 side. I'm on a mission to get all that fixed. I opened a new account for myself but I'm going to try my best to get those — there are 100 or 200 people who signed up before. If you signed up before, don't worry about it. I think I'm going to be able to get your name into the new system. The tools at MailChimp make it very easy to do that. I just have to get the people to do the thing and the thing and put it in the thing. [Laughs] Which sometimes is harder than you think it's going to be. [Sara laughs]</p>
+    
+    <p>I'll let you know. If you don't get anything in awhile, then maybe you want to go ahead and check it out. I'm not quite sure yet how many different ways I'm going to use this. Probably to make announcements, like, "Hey, the new website is up." Probably also to send show notes in your email box if you want that. Maybe later some sort of other newsletter-type-thing might happen. All of it will evolve over time.</p>
+
+    <p>I think I'll probably have a couple different... like, you can opt into three different things. Opt into all of them or opt into just part of them. Because that's totally possible.</p>
+    
+    <p>One of the things I love about MailChimp email newsletters, honestly, is because — like you, I get a lot of email-newsletter-stuff — is that I can tell when somebody's using MailChimp. Because I can scroll to the bottom of their email and opt out really easily. It's not a pain and I appreciate that. For all of us who don't want to get email newsletters. [Laughs] How easy MailChimp makes it to opt right out. No big deal. Unlike some systems where you have to do 16 steps to get yourself unsubscribed.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Even after you unsubscribe, you get that final email telling you that you unsubscribed. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>"Are you sure? Are you sure you wanted to unsubscribe? We won't unsubscribe you until you confirm that you, in fact, want to be unsubscribed." [Both laugh] Or worse, you still get emails. Which is illegal. You unsubscribe and they send you emails anyway. If you sign up with MailChimp, your customers, none of that will be their experience with you. They will not hate you for being jerks, the way that we all hate those other emails.</p>
+
+    <p>Thank you to MailChimp for supporting the show and to you listeners who, people who want to, sign up for The Web Ahead newsletter.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>I will!</dd>
+
+<dt>Jen</dt>
+<dd>Cool! Then I'll have five people. [Both laugh] Or maybe by the end of the week I'll have 205 people.</dd>
+
+<dt>Sara</dt>
+<dd>Maybe you'll have 1,005 people.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. 100,000! [Both laugh]</dd>
+
+<dt>Sara</dt>
+<dd>Be optimistic!</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>I mean, when I get the import from the older list. I gotta get that. I gotta ping some people and see if we can make that happen.</p>
+    
+    <p>So. What are Regions? I think we've explained Shapes and Exclusions pretty well. But what are Regions? Why would they be awesome? I want to talk about that. I also want to talk about why it might not happen at all and the — I guess "controversy" is the word or "debate" may be a better word — about whether or not Regions is quite the right way to do what we want to do or whether there's a better way. I think it's interesting, who's advocating for what. But before we get into the controversy, can you explain Regions to people who haven't had a chance to look at them yet at all?</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>CSS Regions. It is a fragmentation tool. But what does this mean? It means that you can specify certain areas, like <code>&lt;div&gt;</code>s or <code>&lt;article&gt;</code>s or <code>&lt;section&gt;</code>s or whatever, on a page. These sections can be anywhere on the page. You could have a <code>&lt;div&gt;</code> at the beginning of the article and a <code>&lt;div&gt;</code> at the end with a lot of content in between. Then you have, for example, another article. Or anything. You just have a piece of content, whatever it is, and you specify certain areas on the page. They don't have to be connected at all. You can tell the browser to flow the content into those areas. These areas are called the regions. This is why it's called Regions.</p>
+    
+    <p>The basic idea is you have some content in the DOM. Using CSS Regions, as soon as you use the CSS Regions properties, the browser's not going to display that content anymore. It's just going to take it outside into a flow and pour that flow into certain areas or regions on the page that you specify.</p>
+    
+    <p>For example, if you have a grid — if you're using CSS grids sometime in the future — you're going to have a lot of square areas where you want to put content. You can specify one at the top and one in the middle and one in the bottom, some disconnected areas, and tell the browser to flow the ads inside these areas. Or flow the article inside these areas. It gives you a finer level of control which allows you to specify where you want to flow content. This is the basic idea.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I feel like the mental model came from Pagemaker. Which is the same mental model that went into Quark and went into InDesign, slightly different in each iteration. Back in the day, Pagemaker, you'd type up an article in Microsoft Word or Word Perfect. You'd have this text file with the actual article. This is to make a magazine or something. Then you'd go into Pagemaker and you'd draw empty boxes. You'd draw, "This is where I want the text to be. Here, here, here, here, here." You'd draw columns or you'd draw a big wide box and then underneath it, some skinny boxes. Whatever. All those boxes had a fixed height.</dd>
+
+<dt>Sara</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's a piece of paper, right? The ink is going to stop at the edge of the paper. It's a magazine. You've got columns on a magazine page. They all have fixed heights. Then you'd, literally, get the little bucket-of-pouring-stuff-tool. [Both laugh] I forget what it was called in each of these programs. It looked like a little something pouring things into something else. You'd click and it would say, "What's your source?" And you'd say, "This article over here, it's in Microsoft Word." And it would go, "Ok," and it would pull that content out of Microsoft Word. You would click on the first box and it would pour whatever fit into that box. You would click on the next box and it would pour more of it into the next box. You would get these boxes, they would be linked together. Then if you erased a paragraph, it would just re-flow everything so that it fit. If you changed the font to a font that's bigger — you went from 10pt text to 12pt text — then it would just re-flow everything. That was way better than, say, laying something out in Illustrator. Where you would draw a box, then you'd paste in the content and you'd have to manually cut it at the edge of a word and put the next paragraph in another box and the next one in another box. When you changed the font, you had to copy one word out of the top of one box and put it in the bottom of the box before it. [Laughs]</p>
+
+    <p>Manually doing that was so tedious. It feels that way with this CSS stuff. Right now, what's easy? One, tall, long column. If you want to do multiple columns, you can't fix the height of those columns. You can use multi-column layout. You can have two or three really tall columns but they're going to be however tall they need to be, a half or a third of the whole article. Which means the person's going to have to scroll up and down and up and down in their browser window. Which is just totally not workable.</p>
+    
+    <p>Or you could use Regions and you could draw a box and say, "Let's have two columns. We can use viewport height. The vh unit. I want a box that's 80vh, 80% of the viewport height, and I want three of them next to each other. Three columns. I'm going to pour the first part of the article through those three columns. Then we're going to two columns below that. We're going to make those into..." whatever, whatever, whatever.</p>
+    
+    <p>When the person looks at the article, they see three columns that are the height of the browser window and not longer than the browser window. Or whatever. You could do whatever you want. As you described, it separates the length of the content from the boxes that the content lives in. The browser will flow them from one region to another region to another region.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>And adjust. Maybe it's a responsive design, it's a fluid page so the things pour from one to another to another. It just seems very revolutionary and also very print-centric in its model.</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>Yeah, there are a lot of specification that would work perfectly together. One would be the perfect complement to the other. For example, there was the CSS Fragmentation Module. I think it was proposed by someone at Mozilla.</p>
+    
+    <p>Like I said before, there are politics. There are reasons why these specifications are not being worked on and others are being worked on. CSS Regions were considered harmful by Håkon. People at Adobe, and myself included, consider them very useful.</p>
+    
+    <p>We, as developers, we see the tools and we get so excited about them. "Yeah, we want them!" But we don't always get what we want for many different reasons.</p>
+    
+    <p>For example, the reason why CSS Regions was pulled out of Blink. It was, by the time that I wrote the <a href="http://modernweb.com/2014/01/27/css-regions-matter/">infamous article about CSS Regions</a>. The day before I published it, it was pulled out of Blink. I think the reason was because it has some performance implications and they were focusing more on better performance on mobile. The code for CSS Regions was so big, it was affecting performance.</p>
+    
+    <p>There are many reasons why certain specifications or features don't make it to implementation. Or make it to implementation but then are pulled out.</p>
+    
+    <p>At the time being, Regions are supported in Internet Explorer. Of course, the newer versions. They work in... no, they don't work in Firefox. There is a polyfill that you can use. If you want to use CSS Regions today, you can use them.</p>
+    
+    <p>The people at Adobe — the same people that were working on the specification — after it was pulled out of Blink, they created a polyfill. Actually, two polyfills. They are both very useful, depending on the browser support that you're after.</p>
+    
+    <p>You can use CSS Regions today but you're going to be maybe have to sacrifice... you're going to be including JavaScript, maybe. I'm not sure about the size of the polyfill. I think someone on Twitter said, awhile back, that it did affect performance a little. I'm not sure, I cannot tell.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It looks like it's supported, Regions, right now, in Safari 6, 7, 8. With a -webkit prefix. Partially in IE 10 and 11. It used to be behind a flag in Chrome, 27 through 34, as you said. Or maybe earlier than 27 as well. But Chrome pulled it out.</p>
+
+    <p>Let's talk about... Håkon Wium Lie said that he doesn't like Regions because he...</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>... considers them harmful.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Because, what you end up doing is... for example, you have an article. The content is wrapped up in <code>&lt;article&gt;</code> elements. The way you would normally mark it up if you were just going to put it on a page very plainly. After that article, perhaps — you could do it anywhere, but perhaps after the article — you'd put a whole bunch of empty <code>&lt;div&gt;</code>s or maybe a <code>&lt;section&gt;</code> with a bunch of empty <code>&lt;div&gt;</code>s. That markup is not doing anything. It's just sitting there. The CSS doesn't display the content inside the <code>&lt;article&gt;</code> element and it does display the content inside these empty <code>&lt;div&gt;</code>s.</p>
+
+    <p>For him, I think this is right. The idea that you would put a bunch of empty divs on a page — in the DOM, for no reason other than visual display, under certain conditions with CSS — is a violation of, the markup should be...</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>... semantic.</dd>
+
+<dt>Jen</dt>
+<dd>... the content, and semantic. Without any sort of cruft for visual display. The visual display should happen purely in CSS. Is that right? That's why he doesn't like it?</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>Yeah, but, like I said before, he used certain... he took certain examples. CSS Regions weren't meant to do those specific things that he explained. Yeah, he is right, the problem of un-semantic markup, it is a problem. I mentioned that in the article, too. But I also mentioned another example that shows that it doesn't have to be a problem.</p>
+    
+    <p>For example, you could use a pseudo-element and have content flow inside that element. Like I said, certain specifications work with other specifications. Regions was made so it works today and it works in the future. Once we have Flexbox... we do have Flexbox now, and even when we have CSS Grids later, we can use certain sections of the grid and use them to flow the content inside them. We won't have to create those non-semantic elements in the markup again. We will already have areas that are available. We wouldn't have to explicitly create them in the DOM.</p>
+    
+    <p>It is a problem in some way because we currently don't have an alternative. But we could use pseudo-elements. We will be able to use CSS Grids and CSS Flexbox. We don't always have to use un-semantic markup to do that.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>People should go check out your article. Because you wrote a great article about this, about why CSS Regions matter. I'll make sure that's in the show notes.</p>
+    
+    <p>Understanding Regions vs the other options, the Fragmentation Module... it's going to be interesting to see what happens. There's a bit of inside baseball here. Not everybody's going to want to take the time to understand all the different debates and what each of these different proposals does compared to the other ones. But I hope something works out quickly. [Laughs] Because I think we need something that accomplishes what Regions accomplishes. If it's possible to come up with a technical idea, a technical implementation that does so without extra <code>&lt;div&gt;</code>s... because yeah, extra <code>&lt;div&gt;</code>s aren't a great idea. That would be great.</p>
+    
+    <p>But I hope we don't instead say, "We're not going to do anything like this whatsoever. We don't need to be able to flow content from one place on the page to another place on the page. Separate from the order in which the content is in the DOM. So, screw it. We're not doing it at all." That would be a problem.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>That was kind of what Håkon was kind of trying to say. He was sharing some examples, and then he said that we can achieve all of these examples using CSS Figures so we don't need CSS Regions. That was the reason why I wrote the <a href="http://modernweb.com/2014/01/27/css-regions-matter/">CSS Regions Matter</a> article. We do need them. We do want them. We can do a lot of things with them that we cannot do with CSS Figures.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Honestly, when I first heard about Regions and I first began to see Adobe pushing <em>so</em> hard for many of these modules, I was a bit skeptical. I was a bit frustrated. Because I felt like, "The web is not print. Let's stop trying to make the web into print. We need to design for the web. We need to design for the medium itself. Let's not try to force onto it something that doesn't belong there."</p>
+    
+    <p>But this year I've been doing some talks about layouts. I've done this research into... like, you started this show talking about magazine design. Just looking at magazines and the history of magazine design. Looking at one example after another example, after another, after another, after another. On the search for great graphic design. What is great graphic design? How do you present an article? What's the full range of possibilities? I've just become so excited, not about magazines, but about creating something new that far surpasses magazines and far surpasses anything we've seen on the web yet.</p>
+    
+    <p>Now I'm all glad that Adobe's been pushing on this. I'm a fan. I don't know what it is yet and I don't want people to stop at, "Well, we just copied our magazine exactly. Now we can do InDesign designs on the web. Done." Like, no, no, no, no.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>That's not the point of them.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. But I think there is something else. Some other kind of unchartered-territory-place that we could get to where we can really put the content on the screen in a way that helps achieve the content-ness. Make it even easier and faster for people to understand what that content is. To have deeper abilities and art direction and communications. Non-verbal, visual, something that is visual communication. The way that typography has really changed what's possible on the web. The fact that we can use real typefaces all over the place has made it so different in being able to visually communicate the meaning or the intention or the tone of an article. I think layout can really... we've sort of been stuck in the, there-are-five-fonts-on-the-web world of layouts. I want to get out of that. I want to get into someplace where we can do something much more interesting.</dd>
+
+<dt>Sara</dt>
+<dd>I don't know if you've seen the <a href="http://adobe-webplatform.github.io/Demo-for-Food-Network-Cupcakes/src/">Cupcakes</a> app? Have you seen it?</dd>
+
+<dt>Jen</dt>
+<dd>No.</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>It was a demo made by Adobe. It's one of my favorite things. I love it. I forgot his name, the person who created it, I'm sorry. He used CSS Shapes and he used CSS Regions, CSS Masking, all of the cutting-edge features that Adobe had been working on and is still working on.</p>
+
+    <p>The app is absolutely adorable. It's amazing. Everyone should check it out. To see what we will be able to do. It's a web app. We're not duplicating print design on the web. This is not the goal. But we will be able to use some features that we have always loved to have. It brings your designs to the next level. The way the application is designed, the effects, the way CSS Regions is used is very practical. It's an excellent example.</p>
+
+    <p>All of these features, we should have them. We want to have them. With big power comes big responsibility but this applies to everything. Not just to these new technologies. There is no reason why none of these features could be implemented. We do want them, we do need them. I do hope that we do get them back, especially CSS Regions.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>You alluded to this before. It was in the Chrome and it got pulled out of Chrome. It felt a little... I'm still unclear about exactly why it got pulled out of Chrome. The first email I saw made it sound like — this is completely a biased interpretation that may not be real at all — but my first reading of it was, Google was trying to send some sort of message that layout is not worth their time. Applications is what's important and they want to focus on running faster JavaScript and some of the HTML5 API things that would make it possible to do a lot more of the kind of applications that Google cares about. Google Docs and all those things. That something like, having amazing layouts is just such a low priority for them.</p>
+
+    <p>I don't know that is at all what they were saying. But if they were saying anything like that, it was making me very angry. Because I felt like, no company should shape the future of web standards and web technology based on, "Our business model is about getting users to our applications so we're going to do that and we don't care about the things that Adobe cares about. Because Adobe has clients like big magazine companies and big book publishers." You know, everybody buying InDesign. We need to support all of the use cases for the web. Not just one set of use cases for the web.</p>
+
+    <p>Then I was reading this other email today that gets linked to as the reason. It does sound like, this is what you were saying, more of a performance reason. Again, I don't really know what this means. But it almost, to me, sounds like the original — I'm hoping this is what it means — the original implementation of Regions was just very badly written. It was a gazillion lines of code and was not very well-organized, that particular set of code in their particular codebase. It was kind of all over the place and it needed to be redone. It needed to be ripped out. So they ripped out and redid it. They've ripped it out, they have not yet redone it.</p>
+
+    <p>I don't know that means it could never be implemented properly. I'm not sure that's what they're saying, that this just needs to get implemented better.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>I don't really know. It feels to me like I'm not sure what's going to happen. What the future of Regions <em>is</em>. If it's at a kind of impasse that means it's just never going to go anywhere? Or if it's at the kind of impasse that means, really smart people are pointing out the weaknesses in what's been done so far and they're going to keep working on this until they come out with an even better, more awesome version of it and then we're totally going to have it.</dd>
+
+<dt>Sara</dt>
+<dd>But the problem is that there are a lot of features that were in the same case. The same state. Like, "Ok, we'll get back to these features once they have better implementation." But they never really got back to those features.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Sara</dt>
+<dd>We'll never know.</dd>
+
+<dt>Jen</dt>
+<dd>But meanwhile, people can use Flexbox. [Both laugh] Doesn't do the same thing, but it's totally usable.</dd>
+
+<dt>Sara</dt>
+<dd>It's awesome.</dd>
+
+<dt>Jen</dt>
+<dd>We don't really have time today to get into it. And plus we've already done other shows. I'll look it up, I'll find the show. We've talked about Flexbox extensively on The Web Ahead in the past. Yeah. If you want something exciting and new and shiny and not to be depressed about the politics of web standards then use Flexbox.</dd>
+
+<dt>Sara</dt>
+<dd>Yeah, it is depressing. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>Well, Shapes 1 and 2 and Exclusions sound like they're in really good shape.</dd>
+
+<dt>Sara</dt>
+<dd>Yeah, definitely. I'm really excited for Shapes Module 2. More than Module 1. level 1 is really great and all but Level 2, it's going to be different. Especially if we get the ability to use SVG paths. It's going to be awesome.</dd>
+
+<dt>Jen</dt>
+<dd>Explain about that. What did we say already? Level 1 is about going around the outside of a shape. Level 2 will be about being able to put content inside a shape. But what else is Level 2 about?</dd>
+
+<dt>Sara</dt>
+<dd>
+    <p>It's basically just that. Inside and outside. In Level 2, we're going to get different features. In Level 1, we can currently define the shapes using the shape functions. We have different shape functions, like circle, ellipse, inset rectangle — it's actually called inset but it's used to create an inset rectangle — and polygon. We can also use an image. An image with an alpha channel. The browser would extract the shape from that image and use it.</p>
+
+    <p>In Level 1, we cannot use SVG paths as shapes. In Level 2, we should be able, I hope we will be able, to reference certain SVG paths. You could define an SVG path — no matter how complicated it is — in the DOM somewhere, and then reference it in your CSS. It will be used as a shape to flow content inside or outside it.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>That will be cool. Especially because an image with a complex mask could start to get kind of big. Where a SVG file would be much smaller and could be even more, whatever you needed it to be. More complicated if you needed it to be complicated for some reason.</dd>
+
+<dt>Sara</dt>
+<dd>Yes. You're also going to have to worry less about assets. You just have something in the DOM and reference it. It's going to be great.</dd>
+
+<dt>Jen</dt>
+<dd>But what's the debate about SVG? Why would it not be in the spec?</dd>
+
+<dt>Sara</dt>
+<dd>Again, it boils down to whether it's implementable or not. Certain features can be... the spec editor will be like, "Ok, I would like to have this feature for this specification." But certain implementations may not be possible. For example, I was talking to someone awhile back. He works on the SVG Working Group. He said that we don't have an algorithm, or something, for SVG paths, so it may not be easy to implement it. For example, if they don't know... I can't really speak about implementations because I don't do that.</dd>
+
+<dt>Jen</dt>
+<dd>[Laughs] You don't write browser code?</dd>
+
+<dt>Sara</dt>
+<dd>[Laughs] Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Less than... 100 people, I don't know, 227 people in the world know how to write a browser.</dd>
+
+<dt>Sara</dt>
+<dd>Yeah, they are brilliant people by the way. There are some really brilliant people working on the specifications and implementing them. Really brilliant. I've been lucky to be in contact with some of them and learning from them. It's just awesome. They are the nicest people out there.</dd>
+
+<dt>Jen</dt>
+<dd>It sounds like maybe there's something about SVG, or maybe the browser doesn't quite understand what a SVG file is, on a level that would be required in order for this to work. Maybe it's not going to happen, at least not yet, somehow?</dd>
+
+<dt>Sara</dt>
+<dd>I don't know. We can't tell. I can't tell. They haven't gotten to the stage where they're actually implementing Level 2 yet. I can't tell and I don't know if they know by now. But the point is, if there are certain things about SVG that are still unknown or unclear, how are you supposed to use something if you don't know exactly how to deal with it yet? Or how to manipulate it or change it? I feel like I'm just not making sense at all. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's funny. It's such a funny chicken and egg situation. I know even less about the details of exactly how the specs get written and then how they get implemented, how browsers get made.</p>
+
+    <p>But there does seem to be some kind of a chicken and egg situation. Where, on the one hand, the people who are so brilliant and they know how to make browsers, they don't necessarily make websites all the time. They have a theoretical understanding of what it means to be a developer. But they don't have clients and deadlines and a practical need to do this stuff, day in, day out. In a way, for the specs to be really good, they need to be used by developers but the developers can't use them until they're already implemented but they can't get implemented until they're written. It's like, which is going to happen? Things get implemented but they aren't quite right.</p>
+</dd>
+
+<dt>Sara</dt>
+<dd>We can help a lot. With CSS Shapes, sometimes a feature gets partially implemented or a first draft implementation. We, as developers, we can try them out. If we find any bugs, if we have any suggestions, they welcome suggestions all the time. We can play a role, we can help with this.</dd>
+
+<dt>Jen</dt>
+<dd>It's true. And important. Because it is the one chance for developers to say, "Hey, this syntax doesn't quite make sense. I get what you're getting at. I'm using it behind a flag. I have an idea of how it could be a little easier to understand." As long as it's still behind a flag and the spec is in draft, the change could still be made.</dd>
+
+<dt>Sara</dt>
+<dd>Or different use cases. Sometimes we may think about different use cases for things. These things may only be implemented if they have an actual use case. It would be helpful to give feedback. Like, "I would like to see this thing." And if it's something that is doable and they can implement it, they will definitely do it because, like I said, they welcome ideas, they welcome feedback.</dd>
+
+<dt>Jen</dt>
+<dd>How do you suggest people give that kind of feedback?</dd>
+
+<dt>Sara</dt>
+<dd>First they have to try the features out. Then reach out. They could send emails to the mailing list. I sent my first SVG email to the SVG mailing list. It felt like such an accomplishment. There are mailing lists that they can subscribe to and send emails to. They are very active, the SVG Working Group and CSS Working Group. They are very active. If you send an email, you're going to get feedback. They're going to start discussing your idea. It's not going to be just archived and forgotten about.</dd>
+
+<dt>Jen</dt>
+<dd>I'm looking at a random spec. This happens to be the <a href="http://www.w3.org/TR/css3-break/">CSS Fragmentation Module Level 3 specification</a>. Right here, "Issues List," links to the email list and there's an email address for feedback. Exactly where to email.</dd>
+
+<dt>Sara</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>Public, very public information.</dd>
+
+<dt>Sara</dt>
+<dd>Yeah, actually, I don't if you've heard, but the SVG specification is now on GitHub, too. It's open-source. It's great.</dd>
+
+<dt>Jen</dt>
+<dd>Well, thank you so much for being on the show today.</dd>
+
+<dt>Sara</dt>
+<dd>Is the time already over?</dd>
+
+<dt>Jen</dt>
+<dd>It is over.</dd>
+
+<dt>Sara</dt>
+<dd>See, it passes quickly.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It does. It's a little hard to know exactly how long we've been on today. Because it's three separate Skype calls. [Both laugh] But, yeah, I think we're well over an hour, so let's just stop here.</p>
+
+    <p>If people want to follow you on Twitter, what's your Twitter handle?</p>
+</dd>
+
+<dt>Sara</dt>
+<dd><a href="http://twitter.com/sarasoueidan">@sarasoueidan</a>. It's my name.</dd>
+
+<dt>Jen</dt>
+<dd>And they can go to <a href="http://sarasoueidan.com/">your website</a>.</dd>
+
+<dt>Sara</dt>
+<dd>Yes, and subscribe to the RSS.</dd>
+
+<dt>Jen</dt>
+<dd>Subscribe to the RSS. Or just go there, over and over. [Sara laughs] Read everything you've ever written.</dd>
+
+<dt>Sara</dt>
+<dd>Yes. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Great. So, thanks again for being on the show. Thank you for MailChimp for supporting 5by5 and The Web Ahead. And hopefully in the next, well, it's probably too early to say this. Hopefully soon I'll have an announcement for a new website. But actually there's a lot, a lot left to do. It's going well. I'm actually doing quite a lot every week. But it takes longer than four weeks to build a website.</dd>
+
+<dt>Sara</dt>
+<dd>You'll eventually get there.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Progress is being made. And thank you to everybody. There's a little crew of about eight people who have been helping out, especially in loading up content. We've loaded up all the transcripts that exist so far. All the guests. We had to go track down bios for all 75 guests who have been on the show. Photos of everybody. Information about all the sponsors that have ever sponsored the show. And the episodes themselves. Everything's loaded up. Yay! The site itself is built and all the content's loaded up. I just need to do all of the design part. [Laughs] I did this site inside-out. First I built it, then I designed it. I should have somebody on the show to talk with, and I can explain how I did that and why I did that. Mostly, this latest work has been about branding and about typography and hopefully, soon, a new logo and a whole new kind of look for the show. I've got to code all of that once I figure out what it is that I want to do.</dd>
+
+<dt>Sara</dt>
+<dd>It's an exciting time for The Web Ahead.</dd>
+
+<dt>Jen</dt>
+<dd>It is. I'm hoping by October all this stuff will be launched and it will be like a whole new show. A whole new, exciting thing. Out of all the things I've worked on, all the websites I've built in the past many years, I'm really excited to work on this. I get up in the morning and I'm like, "Let go!" That's been really fun. It's been fun to work on my own project and to work on a project that I hope will be really useful to people. I'm grateful, in a funny way. I'm glad that the audience is around because now I get to work on this awesome website for you. Hopefully awesome. I hope it's an awesome website for you.</dd>
+
+<dt>Sara</dt>
+<dd>It's going to be awesome.</dd>
+
+<dt>Jen</dt>
+<dd>Thank you for listening, everybody who's listening. Please subscribe, if you haven't subscribed. Check us out in iTunes or if you go over to the 5by5 website, <a href="http://5by5.tv/webahead">5by5.tv/webahead</a>, there's links for all the non-Apple places you can subscribe to the show, as well. Thanks! Until next week. Bye.</dd>
+
+</dl>
