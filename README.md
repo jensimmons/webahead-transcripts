@@ -15,4 +15,4 @@ I just had some people offer to help out with this project, asking what they cou
 
 
 ##What's Going to Happen to These Transcripts?
-Well, to start with, people can read them at http://transcripts.webahead.info. This summer, I plan to start creating a proper/bigger website for The Web Ahead, with a place for each transcript to live with the show itself. Stockpiling a bunch of transcripts is a great place to start on the new site.
+Well, to start with, people can read them at http://transcripts.webahead.net. This summer, I plan to start creating a proper/bigger website for The Web Ahead, with a place for each transcript to live with the show itself. Stockpiling a bunch of transcripts is a great place to start on the new site.
