@@ -1,0 +1,425 @@
+---
+layout: transcript
+title: "Paying on the Web with Manu Sporny"
+permalink: 82/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+    <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm Jen Simmons and this is episode 82.</p>
+    
+    <p>I first want to say thank you so much to this week's sponsor, <a href="http://squarespace.com/">Squarespace</a>. And also to the bandwidth sponsor for 5by5 for the month of September, <a href="http://www.cachefly.com/">CacheFly</a>. C-A-C-H-E — that's how you spell cache, that kind of caching — fly.com. The fastest, most reliable CDN in the business.</p>
+    
+    <p>Today's actually September 10, 2014, is the day after the big Apple news where they announced the iPhone 6, the Apple watch and <a href="http://www.apple.com/apple-pay/">Apple Pay</a>. Today we're going to talk about thinks related to the one of those three that very few people are talking about but perhaps is, long term, one of the more interesting ones. Which is Apple Pay.</p>
+    
+    <p>I'm especially interested, and have been for a long time, in thinking about payments and the web and about business models. The idea that everything on the web should be free because the web is open and awesome and everything's free. That was the original idea of the web and very exciting. Then over time, over the last decade — last 10, 15 years or maybe up to 20 years — the web has matured into this place where we've realized that, "Oh, people have to get paid. I need to get paid. What are we going to do about the economy on the web?"</p>
+    
+    <p>There's a lot to talk about here. There's a lot to talk about around the business model of the web and about payments and about payments and funding and how things get moved around. Because there is a web specification, called the <a href="http://web-payments.org/specs/">Web Payments specification</a> that's being written and proposed to figure out what else can be done on the web with web standards and payments.</p>
+    
+    <p>Today my guest is going to talk about all of these things. Manu Sporny. He is the founder and CEO of <a href="http://digitalbazaar.com/">Digital Bazaar</a>. He's the chair of the <a href="http://www.w3.org/community/webpayments/">Web Payments Community Group</a> at the W3C. He also chairs the RDFa standardization work at the W3C and spends most of his time driving the creation of open standards and open technology to integrate linked data, open identity and payments into the core architecture of the web. He's currently focused on expanding the core infrastructure of the web to include peer-to-peer payments, distributed banking, crowd funding and a variety of other transparent-by-design financial services.</p>
+    
+    <p>Welcome to the show!</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>Thanks for having me, Jen. Delighted to be here. This is exciting.</dd>
+
+<dt>Jen</dt>
+<dd>How did you feel yesterday watching this whole Apple Pay announcement get made?</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>The Apple Pay announcement is pretty interesting for a variety of reasons.</p>
+
+    <p>One, it's showing that you've got this big huge corporation getting into the same space that usually people think of banks and payment processors and credit card companies being a part of. You've got the technology industry looking at the finance industry and saying, "Hey, that actually looks kind of interesting. We think we can do a better job than what the traditional finance industry has been doing." That's great. A lot of the focus on the Apple Pay product was on user experience. Coming from the standpoint of improving the user experience rather than coming from the standpoint of creating a business model. To effectively skim money off the top of payments.</p>
+
+    <p>That part of it was really neat. Of course, Apple is a fantastic company that creates really nice, stylish products. They're very polished and refined, so you know the experience is going to be really great. That's the positive behind it.</p>
+    
+    <p>There are a couple of things I saw. There were a number of journalists that were getting really excited about this idea you can do these contact list payments and this swipe-to-pay and FC-based payment stuff. It's a big deal in the US but what a lot of journalists missed is that the European Union has had this for years. There are many other payment mechanisms around the world that are far more advanced than we are here in the US. We tend to forget that when we see announcements like the Apple Pay announcement yesterday.</p>
+    
+    <p>The other important takeaway is to understand that, while the Apple Pay stuff is great — it's going to be used by a bunch of developers — it's a proprietary walled garden. It's designed to further Apple's goals as a corporation and not necessarily We The People Of The Web's goals, to create a more equitable financial system. A worldwide financial system.</p>
+    
+    <p>If you wanted to compare and contrast the type of stuff that we work on in the Web Payments Community Group at the World Wide Web consortium, and our vision of the future and Apple's vision of the future via Apple Pay, you can see two very different futures.</p>
+
+    <p>One of them is proprietary walled garden. The one that we're working on in the Web Payments Community Group and W3C focuses far more on inclusion, far more on building open, patent- and royalty-free standards. Far more on making it easier to make payments and exchange value over the web.</p>
+
+    <p>When we talk about Web Payments, we're talking about building payments and value exchange into the core of the web. For example, when you use a web browser to look at a website, you don't really think about all the technical standards that are involved in making the website look the way it does. Honestly, you don't even have to care about which web browser you use. You can use Mozilla Firefox, you could use Chrome, you can use Opera, you can use Internet Explorer. The web page looks more or less the same. The experience is more or less the same. We want to do the same thing with payments. We want to exchange and extend this ability to not only look at a webpage, but be able to either receive or send money over the web and easily as we send and receive email over the internet. We want that to be built in to the core architecture of the web. That's something that, honestly, the Apply Pay stuff is never going to be able to do. Large standards like that, or large proprietary mechanisms like that, usually tend to not be adopted as a core part of the internet's infrastructure.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>I have to agree with you on a lot of that. Part of the whole Apple Pay announcement, especially with the watch, was, "How cool, how fun, you'll be able to save you watch in front of this device at the checkout counter. The future is the Jetsons." [Manu laughs] Of course, a lot of Android people are like, "Welcome to our world. We've been able to do that for years." Of course you could insert snarky things about Apple there.</p>
+
+    <p>But there is a way in which the user experience, Apple has these breakthroughs. The idea that Apple will make it so much easier and potentially more secure to pay for things in person and online and inside apps, that's cool. I like that. When looking at the announcement, I'm looking at these, "It's going to work with these banks. List of evil corporation, evil corporation, evil corporation." [Laughs] These stores, corporations I never shop at, there's something very creepy and not open about this. I don't want to buy a dollar hamburger at McDonald's with my iPhone. That's not exciting to me.</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>What we're focusing on in the Web Payments Community Group is, how do we enable a web developer to be able to integrate with this payment system that's a part of the web in a frictionless way? Where they effectively don't have to have these large agreements with these giant banks and giant corporations just to be able to sell services or pay someone for something as simple as access to the webpage. Like you said at the beginning of the show, everyone needs to eat. You need to have an easy mechanism of exchanging value, sending money back and forth over the web.</p>
+
+    <p>The big question is, "Why is it so difficult today?" Why do you have to be Apple to launch one of these payment systems? Why isn't it simpler?</p>
+
+    <p>That's the stuff that we're really looking at right now. It's the fundamentals. Apple's mechanism is, you can take your credit cards and assign them to your Apple wallet. You can store your credit cards and then you can use the credit cards to pay for stuff online. You can go up to McDonald's and pay for something using a credit card.</p>
+
+    <p>Whereas our approach is, credit cards aren't the only mechanism for payment on the web today. You've got old, outdated stuff like electronic checks, you have old stuff like credit cards, which came to be in the 1960s and 70s. That's not state-of-the-art. But you have new stuff. For example, <a href="http://ripple.com/">Ripple</a> and Bitcoin and Stellar. While they have their rough edges, we do want to provide those mechanisms as a way for payment online, as well.</p>
+
+    <p>We really want to create an ecosystem where people can experiment with different payment models, different currencies, different value exchange mechanisms. We want to make it easy for that to happen on the web. Right now, today, it's really, really, difficult. Prohibitively difficult. To the tune of, you have to quite literally set up your own bank. Which costs $25 million, by the way. That's the start up cost for a bank. In order to try to innovate. The second you raise that kind of money, the last thing that the VCs or the funders of that organizations are going to want to do is take any risks.</p>
+
+    <p>What we're trying to do is create this infrastructure on the web that makes it much easier to experiment with new financial models, new crowd funding models, new ways of paying and receiving payment from people. Just building that in to the web. If we've learned anything from the history of the web, it's that when you put the power of this stuff into the hands of developers and designers, they both do amazing things with the technology.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Because there are plenty of people who are listening who've hooked up PayPal or Stripe or some of these other payment processing APIs, services that are out there. People who build a store on Etsy or on Squarespace or on whatever. Somebody's already half-built everything for them or fully built everything for them and they can just hook themselves up.</p>
+    
+    <p>There are ways in which people can build websites and they can take payments for products or services without "a whole lot of hassle." Explain some of what you're talking about. How it would be easier than the kinds of things that people are using today. Or different.</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>When you find something on the web that you want to purchase, think about the process that you go through. Usually the first step is, you do a Google search, you narrow it down to a couple of prices that you like. Then you go to that website. That website, the first thing that they do is, they say, "Why don't you create an account with us?" Username, password, email, verify your email, what's your shipping address, all that kind of stuff. Once you've picked the item that you want, you put it in your shopping cart. You click checkout. It says, "Ok, tell us where you want to ship this stuff. Put in your credit card information. Verify that it's correct." Then you click pay.</p>
+
+    <p>That whole process takes anywhere from 5 to 15 minutes to go through. You go through that exact same process for just about every website that you buy something on. Some of us only buy stuff from maybe five or 10 websites. But I end up shopping around quite a bit online for our company. The other day I was looking at battery backup solutions and found a really good website where I could buy a battery backup solution for the servers in our company. I go through that whole process. Enter in the credit card details. Enter in the shipping address. All of that kind of stuff. It's a repetitive, annoying process. The worst thing is that we've actually got numb to this process. We think this is normal.</p>
+
+    <p>The ideal case is, you show up to the website. You see what you want. You click pay. And you're done. That's it. That is the ideal case. The problem is that we've been doing this arduous payment process for so long on the web, that doesn't even strike us as a potential option these days. It's that latter thing, the ability to show up to a website, not have to create an account, not have to share our credit card details, not have to share our shipping information. But still click "buy" and make the payment happen. That's what we're creating in the Web Payments Community Group.</p>
+    
+    <p>Since it's going to be a world standard, this mechanism is going to be the exact same process on every single website out there. It won't happen immediately, but within four or five years, we expect it to be the standard way that people pay for things online.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>In some ways, that is the promise, in a way, of Apple Pay in the iOS ecosystem. You don't have to do a whole lot of crazy stuff, just say you want to pay, put your thumb on the button to confirm that it is you using your phone at this moment. I'm thinking less about being in a store and more about, you're in the Etsy app and you want to buy a table and you are going to pay and Etsy's integrated themselves with Apple Pay. You can just click the button and pay.</p>
+    
+    <p>One of the things that Apple is doing, they've really bought in to the global banking system. They've clearly done deals with all of the major banks. These credit card companies get a percent. They get typically around 3% of every transaction. When I was a kid, you paid for things with cash or you paid for things with a check. A paper check. There was no 3% that went to a bank in the middle of that. The banks made their money from having your money in savings and making interest off that money. They didn't expect to take 3% of everything you ever spent.</p>
+
+    <p>In a way, it feels like Apple Pay is reconfirming and solidifying that banking system even more deeply. The Web Payments Community Group, is it something that would also build on top of the world banking system? Or would it be an alternative to the world banking system? Where people could exchange money without there being a percent taken by these major corporations?</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>The Web Payments Community Group is all about choice. Giving people the choice. A lot of people don't think about the risk that a lot these banking institutions have to take on in order to do credit card payments. Some of the risk is warranted, some of the risk is absolutely stupid. It's bad security practices. I'll go into that in a little bit.</p>
+
+    <p>The idea with the Web Payments work is we want to provide people with choice. Do you want to pay 3% for this transaction and be protected by all the consumer protection laws? Such as the right to take your money back if a merchant defrauds you, to ensure that you money's not going to some sort of terrorist organization by being laundered. There are all of these things that we've built up in the banking system across the world to protect us, to make sure our money is being used for the purposes that we designated it for.</p>
+
+    <p>I'm not going to argue whether 3% is a fair rate or not. It depends. It's entirely dependent on the situation. But the idea here is there is some amount of value that the banks are bringing to the table. The Web Payments work can be used directly by the banks. Since this is an open, patent- and royalty-free set of standards that we're working on, the banks can use it, Apple can use it, Google can use it, PayPal can use it. We're not saying there are going to be definite winners and losers in this game.</p>
+    
+    <p>In short, we're all about choice. If there is another payment mechanism that only charges a quarter of a percent to do a payment versus 3%. Great. We want it. We want to help that payment mechanism succeed on the web. That's really what the Web Payments work is all about. We see a future where there will be multiple different options. You can pay 3%, you can pay 10%, you can pay half a percent. That's really a decision between the customer, their financial provider and the merchant. We're just enabling that choice to happen in a more friction-free manner.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Is one of the goals, perhaps, to create more of a space for competition where you don't have to be Visa or MasterCard to be able to get in there and get a piece of the action?</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>Absolutely.</p>
+    
+    <p>I've been to a number of Bitcoin conferences speaking about the work that we're doing. One of the points that I make to the Bitcoin folks is, the Bitcoin community really has to stop being as insular as they are. The Bitcoin community tends to look inward and say, "Bitcoin's going to change the world. We're going to completely decimate the banks. Visa and MasterCard and these payment networks." Certainly not everyone in the Bitcoin community is saying that, but that's the thread that you get out of it. I think that's entirely the wrong way to go about it.</p>
+
+    <p>It's not going to be just Bitcoin. There are, like, 290+ different crypto currencies today. Six years ago there were, like, two. That shows you the massive possibility here. We could be talking about all types of different currencies and payment systems and payment mechanisms. We have to find a way to square that with the way the web works.</p>
+
+    <p>For example, on the web, there's this problem called the <a href="http://indiewebcamp.com/NASCAR_problem">NASCAR problem</a>. The NASCAR problem was first coined as the log in problem. You go to a website and it's asking you, "Do you want to log in with Google or Twitter or Facebook or XYZ provider, OpenID?" There are all of these different ways to log in. The login page ends up looking like the side of this NASCAR race car. There's stickers everywhere and you don't know which one to pick. It's information overload.</p>
+
+    <p>If you think about the way payments are going, they're going in the same way. "Do you want to use Apple Pay to pay? Do you want to use PayPal? Do you want to use Google Wallet? Do you want to use your bank to pay? Do you want to use Visa or MasterCard? What about Diner's Club? American Express?" It's this huge, long list of different payment providers. It's only being made worse by the introduction of Bitcoin and Ripple and all these other cryptographic currencies. The question in, can we come up with a standardized solution? You go to a website, they support five different ways of receiving payment. You support three different ways of making a payment. Between the two of you, there are three options for you to pay. You decide, personally, between you and the merchant and your payment processor.</p>
+
+    <p>That's what we're trying to do here. We're trying to standardize this mechanism of payment on the web. We are definitely trying to increase competition. If we make it really easy for new payment mechanisms and new currencies to enter the market, that really levels the playing field as far as payments are concerned.</p>
+
+    <p>It would allow a new cryptographic currency that, for example, for every dollar that you spend on this cryptographic currency, they plant a tree. Just by using this currency, you're helping to combat global climate change or reforesting forests that have been decimated from logging. There are all of these really cool concepts around currency that just have not been able to take off because it's been really hard for groups to enter the payment space.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What would this look like? Wave a magic wand or jump in a time machine. This Community Group has gotten a web specification written. What kind of technology are we talking about? Is it some sort of centralized system where everyone's credit card numbers and payment information...</dd>
+
+<dt>Manu</dt>
+<dd>Definitely not centralized.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's not that. [Both laugh]</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>No to centralization! [Both laugh] I mean, the web's this huge decentralized system, right? The first design criteria for anything that's done through the World Wide Web Consortium is, "No centralization. Centralization is bad." We've got a number of design criteria going into this.</p>
+
+    <p>It's also important to point out that the Web Payments work isn't just one specification. It's a family of specifications.</p>
+
+    <p>One important part of the Web Payments work that people don't seem to grasp in the very beginning is that identity is a big part of payments. You can't have high-value payments without high-value identity. Specifically with that, high-value credentials. Being able to express something like a US-issued passport. A Maryland driver's license. A bank card. A corporate access card. Things of that nature. You can't have high-value payments until you solve the way we identify ourselves online.</p>
+
+    <p>There are two parallel problems right now. One of them is, it's really hard for you to identify who you are to a website online. You can log in with Facebook and Facebook Connect and you can log in with Google Plus and Twitter. But that doesn't mean that they know that you are a citizen of a particular country, if you need to prove that.</p>
+
+    <p>For example, when you open a bank account. Many people don't know this — many countries have this, but for the US specifically — any time you transmit more than $10,000 in a particular timeframe, like more than $10,000 in a day — not many of us do that but businesses do that all the time — the federal regulations require that the banks know who you are. They've verified that you're a citizen of a particular country. That you've opened the bank account. They've basically got all of your information. For example, if they find out that $10,000 went to money laundering initiatives or went to terrorist initiatives or went to human trafficking initiatives, they can follow the money back to the person that did the transfer.</p>
+
+    <p>Identify is a big part of this. There are a set of specifications around identity and how you prove who you are online. That's one thing that Web Payments work is working on. A set of specifications around credentials. What we're calling high-stakes and low-stakes credentials.</p>
+
+    <p>The other set of technologies that we're working on have to do with initiating a payment and a digital receipt. When you initiate a payment, the idea is that you go to a website, there's some kind of "buy" button. When you click it, some magic standardization stuff happens that makes your web browser send you to your payment processor to process the payment. Your payment processor provides you with the digital receipt that you can then send back to the website to prove that you paid for something. That's a very different approach to the way that we do payments today. There's a lot of security stuff that goes in there.</p>
+
+    <p>But at the high level, the specifications that we're working on have to do with credentials on the web. Proving who you are to a website. They have to do with initiating the payment and listing items for sale in a machine-readable way on the web. The third thing is a proof of purchase, like a digital receipt. Those are the three main pillars of what we're working on.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Where is that work at? How far along is that? When might we begin to see some standards approved and start integrating these things?</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>We actually started work on this around four years ago. Which sounds like an age ago. But it's taken us this long to just convince the World Wide Web Consortium membership that payments is something we should do on the web. That's something the consortium can do to make it easier to do payments on the web and to level the playing field as far as payments are concerned on the web.</p>
+
+    <p>Last year, we met at the United Nations and had this big discussion around payments and the humanitarian reasons why doing this is a good idea. We took that input to W3C and said, "Look, we need to have a workshop on this. Let's get some of the big payment players together." That was in December at the World Wide Web Consortium's technical plenary. The management there decided, "Yeah, we think now's the time to have a workshop."</p>
+
+    <p>In Paris this year, we had the first Web Payments workshop. We had huge, huge organizations attend and participate in a really compelling way. For example, the World Bank showed up and provided their input. The US Federal Reserve. Google was there. AT&T was there. The GSM association was there, they standardize all the mobile phone stuff. They do a lot of mobile phone standards. We had ING Bank. We had really big players in the space show up and say, "We think that now's the time to standardize some stuff around payments on the web. It's going to get out of control if we don't do it." What came out of that were a bunch of use cases and requirements, which we've been refining over the last couple of months.</p>
+
+    <p>I think tomorrow, the charter for the Web Payments steering group goes to the W3C member companies for review and voting. What that means is, within the month we'll know whether or not the official work has started. Once the official work starts, it's usually around 3-4 years before we get an official standard ratified.</p>
+
+    <p>The depressing thing about all of this is that it's going to take time. All web standards take time. But the reason it takes time is, it's not just Apple deciding they want to do Apple Pay and using boatloads of money to throw at the problem. It's a standardization process which requires us to go out and talk to Apple and Google and PayPal and US Federal Reserve and bring everyone into the same room and get them to agree about the fundamentals of what we're doing. That just takes time. Some companies are scared of this stuff because they're worried that their market is going to erode. Other companies are concerned about security implications.</p>
+
+    <p>We're building something for everyone that uses the web. It's a big responsibility. It's 2.5 billion people. To put that in perspective, if every single iPhone gets converted to an Apple Pay device, we're talking about 60 million people in the US. Versus 2.5 billion people that we have to make sure this thing works for around the world.</p>
+
+    <p>That's the timeline. That's what's happened and what's going to happen. Usually you can expect standards stuff to start being used two years out. Expect within two years we'll start seeing some of this technology being used. That's kind of the timeline that we're looking at.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It does seem so hard. The standards groups have a hard enough time trying to decide new CSS layout modules. That's just people who are involved with building browsers and people who make websites agreeing on the best way to do things. [Laughs] This is so much more complicated than that. When you're talking about the entire world banking system and the financial industry and people's ability to make money in the future. All the competing interests.</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>The good news is that there's agreement. For the first time ever, for the first time in history, we have gotten all of those organizations to say, "We think we can do something around payments on the web. Here are the requirements. Here are the use cases." At that point, it becomes a technical exercise.</p>
+
+    <p>There's also this political exercise that's happening in parallel. There's a regulatory framework, there's a world banking infrastructure. All the players that have been there for hundreds of years. And, quite frankly, are going to be there for hundreds of years to come.</p>
+
+    <p>The idea is we're trying to make it so no one can really block the work. For example, if the banks walk away from the table, that would really sad to see. But the technology companies, like we've seen with Google Wallet and Apple Pay, are really interested in this space. The technology companies will do something about it if the banks decide they don't want to do something about it.</p>
+
+    <p>I should be very clear, that's worst-case scenario. What we're seeing today is, there are a number of banks that are very interested in seeing this work succeed.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>This is not the first time that these institutions have needed to standardize. Credit cards themselves are a standardization. The whole way that banks can transfer money from one bank to another, is technology that had to be standardized at some point. I think they probably have a long, deep understanding and knowledge — far deeper than I do — around the pain of not standardizing.</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>Absolutely. Many people don't know this about the banking industry. It is far more diverse than most people think. Many people think there are these big, evil corporation with these gigantic listening towers that look down upon all of us and have loads and loads of money. There are a couple of those banks. But there are 11,000 other banks that are not like that at all. That are struggling. That are looking for ways to differentiate themselves that absolutely depend on standards to be able to exchange money between one another. It's a really diverse group.</p>
+
+    <p>One of the things that was most shocking to me — because I came into this as a technologist — was how much of a level playing field there already is in the banking sector. While there are those big, gigantic players, there are thousands upon thousands of community banks and credit unions that provide banking services to their local communities. Those are also the organizations we're trying to help modernize with this technology.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Yeah, for anybody out there listening — especially if you live in the US and you've never checked out a credit union — I suggest, go check out credit unions. They can be really quite cool. Or community banks. There's lots of options out there.</p>
+
+    <p>We've been talking about web payments in the way of people buying things from each other. Like, "I went to this store and I bought this item and now it's being shipped to my house." Or, "I bought this digital good and I just downloaded it." But the other thing that I'm fascinated by around web payments is the things that we're not paying for right now. Because it is too complicated or hard or annoying. Or the friction that is involved in making the payment is enough to make it seem like a bad idea to pay.</p>
+
+    <p>Specifically around business models behind websites. I think the New York Times maybe was one of the first big sites that I saw put up a paywall. One of the most obvious ones. I remember personally feeling a bit like, "You're doing it wrong! That's not how the web works. You should not put a paywall up around your website. I should get to read all your web content for free." This was several years ago. "Don't you know the web? You don't know the web. New York Times, you're so stupid." [Both laugh] "You guys should hire some people who understand the web."</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>Right, right.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>But now, personally, my view has changed so much. Now I feel like, "Wow, what a great idea. Reporters need to get paid. We want high-quality work. We want great quality writing." I think we — the world — we've slowly become savvier and savvier around the fact that, if you're not paying for something, then you're the product being sold.</p>
+
+    <p>I'll turn it on myself. People are not paying for this podcast. But this podcast is making a small amount of money that I really hope to increase. If I can increase that amount of money, I can really put some more time and attention into this podcast and make it a lot better. I want to do that for the people who are listening. I want to have a website that does all these other things. But where am I going to get that money from? The sponsors. What's the business model? The business model is, I'm selling the people who are listening right now. I'm selling their ears and their attention to the people who are sponsoring the show. I really want to have some other business models, some other ways to raise money, and I will. I'll tell everybody about that later when it happens in a couple of months.</p>
+
+    <p>I don't want to use Facebook and have my personal information sold to advertisers. I don't want, every time I use a Google product, to have Google watching me. Watching everything I'm doing, reading all my email, all my business correspondence, all my spreadsheets and all my everything and scraping that data and selling it to advertising corporations. I would much rather pay.</p>
+
+    <p>Dan Benjamin — who runs 5by5, the network that this show is on — talks about this a lot. Why not just pay $8 a month to a place that you're going to use for all of this awesome software that we need? You understand that business model. Instead of getting the free thing from this other corporation.</p>
+
+    <p>I know that part of what's being discussed around web payments is the idea that, maybe I have a blog and I want to write for it professionally. Rather than trying to sell tons of annoying ads in the sidebar, what if, instead, I have a membership model. Right now, people do this. They say, "Pay me $4 a month" or "Here's a tip jar." But what if, instead, there's somehow, baked right in to the website itself, every time anybody comes to that website, they get paid a nickel or a dime or there's something else going on. As we surf we web, we're spending; providing funding and money for business models.</p>
+
+    <p>Talk some about that. About ideas that people have around how these business models might shift or how web payments might play a part in that change, if that happens.</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>I think that's absolutely right. This idea that the only real business model that works is advertising. That's the safest bet. You look at any dot-com startup that's trying to build a gigantic user base, the exit strategy is always, "We're going to sell gobs and gobs of advertising." Not, "We're going to charge people 25¢ a year or 50¢ a year or use our product." It's, "We're going to sell gobs and gobs of advertising."</p>
+
+    <p>One of the reasons people default to that is, it is a tried-and-true business model for the web. It works fantastically for Google. It works fantastically for Facebook. But, like you said, there are many bloggers and podcasters and people that create stuff. Software and art, just culture on the web. That would really rather not do that. Either they don't have the audience size to do that or they don't have some kind of payment mechanism that allows people to give them 10¢ or 15¢ every single time they go to a website. Or if they do have the technology, it's really unwieldy to use. No one wants to have a pop-up that says, "Hey! Give me your credit card information and pay me 15¢." [Jen laughs] That's like a non-starter.</p>
+
+    <p>A lot of the web payments work that we're doing is focused on enabling new business models for independent folks on the web that create stuff. Software developers, designers, bloggers, vloggers. All those folks that have 20,000 people tuning in a month, listening, and all they need to do in convince people to maybe give 30¢ a show. Just make it a really simple, easy process.</p>
+
+    <p>If you remember back, I was explaining how the typical payment process works online and it requires you to create an account and give away your first born and all that kind of stuff in order to just set up the ability to pay that person. With the web payments work, we're trying to reduce that to a single click.</p>
+
+    <p>The other thing we're trying to do is create this idea of subscriptions. The idea that you're subscribing to a website. The idea is not that you're paying $4 or $5 a month to the website. Although we also support that. The idea is, can we maybe set up an agreement between the person that's browsing and the website? Where the website says, "Hey, I promise to charge you less than $5 a month. But whenever you look at an article, I think you're getting some kind of value out of it, so would it be ok if I charged you 10¢ or 15¢ for every article that you read on my website? I notice you come here a lot, so $3 for this website isn't a whole lot. If you don't use my website, you don't end up paying anything."</p>
+
+    <p>We've talked to a number of people. It's a compelling business model, at least for some bloggers. It's certainly something that some people would end up paying.</p>
+
+    <p>That's kind of a long-winded way to saying, absolutely. We want to support all these different types of payment models. Micropayments are one of those payment models that we want to support. Subscriptions are another one. They only make sense in certain scenarios. The whole problem with sending and receiving money on the web today is that it's really hard to do. You don't have those subscription and micropayment options because, who's actually going to sign up for a $1.50 or $2 subscription to a website? On top of that, is that same person going to commit to a $24 per year subscription to a website? That requires a lot of commitment. If the web's taught us anything, people's commitment — as far as how loyal they are to any particular website — might be high, but they don't want to sign up for a subscription that lasts a year. Plenty of people have been burned with that business model before.</p>
+
+    <p>The idea is to become a bit more innovative with the way that we do payments. To do a bit more opportunistic with the way that we do payments without requiring people to do long-term commitments, like yearly subscriptions. Does that make sense?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think there's something where... if anybody has done any fundraising, there's this idea of a pyramid. You're trying to get one $10,000 donor and three $3,000 donors and 20 donors who are giving $1,000 and 50 of them are giving $50 and a 100 that are giving $10. You build out the budget that you need based on that. I feel like the inverse is true when it comes to spending money. Maybe I'd be willing to spend $50 a year for this one website because it's just so awesome. I'm going to do two or three websites at $20 a year. But I could do 100 websites at a dollar a year, over the course of a year. Maybe I spend $2 a month. It's not a big deal to charge somebody $50 a month. But you don't charge somebody 5¢ a month. It's just an extraordinary amount of work to set that up. It's a lot of work for the person who's saying, "Yeah, sure, I'll pay you 5¢ a month. No problem. You can have my 5¢ a month." They're rather just give you the nickel but the cost isn't actually the nickel at that point. The cost is the annoying part of registering and giving you my personal information, my data, my credit card.</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>Right, exactly. There's another side to this. There's the question of, how do we support the people that are creating the web? How do we support the web developers, web designers, programmers, app developers. How do we support the independents? A lot of this stuff is done by independent people. A lot of the web is built by independent people. It's not built by large corporations. That's the first question. How do we support these people?</p>
+
+    <p>But there's another, more moral argument here. If we look at the number of people that use the web today. We've got 2.5 billion people that use the web. We have another 3 billion coming online over the next decade or two. We've got this potential for around 5 billion people to be on the web in 10 to 15 years. If we look at the number of people that have access to financial services, it's dropping. We're not getting more and more people with more access to financial services. What we're seeing is, more and more people with less access to financial services. Like access to credit or access to a banking account. In some countries, only 30% of the adults have access to a financial infrastructure. Which means that the rest of them are taking their money and they're stuffing it under their mattresses. That leads to all kinds of really nasty stuff. High crime rates, theft, people getting mugged on the road to the bank to deposit money.</p>
+
+    <p>The really interesting things about these nations is that the web is coming to people in the form of mobile phones. The mobile web. A lot of these people, their first experience with the web is through a web browser via the mobile phone. In many cases, they have access to their smartphone, this mobile phone, but they have no access to government infrastructure. They have no access to financial infrastructure. There are roads that go to their village. It's a pretty amazing thing. There are people that are completely leapfrogging the standard way that you expect a country to develop. One of the most shocking things for most technologists — or people that work on the web — is this is not a developing nation problem. Thirty percent of adults inside the United States either have no bank account or they're incredibly underserved by their bank, meaning they don't have any access to credit, they just have a place to put their money.</p>
+
+    <p>The idea here is, can we build a financial infrastructure for the world that is built in to the web and built in to the internet. The second that next 3 billion get online, get on to the web, they have access to a global financial infrastructure, right there on the their mobile phone. Built directly in to the web. This is important because if we look at the cycle of poverty, one of the fastest ways to get people out of the cycle of poverty — this has been proven time and time again, in study after study — is give them a mechanism to plan for the future. Give them a way to save money for food. Not just for this week but for next month. Give them a mechanism for saving money, so if they get hurt or there are unexpected medical expenses, they have money put away for that. Give them the ability to save money for their children's education, such that they can afford to educate their children. These are really important things. Things that completely break the cycle of poverty and lift all of these cultures, regardless of which country you're in, it lifts all of these people out of poverty.</p>
+
+    <p>That's the other side of this web payments work that people don't really think about. We're trying to drive the cost of the financial infrastructure down, as close to zero as possible. Because if we do that, we can break the cycle of poverty. Not just in developing nations but developed nations as well. It costs a bank around $300 to maintain your bank account. The reason is the technology they use to do that was built in the 60s, 70s and 80s. If we can get this payment infrastructure, this financial infrastructure, built in to the core of the web, and make it much more efficient to manage financial accounts for people, then we enable this access to far more of the world than has access to the traditional banking system today.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yes, please. [Both laugh] A lot of the people who don't have access to proper bank accounts are being abused and stolen from. By predatory, quasi-legal banking practices that end up charging insane interest rates for short-term loans and really high fees for cashing checks. If you already don't have very much money, having 40% of it snagged by a quasi-legal bank situation, just really hurts.</dd>
+
+<dt>Manu</dt>
+<dd>And it happens every single day. If you want to transfer money, if you are someone working in Florida and you want to transfer money to your family back in Haiti, it's going to cost you 35%. Thirty-five percent of the money that you send is going to end up in fees. It's a horrible, predatory practice. Everyone knows that it's happening. It's not necessarily the bank's fault. The organizations that do this aren't usually banks. But sometimes they are. It's just a horrible practice and we need t end it as soon as possible. Because it is preying on the people that can afford to lose that money the least.</dd>
+
+<dt>Jen</dt>
+<dd>It would be great to pay 3% instead of 35%. Life-changing kind of great, for their families and for themselves.</dd>
+
+<dt>Manu</dt>
+<dd>Absolutely life-changing. Imagine if your income went up by 30% today. All of the things that you could do with it. I'm sure maybe of the people that are listening to this podcast are fairly privileged. You're probably sitting in an office or a home. You've got a roof over your head. You have money in the bank or at least you have enough to eat for the next three or four weeks. Maybe people aren't in that position. Removing these fees and predatory practices is a great way of making the world a better place.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Looking back on the 2008-2009 recession and the collapse of the banking system and the way that governments had to prop up those institutions to keep us from really ending up in much deeper trouble. When you think about "bank" and "banking," I don't want to think about any of it. Those people are all evil, they're all horrible, they're destroying all that's good in the world. Just don't talk to me about it. [Laughs]</p>
+    
+    <p>Everything you're saying has really made me think more deeply about that. I'm not an economist. I'm not going to go get involved in the banking industry. But there is something connected between the technology industry and the web and those banks. There are ways in which those banks provide really important services that we all need. There are ways in which a more level playing field, so that new players and smaller players can be in there. We can have more competition and more global networks. More global institutions instead of staying within these borders, these arbitrary, false borders of countries. Everything that we experience on the web — it comes to communication, it comes to email, it comes to sharing knowledge and news and information and data — for that to also become true when it comes to sharing money and pushing money back and forth. That does start to get really exciting. That isn't the evil banking industry after all.</dd>
+
+<dt>Manu</dt>
+<dd>I know a number of people in the banking industry. These people are just like everybody else. They've got a job, they've got families, they really care about making a world a better place. The number of evil people, like truly evil people, I've met in the banking industry is zero. Everybody cares about this stuff. I think the problem is the systems that we've set up. Systems have results. You put input into a particular type of system, it is going to do what it does and you are going to get a certain type of output. The systems that we've created filter money to the top 1% and cause great inequities. That's really what we're talking about. It's a systems design problem. We're trying to create a system that is very resilient. That levels the playing field. That makes it more fair for everybody. Really, everybody wants that. There might be a tiny, tiny fraction of people in the top 1% of the 1% that don't necessarily want that. But I've never met them. Honestly, I don't know anybody that really knows those people. I think it's largely a myth.</dd>
+
+<dt>Jen</dt>
+<dd>It makes for good Hollywood movies to have a bad guy. I think the reality is, individual people aren't evil like that. It is the system. It is our cultural shared values in saying, "Fancy cars are really great and important." So people really want fancy cars and then they're just trying their best to live an honest life and do what their bosses at work want them to do so they can have the fancy car. That results in things that end up with bad results. That hurt people. When you're making the movie, you've got to shrink everything into two hours. [Laughs] It's faster to just make a bad guy. I think it is more complicated than that. I think we're all culpable, in a way, and we're all part of the system. It's harder to just point fingers like that, if you really want to get to a solution.</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>I think every single one of us has a very important part to play in making this world a better place. Especially when it comes to financial inequality and making the web be a more powerful force in people's lives. The whole idea of how we exchange value, being built into the web, and everyone having access to it. Leveling the playing field so everyone has access to these really fantastic services that only the top 10% of people in the world have access to. That's a powerful thing, if we can do that.</p>
+
+    <p>One of the hardest things we've had to do over the past four years is convince web developers and web designers that they're capable of making this kind of change. They're capable of participating in the work. They're capable of building something in the financial industry that can be a really positive force. A lot of people think, "Banking and finance, I'm not an economist. That's not for me. I can't do that."</p>
+
+    <p>Honestly, think about what a bank account is. You're quite literally adding and subtracting numbers. [Jen laughs] That's it. That's how complicated the technology is that we're working on. Sure, when you get into more global scale, it gets a little more complicated. But I have literally sat down and talked with engineers with Google and Facebook and PhD researchers from MIT and they have all said the same thing. "I don't think I can really do much about this." I'm looking at this gigantic, massive server farm sitting behind them. They wrote software to manage trillions of transactions a year and I'm like, "You are so over-qualified for working on this financial system stuff. The financial system stuff for you is child's play." But for whatever reason, people have this mental block: "When it comes to money, there are professionals that do that." The people that are making the biggest difference in the web payments community group are people without a financial background. They're people that just really understand the web. They know how to build good web technology. They're applying their knowledge to the financial systems and finding out that it's a super tractable problem. It's something that everyone can provide some input for. </p>
+
+    <p>The folks that are listening out there in web-land, if this stuff interests you — if you want to see the world change in a really positive way and you think that this payment stuff could make it happen — get involved. We are seriously understaffed right now. The more people that can get involved, the faster we can move on all of this stuff. Don't kid yourself. You're absolutely qualified to work on this stuff.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>I'm going to ask you more about that but I have to jump in here and fulfill our business model for the day. [Both laugh] It's so funny to be like, "How do I transition to talking about Squarespace?" But I'm just going to do it. Then we're going to back and I'm going to ask you how people can get involved.</p>
+    
+    <p>This episode <em>is</em> brought to you by <a href="http://squarespace.com/">Squarespace</a>. The all-in-one platform that makes it fast and easy to create your own professional website, portfolio and online store. If you need a store now and you can't wait — what did you say? Three to five years to get web payments integrated into your website? You could go build a store at Squarespace. Their plans start at $8 a month. They include a free domain name if you sign up for a year. Everything is responsive right out of the gate. There's no such thing as a fixed-width website on Squarespace. It's going to be responsive. You can try it out without using a credit card. It's an actual free trial. You do need to make a login, you do actually need to create an account there. But they're not going to ask you for a credit card until you decide to buy something from them. You can use the code <code>JENSENTME</code> for 10% off your first purchase. Whatever it is you decide to buy. You can go to <a href="http://squarespace.com/webahead">squarespace.com/webahead</a> to check them out. By doing that, it helps the show, because they know that you checked them out because of this show.</p>
+
+    <p>As I've said before, I'm a big fan of Squarespace. There's such a deep need to be able to quickly generate a simple website. A lot of what I like about Squarespace is what you don't have to do. You don't have to do security updates on software. You don't have to maintain the servers. You don't have to worry if suddenly the website gets super popular, scaling up the traffic. You don't have to worry about going back to it over and over again. Whether you're building a website for yourself that you don't have time to maintain, you just want to content quickly and have something up that's gorgeous. Or you're building a website for somebody else, maybe some clients. You could build a whole client base out of building Squarespace websites. And to not have only have clients who can afford ongoing maintenance costs. Eight bucks a money is really cheap compared to what maintenance costs can be. Or your kid's soccer team or school group or something. It's really a great solution to solve all of those problems.</p>
+
+    <p>Check them out: <a href="http://squarespace.com/webahead">squarespace.com/webahead</a>. Thank you to Squarespace for fulfilling our business model. [Both laugh]</p>
+
+    <p>How can people get involved? I think this is a scary thing. "This guy, he sounds so smart and this group is doing such important stuff. I'm not important enough to be a part of the W3C."</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>First, I'll start off by saying that I'm not that smart. I think there are many, many people that are listening in that are probably much smarter than I am. I'm tenacious. That's my superpower.</p>
+
+    <p>The best way to get involved is to join the Community Groups. There are tons of ways that you can help out. If you just want to understand what's going on, you could follow me on Twitter because I tweet about this stuff all the time. <a href="http://twitter.com/manusporny">@manusporny</a>. I do weekly summaries of where web payments are going, where the credentials are going, all of that kind of stuff. That's the easiest way to dip your toe in and see if this would interest you.</p>
+
+    <p>The second thing that you could do, which is a little more involved, is to join the mailing lists. There are two separate Community Groups. One is the <a href="http://www.w3.org/community/credentials/">Credentials Community Group</a> and the other is the <a href="http://www.w3.org/community/webpayments/">Web Payments Community Group</a>. Just go to <a href="http://web-payments.org/">web-payments.org</a>, that's the website. It will have a mailing list link towards the bottom. Join the Web Payments Community Group. That's hosted at W3C. Anyone can join, there are no fees. You basically just have to get a W3C account and you're in. It's just like signing up for any other website. The Credentials Community Group is the same thing. You can just join and be a part of the dialog.</p>
+
+    <p>Then it's just, watch the mailing list traffic. If something comes up that you're interested in, comment on it. If you've got a use case that you're interested in and you're wondering if the community supports it, comment on it. The <a href="http://web-payments.org/">web-payments.org</a> website has a set of specifications. We do a high-level overview of what the technology does. We have links to the latest specifications if you want to read about the technical details. But honestly, probably close to 40-50% of the people in the Web Payments groups are not technologists and not web developers. They're not web designers. They're just people that have an interest in this stuff. You'll be amazed at how much stuff you'll have input on.</p>
+
+    <p>If you're part of the general web-going public and you want to follow what we're doing, Twitter or the mailing lists are the best ways.</p>
+
+    <p>Some of you out there probably work for large companies that are W3C members. The W3C consists of 394+ member organizations. Some of those members include Google and Microsoft and Hewlett-Packard and Boeing and Facebook and all these big, big organizations and companies. There are also a lot of universities and non-profits that are part of W3C. If you are a member, or if you work for one of these W3C members, you can join the technical working groups that will be started up. You do have to be a paying member, your company ends up paying for it. But they can send you to participate in the work.</p>
+
+    <p>There is also a weekly teleconference that we run for the payments and credentials work. The weekly teleconference for the credentials work is every Tuesday at 11AM EST. That an hour long. We hold a web payments telecon on Wednesdays at 10AM EST. Again, completely open to the public. One of the important things to understand about the work that we're doing, it's one of the first times in human history that we are designing the next generation financial infrastructure in a completely transparent way. All of the audio from the telephone calls has been recording since the very first meeting. We have detailing text minutes to show what we talked about. All of the communication happens on a public mailing list. When we say that we're building the web payments technology and the image of the web, we totally mean that. We are completely transparent. We are completely open. No patents, no royalties for using the technology.</p>
+
+    <p>Those are just a couple of ideas on how to get involved. Really, we need everyone. We need web developers, we need web designers, we need philosophers, we need people that are really good at security, people that are really good at engaging the public and evangelizing the technology. We're actually really bad at that. Which is why shows like the one that Jen puts on is really important. This is only way we're able to get the message out. We need all the help that we can get. The more the merrier. It doesn't matter what your experience level is. There's definitely something for you to help out with.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It happened a lot on some of these other specs, too, where people who have their heads in the world of making the browser and people who spend all their time thinking about fulfilling the needs of clients — whether as a designer or developer — getting together to create a specification, makes for a much better specification. Because different people have different areas of expertise and they come along and say, "Hey, you never thought about this, but this is what the people who make websites, people who need websites, are really going to want." The other people say, "Well, but the browser doesn't want that. We have to make the browser run and work and be fast. This is what we need." It sounds like this is even more that way. You need bankers involved, you need financial industry people involved, you need web designers and developers involved. You need people who can really think about end users and what they're going to want.</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>Yup. Regulatory governments. There are so many different areas of this that we need help with. I was just in Istanbul last week at the United Nations Internet Governance Forum. This is where a lot of the policymakers and governments get together to talk about things like pervasive monitoring and human rights issues associated with the internet and building the internet out to the next 3 billion people. How do we stop child trafficking over the internet? How do we stop human trafficking worldwide over the internet? When you're sitting down in front of an editor, a HTML editor or text editor and you're writing code, HTML code or JavaScript, these things seldom enter your mind. But it's all a part of what the web is about. People tend to focus on the technology stuff. Yeah, the technology stuff is really interesting, but the ramifications of the technology are certainly interesting in their own right. Even the idea that the Web was being used heavily for human trafficking, it floored me. I thought most human trafficking these days was done over dark nets and secret cell phone drops and the cell phone network. It turns out that the Web actually plays a very big part in human trafficking. Which is, by the way, at the worst levels ever in the history of mankind. More humans are trafficked as slaves today than they have been in all of human history. The Web plays a very big part in that.</p>
+
+    <p>It really opens your mind as to what the Web is about. Yes, you're a web developer. Yes, you're a web designer. But understanding what this ecosystem is that you're a part of, really makes you a better person. It helps you understand the impact of the stuff that you create every day.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>These 25 years, the birth of the Web, everything that we're inventing and building, really is the biggest change in the way that humans interact with each other, communicate with each other, ever. At an incredible rate of change. The speed at which this change has happened; it's been so fast that it's happening within two decades. Half an adult lifetime. It's happening so fast I feel like we don't quite understand what's happening to us and what we're doing to ourselves. Good and bad. Some of it's amazing, some of it's horrible. I definitely believe that with this show. To keep peeling back the layers and asking these questions about what's really going on.</p>
+
+    <p>You talked before about identity being a big part of this. Separate from payments, identity has come up a lot. It comes up constantly. Comment threads on blogs. People think they're anonymous, they can say whatever they want. They're really cruel. "We need to protect privacy, we need to stop the NDA, we need to make sure we don't want government-issued IDs. We don't want global-issue identity that could be misused by superpowers and governments. We want freedom. We want anarchy. We want anonymity." [Manu laughs] But people are using anonymity to threaten and attack other people, especially women. You're getting driven out of the industry, you're getting driven out of your job, you have to go into hiding because jerks are totally after you.</p>
+
+    <p>I'm sure as the group is talking about identity and creating an official identity mechanism on the web, all of these issues are coming up. What kinds of things are being talked about? Around asking people to really identify themselves as, they really are them and not be anonymous.</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>That's absolutely right. Identity is a big problem and it's a really, really big problem. It's not a, "we can solve it in a month or two" or "we can snap our fingers, it's one specification, we've got the identity problem solved." It's way more complicated than that.</p>
+
+    <p>With the Web Payments work, we've decided to focus on a very narrow set of what we view as "identity." That's specifically credentials. If you look in your wallet or your purse, you have a number of credentials that you carry with you. You've got a driver's license, you've got a government-issued ID of some kind. You may have a passport. You may have a library card. It's fairly easy to exchange this information in the physical world and show someone your ID to get access to a certain part of a building or something. It's really difficult to do that on the web. We just don't have the mechanism on the Web yet. Which seems ridiculous, because it's this thing that we do every day. You go out to a bar, you show the bouncer your ID and they check your age and they let you in. There's no such thing on the web without a huge amount of setup. And then it only works with one website.</p>
+
+    <p>Could we create a way to log in to any website by showing these credentials? Show them a credential that asserts that your email address is valid. That's what the sign up process on most websites is meant to do. All they're trying to do is create an account for you and make sure that they can contact you at some later point. To do that, they have to verify your email address. You go to the website, you type in your email address, you type in your password. They say, "Hey, we just sent you an email, please click the link in it." You click the link and then, boom, you've got a registered account. The problem is, you do that on every single website and you probably end up using the same password. Because, honestly, who can remember a different password for each website? Today, you're probably using something like LastPass or 1Password to store all your passwords. You have to keep creating this persona on every single website that you go that. That really sucks.</p>
+
+    <p>Some of these larger organizations have come in and created these social login buttons. "Log in with Twitter" or "Log in with Google Plus" or "Log in with Facebook." It's really easy to use. You go to a website, you log in with Facebook and you're in to the site. The downside is Facebook knows exactly which sites you're logging in to across the entire internet. They know what sites you use, when you use them, and Facebook shares certain pieces of information with that site when you log in. That's a pretty big affront to our privacy. I'm definitely not trying to go after Facebook or Google or Twitter. They did that for very good reasons. But privacy wasn't necessarily one of those reasons.</p>
+
+    <p>The big question is, should you be in control of your identity online or should you delegate that responsibility to some large, gigantic corporation?</p>
+
+    <p>The position of the Web Credentials Community Group is that we should offer people the choice. If you want Google or Facebook to have all of your credential information and store it and manage it on your behalf, by all means, go ahead. But you should also have the choice of storing it on your own personal server or a different thing that you run on the Web or you pick a small identity provider who you pay every year to keep your identity safe online. For example, you run something off your Apple watch or a bracelet that you wear that has all of your credential information on there. The question here is, should the Web have a privacy-aware credentialing mechanism? That's what the Web Credentials Community Group is all about. Making it so you can store digital credentials, like government-issued IDs, passports, driver's licenses. Whether or not you're licensed to practice medicine. Whether or not you got an A in your 8th grade algebra class. All of these things are credentials that you could use to prove that you're allowed to do certain things.</p>
+
+    <p>When we talk identity, at least when it talks to payments, we're talking about a very specific subset. We're saying, "Can we create a protocol to store credential information and then transmit it on the web in a standard way? Can we build that into the core architecture of the web in a way that's privacy-protecting?" In a nutshell, that's what the credentials work is about.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What about OpenID and OAuth and some of the mechanisms that people have tried to create in the past to solve a similar problem? How's this better or different?</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>OAuth's great. I don't really have any beef against OAuth. OAuth is used for something slightly different. OAuth is used to grant a 3rd party website access to your profile on another website to do things on your behalf. It's like an applications permissions thing. You're granting Google the ability to write to your Blogger stream or you're allowing some website out there to write to your Google Plus or Twitter stream. OAuth's fine, you can put that aside.</p>
+
+    <p>The way OpenID and OpenID Connect work... people created it with the best of intentions. But because there's a direct link between the website you're logging in to and your identity provider, your identity provider can track all of the sites that you're visiting, that you're logged in to via OpenID. We think that's bad because it makes it fairly easy to centralize pervasive modeling. It makes it easy to centralize where you're going. I think people understand a lot better today than they did 10 years ago, that their browsing habits tell advertising companies and governments a lot about them. This is going to become even more dangerous as we get these high-stakes credentials integrated in the web. If you have a US passport and a driver's license and all of that kind of information, your identity provider knows that you're sending that information to particular websites. It knows that you're getting ready to buy a car, pregnant or you are expecting a death in the family. A variety of different things like that. Things that you would much rather your identity provider not know.</p>
+
+    <p>It's really important when we create these identity mechanisms, that we take privacy into consideration. I just don't think that we've done that today. I think there have been some minor attempts at privacy. But based on what's happened with the NSA — the pervasive monitoring that we know exists around the world — we have to think a lot more about citizens and protecting their privacy when we create these new standards.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. [Both laugh]</dd>
+
+<dt>Manu</dt>
+<dd>This is really heavy stuff. This is the stuff that makes and breaks democracies. We take this stuff very seriously in the credentials group. We have governments involved, like US Federal Reserve. Very interested in the work that we're doing. World Bank, very interested in that work that we're doing. Because the stakes are really high. If we get this wrong, we are going to end up helping some governments track its citizens or stomp out political dissent. People's lives re at risk. It's heavy stuff.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It feels like there's a balance in there somewhere. We want everybody to have a tremendous amount of privacy and freedom and ability to basically do whatever they want without being penalized for it or monitored or sold to for it. But at the same time, we want to protect society and other groups of people and other individuals from criminal behavior. Where abusiveness and threats and attacks and stalking and money laundering and human trafficking are not allowed. They're not tolerated. It feels like it took humanity quite a long time to figure out how to do that in person. We figured it out — in some places, in some moments, for a few years at a time — really, really well.</p>
+
+    <p>That's what we're all supposed to be excited about when it comes to the US Constitution. It's supposed to be this document where it — along with the Bill of Rights, along with the case law that came after it — we figured it out. This is the best humanity's done so far. Yet it feels like, sometimes, when I watch these conversations online, talking about the First Amendment or whatever, it feels like people are trying to understand these issues for the first time, from scratch again. It's like, we don't need to start from scratch. We need to educate ourselves about what has already come up before and decisions and balances that were found before. We have to find a way to replicate that online and hopefully improve on that. At least to do it that well online. It's a technical implementation of something we've already figured out. But this discussion of First Amendment vs whose freedom is really free. Like, go read a book about the First Amendment. [Both laugh] You're pretending like you didn't even go to 7th grade social studies class. Let's have an educated conversation about this. A lot of this has already been figured out. Anyway. That's a different show.</p>
+</dd>
+
+<dt>Manu</dt>
+<dd>
+    <p>No, you're absolutely right. The thing that makes it even more complicated is, that's the US. A lot of this technology is being created in the US by US citizens or US corporations. Some of them in the European Union. It's the western world.</p>
+
+    <p>However, if you fly to the other side of the world. We were just in Istanbul. I was just in Shenzhen, China. Last year, in Hong Kong, in Bali. Citizens in those countries viewed this stuff very, very differently. In some cases it's like, "Why would I want privacy? What do I have to hide?" Or, "I absolutely want privacy. My government is insane. They want to kill me." There's such a huge gradation of differences here. Creating a world standard, we have to take these things into account. The Chinese government is not going to tolerate certain levels of privacy. The US government, while they say they tolerate a certain amount of privacy, have also been spying on their own citizens and citizens overseas. In some cases, especially in the identity work, the technology stuff is almost the easiest part of it. It's making sure that it gels with the legal framework across a variety of different countries across the world. That's the hard part. That's the reason we go to the United Nations, to engage that community. There's a technical side to a lot of this work and a global side to a lot of this work.</p>
+
+    <p>The good news is, we have not come against anybody that says, "We think this is impossible to do," or "We think this is going to take multiple, multiple decades to do." We have technology that we're proposing to people and we're getting lawyers and regulators to look at it. They're going, "Hm, yeah. Looks like it could work." That gives us a lot of energy to go out and solve the rest of the technology problems. Just like the banking problem, you shouldn't look at this problem as this gigantic, unsolvable problem. The only way that it gets solved is, pick a really narrow scope and you just start chipping away at the problem until you get to the end. It's totally doable. All this stuff is totally doable.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Well, we should end the show.</dd>
+
+<dt>Manu</dt>
+<dd>Sure.</dd>
+
+<dt>Jen</dt>
+<dd>The issues that are involved here, I find them so fascinating and really important. This work that you're doing is quite amazing.</dd>
+
+<dt>Manu</dt>
+<dd>Thank you. It's a great community of people working on it. It's a global community, they're some of the smartest people that you could hope to work with. The great thing is, it doesn't cost you anything to participate. Subscribe to a mailing list and if you want to, you can just sit there and be blown away by the conversations that are happening. Even better, participate. This is a huge opportunity. These opportunities to touch 2.5 billion lives, they don't come easily. They're not events that happen every year or every decade.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>No, they happen every couple of hundred years. It's creating a societal infrastructure. Defining people's rights and ability to run businesses.</p>
+
+    <p>I put all these links that you mentioned, including to <a href="http://web-payments.org/">web-payments.org</a> and all of these other links, into the show notes for the show. Which are currently at <a href="http://5by5.tv/webahead/82">5by5.tv/webahead/82</a>. In the future, will be at <a href="http://thewebahead.net/82">thewebahead.net/82</a>.</p>
+
+    <p>Thank you so much for being on the show. As you said, people can follow you on Twitter. They also can follow the show itself on Twitter, <a href="http://twitter.com/thewebahead">@thewebahead</a> or myself, <a href="https//twitter.com/jensimmons">@jensimmions</a>. If you have not subscribed to the show, subscriptions are free. [Both laugh] You can use iTunes, you can use the podcast app on your phone, you can use other apps, other mechanisms for non-Apple products. Pocket Cast. There's a link to a Pocket Cast feed on The Web Ahead website. And of course, the old school RSS feed. If you know how to use those, it's totally easy. If you don't, you could even ping me and tell me, "Hey, I want to subscribe and I can't figure out how." I'd be happy to help you do that. More subscribers actually helps the show grow and be better. So thank you for that.</p>
+
+    <p>And thanks to Squarespace for supporting this week's show. That's it. Until next week.</p>
+</dd>
+
+</dl>
