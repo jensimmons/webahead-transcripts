@@ -1,0 +1,494 @@
+---
+layout: transcript
+title: "The People-Problem with Paul Boag"
+permalink: 84/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+    <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm Jen Simmons and this is episode 84. I first want to say thank you to today's sponsors: MailChimp and SmartThings. We'll talk more about them later in the show. And also to say thanks to CacheFly for providing the bandwidth to deliver all of the audio files to you. They're the fastest, most reliable CDN in the business. They deliver all the content for 5by5. You can check them out at <a href="http://cachefly.com">cachefly.com</a> — that's C-A-C-H-E-fly.com.</p>
+    
+    <p>Today we're going to talk about how to solve one of the biggest problems in web design and web development. It really is an underlying theme in the show, it comes up over and over again. We talk about it on the side. But today I found us a guest to talk about it much more directly. That problem — it really is the biggest problem ever — is people. [Laughs] People involved in the process. Getting people together and agreeing on what to do, figuring out how to best put people in action. What direction are we going to go in? What's our strategy? We talked about this a bit in episode 80, The Complexity and the Humanity, when Trent Walton was on the show about a month ago. We were talking about the Microsoft homepage redesign and getting into some really juicy issues around the complexity and the humanity of what it is that we do.</p>
+    
+    <p>Then last week — gosh, I guess it was a week and a half ago already — I was speaking at <a href="http://2014.blendconf.com/">BlendConf</a> down in North Carolina. Which was a terrific conference, by the way. I had such a blast. I got to see Paul Boag speak for the first time. He was talking about something he's been thinking about and writing about for a long time and does professionally. Talking about digital adaptation. Digital transformation. What's going on in the world as everything switches to digital. He is here today to talk about those things. Hi, Paul.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>Hello, Jen. How are you?</dd>
+
+<dt>Jen</dt>
+<dd>For people who don't already know who you are, you have been running your own company over at <a href="http://headscape.co.uk/">Headscape</a> with your colleagues for quite awhile now, doing web design.</dd>
+
+<dt>Paul</dt>
+<dd>Forever. Yeah. I'm the old man of the web or that's how it feels sometimes. As you know, from when we were at Blend Conference, when you, me and Mark Bolton just sat around and you had to listen to me and Mark bore you. Like a couple of grumpy old men.</dd>
+
+<dt>Jen</dt>
+<dd>First of all, I'm older than both of you. [Both laugh]</dd>
+
+<dt>Paul</dt>
+<dd>You don't look it, Jen. I refuse to believe that.</dd>
+
+<dt>Jen</dt>
+<dd>Well, no, I'm sorry, did I say older? I meant far, far younger. [Laughs]</dd>
+
+<dt>Paul</dt>
+<dd>Yes, exactly.</dd>
+
+<dt>Jen</dt>
+<dd>It's funny, people don't realize. But it was so much fun. We got to hang out and be grumpy together and try to articulate what it is that we want and see and need.</dd>
+
+<dt>Paul</dt>
+<dd>Yeah, the whole world is wrong. I started in the web in '94, I think it was. It was so much simpler. Hasn't it got all complicated now?</dd>
+
+<dt>Jen</dt>
+<dd>Yes.</dd>
+
+<dt>Paul</dt>
+<dd>When I started off in web design, it was centered text on a gray background. None of this Flexbox rubbish that you young whippersnappers have to deal with today.</dd>
+
+<dt>Jen</dt>
+<dd>Honestly, I was thinking about that again this morning. Just how complicated it's gotten, even in the last two years. I think all of us, myself included, feel like, "Oh man, I don't know if I've really kept up well enough. Could I get a job if I needed to get a job? Am I qualified to do it?" [Laughs]</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>I'm not qualified to do anything anymore. I don't build websites, I don't do much of anything except wrangle people. That seems to have become my job, dealing with politics and consultancy where you talk about stuff, but you don't actually do it. I don't quite understand what my job is anymore.</p>
+
+    <p>And then you introduced me at the beginning of the show, "We're going to solve the people-problem." Oh, yeah. Easy. No problem. We'll just sort all of that out by the end of this conversation. As if, in some way, there's some magical... wouldn't that be great? Just a magical button you could press that would shut people up when they're being stupid. That's what I want.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>You don't have one of those?</dd>
+
+<dt>Paul</dt>
+<dd>No, sorry, I make it up as I go along. Which I think is our whole industry. Which is what I love about our industry. </dd>
+
+<dt>Jen</dt>
+<dd>Absolutely. That's why I think sometimes people get worried. They think, "I don't know this stuff." It's like, "Yeah, none of us do. We're just making it up."
+
+But you're also being very, very British right now and completely understating what it is you do know. Because you wrote an entire book about this. People hire you to help them and you do help them.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>Yes. I love what I do now. I came from a design and development background, like most of your listeners, I imagine. I reached a point one day where it was like, we'd had yet another project where we produced gorgeous designs; lovely, clean HTML and CSS. It got handed across to the internal design and development team who implemented it. They were really good, they knew what they were doing. But then somebody at management interfered. "We want social media icons on every page." And because the internal web team is the bottom of the heap, they had to do what they were told. Then "this" was added in, "that" was added in, "this" was messed up. By the time it went live, it was just horrendous. I reached a breaking point. It was like, "No. That's it. I'm not doing this again. I'm fed up with this. Every single time." I basically untied my own hands. I think we tie ourselves up. We say, "We don't deal with that. We don't deal with content." We don't deal with this, we don't deal with that. I made a decision, "No, I'm going to interfere in absolutely everything that has any impact whatsoever on the web." It's now reached a point where — I just came back from Chicago not long ago — I'm working with a medical school there. I'm completely restructuring half the bloody company now. It's got horribly out of control. We're setting up a digital transformation team and we're doing all of these things. Because otherwise, you're just treating the symptoms. You're wallpapering over the cracks. I'm no more qualified than anyone else, but somebody needs to take control. The truth is, the world has changed. The way people used to do business just doesn't work anymore.</p>
+
+    <p>There's a great article on <a href="http://alistapart.com/article/people-skills-for-web-workers">A List Apart from Jonathan Kahn</a>, who writes, "Here's the problem." I can't remember it exactly, but basically he says, "When it comes to our jobs, our organizations matter. The way our organizations are structured, matter. The problem is, when it comes to the web, organizations are broken." That's the truth of it. Organizations are just not set up correctly to manage the web. There's no one else to fix it. If we don't, no one's going to.</p>
+
+    <p>You painted it as a people-problem. Which it is, to some degree. But there's nobody out there who's going, "Muhaha, I'm going to ruin the web!" That doesn't happen. There's no baddies in this scenario. It's cultural, it's historical. It's things that have just occurred over years. Does that make sense?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think you write in your book about how important it is for a company or an organization to have some structure and have things that are set. Infrastructure-things. Where one person or a small committee of people — this is what I was thinking — they go out and research a situation or they come up with a system or they come up with a set of forms or, whatever it is. HR policies or whatever. They spend some concentrated time making a decision for the company. Then that's the way it's going to get done. They're not going to re-think that decision over and over and over. You end up with this infrastructure that's just, like, "Hey, we took some time to figure out some things. We decided these things and we're not going to think about them again. They're decided. That's important; you can't run a company without that.</dd>
+
+<dt>Paul</dt>
+<dd>It's balance, isn't it? Go on, you were going to say it, carry on.</dd>
+
+<dt>Jen</dt>
+<dd>Well, the "but" is that — this is what you were talking about — our whole world is changing around us very quickly, very radically with this digital transformation stuff. All of these infrastructure things that have been set for many companies are now getting them into trouble. Now they're the dinosaur and they can't make the change that they need to make.</dd>
+
+<dt>Paul</dt>
+<dd>There are problems on lots of different levels. Sorry to interrupt you, Jen. You'll get used to this. I can't keep my mouth shut. Well, you know this. You spent that evening in the restaurant. You know that my mouth never closes.</dd>
+
+<dt>Jen</dt>
+<dd>I was just going to ask you a question. I just want you to talk.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>If you ask me questions, you might ask me something I don't want to talk about. I just want to talk about what I want to talk about. [Both laugh] Oh, dear. I'm really lowering the tone of your very intelligent podcast already, aren't I?</p>
+
+    <p>What I was going to say is, I think the problem is, a lot of the kind of thinking you just described there, of setting standard-operating procedures — made a huge amount of sense in the industrial age. If you're building a new building or a new factory, you want to have a committee. You want to know that everybody has been consulted in huge detail. You want a long, detailed specification detailing exactly what is required. Because if you don't have that, if that's not in place, and a mistake is made, the cost of recovery is astronomical.</p>
+
+    <p>But because we live now in a digital age, where the cost of recovery is very low, you can make mistakes, you can iterate, you can improve and work in that kind of way. What's far more important is speed. All of those standard operating procedures just get in the way. They're too slow, too cumbersome. They're too adverse to taking risks. Because the cost of risk was so high. A lot of it, a lot of the structures we have in business today are just leftovers from an industrial model that's disappearing.</p>
+
+    <p>I'll give you another example. The idea of the manager. Managers made huge amounts of sense when you were dealing with factory workers that were low-paid, low-motivated and low-skilled. You needed somebody that was sitting above them, telling them what to do, basically, making sure they kept doing what they were supposed to be doing to the standard that it needed to be done. The reality is, in most organizations these days — even outside of the digital team, but certainly in the digital team — they don't need traditional managers. Because they're highly skilled, highly motivated, hopefully highly paid individuals that need leadership. That's different from management. A leader is somebody that protects the group, empowers the group, inspires the group. Rather than hitting them with a stick. Even our management styles are outdated.</p>
+
+    <p>It's an interesting world we live in at the moment. Much different than it was even 10 years ago, to be honest.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What kinds of things are you doing when you go into a company and you help them make this transition? Where do they get stuck, what is it that you help them figure out?</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>You have to start at a fundamental level. Chances are, when we get involved, there are one or two people that get it. Normally, they're relatively junior people in the grand scheme of things. Somebody within the web team.</p>
+
+    <p>Let's say I'm heading up a web team in some company. I know, deep down in my heart, that things are broken. There are all kinds of problems with the organization. I'm frustrated, I'm demoralized.</p>
+    
+    <p>But they don't know how to begin to change things. To be honest, even if they did know, management may well not listen to them. Because they're considered junior.</p>
+    
+    <p>This is another little rant that I get on. Web teams are perceived as a service department. Normally because they're born out of IT. They were originally an IT department. They're seen as, their job is to implement other people's vision and direction. Marketing wants to run a marketing campaign that involves a web component, they define what that web component is and the web team makes it. So they're considered a very junior person.</p>
+    
+    <p>Normally, our first engagement with clients, a lot of the time, is literally just going in and giving a presentation to senior management. Because this web team has got no real budget at this point, because nobody recognizes there's a problem. Nobody sees that anything needs to be fixed other than the web team, so they can't really afford to get us in to do anything significant. So it normally starts off with me going in and scaring them. Scaring senior management. [Both laugh]</p>
+    
+    <p>The web team managed to get me in front of senior management, and I go in, and I terrify them. I tell them that their existing business model is not compatible with the digital world, I tell them that consumer behavior has changed. I point out all the threats that they face. I do talk a little bit about the opportunities that are available, as well. I do enough to shake them up and make them realize they cannot continue as they have been. They need to do something.</p>
+    
+    <p>Just getting senior management to the point where they recognize a need that needs addressing. What happens after that, we start a discovery or research phase. That consists of a few things. We do a review of the different digital assets they've got. Some of the clients we work with have a ridiculous numbers.</p>
+    
+    <p>We're going up to meet with the higher education institution tomorrow and we've discovered they have hundreds and hundreds of just Twitter feeds. Let alone anything else. None of which are centrally managed, all managed by different people across the organization.</p>
+    
+    <p>We try and ascertain the scale and complexity of their digital assets. We look at the competition, all those kinds of normal things. But we also need with internal stakeholders from across the organization to get an understanding of how they view the world. How their business works and how they perceive digital. But most importantly, we talk to real users, end users, end customers. We start mapping out the customer journey.</p>
+    
+    <p>The reason we find customer journey mapping such a valuable tool, is it's brilliant at highlighting where things break down. What you discover very quickly, users are getting passed from pillar to post. They're often being passed from one department to another, getting contradictory information.</p>
+    
+    <p>I can give you a great example of this from my own personal experience. When I first bought the iPad Mini, when it first came out, I had a little problem whereby it wouldn't run a personal hotspot. The first thing I did, I went to my carrier's website and looked to see if it had anything on the problem. It didn't. There was nothing on there at all about it. The next thing I did, I rang up the carrier. I talked to them and they said, "It's enabled from our end, so it must be a problem with Apple." I then ring Apple. Apple says, "We'd love to help you. We're happy to replace the iPad Mini if you think there's anything wrong with it. But we're pretty sure that it's actually a problem with the carrier." I go back to the carrier, still nothing. Eventually, I tweet, in my frustration and anger, as we all do. Within a few minutes, somebody from the social media department came back to me and said, "Oh, yes, that's a known problem. Here's the fix for it."</p>
+    
+    <p>That's a great example of how there was not a joined up experience there. The carrier's social media channel knew exactly what was going on, but it wasn't represented on the website, it wasn't represented in their call center. I was pushed from pillar to post and I had a bad experience. We now live in a world of connected consumers where people like me get mouthy on Twitter and damage your brand.</p>
+    
+    <p>That's why customer journey mapping is such an important stage when we start helping clients. That really outlines what needs to be done. That whole section of customer journey mapping, stakeholder interviews, reviewing what they've got. From that, you can put together a pretty strong strategy, which is what we go away and do. Then different things happen with different clients. Once we put that strategy together and we've presented it, sometimes the client is able to go away and implement that themselves. More often than not, they come back to us looking for help to do that. Because inevitably, that strategy is going to involve creating a much stronger internal digital team. That means cultural change, it means hiring new people and all of that can be a bit intimidating. But that's certainly how it starts. Just reviewing what's there and getting a strategy in place.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I'm going to ask you more about that but before I do, let me jump in with our first sponsor, MailChimp.</dd>
+
+<dt>Paul</dt>
+<dd>Yay, I love MailChimp.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p><a href="http://mailchimp.com/">MailChimp</a> is pretty great. They're the place to go if you need easy email newsletters. You sign up, you fill out the little clickity-click-click, and bam, you can send email to tons and tons of people. I remember 10-15 years ago, having a lot of clients who wants to send lots of emails out. They wanted me to help them create an email and then send it by blind-CCing 2,000 people. [Both laugh] Not even 2,000, let's say 200. It's not gonna work. All your email will end up in SPAM folders, it will all get filtered out. Because you don't have permission to send email to 200 people or 2,000 people or 12,000 people. That's how SPAM filters work. They see people who are sending tons of email to somebody and they say, "You must be SPAM, goodbye." And they take all your email and stick it in a black hole and no one ever reads it. You need a service. You need a service that talks to all those email places, the people who receive all the email and handle all the email for many people. Yahoo, Gmail; all the big services that people use. Go there on your behalf and say, "Hey, these people are going to be sending lots of email and they're cool. We know them. They're real people. They are not spammers. We don't do business with spammers, we only do business with real people. This is a real person, I can vouch for them. This is a real company, I can vouch for them." That's one problem that MailChimp will just solve for you.</p>
+
+    <p>Then they give you all kinds of tools to manage your lists. To make it really easy for people to sign up on the list. To send pretty HTML emails so you don't have to go and look up IE4 hacks for whatever it is. [Laughs]</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>For me, that's the big thing. Let's face it, people like you and people like me... designing HTML emails is like stepping back to 1998. It's horrendous.</dd>
+
+<dt>Jen</dt>
+<dd>It literally is.</dd>
+
+<dt>Paul</dt>
+<dd>They've got these wonderful templates. They've also got these drag and drop tools that even clients can use. So they can build their own. It's just so easy.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Of course, there are other services but MailChimp is the best one. Not by a little but by gobs. By a lot. They're just literally the best one that's out there.</p>
+
+    <p>If you have under 2,000 subscribers — if you have a small list and you've got under 2,000 people on your list, you can send up to 12,000 pieces of email every month for free, forever. You can send you 2,000 subscribers six emails a month and you're still under their limit for free. They're not going to charge you for that. In fact, the conference you and I were just at, he set up a MailChimp newsletter for the speakers. He had 30 of us or however many people were speaking. When we needed to send an email to all the speakers, he didn't send a regular email. He just sent a MailChimp email. Which was really nice.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>It was so slick as a result, wasn't it? It just worked.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Yes, very polished. It looked very professional. Very, like, "Hello, I'm professional." [Both laugh]</p>
+
+    <p>You can go to <a href="http://mailchimp.com/5by5/">mailchimp.com/5by5</a> to learn more and also by using the /5by5/ URL, to let them know that they should keep sponsoring through 5by5 and this is working for them.</p>
+
+    <p>I don't know what else to say. Oh, I could say this! Go sign up for The Web Ahead newsletter. You can go to <a href="http://5by5.tv/webahead/newsletter">5by5.tv/webahead/newsletter</a>. Because I'm starting a list for The Web Ahead. I haven't set it all up yet, but I'm probably going to set it up so that you'll have a chance to opt in or out of any one of these that you want. You could get an email every time a new episode is launched. Or maybe you only want announcements and news about the show. Maybe someday, if I get a link blog — which I'm going to do, but not yet — that would be another kind of email you can get. With MailChimp, you can have one list, and you can have different things that people can subscribe to. If I have three different things, you can subscribe to as little or as much as you want and I just have one list to manage. Pretty sophisticated tools. All they're doing is figuring out how to make email completely awesome. So they're really, really good at it.</p>
+
+    <p>Thanks to MailChimp for sponsoring this show and making it possible to have Paul here.</p>
+
+    <p>So, strategy. What kinds of things do you recommend to companies when you come up with a strategy for them? Because I think lots of times, when people hire a web design company, they're expecting the strategy that comes back to be things like, "You should put this on your homepage," or "Let's have four landing pages," or "Let's put your content here," or "Let's use this kind of layout," or "This is how we'll implement your brand." I don't think what most people are expecting is, "You need to restructure your own web department or IT department," or "You need to hire a new Vice President of Such-and-Such and take these two things and merge them."</p>
+
+    <p>What kinds of things do you find that companies need to do in order to make this transition?</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>The first set of stuff, the "what should you put on the homepage?" The thing with things like that, they're very tactical. It's a short term solution. You can recommend redesigning the website, something quite big like that. All you're doing is you're fixing the immediate problems that they're facing digitally. What you're not doing is fixing the underlying organizational issues. You know they're going to end up back in the same place in three years time. What you're looking to put in place is a new culture and a new structure within the organization that allows them to adapt to change quickly. Because that's ultimately what this is about. There's no point in planning for the web of today. Because the web of today won't exist in two years time, it will be something else. Something new is going to come along. We know it. So as a result, what you've got to do is create a structure that can pivot and adapt quickly to change.</p>
+
+    <p>What we typically do is, we start off by creating a new team. A new, empowered digital team. What we often do is, we often call this a digital transformation team. We call it that for a couple of reasons.</p>
+
+    <p>Firstly, we call it "digital" because it's really important to drive home the idea that we're not just talking about the website. We're talking about all digital assets. Whether that be email marketing, social marketing, mobile, whatever. It all needs to be centralized and work together because these things are very interdependent on one another.</p>
+
+    <p>The reason we call it a "transformation team" is for two reasons. Firstly, to drive home the idea that this is not a service department. its job is not to implement other people's ideas but to implement a transformation in the business. The second reason for calling it "transformation" is to bake into its very DNA that it's job is not to exist forever. We're not creating another business silo where digital is centralized and kept within this silo. Because ultimately, that is not a long term, viable solution.</p>
+
+    <p>Ultimately, organizations needs to reach a point where digital is ubiquitous to everyday work within that organization, as electricity is. That everybody needs to be using digital everyday as a part of what they do. But the reality is most organizations are a long, long way away from that. To bring about that change, you need to create a pocket within the organization, a bubble that has got a different culture, a different ethos and a different way of seeing things. That is your digital transformation team.</p>
+
+    <p>For that to work, that team needs to have two really key features to it. The first is, it needs a strong digital lead. it needs somebody that is an evangelist, a champion, an advocate for digital within the organization. Hopefully somebody that has got a good understanding of digital, although there are ways of working around that if they don't. Certainly someone who is a good leader and a bit of a pit bull. Somebody that's not going to let go and is going to fight for digital.</p>
+    
+    <p>The second component that you need for a digital transformation team to work is an executive sponsor. You need somebody at the highest level of the institution that doesn't need to be a digital expert but recognizes the need of digital and is willing to stand up for it. Somebody can't come in and overrule the digital lead.</p>
+    
+    <p>You need those two components in place. That's normally where we begin. Then you've got to nurture a different culture within that new team that you've created. We try to nurture a startup culture, the kind of thing that you would expect from a typical Valley company. Very fast-moving, very iterative, very user-focused. All of those kinds of elements.</p>
+    
+    <p>The other thing that we often do — this varies slightly — is give the team a big, meaty project to begin with. Often, in most organizations I work with, that tends to be a rebuild of the website. But we rebuild it and approach it in a very, very different way. The approach that we recommend is an Agile-based approach. It works with user cards — everything needs to be justified with user cards. But most importantly in that process, you have that collaborative element. You're bringing people from across the organization into our little bubble of different behavior and getting them working alongside those people to tackle the problem in a new and innovative way. That means this new culture that you're establishing in your digital bubble starts to seep back out as other people come in, experience it, take part in it, and return to their various parts of the business.</p>
+    
+    <p>That normally works very much like the gov.co.uk example. It normally begins with a 8-9 week alpha project where the digital team goes off and does its own thing without collaborating with anyone, without talking with anyone. That's the time to establish the new culture within the digital team. A chance for them to bond as a group, a chance for them to establish their identity, their culture, their way of working. As well as to produce something that can be shown off to the rest of the organization and really show them what's possible. Because I don't think a lot of people realize what's possible with digital. They get very stuck in a certain way of thinking.</p>
+    
+    <p>After that alpha has been completed, it opens up into a beta phase. Which normally lasts much longer, between 6-8 months. Which is where you build the site with your new team of people and you do that in close collaboration with different people from across the organization through a series of Agile sprints. That's when you start to educate people across the organization about the power and value of digital.</p>
+    
+    <p>That's a really important thing to build in here. Part of what we do when we set up teams like that, is we put together a mandate for the team. Why does that team exist? Always very high on that list is "to educate." One of their primary goals is to educate the rest of the organization and empower the rest of the organization to use digital. They're out there running workshops, they're blogging internally, they're doing all kinds of things to educate people about the potential of digital for the organization. That has to be baked in to their mandate.</p>
+    
+    <p>As time goes by — as your beta has gone live and you've got your new swanky site — what tends to happen is, gradually that digital team can give back control of different digital assets to different parts of the organization as that part of the organization gets to the point where they really understand digital. They really get it. It's ubiquitous in the way they work. Alongside the work that they've been doing on creating their new website — or whatever it is that we end up doing — they're putting together frameworks. They're putting together new policies and procedures, standard operating procedures that operate in the new digital world. How are we going to use social media? What are our business objectives? Who are our primary audiences? How are we going to decide what appears on the homepage? In the example of Trent Walton and Microsoft that you were mentioning earlier. How do we decide when content is removed from the website? Who's responsible for removing it? All of those kinds of things need to be put in place. That all happens alongside the kind of rebuild, or the creation of this digital transformation team. Does that make sense?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It sounds like, in a way, the digital transformation team, its job is to slowly eat the whole organization and transform pieces of it bit by bit by bit. Until there's nothing left but the whole company is part of this new culture and the official team itself can dissolve and go away.</dd>
+
+<dt>Paul</dt>
+<dd>Absolutely. I don't see there necessarily being a need for a digital transformation team long-term. But I'll be honest with you, that's not a five minute job.</dd>
+
+<dt>Jen</dt>
+<dd>Right. [Laughs] Five years maybe.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>Yeah. We're in this really weird position at the moment. A vast number of consumers are now digital natives. They're people that have grown up with digital. They're using digital for everything in their lives. From the moment they wake up to the moment they go to sleep, they're on social media, using mobile devices, talking with friends about purchasing decisions, complaining about brands. Whatever it is. Digital is baked in to their daily life.</p>
+
+    <p>Although the majority of consumers are in that place, the majority of business leaders are not. That's because they're of an older generation; they're Baby Boomers, typically. There's a generational gap that we're sitting in at the moment. That's what I think a digital transformation team with bridge. We're now getting at a point where Millennials — who are digital natives — are beginning to come into the workplace now. As they get pushed up the hierarchy within the organization, the need to have a digital transformation team, the need to have digital specialists, will go down. Because digital natives will reach those senior positions.</p>
+
+    <p>But we're in that difficult transition where although consumers are mostly digitally native, the leadership is not. Even more complicated, digital has become crucial to the success of most organizations. The leadership teams don't really understand it yet. That's what you're trying to do; bridge that knowledge gap.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's also fascinating the way that you talked about a big project — perhaps the redesign of the main website for the organization — being almost a ruse. To not see the big website redesign in this model as the end-all-be-all. Like, that's the goal. The goal is to launch a new site. Of course, part of the goal is to build a great site and launch it.</p>
+
+    <p>But in some ways, the meetings that people are going to, the decisions that they're making, the process that they're going through, it's not so much, "Let's do that as efficiently as possible to get to the result of a new site." It's more like, "Let's do that in the way that it needs to be done." Which may or may not be efficient at all. In order to fulfill the real goal. The real goal being transforming the culture of the whole company. That might mean this website is going to take three times as long as the last website we made. The website we made was with a team where everybody got it, everybody understood already. Because here, everybody doesn't understand.</p>
+
+    <p>The goal really is to transform people's understanding. If we have to have these meetings that are long, or we just take on baby step by baby step by baby step, and we sit in a meeting, and we take the time to explain to somebody who's across the table, who's like, "Argh, this is bad, I don't like this." Take the time to actually meet them where they're at and help change their mind and bring them along in the process, rather than just trying to push them out of the way and run over them. That's valuable, because the real goal is transforming the culture of the whole organization and not just rush the website out the door as fast as possible. It's like a completely different way to think about things.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>Absolutely. The website is very much a catalyst for change. But here's the exciting thing: It happens quicker. It's really weird. Because traditionally, you outsource your website to an agency, the agency builds it, and it's done. The problem with that, where you try to railroad the client, is that it comes back to bite you. Or people aren't happy with it, so it ends up getting revised again.</dd>
+
+<dt>Jen</dt>
+<dd>Or it goes live and no one uses it and it's empty. [Laughs] It's just empty.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>What's so great about this approach is, you're not having endless meetings to convince people of anything.</p>
+
+    <p>Let me give you an example. I use a higher education example because that's in the front of my mind at the moment. We're redesigning a university website and we're using this Agile methodology. Maybe one of the use cases that we're building is for alumni. People who were students and are considering whether they want to donate to the university. That is a use case. That might happen as a part of a sprint. We're going to build the functionality that convinces alumni that, yes, it's a great idea to give to the university and it makes it easy to do.</p>
+    
+    <p>What you would normally do in that situation is, you would go to the alumni team and say, "Give us some content about this and we'll pour it into our content management system layout." But instead what we're going to do is, we're going to take somebody from alumni and we're going to bring them into the team for that two week sprint. They're going to sit in the room with us, day in and day out. Yes, it takes more of their time, but they're going to become a part of the team. That means any decision that's made is going to be made with them in the room. They are going to be making it. That two weeks of working solidly with the design team helps them to better understand how the design process works, what kind of constraints, what kinds of things they need to consider, without the need for endless meetings. They're making decisions, writing content, chatting with the designer and the developer. They're learning by osmosis rather than being lectured at. That's what you want to get away from.</p>
+    
+    <p>Then they go back into their alumni team and they become the evangelists for digital within their alumni team. When someone else within the alumni team says, "But why didn't we do this?" That person is there, knowing the answers to those questions and being able to answer them. It tends to go much quicker.</p>
+    
+    <p>The other really important thing with this process is, it gets away from the, "Right, we've redesigned the website and we're done" mentality. You bake into the process the idea of the minimal viable product. Which, for most organizations, is where the new website is better than the old one. It's a very simple measure. So you tend to get something live much quicker than you would previously, because it doesn't take long to create something that's better than what was there before. But you don't try to make it perfect, which is what happens in a traditional waterfall project. Where everybody has to sign off that everything is done, everything is complete, which means it's tweaked and changed and argued over endlessly. To the point where, by the time it goes live, it's out of date. This puts it live much, much quicker. That gets people thinking, "Ok, what are we doing next? It's live, but it's pretty obviously not finished. Where do we change it? What's the next step?" Again, you're changing the mindset all the time.</p>
+    
+    <p>Actually, that's why I love Agile most of all. You talk to a software developer and they get hugely excited about Agile for all kinds of technical reasons that I don't give a monkey's ass about. The reason that I like Agile is because you can go into an organization and say, "We are adopting a new project management methodology called Agile." Everybody nods and says, "It's new so it must be good." Then we can use Agile as an excuse to get people to do pretty much anything we want them to do. If we want them to sit and work as part of the team for two weeks so they're exposed to all the ways of working and understanding digital better, we can do that. Because that's the way it works with Agile.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It also sounds like, there's this idea that, in the older ways of thinking about the website, the alumni office doesn't have anything to do with the web. Once every five years, an outside company is brought in and they get to go to some meetings and say, "I don't like this, I don't like this, I don't like this," and then they get stuck with whatever they get stuck with anyway. Then for the next five years that's the only set of tools they have to use. Meanwhile, they go back and they're doing things like, creating marketing campaigns and sending regular mail, pieces of paper and postage. They've got all these tools to do all the jobs that they normally do, and meanwhile the web is off their radar.</p>
+
+    <p>It sounds like what you're talking about is getting completely away from that idea. The alumni office should always be thinking about the web and what new little piece could they add to the website. They need this new page or they want this new URL. It's not this strange thing that happens every five years to get a big giant tool that will solve every problem that's going to come up in the next five years. It's a relationship they have with designers and developers. Maybe some outside folks came in for a little while and then they went away. But meanwhile there are other people who are going to still be there. There are still developers and designers on staff that they can call at any time. They know them by name, they've worked with them, side-by-side. They've created something together and then they can come back around and say, "Oh, I have another idea. I need some new code, I need some new this-and-this." The website becomes something that they own and use everyday. Not this alien thing that's on the other side of campus.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>Absolutely. One of the things we try to instill, the culture that we're going for is a digital by default culture. Which is a phase that is thrown around a lot and I think is worth explaining.</p>
+
+    <p>Digital by default. Let's say a company produces a new product. What we do as human beings is, we fall into patterns of behavior that we've always done. New product, that means a press release. [Both laugh] Because that's what we've done. We always do a press release. We just do it because it's easy and because we know it and that's the way to do things. Digital by default says, when you are faced with a business problem — a new product that you need to promote — that you think first of digital. It doesn't mean that you only use digital or you have to use digital, it just says that you need to pause for a moment and say, "Would a social media campaign or pay-per-click advertising or a blog post, would that be a better, more cost-effective solution than a press release?" That's the kind of thing that we're trying to instill in people.</p>
+    
+    <p>The longer that somebody from your alumni office or wherever else in the organization spends sitting and working alongside designers and developers and digital professionals, the more that digital by default thinking creeps in. They start to go, "Yeah, we do this and we could do that and we could do the other."</p>
+    
+    <p>Then you've got a different problem. You've got a problem of managing their excitement without squashing it. Because they'll come back with loads of ridiculous ideas. But that's where the team dynamic works. They don't come back as a client to the digital transformation team and say, "I've had this great idea, we're going to have a splash page with a rotating logo on it." They don't get to do that. They come back with a new user story that needs to be accommodated. They join the team again and together the team works out the right solution for that. They're still very much acting as part of a team. But they're still representing their part of the organization in terms of the digital strategy.</p>
+    
+    <p>That's the other thing that people are really worried about within organizations, this idea that you create a digital transformation team, you're effectively creating a new digital silo that tells everyone else what to do and nobody wants to be told what to do. That's why it's really important to explain that they're brought in to the team, they become a part of the team and they're part of the decision-making process. It's not some steering committee that oversees it; rather, it's the team that's doing the work.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It really is a change. Normally, that letter that you're going to mail to everybody, you drop it off at the print shop and the print shop prints it. There's no meeting where everyone gets together, the printer sits down next to the folks who work in that office who created it and they decide what the letter should say together. These people make the letter, they type it up, and these other people print it. End of story. That is a service organization model. What you're talking about is quite different. You're right, that is part of the problem, when it becomes this idea that the thinking about this should be done by people who don't actually ever do this. The implementation should be done by people who don't get any say in the thinking behind it all, the strategy.</dd>
+
+<dt>Paul</dt>
+<dd>None of this needs to be that heavyweight. There's this perception, "It's lots of meetings and sitting around discussing it." Really, it doesn't need to be that at all. It can be very, very lightweight. It can be faster decisions and you end up with something that's a lot more effective. What happens normally is, somebody decides they want something from the website and there's endless arguments about whether or not it's a good idea. It's not like somebody just does it, in this current model that we all live in. No. It's endlessly debated and has to be checked three times before it goes out. What we're doing is, we're creating a model that's much more fluid, much faster reacting. It's not as heavy duty as it sounds when you first hear it.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Nice. Let me jump in here with our second sponsor for today, <a href="http://smartthings.com/">SmartThings</a>.</p>
+
+    <p>This is a new sponsor so I went and checked them out. They have an app that you can put on your iOS phone or Android phone and they sell these little kits, these little pieces, almost a whole LEGO system of devices that you can use all over your home — or your office, or wherever — and turn your space into a smart space. Dimmers for your lights, detectors that you can put on your door that will tell you whether or not a door has opened. They've got one that measures vibration that you can put on an air conditioning unit or a washing machine and it will tell you when that machine is on and how often it's being used. They've got a little fob that you can put on your keys or on your kid or on your pet, so that when your kid comes home, they get home from school, you can get pinged on your phone. It will say, "Hey, your kid just got home from school," or "Your keys are in the living room." All kinds of things to make a smart house. It's the promise of the future, to have a smart... smart house, is it called? Smart world? Smart devices?</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>Yes, internet of things or whatever it's called.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>The internet of the things, that's what I couldn't think of. Internet of things. Of course that's why it's called SmartThings.</p>
+
+    <p>The really nice thing, too, is that you don't have to pay per month. There's no monthly fee. They've got all these different products. You can buy one or you can buy a whole group of things. You can buy a plug that you can plug something into and your phone can then control that plug and turn that thing on and off. But you don't pay a fee for each of those things every month, the way a traditional home security system charges you. You can keep track of when doors get opened and closed and you just buy the thing and you're done with the money. You can control all of these things, your smart house, from anyplace that you are. If you have a fancy vacation home up in the mountains, like a lot of people who live in New York City do, you can keep track of the doors and control the lights and keep track of other things from far away. They've got one you can stick under your sink, under the pipes, that just goes, "Hey, I got wet. Hey, I'm not wet." So you can see whether or not your pipes are dripping. If your pipes start dripping, it will detect that water. Or if you have a basement that keeps flooding, it will detect that there's a flood in your basement and it will let you know that you need to do something about that.</p>
+
+    <p>They've got an open API and it coordinates with a lot of other brands. The Nest thermostat, Dropcam, Philip Hues, Weemo, Sonos, all these different companies, they're all using the same protocols. So you can use some of those other devices with this app and this particular system. As soon as I read, "open-something-something-code," I was like, maybe you could write some of your own, hack into some of this stuff. There could be some interesting possibilities here. Looking this morning, too, I realized, because these devices will detect vibration or water, you could use these for many, many different kinds of use cases that maybe are not completely obvious right off the bat. But, of course, the typical things that you would want, like controlling lights. Pull up in your driveway and all your lights turn on. Or you're on vacation but you want to program it so your lights turn on and off at random times to make it look like you're home. Or set things up to save energy, to turn off all your chargers that are just sitting there not charging anything, using up electricity. You can turn those things off. All that kind of stuff.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>I'm a sucker for this stuff. I'm terrible. Now I've just seen that they've got integration with <a href="http://ifttt.com/">If That Then This</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Ah, there you go.</dd>
+
+<dt>Paul</dt>
+<dd>Then that opens up a world of silliness, doesn't it?</dd>
+
+<dt>Jen</dt>
+<dd>If I tweet, turn off the light. [Both laugh]</dd>
+
+<dt>Paul</dt>
+<dd>Half of the things I do are stuff like this. Totally useless. My wife just rolls her eyes at me but I just love it.</dd>
+
+<dt>Jen</dt>
+<dd>If I'm up past midnight, shut off everything electronic in my house.</dd>
+
+<dt>Paul</dt>
+<dd>Yes!</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, my brother is totally into having a smart house. He wired his whole house with Cat 5 cable. [Both laugh] My father was starting a big construction project and all the walls were open, so my brother went over to my father's house and wired his whole house with Cat 5 cable. [Paul laughs] You don't need any cable with this! Everything's wireless now. You just plug these devices in wherever you want them to be, and they talk to each other. Done. [Laughs]</dd>
+
+<dt>Paul</dt>
+<dd>It looks like so much fun. I could have hours of fun with this. Unfortunately, they don't deliver to the UK, so I'm going to cry.</dd>
+
+<dt>Jen</dt>
+<dd>I was wondering, because these are all Edison plugs. I bet they have plans to expand, though.</dd>
+
+<dt>Paul</dt>
+<dd>Oh, they're bound to.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Paul</dt>
+<dd>Yeah, shipping outside of the USA and Canada is not yet available. But I could buy some when I'm over yet. The one I really need is the moisture sensor. I've got a horrendous leak in my office that just leaks all over my electronics if I'm not careful. I could really do with that one. But it looks very cool, I like the look of it a lot.</dd>
+
+<dt>Jen</dt>
+<dd>It's nice, this app looks nice. Looks very intuitive and beautiful and exactly what you would want it to be.</dd>
+
+<dt>Paul</dt>
+<dd>We are such designers, aren't we? [Jen laughs] If the app looks nice, then we'll go for it.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>If the app looks like crap, I'm just moving on, because they probably don't know what they're doing. But this looks like professionals made it. [Both laugh]</p>
+
+    <p>People should go to <a href="http://smartthings.com/5by5/">smartthings.com/5by5</a>. That will let them know that you went over there because they're sponsoring on 5by5 and also you get 10% off using the promo code <code>5by5</code>. You get 10% a home security kit or a solution kit. Go to the website, <a href="http://smartthings.com/5by5/">smartthings.com/5by5</a>, to find out what that means, exactly which kit and how much. Ten percent off is nice. Thanks to them for sponsoring this show and 5by5.</p>
+</dd>
+
+<dt>Paul</dt>
+<dd>Cool.</dd>
+
+<dt>Jen</dt>
+<dd>Digital adaption. You put a lot of this into this book. You also made some videos and you made a PDF. Those are, like, you have some convince-your-boss stuff, don't you? Talk about that.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>Really, even the book is a convince-your-boss thing. The book's one of those really easy to read books. You know the books that are just full of lots of anecdotes and stories of things that have happened in the past? To provide a five step guide to transforming your organization is, 1) Very hard to do, but 2) Probably a bit premature for most people. The Digital Adaptation book is designed to hand to the boss and say, "Hey, read this, it's easy to read, you can read it in a couple of sittings." People come away going, "That's us. We do that." That's the aim of it. To get them to realize that they're making the same mistakes as some of the people in the book.</p>
+
+    <p>But I didn't want to leave it there for people. I hate speakers and books that tell you everything you're doing wrong and then don't really help you dig your way out of the problem. Sometimes you read books and you go, "Ok, that whole book has just been written for you to now hire me to fix the problem." Although I do spend a lot of my time hired to fix the problem, I didn't want to leave people with that.</p>
+
+    <p>What I've done is — and you can find this in various places — at <a href="http://boagworld.com/digital-transformation/">boagworld.com/digital-transformation</a>, I've got a whole chunk of different resources that can help you out. For a start, if you're the person that begins to understand that there is an issue, something's not right in our organization. There's a presentation on there that you can watch. About a 40 minute presentation, which is the same one that I gave at Blend Conf. Which just says, here's the problem, here's where you can begin to solve it, and here's the initial few steps. There's that, you're free to help yourself to.</p>
+
+    <p>Then there's a link to buy the book, otherwise I would be a very bad person, according to my publisher. Then there's what I call a digital transformation trailer. Which is a two minute animated trailer that, if you just have two minutes with your senior management team, show them this. Show them this just to grab their attention to get a little bit more of their time. I really have accepted that some web teams are so lowly that they don't really get any attention from senior management whatsoever. Two minutes, surely you can get them to watch something that's two minutes long.</p>
+    
+    <p>Then there's a slightly longer presentation that lasts 17 minutes. This is a TED Talk style presentation in its length. Hopefully once you've got management's attention, then you can show them this. That presentation is designed to scare them. It's designed to make them a bit nervous, make them realize that things need to change.</p>
+    
+    <p>I've also got a manifesto. That sounds very grandiose. It's basically a pretty PDF document, only about 1,000 words long, that you can print off and give to senior management if they're not prone to watching presentations or videos or whatever. It just outlines how things need to operate in the new digital economy and how they need to be approaching business. There's also a digital health check, which is basically a blog post where I outline how you can tell whether you company's doing well with digital or not.</p>
+    
+    <p>Then there's a load of other bits and pieces. I've tried to create a package of stuff that is brought together to help you make changes. Hopefully, it's something you can do yourself.</p>
+    
+    <p>A classic thing happened with one company. Essentially there was somebody within the digital team that read my book. He was a smart cookie and he decided, "Ok, this looks like the kind of thing my management might read." He bought a load of copies, gave them to the management team. The president of the organization read it and immediately decided that he was the one that was solving the problem. He was the one that had identified that there was an issue that needed fixing. This poor old head of the web team didn't get any credit whatsoever but he did get to see change. Things did happen. Because suddenly senior management decided that they'd had this brain wave that digital needed changing when actually they'd just been pointed in the right direction by the lowly digital person. It is possible to bring about change in your organization. Don't get demoralized and think it can't happen, because it can.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, that happens a lot, I think. Where sometimes the best you can hope for is getting someone else to take credit for your idea. [Laughs]</dd>
+
+<dt>Paul</dt>
+<dd>I'm kind of alright with that, it happens to me all the time. That's ok. If it gets the result we want, that's fine.</dd>
+
+<dt>Jen</dt>
+<dd>Right. Because in the end, no one's going to think about how this happened or why or who thought of it, they're going to think, "Wow, things work so much better now, I'm so glad that we're doing this." Or they'll just think, "Haven't we always done it this way?" </dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>The other aspect to it, is the fact that, ultimately, this is about making you — as a digital professional — making your job better and more enjoyable. I did a day's worth of consulting with one organization. I met this guy that was really sick of his job. He really, really hated it. He was dismally unhappy. He was a developer and he was so, so negative. I just went in for a day, made a few suggestions. One of the suggestions that I made was that the lines of reporting were shifted around a little bit. I didn't feel it was quite working the way it was. Didn't do very much at all. None of the stuff that I've been talking about here.</p>
+
+    <p>I ran into him a few months later at a conference. I was standing right next to a prospective client that I had been chatting with. I was trying to make myself sound good and all the things that you do when you're talking to a prospective client. And this guy, this developer, walks across the room, straight towards me — he was doing a beeline for me — and he looked quite worked up. And I thought, "Oh, crickey." He walks up to me and the first thing that comes out of his mouth is, "You made me cry." [Jen laughs] And I'm like, "Oh, crap. He's just said this in front of a prospective client." He then went on to say, I made him cry with joy, basically. That the changes that we made, just in that one day, have transformed his job and transformed his role and he loves his job now.</p>
+
+    <p>You think, I don't care who gets the credit for that. If he never gets the credit directly himself for the changes, because he was involved in bringing me in or whatever, that doesn't matter. His job is better now. He enjoys it, he's excited to go into work in the morning. And for me, that's what it's all about. It's about empowering and equipping people to do their jobs properly and enjoy their jobs.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What I hope people at least take away from this — if not some of the more concrete examples and ideas about what to do — at least take away a sense of, if you're frustrated and feel like you're beating your head against a wall, maybe don't think that's your fault or a problem with your own organization. The person you work with that's driving you nuts, that it's their fault. But to think about this bigger picture, this incredibly intense and very tricky and very complicated transformation from a pre-digital era to a post-digital era. That some of what you're talking about, to realize, "I'm in this meeting and this person keeps driving me nuts." It's like, what could you maybe teach them? Are they threatened? It's understandable, maybe you can try to help shift the culture like this or like that. Just to look for openings in places to shift the culture or help transform people's ideas about what it is that we do.</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>I think, as user experience designers, we really have no excuse either. If you're a developer, you can sit and feel a bit smug at the moment, because this doesn't apply to you. In terms of being a user experience designer, our job, the thing that we pride ourselves on, is understanding users. Understanding what makes them tick, how they think, what motivates them.</p>
+
+    <p>We need to apply those skills to our colleagues. We need to understand what's motivated our colleagues. When they do something that you think is just ridiculous, why are they doing it? Why are they like that? What makes them make those kinds of decisions? I think if we do that, we begin to be able to understand how to influence things. We begin to understand how to alter the current culture that exists.</p>
+    
+    <p>Once you understand, for example, that your senior management team don't have the freedom that you think they do. You think they can make whatever decision that they want. But they don't. They have targets that they have to meet in order to earn their bonuses, they have shareholders to keep happy, they have a board of directors that they have to deal with and balance. There are all these kinds of elements that are going on that constrain them. Once you understand that, "Ah, the CEO gets a bonus if he reaches this particular target." Then you can start to structure your arguments and case for digital around those pain points. Around those specific things that person is facing. We do that all the time with users, so why don't we do it with our colleagues as well?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. You sit down to completely redesign how a person buys an airline ticket, for example, but we don't sit down to completely redesign how a group of professional colleagues work together at a company. But we could.</dd>
+
+<dt>Paul</dt>
+<dd>It's all the same skills.</dd>
+
+<dt>Jen</dt>
+<dd>Why do we use bad slide decks and boring meetings? Yeah, it is the same skills. You could design an experience for your office.</dd>
+
+<dt>Paul</dt>
+<dd>Also, I think the way we're often perceived, internal web teams are often perceived, is that we don't design that experience, either. If you run an internal web team — actually, if you run an agency as well — why don't you try mapping the customer journey for your clients? We're doing this at the moment at Headscape. We're working out all the different touch points that we have with our customers, and we're looking for ways that we can improve that experience. I think a lot of internal web teams could do with doing the same. Because they're perceived quite negatively. They're perceived as, "They're always groaning, they're always saying no, they're always disagreeing with me. Why do they say no when I wanted a splash screen on our website?" Or whatever it is. They just see you as a roadblock. You need to put the same attention into the customer experience for your internal clients as you do into the customer experience for end users on the website.</dd>
+
+<dt>Jen</dt>
+<dd>Let me ask you this one last question. What would you say to the person who says, "Ok, I completely agree with you, totally. But I don't have the authority to do any of those things. I start to do something like that and I get in trouble"?</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>The truth is, none of us have got the authority. The truth is there is no authority to do this kind of stuff because nobody recognizes that there is a need to do this kind of stuff.</p>
+
+    <p>The truth is that you're going to have to just stand up and start doing it. You've got a decision to make, and I ended my talk at Blend like this.</p>
+    
+    <p>Jonathan Kahn is right in his List Apart article when he says, "When it comes to the web, organizations are broken." That means, the reality is that if you carry on the way you are, at the company you're at, you're going to be miserable. If they don't get it, if they are broken, there is no point in you sitting and waiting for somebody else to change it. Because no one else recognizes that the company is broken. Because they're not you, they don't do your job.</p>
+    
+    <p>You've got a choice to make, and it's the most basic of human choices. Which is the fight or flight decision. If people are listening to this and they're in that situation now, I would encourage them today to make that decision. Are you going to fight, or are you going to fly? Your choice is, you can fight to change the culture within the organization, or move somewhere else. But don't sit there being despondent. Don't sit there feeling like things can never change. I hear, time and time again, from web teams.</p>
+    
+    <p>Do you remember the guy I mentioned earlier who was miserable? He was saying, "Nothing can change here. Nobody has the authority to do anything. We've tried all this stuff before and we failed." I would say, if you decide you are going to stay and fight, then you go for it. You do just ignore people that say, "That's not for you to say." Ignore that little thing in the back of your head, try and get straight to senior management and go around middle management. Middle management often are much more hesitant, much more conservative than senior management. If you have to go over your bosses head, go over your bosses head. Be a maverick. Cause trouble. Because what's the worst that can happen? The worst that can happen is you get fired. [Laughs] Which sounds terrible, I got a big laugh at Blend when I said that. But, the truth is, that we are, as digital professionals, hugely in demand at the moment. There is no shortage of work out there that are enthusiastic, do want to make change, and have got experience in the digital arena. You'll find another job, and you'll find a job in a company that recognizes the need for change. There's no reason to stay where you are. By all means, fight to make it happen in your organization, but don't be worried about the consequences. Because it's better to rock the boat and get thrown out of the boat and go and get in another one, than it is to stay in the boat and be miserable. That was the most overstretched metaphor ever, wasn't it?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's staying in a boat that's slowly sinking. There's just water coming in the bottom of the boat and you're just sitting there. Like, you're going to be out of that boat anyway. [Laughs]</dd>
+
+<dt>Paul</dt>
+<dd>
+    <p>So you might as well go for it. What you imagine in your head will happen, is never going to be as bad as you think it's going to be.</p>
+    
+    <p>The only caveat I would put on it is, don't do it in an aggressive or frustrated manner. This has to be a calculated campaign. If all you're going to do is wander around the organization moaning that things aren't right and that things need to be changed, then you're going to get nowhere. Even if you go around the organization moaning about how things should be changed, you're still going to get nowhere. You have to do it with a positive attitude. You have to do it with an enthusiasm and an excitement and you have to do your research and you have to put your all into it.</p>
+    
+    <p>That may mean that you have to do all of this in your evenings. You have to prepare presentations, you have to write blog posts, you have to do whatever. I'm not saying that someone's suddenly going to give you permission to do this instead of your current job, because that's not going to happen. But once they see your enthusiasm, once they see your motivation, once they see your desire to bring about change, and the fact that you have a solid plan to do that, then they will give you the power and authority. In almost all cases. Most of the time, it boils down to this: You scare management, you show them that there's a problem, then you give them a simple solution, a starting point. Don't give them some grandiose solution that's going to cost them millions. Give them a simple starting point which involves them doing nothing. [Both laugh]</p>
+    
+    <p>When I go in and do that initial presentation where I scare them, what I leave them with at the end of it is, "We need to do some research into our users, into how we're doing digital. All you need to do is give me the ok to go ahead and do that." Once you've got that ok, then you can go. It doesn't cost a lot of money and it doesn't involve them doing any work themselves. That's the starting point. Out of that you gain more ammunition and more data in order to justify the next step, and so on. Don't overwhelm them with too much, once you've scared them enough. Then you need to give them a nice, simple solution.</p>
+    
+    <p>And if all else fails, then you can hire me to sort it out for you. [Laughs] Which I've seen done before as well. To be honest, it has to be said, I've made that as a flippant comment, sometimes you can get stuck with the, "Oh, he's junior," problem. "So I won't listen to him because he's not experienced enough." That's when you might want to fall back on getting an outside consultant. For some reason, and I will not understand this until the day I die, senior management will listen more to an outside consultant because they're paying them a lot of money. Even if their internal people are just as skilled. It drives me nuts but it's the truth.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I think it's about outsourcing risk. it's so scary to make big decisions like that when you're running the company and having someone who actually works for you and agreeing to go with them means, in a way, you're taking responsibility for all the risk. Hiring somebody on the outside and giving them a big wad of cash, I think somehow puts the fear and the risk externally. You can point the blame at somebody else. It's the same thing, but I think there's something about that.</dd>
+
+<dt>Paul</dt>
+<dd>I can see where you're coming from. I never thought of it like that, that's actually a good idea. But I still don't get it. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>In there, what you're saying, has a lot to do with... instead of throwing a tantrum or feeling like, "Gosh, doesn't everybody think the way that I do? Why doesn't everybody think the way that I do? It's so obvious. You guys should just get it together and think like me and see what I see." To say, "Alright, I'm just going to let that go and instead be incredibly strategic." And create this secret ninja roadmap of, "I'm going to talk to this person and convince them to this one thing, and I'm going to talk to these two people and convince them of these things, then I'm going to talk to that person, and I already know that this is what they want, so I'm going to show them how what I want is also what they want. I'm going to go here and there." Like a stealth campaign or something.</dd>
+
+<dt>Paul</dt>
+<dd>A lot of people don't understand why I enjoy doing this. Because on some level, it's horrible. It's frustrating, it makes you angry, all the rest of it. Especially when you're involved in the middle of it. But the way I cope with it is, it's a game to me. I treat it like a game. Can I play this game in such a way that we get a good result from it? That takes the personal out of it. It takes the frustration out of it when you meet some complete... well, I can't use rude words on this podcast. Some complete idiot, some complete moron that just seems to be out to block you and to stop you achieving what needs to be achieved. You can see that in one of two ways. Either you can get really angry and frustrated and stressed, or you can treat it like a game. How can I get this person on board? How can I do my stealth ninja moves to out-maneuver this particular person? I think if you treat it like that, certainly for me, it helps. It helps me not get wound up by it, but to actually enjoy the experience of convincing people. To enjoy the experience of trying to upgrade the organization to reach level 2 or whatever.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. People can follow you on Twitter, you're <a href="http://twitter.com/boagworld">@boagworld</a> on Twitter. And you have a podcast, I guess the longest running, or the earliest, the first web design podcast. <a href="http://boagworld.com/show/">Boagworld</a>. Which we haven't talked about at all. But there you go.</dd>
+
+<dt>Paul</dt>
+<dd>That's alright. It's not anywhere near as popular as yours. It's old and decrepit and really needs to be put down. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>But it's out there, people can go check it out.</dd>
+
+<dt>Paul</dt>
+<dd>Yeah, we really sold that well, didn't we? [Jen laughs] "Yeah, there's this shitty podcast out there. You can go and see it if you want to." [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>"Yes, excellent! Tell all your friends!" [Both laugh]</p>
+
+    <p>People can follow me, Jen Simmons, on Twitter or the show itself, <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. Sign up for <a href="http://5by5.tv/webahead/newsletter">The Web Ahead email newsletter on the 5by5 website</a>. If you have not subscribed to this show, please do. I'd love for you to go grab whatever piece of software you want — iTunes or the podcast app on iPhone or any number of different Android apps or other iOS apps, there's a zillion of them out there — and subscribe to this show, which will get you new episodes delivered automatically.</p>
+
+    <p>That's it! Until next week, thanks for listening.</p>
+</dd>
+
+</dl>
