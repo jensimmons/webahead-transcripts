@@ -1,0 +1,576 @@
+---
+layout: transcript
+title: "The Early Web with Dan Noyes"
+permalink: 85/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+    <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm Jen Simmons and this is episode 85. I first want to say thank you to today's sponsor, <a href="http://gotoassist.com/">Citrix GoToAssist</a>. And to <a href="http://cachefly.com/">CacheFly</a>, who provides all the bandwidth for 5by5 shows. The most reliable CDN in the business. You can check them out at <a href="http://cachefly.com/">cachefly.com</a>.</p>
+
+    <p>So for anybody who's a long-time listener of the show, you know that one of the things that we've been doing over the years, periodically, is having this series inside the series called, "The Web Behind," where we talk more about the history of the web and where it came from. Just to give everybody — especially people who weren't there in the beginning a sense of what it is that we're doing and where the roots of all of this are. You can't really get any more back to the original web than to have somebody on the show from CERN. CERN, the physics laboratory in Geneva, Switzerland, where the web was invented. My guest today is Dan Noyes, who works there now. He's the head of the web team. Not an official title. He's running everything around the websites, the current websites, overseeing a huge redesign of a lot of the CERN websites. Also working on a project with others, telling the story of the birth of the web and restoring a lot of the original parts and pieces of the web that were taken down at some point, getting them back online.</p>
+
+    <p>I'm really excited today to have Dan on the show. Hello Dan.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>Hi Jen. Good to be here.</dd>
+
+<dt>Jen</dt>
+<dd>So I mangled your job title. What is your job title at this point?</dd>
+
+<dt>Dan</dt>
+<dd>[Laughs] I don't know. Web manager is correct. I'm in charge of content, too, now, which is cool. I think it's a nice thing when you're working with the web, to be so close to content and to be recognized for that. I'm in the communications group and we have a huge team of engineers in IT, but very much focused on content, on the structure of content and on what people outside see of CERN through its websites.</dd></dd>
+
+<dt>Jen</dt>
+<dd>I think it must just be fascinating to be working on the current websites at the place where the web was invented 25 years ago. Does that seem weird sometimes? Is it exciting?</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>Yeah, I mean, it's part of what drew me to CERN. I remember way back looking at the origins of the web and finding it was CERN. That's really how I connected with CERN.</p>
+
+    <p>I actually got my job because I wrote to CERN and said, "Hey, your websites aren't very good. Birthplace of the web and all," and they said, "Well, we're hiring." The fact that the birth of the web is present in my mind quite a lot of the time. One of my first days at work I was given all of these websites to look after. I couldn't believe the dates, when I looked at the last edit dates on the files. Going back to the '90s. I realized straight away that we're dealing with quite old content with a lot of our websites.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Tell us about the original website. What it was, where it was launched, how it disappeared, and what you guys did to restore it.</dd>
+
+<dt>Dan</dt>
+<dd>The first website was a kind of meta website about the web itself. Tim Berners-Lee and his colleagues at CERN, their first job when they built the web was to convince everyone to use it. So they built a website. They built two. They built one for CERN, they had a homepage with news, upcoming conferences, the kind of things that physicists would need. They had a second website that was called <a href="http://info.cern.ch">info.cern.ch</a> and it was about the web itself. It told you what a browser was, how to put content on the web yourself. I do think, when it was first created, this website stood all by itself. There was nothing else to link to it. It was an island. It really lived on Tim Berners-Lee's machine and if you talk to people who were around at the time he was working, their first experience on the web wasn't through a browser, it was going into Tim's office and looking over his shoulder and seeing him so excited about it. That was the first website, <a href="http://info.cern.ch">info.cern.ch</a>. That's the one we tried to put back online in as close to its original form as we could. Which is challenging.</dd>
+
+<dt>Jen</dt>
+<dd>Do you know when it got taken offline?</dd>
+
+<dt>Dan</dt>
+<dd>The story of Tim Berners-Lee at CERN is, he was a computer scientist here. I can't tell you exactly when he joined CERN. I think it was in the late '80s. And he left in about '93 to form the W3C, hosted by MIT. At that time, he took a copy of the first website on a floppy disk with him and hosted it at MIT. Subsequently, CERN turned off the first website, maybe not realizing its future or historical value. I think that happened in the mid-90s, it went offline at CERN. We just put it back on last year, back to its original address.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>You have a blog up... I'll put all of these links into the show notes for the show, which you can find at <a href="http://5by5.tv/webahead/85">5by5.tv/webahead/85</a> or in the future, if you're listening to this show after I launch the new website, <a href="http://thewebahead.net/85">thewebahead.net/85</a>.</p>
+
+    <p>You started a blog — was it last year or the year before? — letting people know about this project that you're running and all the stuff that we're going to talk about today. You put a blog post up. Like, you found an early version of the website but not the earliest, earliest version? Then you want on kind of a scavenger hunt and you were asking people for help to find an even earlier copy? Tell us about that.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>Right. The way I stumbled across it was... first, in my job, I was told by my supervisor, "Here are the websites you're looking after." And CERN has thousands of websites. Tens of thousands. I think there are about 60,000 people with a CERN computing account. Any one of those people can go in and create a <a href="http://cern.ch">cern.ch</a> website, and of course many of them do. We're not quite sure how many we have, but we have in the 10,000-15,000 websites. I was given about 100 to look after. These are the ones that are the most prominent to the public. The CERN homepage, an internal page for physicists. They've all got this naming convention and it's a question of making it easier to have certificates. They're all named at the third level. You would have mysite.web.ch, site2.web.ch and so on. So I was looking down this list and one stuck out because it had a third level name: <a href="http://info.cern.ch">info.cern.ch</a>. I scrambled around and had a look at it, asked people, "What is this?" A guy called [inaudible], he was listed as the person owning the website in our database. I phoned him up and he said, "Well, that's the first website."</p>
+
+    <p>It took awhile to comprehend this. It sparked something in me to try and find out more about this and try to find a more original form of it. I think I was a bit naive back then, that someone might have it in a drawer or we could look through our servers and find a backup. I think, looking back through the project today, what I've really found is, you can't go back and digital data is... we're constantly overwriting it. It's gone. It's a stream. It's a flow.</p>
+
+    <p>We've gone back as far as we can to the original data. Through the publicity we had through the project, people came to me. One guy came with a very early backup of Tim Berners-Lee's server. That's the earliest version we've found to date. I think that goes back to 1992. The form that Tim Berners-Lee took with him in that floppy disk to MIT was a little bit later than this. We found a slightly earlier version from his machine that had been taken as a backup.</p>
+
+    <p>We're getting there but someone might have something even earlier than this.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>The first website went online... was it December of 1990?</dd>
+
+<dt>Dan</dt>
+<dd>That's right, Christmas, 1990. I'll have to check through these dates for you, but yeah.</dd>
+
+<dt>Jen</dt>
+<dd>Looks like December 20, 1990. The first website and server go online at CERN. I know this because I'm looking at your website and the timeline on the website.</dd>
+
+<dt>Dan</dt>
+<dd>Of course, that was the standalone island of the web. The one website and the one browser on the same machine.</dd>
+
+<dt>Jen</dt>
+<dd>Right, the whole web was one web server. There was only one person in the world with a web browser, that person had the browser and the server on the same machine.</dd>
+
+<dt>Dan</dt>
+<dd>And wrote the content. That must have been quite an amazing moment. Moving from that vision. If you look back, it's quite incredible that someone had this vision and managed to share it and get other people involved. But at the time, seeing it yourself, I can't imagine what Tim Berners-Lee must have been thinking when he had this one machine with this fairly impressive, but if you looked over his shoulder, fairly ordinary system. He must have known this would explode. Or hoped it would, I guess.</dd>
+
+<dt>Jen</dt>
+<dd>It also seems like an audacious moment, too. Or maybe it wasn't. Or looking back, if we were going to make a movie about it, we could make this a very audacious moment. To think, "I've just launched this network that the one node wraps around to the same one node. Here it is on my machine." Rather than what most of us think every day, when you open something on your machine, you just think, "Oh, I'm opening something on my machine." He had this plan for it to be connected to everything else.</dd>
+
+<dt>Dan</dt>
+<dd>And the very name, "WorldWideWeb." It had the "world" at the front. And it was in one guy's office.</dd>
+
+<dt>Jen</dt>
+<dd>It was Robert Cailliau  who named it, I believe, right? Robert Cailliau doesn't get a lot of credit but he joined Tim Berners-Lee fairly early in the process and helped shape the vision, rewrote the memo.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>Right, he's a great maven. He took what was a great idea, this brilliant computer scientist who created this software. He took it and made it, first of all, palatable to CERN. I mean, CERN's a physics lab. It doesn't produce software and give it away for free as its core business. If you're going to go away and set up a side project and write code, you had to be able to justify it.</p>
+
+    <p>I think Robert deserves a huge amount of credit for taking Tim's original paper and vision and going to CERN management and turning it into a project that really made sense to them. Saying, "Look, this is something that will help physicists across our global community." And turned it into a real project with resources. And tirelessly since. He's still going on, talking and meeting with people and sharing the vision.</p>
+
+    <p>I get a sense that some of that original vision has left the web. The commercialization. You look at a modern website now, it takes dozens of people to maintain. You need people to write content, you need people who are great in designing layouts and user research. Infrastructure and so on. But the web back then was a real homebrew affair. You just downloaded a piece of code, you ran it, you shared stuff. I think Robert, if you speak to him today, is maybe a little nostalgic and a little sorry to see the direction the web's taken. It's great to talk to him and connect to this original, beautiful vision of real sharing.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think about that a lot, actually. How complex the web has gotten and that original vision of it being super easy for anyone to create their own website. The original browser was also the original web authoring tool. You could make a website right inside the browser and that vision has certainly left us. Now, people are clamoring for more complex tools so that they can rewrite the way browsers work as they're building their website.</dd>
+
+<dt>Dan</dt>
+<dd>You see that straight from the beginning. The team, Tim Berners-Lee and Habert Caieu and the students that worked with them, they wrote code for all sorts of systems. They realized that not everyone would have access to Telnet, for instance, or the internet. You could email the first web server, give it a URL in the subject line and it would send you back the content of that page. Accessibility and access across different devices was baked right in to the vision from the start.</dd>
+
+<dt>Jen</dt>
+<dd>Wow, it would email you the webpage that you requested?</dd>
+
+<dt>Dan</dt>
+<dd>Yeah. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>Email was amazing. That was one of the big protocols. Email, FTP.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>There were lots of web-like things around at the time. In a sense, some people say, "The web is not that special." There was gophers, FTP, a system called Waize. Lots of different things that used the internet as a protocol in order to share data. What I think really worked for the web was a couple of things.</p>
+
+    <p>One was the team themselves baked in this versatility. There wasn't just one way to access the web. You could email it, telnet it, use a browser on a beautiful NeXT cube. You could use a browser on a dumb terminal. The versatility was one thing.</p>
+
+    <p>The other thing was the fact that CERN is not a commercial enterprise and gave away the code for free and made it really clear that anyone could take it and shape it. I think those two things together made it explode where others perhaps failed.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Yeah. I was giving a talk a couple of times this past year where — I think there's a video out there, I'll throw it in the show notes — the argument I was making is this idea that the web is simple. It's not that in 1989 everything was so simple and computers were so simple and the folks that invented the web couldn't think of something more complicated. The truth is that there were hypertext systems. Many, many hypertext systems and many, many different internet protocols. Those two things were separate. People were creating hypertext and people were creating internet tools and those worlds were separated from each other.</p>
+
+    <p>Those other tools, many of those other systems, were actually way more complicated. Part of the vision of the web was to make it simple. To make it universal. To make the HTML itself be easy for people to use markup, easy for people to wrap markup around content. So it would work on a bunch of different devices and it would work for a bunch of different people and it would work in a whole bunch of different contexts. It would work for a lot of different kinds of content. You didn't have to go — Tim Berners-Lee didn't create a taxonomy that everybody on the internet has to use. You don't have to fit your website or your website content into a universal section or category or framework or shape. Every website doesn't have the same shape. Every website doesn't work exactly the same way. He did that on purpose. A lot of other systems were much more rigid and every new piece of content or every new contribution to that system had to fit into somebody else's idea. He intentionally made this super flexible and universal for anybody to use.</p>
+
+    <p>Sometimes I think we start to lose that when we want to come up with the world's best most awesome ever JavaScript framework, and everybody should only use that JavaScript framework and everybody should only make their menus look like this and their websites look like that.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>Yeah, back to the hypertext story, I think the hypertext community were really unimpressed with the web when they saw it. They had been working on this vision that was so beautiful. That content would be permanently linked, there would be a database system that would track links so if a resource moved the link would dynamically resolve itself. As you say, taxonomies would be unified, data would be restructured.</p>
+
+    <p>Tim Berners-Lee and Habert Caieu went to a hypertext conference in 1991 in San Antonio. They physically packed up the NeXT cube, they took it with them. They were refused a speaking slot, actually. They stood out in the hallway and got themselves a table and showed people, "This is a new system we've built." The vast majority of people at the conference were totally unimpressed. This didn't approach the vision. It wasn't powerful enough, it didn't have the features. But as you say, it was the simplicity that won. Simplicity and ubiquity. And the fact that it's free to use and change.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>As I was trying to understand what this other vision was — of a system that was more structured — I thought of it as, "What if the web was not all this crazy stuff going on?" What if, instead, the web was just Wikipedia? Where anybody could make a Wikipedia page. You could build your own. With a different culture, where anybody could add any content to Wikipedia. But in order to make a website, you had to be just like Wikipedia. it had to link to Wikipedia's main navigation and it had to look like Wikipedia, it had to be shaped like Wikipedia, it had to follow Wikipedia editorial policies. That, I think, is more like what some of these early hypertext projects were. Where you were stuck with the whole system taxonomy. Which would make sense, if you were trying to make a super easy-to-use system. But it makes no sense... the web took off because people have the freedom to do whatever they want and every website can have its own separate crazy world.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>I think one that that is as shame is the idea of this flow of information that somehow gets lost through time wasn't accounted for. Back to the first website, the fact that we can't see it as it was in its first incarnation is a real shame. I don't know how to get around that, I've got no practical proposals. Tim Berners-Lee was very clear about processes that you should follow. URLs should be permanent and you should always have resources in places that you point to.</p>
+
+    <p>But the persistence or the status, I guess, of the content itself was never accounted for. You can't look back now, you can't go and see what a certain newspaper site was like a week ago, because it's gone. The web is so dynamic and fluid that we lose a lot through time. There are some tools out there — The Wayback Machine, some great people trying to do archiving — but the tool itself, the protocols and what it is doesn't lend itself to preservation.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it would be really great if there were some way to surf the web as if it were 1995. Not just an individual page but the whole web.</dd>
+
+<dt>Dan</dt>
+<dd>That would be incredible.</dd>
+
+<dt>Jen</dt>
+<dd>When I'm looking for examples of sites from that period, I end up getting pictures out of books, because it feels like books are the best. You can actually get a whole image from a book of a webpage screenshot, when it's very hard to get that from archive.org, The Wayback Machine, because a lot of the images are missing.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>Right. The other thing is the formats are so date-sensitive and tied to a technology. If you look at a JPG from a 1990s website, it will look tiny on the screen now. [Both laugh]</p>
+
+    <p>I've met some great people on this project to put the first website back online. One of them was a guy who got in touch with me called Jim Boulton from London. He calls himself a digital archaeologist. He gets old machines and gets web content that's contemporary for those machines and operating systems and shows them to people. He has exhibitions and takes a lot of time to talk about this. You'll see an agency advert made in the late '90s for instance, in Flash, and you'll see it in the context of maybe the Bondi iMac and you'll see it full-screen and it's gorgeous and you can look at the same content on another screen, say a modern one, and it doesn't make any sense. I think he's realized that web content is really tied to the devices that we use them on.</p>
+
+    <p>We can see that now. We're talking about responsive design a lot, but we're still talking about devices and how it's going to behave and operate on devices. There wasn't that concern at the start of the web. It really was device-independent in its purest form. I think designers have been guilty through the years, following the birth of the web, of really looking at devices first and figuring out how the web's going to fit into them.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's true. Part of designing a website in the '90s was thinking about the color space and these 16-bit monitors and only have 256 colors. Or even once we had more colors, the pixels were still really big. A lot of the fonts that we used, we used those fonts because they worked. The screen was only 600 pixels wide but it was still a 10" wide screen, so you had those pixels really big. Even when you can bring up an old website on new monitor, it just looks so different from how it looked on the old monitors. It's not quite the same thing.</p>
+
+    <p>Let me jump in here with our sponsor for today before I forget. Citrix GoToAssist. Basically it's a software tool for running your IT department and providing support for everybody in your company. Managing your company's IT support needs can be very challenging, especially if you have remote employees or mobile employees. You've got people wandering the planet with their laptops and their phones and they need help from you and you're back at the office. Citrix GoToAssist is a cloud-based, remote support solution designed to allow you and your IT team to solve problems faster. It lets you provide live and unattended remote support to any computer or mobile device. You can screen share to diagnose or fix problems faster and more effectively and there area bunch of GoTo Assist apps available that make it easy to deliver support, anywhere, anytime. If you work in IT, you should definitely go give CGA a try. If you sign up before October 10, 2014, the one that's about to come up in a couple of weeks, you can get another Citrix product of your choice free for six months. Go visit <a href="http://gotoassist.com/">gotoassist.com</a> to check out what they've got and get help managing your company's IT support team more efficiently. Thanks to them for supporting the show.</p>
+
+    <p>Talk to us about some of the other projects you guys have been working on over there at CERN. And collaborating with a lot of people from all over. We talked about restoring the first website. Talk about the line mode browser and the project to recreate the line mode browser.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>Right. First of all, what is the line mode browser?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>We talked about Tim Berners-Lee's machine and he'd bought a NeXT cube. NeXT was the company that Steve Jobs went to found when he was kicked out of Apple. It was everything that Jobs wanted an Apple machine to be. It was kind of his showcase. It's a gorgeous machine. Just looking at it from the outside — it's a black cube, it's very stark, minimalist. But the operating system was incredible. If you power it up and if you're familiar with Mac OSX today, you'll jump straight in and be able to start using it. Because many of the tools are the same, you've got the same applications like Grab to take screenshots. It was really very advanced.</p>
+
+    <p>Tim Berners-Lee used this and a toolkit that came on it that helped you to rapidly create programs. He used this to create the first browser, which was itself called WorldWideWeb, which is a little bit confusing. One's the client and one's the information space itself. The problem was the most people in the day didn't have these beautiful machines. He hired a student called Nicola Pedo[?] to create a client that would run at the opposite end of the spectrum, on a really basic computer. He figured that the most basic of computers was a terminal. A terminal's used to dial in to a bigger computer and do something with it. It only displayed text, through a very  small screen. I think it's 80 by 24 characters. You would dial in through the line mode browser, you'd hit a webpage, and rather than use a mouse, as you would on a NeXT machine to point to objects and click on them, you'd have hyperlinks in the line mode browser numbered on a page. You would type the number and press enter and it would take you to that hyperlink. It was a really rudimentary browser, but it's the way that many of the first people who had contact with the web experienced it.</p>
+
+    <p>We felt it's important to revive this experience and show people what it was like. So we put a call out on the First Website blog that we were running. We said, "Who wants to come and help us? We're going to run a hack day here at CERN." We invited Jeremy Keith to come and facilitate it. We spent a couple of days and knocked out an emulator, which does a really great job of giving you a feel for what the first experiences people had with the web would have been like. I guess you're going to put the address in the notes at the end. But for those of you listening, if you go to <a href="http://line-mode.cern.ch">line-mode.cern.ch</a>, you should be able to try it out right there. Have you tried it yourself, Jen?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Oh, many, many, many times. [Both laugh] It's fascinating as well because maybe even most people who have ever used a computer have never used this kind of a computer. But anyone who was using computers in the '80s or earlier — maybe the '70s? — this is what a computer was. You looked at a black screen with these green or amber colored letters printed on to the screen. They're very pixely, there were no images, there was no mouse. You had a command line. It was basically like using the Terminal program on the Macintosh computer where the Terminal program is the only thing that you have. [Laughs] There's no other part of the computer.</p>
+
+    <p>I wasn't online at this time, I didn't have access to this version of the web, but I used machines like this. It's like a big flashback to be like, "Ohhh yeah, I remember what that was like."</p>
+
+    <p>You've put sound on this, as well. It sounds like you're typing on one of those old keyboards and the sound of the keys clicking.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>Yeah, the hack team really got into it. We got this really old IBM computer, which is of the time, and we brought it into the room for the hack. Everyone was taking selfies with it, stroking it. [Jen laughs] It just sounded great, hummed along. People were typing the keys and saying, "It sounds so great! We've got to get this in." The other thing that's authentic — we're looking around for fonts, we tried to figure out what it was, and we realized that it was a system font that doesn't exist elsewhere. The team took photographs of the characters and recreated the font from scratch. We've actually shared that on Github so you can take the font. They really went the whole hog in getting the feel of this machine. I think that only thing that's missing is the smell of the hot electronics at the back.</dd>
+
+<dt>Jen</dt>
+<dd>Mark Boulton was working on the font, I know, and I remember reading him talking about searching through the software and looking and looking. Just trying desperately to find this, "Where is the font in this system software? Where in the world is it? We want to get this font out of the computer." Then they finally realized that the font was most likely hard-coded into the hardware. They couldn't actually get it out of the software because it wasn't in the software. It was just baked straight into the hardware of the machine.</dd>
+
+<dt>Dan</dt>
+<dd>It's a testament to the evolution of the web that just a couple of decades later from its birth you could get a team of people whose careers are all on the web. Many of us work now solely on the web. Get these guys together and using tools with the modern web, you can recreate old operating systems. That's quite an amazing demonstration of how far the web has come.</dd>
+
+<dt>Jen</dt>
+<dd>And as you said, the code for this is on Github. People can, in fact, the other day I was looking for a font and thought, "Oh, gosh, I'd love to have the font for the line mode browser." And dug right in, there it is, just sitting in the Github repo.</dd>
+
+<dt>Dan</dt>
+<dd>Yeah, take it.</dd>
+
+<dt>Jen</dt>
+<dd>It's called CERN. The font is named CERN. [Dave laughs] But yeah, everything that has been created for the web at CERN is totally open-source. People can use it for whatever they want.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>I actually think the open source story is a funny one. People back then at CERN — you know, CERN's a physics lab. We're not trained in intellectual property law. CERN wasn't really sure how to give this away. It's a long story of what happened at the beginning of the web. So there was a declaration by CERN that made the web — hang on, let me get this right. The declaration was, "CERN hereby puts the web and the software to support it into the public domain." </p>
+
+    <p>There's lots of open source communities now, we're much more aware of how to license software and intellectual property. CERN quickly realized that if this software is in the public domain, that would mean that anyone, including commercial entities, were free to take it and re-label it and sell it. So CERN quickly backtracked and issued a license a year or so later, saying, "CERN retains ownership of the web but hereby licenses it for free and you can use it however you want." The act of giving it away was not simple. It was a big learning experience for CERN.</p>
+
+    <p>I think it's an interesting story because it's funny that something should be difficult to give away. [Laughs] But it was.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's why people use licenses like the General Public License or MIT license. Because if you actually put something into the public domain, the second person who sees it could say, "Ah ha!" And then they can actually, I believe, again, I'm not a lawyer, but I think they can copyright it. They can declare that they own it. Then they can charge everyone else and prevent the people who actually made it in the first place from using it without paying a license. You can't put it in the public domain. You have to put a license on it that basically says what you just said. Here's the terms under which everybody can use this. Sure for you, blah blah blah, use it for anything you want, that's cool. Which then gets into a big debate about these different licenses, because they're all slightly different.</dd>
+
+<dt>Dan</dt>
+<dd>It's really difficult and I still don't understand it myself. But it's definitely licensed. It's a real shame when the vision suddenly hits the real world and all these nitty gritty issues start to encroach on it. I think it's amazing that the web has survived all of this. It's still here and still got this great community around it. I think people are still passionate about it, too. I think it's pretty amazing.</dd>
+
+<dt>Jen</dt>
+<dd>This year is the 25th anniversary. That is the 25th anniversary of the very first memo where Tim Berners-Lee wrote down his idea and sent it to his boss. Which in March '89. March 16th?</dd>
+
+<dt>Dan</dt>
+<dd>There's many different ways of counting. Some people count from the memo. Some people count from the first website gone online.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, December '90.</dd>
+
+<dt>Dan</dt>
+<dd>Yeah. And then CERN also celebrates the fact that they gave away the software and made it available for everyone to use. That's another kind of birthday.</dd>
+
+<dt>Jen</dt>
+<dd>That was April '93. So that's quite a bit later.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>It's quite a stretch, yeah. But if you talk to Tim Berners-Lee and Robert Cailliau, they say it didn't feel like an explosion. It felt like it was a really long time before it took off. Which, I guess, if you were them and you're working away and you've devoted so much time and it takes years for this to take off.</p>
+
+    <p>If you look at the growth of the number of web servers in the world, it was actually pretty slow at first. I saw an advert in a technical publication, a German technical publication, I think in 1991. There were no more than a few dozen servers online. The early days were quite slow and quite restricted to certain domains like physics and research. Academic communities. It was really the commercial explosion that brought it to everyone.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It really was 1993 that it started to take off. Especially with any sort of momentum of logarithmic growth.</dd>
+
+<dt>Dan</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>And it seems like two things triggered that. One was this declaration of giving this technology away. That there would never be any sort of license or fee. You didn't have to write to CERN and say, "Hi CERN. I made a website. Do you like it? Can I put it online? Yes/no?" [Laughs] That would not have scaled.</p>
+
+    <p>Then also the Mozilla browser came out that year. People were using the line mode browser before that and maybe a few people had NeXT machines and used the original browser, but mostly people... there were a couple of other graphical browsers. But that first... now I'm going to say Mozilla but that's the wrong word.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>Mosaic.</dd>
+
+<dt>Jen</dt>
+<dd>Mosaic, right. When the Mosaic browser came out, it feels like really it was the Mosaic browser. That's when things were really able to take off. It took four years, five years, to get from, "Let's write the idea down," to "People are actually really going to use this now."</dd>
+
+<dt>Dan</dt>
+<dd>I think in those intervening years, the team here at CERN must have been quite frustrated. They maybe thought CERN could invest more resources in it, or if they were a private company, they could invest more in it. I know that Robert and Tim had conversations, "Should we form a company and go and do this?" There must have been some moments of doubt. Are we going to create anything here? Because after all, if no one takes it up, you've spent a long time not really doing anything, right? Not really achieving anything. It must have been tough times for them, and incredible when it did take off.</dd>
+
+<dt>Jen</dt>
+<dd>Do you know what other kinds of things maybe they were trying? What ideas they had about how to get it to take off?</dd>
+
+<dt>Dan</dt>
+<dd>I don't. Other than the instances of them actually traveling around the world with this machine and showing people. One guy that got in touch with us during the project was a guy from the University of North Carolina — whose name just escapes me actually — who got a knock on his door one day in 1991 and it was Tim Berners-Lee with his machine, showing him how it worked. I think he left a copy of a disk at his house, which is one of the earlier versions of the webpage we found. There's a lot of air miles. If Tim or Robert were at a conference somewhere, they take the machine, and then show people. A lot of convincing people, a lot of evangelism. Advertising in newspapers or technical journals. It must have been a lot of running around, a lot of convincing people. But both people with great energies, you can see how they're the right people to do that. And still active.</dd>
+
+<dt>Jen</dt>
+<dd>It feels like we always look back and put together a timeline of all the successes and things that created the breakthroughs. But when you're in it, you don't know what's going to create a breakthrough, if anything will or what's going to make something have traction. I imagine they were trying all kinds of things. That part of the story gets lost, I think.</dd>
+
+<dt>Dan</dt>
+<dd>Yeah. And I think it must have been difficult when you moved from a small team of programmers at CERN to suddenly a global community, perhaps without the tools that we have nowadays like Github and our ease of use of collaborative tools. I mean, there were mailing lists, but it was pretty rudimentary. To suddenly have this big community taking part, making suggestions, changing the code, that must have been a huge amount of work to keep that together. To keep things in direction, to stop it forking. I can't imagine the amount of work that these guys put into that whole period.</dd>
+
+<dt>Jen</dt>
+<dd>Where is that machine now, the NeXT cube?</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>It's at CERN. It's actually on loan to the Science Museum in London, their current exhibition called The Information Age. They've loaned it for that.</p>
+
+    <p>If you come to CERN, there's great things to do as a visitor. We've got exhibitions on site, if you arrange ahead you can book a visit. When this machine is back from London, you can see it in one of the exhibits. I think the visit service also can show you around the offices, the areas at CERN where the team worked. Which are nice to go to because it shows you what humble origins the web had. People outside CERN quite often think of CERN as these glossy buildings, must be super high-tech. But it's, uh. [Laughs] Don't know how to put it nicely without offending CERN... but it's a little bit shabby. [Jen laughs] 1950s building, you know. Must be asbestos in many of them, I think. Kind of grubby. All the money is underground in the accelerators. If you go down there, it's pristine. But if you look around the office space, it's kind of grubby.</p>
+
+    <p>When Tim moved from IT to another department to start the web project, he had students out in the corridor because there wasn't the space in his office, which was tiny. So the web... some of the protocols were written in a really dingy corridor. If you can ever make it to see the place, it's worth coming to see the humble origins of HTTP and HTML.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>The few photos I've seen remind me of the horrible hallway in the basement of the college that maybe you went to. [Both laugh] The office space that nobody wants. The '60s building basement. But it doesn't seem like that's just one part of CERN, it seems like that's a lot of the buildings. [Laughs]</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>A lot of CERN's like that. It's kind of charming for it. Because it's a creative space where, once you come in here and you join the community, you're not told to keep your office a certain way. You see people's personalities come through in their offices. I think it bleeds into their work, it affects how people collaborate with one another. Some of these places feel like people live in them, because people spend a lot of time here, at their work. So they're very lived-in, kind of camps. It's definitely worth a visit.</p>
+
+    <p>In fact, there's an exhibition called Collide. I'm not sure if it's going to come to the US at some point, but it's going around Europe. It's in Paris at the moment. As part of a central part of their exhibition they have some recreated corridors of CERN. It's worth seeing.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Again, I just know this through photos — or, also, there's a film out. Particle... what's it called?</dd>
+
+<dt>Dan</dt>
+<dd>Particle Fever.</dd>
+
+<dt>Jen</dt>
+<dd>Particle Fever. If anybody wants to know more about CERN or what's going on at CERN, the movie is just amazing. It was on Netflix recently, at least in the US, and probably still is. But it feels like people are just so smart and they're working on things that are so important and so amazing. And they're designing structures constantly. They're engineering amazing structures constantly. So, like, the office? [Laughs] Who cares about the office? We don't have time to think about making fancy offices. We're making fancy machines to help us understand the nature of the universe. We don't have time to pick out carpet samples. [Laughs] That's totally beneath us.</dd>
+
+<dt>Dan</dt>
+<dd>[Laughs] No, it's true. And the other aspect to it is that CERN provides the infrastructure for particle physics. It provides beams that collide with other beams or with targets. But when these collisions happen, there's experiments that get set up. These experiments are independent of CERN. So there's a real collegiate atmosphere and quite fierce independence and competition amongst these experiments. Many experiments, although the people are at CERN, they're really taking place throughout the world. The data will be at [inaudible], be analyzed in the US and Japan and anywhere in the globe. It was really the nature of this community that made the demand for the web and made the use cases that Tim Berners-Lee responded to. And you still see these in action today. Once you start to understand the CERN community, the birth of the web starts to make sense.</dd>
+
+<dt>Jen</dt>
+<dd>The Atlas project is one of the big scientific projects going on, and there's 3,000 people working on that experiment. I just pulled that number out of my head but it's thousands.</dd>
+
+<dt>Dan</dt>
+<dd>No, you're right, it's about that. CMS is about the same.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>So you're working on this cool thing with 3,000 people. Good luck. [Laughs]</p>
+
+    <p>When people come to CERN, "Oh, I'm a scientist from Japan and I am now working on my PhD," or "I finished my PhD and I'm a world-renowned physicist, I teach and I've got a sabbatical. I'm going to go to CERN for my sabbatical. I just landed." How do I meet who I'm supposed to be working with? Who's here? How do I know who's in what office? I gotta go in four months, or two years, I'm leaving, so I need to get to work quickly.</p>
+
+    <p>That's the situation in which the web was invented. And a big reason why the web could not be this imposed structure. "Ok, everybody, you have to rearrange all your content to fit our taxonomy."</p>
+
+    <p>Tim Berners-Lee wrote about that. He just knew that was never going to fly. Scientists at CERN were going to be like, "No. I'm not restructuring my incredibly important scientific data to fit your dumb IT department archival digital page system. Your digital page system needs to fit my modal of my data." So that's how he designed it. He designed it so it could be flexible and be used by all these different scientists and many, many other people.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>That's how CERN operates but it's actually how the world operates, too. We like to do our own things, we like to collaborate with people we like to collaborate with. We don't like following rules. The rules of the web were minimal, really pragmatic.</dd>
+
+<dt>Jen</dt>
+<dd>So this machine. Back to the machine. Is it usually on? Does it still run?</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>No. Well. I'd been at CERN a couple of years. There was the 20th anniversary of the publication of the document that made the web freely available. Tim Berners-Lee came back for that and I remember that he fired up the machine and someone cobbled together a little device that would enable us to plug into VGA so we could project it. I was just amazed when I saw the operating system and I saw Tim demonstrate how to create content right in the browser. That was beautiful. Then it was switched off.</p>
+
+    <p>It's in the visitor's center, it's dormant. But we want to bring this back to life. We worked on the line mode browser, we've created an emulator for that for people to try out. What we'd really like to do now is create an emulator of the first browser on the NeXT machine. A browser called World Wide Web at first. Realizing this is confusing because it's the same name as the information space, it got renamed Nexus. We'd like to create  a Nexus emulator through a similar process as the line mode browser. So keep tuned on that one.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yes, that seems incredibly exciting to me. People who are interested in knowing what's going on with that should definitely read the <a href="http://first-website.web.cern.ch/blog">First Website blog</a>.</dd>
+
+<dt>Dan</dt>
+<dd>We haven't pushed as much recently there. I apologize. But if you subscribe to the Twitter feed that you find there, then as soon as we put a call out for participation in the Nexus emulation hack, you'll be well-informed. We want to do the same thing, invite participation from across the community. We had people from Australia, Kenya, from all over. We had a great mix of people. We'd like to do the same this time if we can.</dd>
+
+<dt>Jen</dt>
+<dd>Also people should check out this website, The Birth of the Web. Because you've been spending time, you and Kean[?], people on your staff, researching and documenting the history of the web and putting it on the CERN website. This timeline and information about it all.</dd>
+
+<dt>Dan</dt>
+<dd>We realized when we looked at the stats for the CERN website, lots of people were literally coming and searching for "first website." So we knew we had to fulfill a need, an information need. So we've got some resources there. We'd like to grow that and welcome ideas for that, too. Because it's not just our space. It's a heritage point, isn't it? The first website. I certainly don't feel, although I'm technically responsible for putting stuff online, I don't feel responsible for the ownership of it. So I welcome ideas on how to better take care of that.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's great, too, because there are a couple of books out about the birth of the web written by the people who were there. But they're books. They tell great stories in a lot of detail about what people were thinking, what was motivating them, what were the obstacles, what it was like to go to San Antonio to that conference and stand in the hall and be ignored. [Laughs] But some of the first-person, the resources, the original documents, they're not in those books. They are on this website. You can go read the memo that was written in 1989. You can go read the document that releases everything into the public domain. Of course, they're digital copies, they're not the actual, original pieces of paper. But all these photos and software that you're recreating in the first website and these original browsers, there's some first-person resources here that are just amazing. And they're nowhere else on the web, this is the only place that has them.</dd>
+
+<dt>Dan</dt>
+<dd>One unique resource I'd really like to publish is an image of the NeXT machine itself. Imagine being able to walk into Shakespeare's study and see what kind of quill he had. Where did he keep his reams of paper? How did he file his stuff? You can kind of do that now. If you release the image of someone's machine, you can see what software they used. What's their filing system like? [Both laugh] What's their version of the code? Of course, it's difficult because this was Tim Berners-Lee's personal work machine. We'd obviously have to get permission to do so. But i think that would be great to get that out there and allow people to rummage around. Actually, it's kind of a terrifying thought. I'm just thinking if I would like my personal computer image put on the internet. [Jen laughs] I guess I wouldn't mind.</dd>
+
+<dt>Jen</dt>
+<dd>I think further back in time. You can't see the one from last year, but the one from 40 years ago, sure. [Laughs]</dd>
+
+<dt>Dan</dt>
+<dd>I have actually asked Tim's permission for this, and he's thinking about it. He said, obviously, it's his personal machine. But that would be great if we could do that.</dd>
+
+<dt>Jen</dt>
+<dd>That would be really great. It would be really great to see. Especially for things like random notes and memos of meetings or ideas that went nowhere. Just to see how people organize their files. It's a little bit of a window into somebody's brain.</dd>
+
+<dt>Dan</dt>
+<dd>There are many people who have NeXT machines out there, it would allow you to download it and make a clone. Maybe it's fetishistic, but I don't know. What do you think, Jen?</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>I think it's a great idea. And there's a lot of different ways it could be done. It could be just a handful of screenshots all the way up to an entire machine, that you can actually open up all the files. There's all kinds of places in between where privacy could be respected. Or show people all the things they really want to see the most, because everybody doesn't have four hours to go through everything.</p>
+
+    <p>But that kind of stuff is really great. You're talking about archiving and museum exhibitions. As more and more of our lives go digital, we've got all the papers from George Washington. Maybe not all, but... Nikola Tesla. They have his clothes, they have all of his work in papers, they have many machines that were created right after he died that demonstrate his principles. All of them in the Tesla museum in Belgrade. It's a real treasure trove. You have to go to Belgrade to see that, but it is there. You have to have special permission, you have to wear special gloves to go down to the archives in the basement.</p>
+
+    <p>But what does it mean as our lives become more and more digital and we don't create pages and pages of work? We just have all these bits. Some of mine are on floppy disks and some of them are on CDs and some of them are on DVDs and some of them are Microsoft Word documents that I can't open because Microsoft Word doesn't open old formats. It's gone.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>There's no legacy in digital content because it's spread around. You can't get the idea of a context. As I said about a newspaper, for instance. In order to really understand with a piece of news, it's really interesting to read around it and see what else is being filtered out by the editors as less important or more important. You can't just hone in on a piece of digital content and understand it without understanding its context.</p>
+
+    <p>Actually looking forward, in terms of CERN's digital strategy, CERN is moving towards a new top-level domain: .cern. It's one of the things we're looking at right away with this is, we've learned about the digital legacy issue that we need to take care of this from the start. To get this right, let's think about how we're going to make content persistent. Let's think about how we're going to take care of content once it's died. Let's not just focus on the immediate, what's current and published now. Let's think about the flow and how we're going to access stuff in the future.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it's complicated. There are folks working on an extension to the HTTP protocol to create a web archive infrastructure. None of that stuff's out yet, but there are people thinking about this. What would it mean to create a web where... you could easily, as a user, go a website and know that you're looking at the current website. You're looking at today's New York Times. You're going to the website for British Air and it's the current website for British Air.</dd>
+
+<dt>Dan</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>But to simultaneously be able to intentionally go back in time. Like, let's pretend that it's 2001 and surf the web like it's 2001. Or at least surf this one website as if it were 2001.</dd>
+
+<dt>Dan</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>There's actually a Chrome extension, I'll throw that in the show notes. You can add a Chrome extension called Momento to start to do these kinds of things. I need to book that guest and have a whole other show talking about that. I have a lot to learn myself. I'm clearly stumbling over it right now. [Laughs] "Uhh, somebody's thinking about this." It's complicated.</dd>
+
+<dt>Dan</dt>
+<dd>Yeah, and it's even complicated to understand. I can visualize data in its iterations. Github's a good example where you can travel through time and it's pretty lightweight. You can go back through a codebase and see what it's like.</dd>
+
+<dt>Jen</dt>
+<dd>Using Git, yeah. You can jump to a certain point in time.</dd>
+
+<dt>Dan</dt>
+<dd>Yeah. That's quite simple. But if you automated that or enabled that on a wider scale, it would just become so complicated. I think people are aware that we need to take care of how content is going to persist. Although we're aware of it, we've got no answers yet.</dd>
+
+<dt>Jen</dt>
+<dd>Right. I think it's great that you've been working with your colleagues on these projects. Because right now everybody's still alive. Right now, people can still remember. It was just 20 years ago, just 25 years ago. It wasn't 75 years ago. It's a great time to be capturing as much as you can about what happened and the original documents, put them online and all the software, to get it up and running again.</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>In a sense, I feel that the closer I get to the story, the less I know the story. The closer I get to the first website, the less sure I am that it really is the first iterations of content.</p>
+
+    <p>And also the human stories around it are so complicated. There were so many people involved and it's difficult to unpick whose ideas was it for such-and-such a feature. It's a really human story, not a technological one. As such, it's complicated. I don't get a sense of having really gotten any closer to preserving it. If I've learned anything, it's just how complicated a simple story is to tell.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. History always sort of redefines reality, according to the people who write the history.</dd>
+
+<dt>Dan</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>But still. Having a history, even though it's totally not accurate [laughs] is much better than not having a history. Or doing it as early as possible makes it more accurate, whatever accurate might mean. Doing this 40 years from now would have built up a lot more mythology then what it is now.</dd>
+
+<dt>Dan</dt>
+<dd>Absolutely.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It's interesting reading because I did do a lot of reading. Especially last year or, I forget, but in the recent couple of years I've been doing a lot of reading in the history. Just trying to dig deeper and deeper into it. I did begin to realize, "Oh, this book was written by the guy. Or the other guy." And then being like, "Oh, this may or may not actually be what happened." [Laughs] Because both of these books, different people take credit for the same things or you begin to realize that people's egos get involved.</p>
+
+    <p>Even in my own retelling of my own life. When did I first get online? When did I first build a website? I'm constantly saying things and then realizing, "Wait, I wasn't using Flash in 1998." And I didn't read... "I read Jeffrey Zeldman's book in 1999, it changed the way I did websites." Yeah, that book was published in 2003. [Both laugh] Like, "I didn't read it in 1999? Oh." I can barely remember my own life. It's not going to ever be perfect.</p>
+
+    <p>There's still something incredibly important that you are getting out, especially as you put primary documents online, then let us figure out what it means, reading this memo or looking at this document.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>And we've uncovered stuff in the CERN archives, too. I didn't know that CERN had an archivist, but we do. She's excellent. There are meters and meters of printed correspondence. Great stuff there. But out archival policy means that we have to wait 25 years before releasing this stuff. Apparently it's a standard policy for archives, as a courtesy of people, privacy. You wait 25 year before publishing. But I can't wait until that stuff comes out, there's some great stuff in there. The history of certain tags, negotiations on ownership of certain things. That's going to be really interesting. That's going to be an interesting point, to delve into that.</dd>
+
+<dt>Jen</dt>
+<dd>Will that be soon?</dd>
+
+<dt>Dan</dt>
+<dd>No, I don't know when the 25 years starts. That's a good point, whether it's document-by-document or whether it's submission to the archive itself.</dd>
+
+<dt>Jen</dt>
+<dd>Ah.</dd>
+
+<dt>Dan</dt>
+<dd>But it's not for a long while yet.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, if it's document-by-document, we could start getting the first year now. The second year next year.</dd>
+
+<dt>Dan</dt>
+<dd>That would be amazing, wouldn't it? I should go back. I'll ask Anita. Anita, her name is. I'll go back and ask her.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, Anita, give it to us! [Laughs]</dd>
+
+<dt>Dan</dt>
+<dd>Please!</dd>
+
+<dt>Jen</dt>
+<dd>"Ok, you're right, you have to wait."</dd>
+
+<dt>Dan</dt>
+<dd>She's taken us down to the basement in CERN where we keep these things. There's some great things down there. There's letters from [inaudible], all these negotiations on the web. There's some great stuff down there. I wish we had more time and resources to make it available, you know?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, maybe somebody wants to do a librarian PhD and fly to CERN and help put this stuff online.</dd>
+
+<dt>Dan</dt>
+<dd>That would be great. One idea we had when we were doing this project — because it coincided with the rebuild of the CERN website that we did with Mark Boulton and his team. One idea that we had was try to encourage people to share their first websites. So here's CERN's first website, the first website, but what was yours? What was your first website, Jen?</dd>
+
+<dt>Jen</dt>
+<dd>I built a website for the nonprofit I worked at. And a lot of it is still online. Because they are not very technologically advanced, shall I say. [Both laugh]</dd>
+
+<dt>Dan</dt>
+<dd>Do you still have your code?</dd>
+
+<dt>Jen</dt>
+<dd>I don't know if I have my original code.</dd>
+
+<dt>Dan</dt>
+<dd>You should look for it.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I really should.</dd>
+
+<dt>Dan</dt>
+<dd>And then preserve it, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>About a quarter of it, maybe half of it, is still online. The other half they yanked off right after I left but it's in the internet archive. I probably didn't archive any. I probably didn't pull any of my own documents when I left.</dd>
+
+<dt>Dan</dt>
+<dd>Have a look. Dig it out and keep it.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>Yeah, I really should. I really should organize it and put it on a subdomain. Even privately. But on a server so it's protected. Or even put it out in the world to say, "Hey, look at my code."</p>
+
+    <p>People can submit their sites, or you're just asking the question?</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>No, that was an idea. We'd build an interface where they can submit their sites. So we're taking care of this one website, let's take care of others. But we're never get anywhere with that idea. But I'd love to do that. Obviously it takes resources and how do you host it? Guarantee perseverance? I'd love to see other people's first websites. I like the Guardian newspaper, for example. I'd love to see their first online presence.</dd>
+
+<dt>Jen</dt>
+<dd>
+    <p>It was just a couple of episodes ago, Trent Walton was on the show and his company helped Microsoft rebuild the first Microsoft homepage. Fascinating. Especially because they created a kind of circular... the homepage was a bunch of links, and the links were all laid out on top of a star map in this circular shape. That would have been fairly easy to do with tables and image slicing in '95, maybe '94, but this website had launched before those things were on the web. They had to figure out, "How in the world would they have done with without using tables or without using images in this particular way?" It was quite a project for them. They didn't have the original codebase. I think they just had screenshots, so they were trying to come up with a codebase that might be as true to what was available at that time. But really fascinating.</p>
+
+    <p>And I like that. The more companies that do that, maybe there won't be a centralized project, but maybe it will just be a movement where people recover their old websites, their first websites, and put them online.</p>
+</dd>
+
+<dt>Dan</dt>
+<dd>Yeah, absolutely. That would be great to do.</dd>
+
+<dt>Jen</dt>
+<dd>Are there any other parts that we didn't get a chance to talk about? With what you're doing?</dd>
+
+<dt>Dan</dt>
+<dd>
+    <p>There were a number of objectives. One was to recreate the line mode browser experience, which we've done. We no doubt need to go back and look at it at some point.</p>
+
+    <p>Other aspects were things like ensuring that the physical machine itself, the cube, was looked after. We worked with an association, the EPFL in Lausanne. They came and serviced the machine, changed a few bits that might leak in there. So that's in good health.</p>
+
+    <p>The real next big thing we'd like to do is the Nexus simulation. In terms of the documentation, there are some things that we don't have. Rather embarrassingly, for instance, we don't have the original version of the document that puts the software into the public domain. That declaration. We have a certified copy at CERN, but we don't know where the original is. It's things like this. I'm sure someone has them in their basement. These things are around, but it's tracking these things down.</p>
+
+    <p>One thing I'd love to find is a hard drive that was in the NeXT machine. That likely has the earliest version of the first website on it. It went missing in transit from the US back to CERN. It may be that it just got missed out when it was packed up. It's a beautiful object, it's like the NeXT machine, it's an optical disk, it's got this beautiful NeXT logo. It kind of looks like a DVD, a shiny kind of disk inside this jewel case. It's the kind of thing that I think someone might have realized it got missed out of this package, beautiful object, I'll put this on my shelf. I'd like to think that one day we'll find that.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, maybe a listener found it in a flea market and bought it and has it hanging on their wall. [Both laugh]</dd>
+
+<dt>Dan</dt>
+<dd>The only problem is these optical disks, they're not very good at preserving data. Probably it wouldn't be readable but it would still be nice to try.</dd>
+
+<dt>Jen</dt>
+<dd>Great. Again, there will be links to all of these things in the show notes for the show. I highly suggest checking them out. For some reason, it's just so fun to think about these things. In fact, somebody took... [laughs] So this is what's happening. You guys built a line mode browser and somebody went and got, what is it? A computer, a teletype machine, a phone and a super old modem and hacked it all together. To see if you could take a 1960s computer that didn't have a screen — it prints things out onto a printer as a way to show people what it's thinking about — and use a 1960s modem and dial up the web. [Dan laughs]</dd>
+
+<dt>Dan</dt>
+<dd>He posted a really great video of how he did it. It's on the First Website blog. It's a great demonstration of how compatible the web was. He took this completely out of date technology and still managed to make it connect to the early web. It's like taking, I don't know, Commodore PET today and making it run a browser. It's just not possible now. But it was with the original web. It was compatible. </dd>
+
+<dt>Jen</dt>
+<dd>Nice. So people should check it out, check out the video. And they can follow the project on Twitter. What's the handle?</dd>
+
+<dt>Dan</dt>
+<dd>I think it's @thefirstwebsite. It might be @firstwebsite. I'm sorry, I should know. It's been a little dormant lately but things will pick up when we do the Nexus hack.</dd>
+
+<dt>Jen</dt>
+<dd>Ok. And people can follow the show, <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. I'm <a href="http://twitter.com/jensimmons">@jensimmons</a> on Twitter. You can subscribe to the show in iTunes or using, really, any piece of podcast software of your choice. Huffduffer, if you'd like. The RSS feeds are all on the show pages. You can sign up for the newsletter at <a href="http://5by5.tv/webahead/newsletter">5by5.tv/webahead/newsletter</a>. Thanks for listening.</dd>
+
+</dl>
