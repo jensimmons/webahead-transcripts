@@ -1,0 +1,317 @@
+---
+layout: transcript
+title: "Componentizing the Web with Rob Dodson"
+permalink: 86/
+---
+
+<dl></dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm Jen Simmons and this is episode 86. I first want to say thank you so much to today's sponsors, <a href="http://gotoassist.com/">Citrix GoToAssist</a> and <a href="http://mandrill.com/">Mandrill</a>. We'll talk more about them later in the show. I also want to say thank you to CacheFly. Bandwidth for September has been provided by CacheFly – the fastest, most reliable CDN in the business. CacheFly delivers all the content at 5by5. Check them out at <a href="http://cachefly.com/">cachefly.com</a>.</p>
+  <p>Today we're going to talk about web components. Again. If you're a regular listener of the show, you might remember back in April, episode number 66 with Peter Gasston where we talked about web components. Great conversation about what this is. This technology that people – in the JavaScript community especially – front-end developers, web developers, web application developers, are really super excited about web components. Kind of off-the-charts excited. We're all excited about everything, and then there's another level of excitement. [Laughs] And it feels like web components just kind of stormed onto the scene at this higher level of, "Ahh, yes! We want this!"</p>
+  <p>If you haven't listened to that show, I highly recommend it. Especially because Peter and I were a little jaded and a little skeptical and a little bit wary of how web components might go wrong. Which we may talk about a little bit today. But I thought it would be great to have somebody on the show who is deep into all of the excitement; understands the latest about what's happening, the tools that are around, the polyfills that are around and can really give us an in-depth understanding of where things are at the moment.</p>
+  <p>I have on the show today Rob Dobson.</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>How's it going?</dd>
+
+<dt>Jen</dt>
+<dd>You're a developer advocate at Google.</dd>
+
+<dt>Rob</dt>
+<dd>I am, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>You're working on web components and Polymer every day.</dd>
+
+<dt>Rob</dt>
+<dd>Every single day and night. Yes. Working on it basically 24/7. That's my primary focus. I'm technically working on the open web platform. I try and stay in touch on other things but web components is a really big priority for the Chrome team right now. So that eats up basically all of my time.</dd>
+
+<dt>Jen</dt>
+<dd>Explain for people who haven't listened to episode 66 or been to a conference where they're talking about web components. What in the world are web components and why are people so excited about them?</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Web components are basically a set of standards. There's about four different standards. Each of them is kind of cool in its own right. They give you some interesting powers. But when you combine them together, you get this really nice, new, component-building model for the web.</p>
+  <p>Something that we've really struggled with for a long time on the web platform is the ability to make a widget and make sure that the styles for that widget are scoped and encapsulated so they don't affect anything else on the page. To make sure that our JavaScript is isolated just to that widget and isn't messing around with other things in the document.</p>
+  <p>That's been a really, really difficult problem for us on the web platform for a very, very long time. It screws up a lot of things when you don't have a component model like that. You can't make a component and then interop with some other library or framework. A lot of frameworks end up re-building the same components because it's only going to work in their silo.</p>
+  <p>The whole idea of web components is, let's improve the componentization model of the web. That way, we can start building these components, we can share them across different frameworks and different libraries. We can break out of some of the silos that we're currently in. Hopefully, it makes building for other platforms – particularly mobile device platforms – a bit easier on web developers. Because we can have these component libraries that are responsive by default and really performant by default and you can just drop them into your application.</p>
+  </dd>
+
+<dt>Jen</dt>
+<dd>It seems like it's especially people who are building web applications or some sort of a website that's interactive, it has a lot of functionality. Maybe it's a tool for someone to use or write something in or use a map or there's some kind of activity going on. That might be different from a website where, when a person goes to the website, what they do mostly is read or watch videos. They're reading articles, like a news website, or watching videos. Those websites, of course, are core and central to the web. But this is especially exciting for people who are trying to use the web and web technology like it's an application framework and a programming language and building something more complex or powerful than a traditional website.</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Yeah, absolutely. It definitely is geared towards mobile web applications. That's where it really shines. The idea is you look at these platforms like iOS and Android. They already have really rich component libraries that they can just drop in. iOS has UIKit. Android has its own kit of UI elements and other little widgets that you can just drop in and wire together an application.</p>
+  <p>On the web, we have HTML. But that was primarily created for static documents, like you're saying. You're just going to a page and you're reading stuff. HTML in its current state is really, really good at that. It's amazing for making a document that's going to be something that you're reading through. It's not so great at making applications. Because it was never really designed to be great at making applications.</p>
+    <p>The idea with web components is, let's try and improve that. Let's try and create a new ecosystem of elements that are designed for apps first. Based on all of the learnings that we have from the past years, trying to build mobile web applications and the difficulties and the problems that we faced. The common patterns that pop up, the things that we need. Let's make this new ecosystem. Let's build it using the web platform instead of some particular framework or library, that way we can share these components through all sorts of different applications.</p>
+    </dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>The other thing that comes to mind when thinking about this is, for years we've had... Google Maps is an example. I'm building a website, it's for a restaurant or something. I want a map on the website. I don't want to have to build that map from scratch. I don't want to just have an image of the neighborhood where that one restaurant is. I want to have a real map – type in your address and get directions, blah blah blah. I say, I like Google Maps, I'll go to the Google Maps website, I'll put the pin, I'll click-click-click, get the embed code and go over to my website and paste the embed code. Now there's a piece of the Google website that shows up on my website with all of that functionality. If Google changed the colors of the map, they would automatically change on that little piece of that other thing that's over here.</p>
+  <p>YouTube is another example of an embed code. There's all sorts of places where you might grab an embed code. In fact, you can go the 5by5 website and grab the embed code for the audio player of this podcast and take that audio player and embed it on your website.</p>
+  <p>But there's limitations with those and they can really be a pain. It feels, in a way, that one of the things that web components will do is make that kind of activity that we have been doing for over a decade easier and more powerful. We can do more interesting things than just grab a map.</p>
+  <p>Is that about right? Is that one way to think of it?</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Oh yeah, totally. Web components do a few things really well.</p>
+  <p>One, they let you make UI elements, like buttons and tabs and sliders. They let you do that really well.</p>
+  <p>The other thing they do really well – kind of what you're talking about – is take something which traditionally you've used an iFrame embed for. Like, actually working with a service of some kind and bundle that up into a component. iFrames have a lot of limitations about how you style them and how you script them and things like that. Web components, get around a lot of that, which is really helpful. It can take the full Google Maps API, for instance, and when you create a component – specifically when you create a custom element – you're creating a JavaScript prototype for that element. That JavaScript prototype can have all sorts of properties and methods that will interact with the Google Maps API on your behalf. You just drop this tag on your page, give it a along longitude and latitude for where you want the map to be. But later on, if you want to drive it and talk to the Google Maps API, instead of having to write all of the Google Maps API code yourself, if you're using a component off the shelf, you can just say, "Hey, I want you to center," and call a center method or something like that. You can just poke and prod it as a well-encapsulated object. Which is really nice.</p>
+  <p>In fact, what we've been doing at Google is... Eric Bidelman on my team has really been leading this effort a lot. So has Addy Osmani. Taking the Google services – we have tons of APIs, we've got like over 250 of them – but taking those and bundling them up into components. If you want to do sign in with Google, instead of having to write all the oAuth code yourself, there's a Google sign-in tag now that Addy Osmani created. You can drop that on your page and it gives you a button. Someone clicks the button and it just handles the sign-in flow on your behalf. Traditionally, when you've had to work with any API, you have to go to the docs and just copy and paste their JavaScript into your actual application. This just bundles that up into a nice, encapsulated declarative object. Which is really handy.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What is the support? You jump in a time machine, it's 15 years later, is there the same kind of dependency on the 3rd party API and their server infrastructure and their whole support system sticking around in order for that component to continue to be used? Or is there a way in which web components encapsulate what's coming from someplace else? Or <em>could</em> – maybe it's not about a 3rd party service. Maybe it's about something else that you've grabbed from a web component that's less dependent on the other party not changing things around and not even moving their servers or changing their URLs.</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>So the component itself. When you create one of these components, you're basically bundling up a bunch of functionality into, essentially, a JavaScript prototype. Then you get your own tag for it as well. You get a little custom element. Some of these elements, for instance, the Google Maps ones that I was talking about before. Under the hood, they load the client JavaScript libraries to work with Google Maps. So they're still depending on those servers vending the client libraries and everything like that.</p>
+  <p>But there are other elements which maybe don't need that. You could bundle up a large portion of the behavior from something that you get from something like Google Charts, where you're rendering, I believe, SVG charts. You could bundle that up into components and maybe you don't need to deal with an API at all at that point. It is possible that you can do that. Shift some of the behavior to the component itself and you're not so reliant on a 3rd party service.</p>
+  <p>I think the answer is that it can kind of do all of the above. Which is maybe one of the reasons why people are getting so hyped about it. It creates a lot of potential new ways of working with the web. It exposes a lot of stuff, which is really exciting.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>The other thing I've heard people talking a lot about is creating a shared world of component libraries where people can spend time, create something really great and awesome and put it out in the world, give it away open-source, and other people can grab it and use it. We do that already. I think about, say, a carousel. You want to put one of those carousels at the top of your page. Maybe you get some designs from somebody or maybe you're designing in code. You don't want to write an entire carousel from scratch. So you surf around, you find one that you like someplace out there and it's a jQuery library. You grab that jQuery library and you put it on your website. It seems like components in some ways are like that. People will create, "Hey, here's a carousel. I'm calling it MyAwesomeCarouselElement." And you end up, on your webpage, just writing something much more simple than a call to JavaScript. The HTML itself is much more simple, less fragile. It's not as easy to break. The HTML doesn't have to be this very specific, 14 lines of HTML that could accidentally get changed by somebody. It's one line, one component, one element. But it calls all the stuff that's tucked away.</p>
+  <p>It seems like there's excitement about that. About saying, "Let's not keep reinventing the wheel. Let's start sharing more things." But also there's a way in which... there's all these JavaScript frameworks, there's all these HTML starter kits. Whether it's boilerplate or... there's a zillion of them. Bootstrap. There's these competing open-source things. This feels a little bit like people are saying, "Let's stop making a thing to stick on top of the web to try to get the web to be something that it's not. Let's make something that's baked out of web stuff. That's actually closer to the metal and let's share that."</p>
+  <p>Again, this is just my gut sense of what's happening that I'm trying to describe. You tell me if that seems right.</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Yeah, that's totally accurate. The jQuery plugin is the perfect example, I think. What web components do, I mentioned that it's a collection of standards but I didn't really go into what they are. But a jQuery plugin basically hits on almost all of the web component standards and it's a good way of explaining them.</p>
+  <p>Typically, with a jQuery plugin, like you've said, you've got some piece of markup. You've got <code>&#60;div class="awesomecarousel"&#62;</code>, right? That's going to be the mounting point for the plugin itself, where it's going to inject all of its code. In the web components world, rather than having a generic <code>&#60;div&#62;</code> tag, you would actually create a custom HTML element. You'd register a custom tag and you'd say, "This is an actual tag called <code>&#60;awesomecarousel&#62;</code>." A jQuery plugin is going to need to stamp out a template. It's going to have to inject some HTML for the structure of the carousel. JQuery plugin authors usually do this with a string of HTML. That kind of is a bummer because you're not really working with the DOM. If you're using a text editor, it's not necessarily going to give you errors if you forgot a closing tag. It's just a big string. You're just inner-HTMLing into this <code>&#60;div&#62;</code>.</p>
+  <p>So there's another web component spec for templates. If you're making a component, you have a <code>&#60;template&#62;</code> element, you put DOM inside of there. That's what goes inside of your custom element, which is really nice.</p>
+  <p>The last thing is that with a jQuery plugin, once you've got the actual markup for your plugin injected onto the screen, it's going to add some styles. A lot of plugins include a stylesheet that you've got to drop on your page as well. The problem with that is, there's no style encapsulation. There's no scoping or anything. Oftentimes, this has happened to me on a number of occasions where I include a jQuery plugin. There is a poorly written style in their CSS and it breaks something else in my application. Or maybe I had a style in my application and as soon as I try to include this person's plugin, it doesn't look exactly as it looked in their documentation. And I'm like, "What is the deal? What is wrong here?" It's because we don't have any style encapsulation. We're just walking around in this big global soup of CSS.</p>
+  <p>The last major part of web components is this thing called shadow DOM, which gives you CSS encapsulation and scoping. You could almost think of web components as a really good successor to jQuery plugins in so many respects. Because they do all the same things, but they do it as part of the web platform, so you're not having to rely on some framework to do it. It's actually built into the browser. And it's a little bit better. You get true encapsulation of your styles. You get a real, custom tag that anyone can look at and know what that element is supposed to be doing. You get actual templates that have actual HTML inside of them instead of just string templates, which is what most jQuery plugins rely on.</p>
+  <p>To your other point about, "Let's build this out of web stuff." Yeah. We've got a lot of competing frameworks right now that all do the same thing. Adis Asmani wrote this really great article awhile back called <a href="http://addyosmani.com/blog/front-end-choice-paralysis/">Front-End Paralysis</a>, and it's so true. Basically every six months there's some new framework that comes out and everyone's like, "Ok, time to stop using Angular or Ember. Time to start using React," or whatever is around the corner. For a lot of developers, it's really stressful. Every time you start a new project, you have 50 decisions you have to make and you have to hope you're not making the wrong decision. You're not making the wrong decision, you're not choosing the wrong framework.</p>
+  <p>Whereas, if we're using the web platform to build all of our components, then you don't have to worry about what library or framework you're working with. You're just working with HTML and JavaScript, it's native to the browser. There's no wrong choice which is being made there. Which is really good. It can remove some of the overhead of starting a new project.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's also hard, I think, it's just a lot of time to track down and find, "Which framework are we going to use on this project?" If you're a person who switches from team to team, you're a freelancer or something, you end up on a team where they made a different decision than you usually like to make. Or they made one decision that turns out to be the wrong decision later. Maybe you really need this and this which are in this one framework, but you also need this other thing and this other thing. There are pros and cons to each.</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Yeah, and the interesting thing that happens is, like you mentioned, you might need a component that's in one framework but it's not in another one. That's a huge bummer. As a result, we end up rebuilding UI over and over again in different frameworks. Like, you have Bootstrap and you have Foundation. Which basically have a lot of the same components but they're completely – to my knowledge – not interoperable. I don't think you can have a Bootstrap/Foundation app. That would just be a CSS nightmare. [Jen laughs]</p>
+  <p>That's because there's no scoping or encapsulation. As soon as you add scoping and encapsulation through shadow DOM and web components, suddenly you can take the tabs component from Bootstrap and maybe the sidebar-slider-drawer-thing from Foundation, throw them in the same application and it's totally cool. That's really helpful.</p>
+  <p>The other thing is, going back to jQuery plugins, a jQuery plugin is usually a crazy weird black box. It does a bunch of stuff but you usually don't know what's happening inside of there. If the jQuery plugin does not do exactly what you want, if it only does 90% of what you want, but maybe there's some weird extra button or animation that it adds, then you don't have a very easy way of changing that. Short of forking the plugin and actually hacking the code and changing it yourself.</p>
+  <p>The idea with web components is, if you just have better primitives, you can actually compose those together and you can build any sort of advanced component that you want out of these nicer primitives.</p>
+  <p>A good example is a modal. There's a million jQuery libraries for building modal popup windows and they all do it differently. But if you have a component that fades the background out, and you have a component that renders a little square on the screen, then you combine those together into another component, you just made a very simple modal component. But you can change and rearrange that however you want because you're just composing things together instead of using one big plugin to do all of your work all at once.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>It also seems like because this is closer to the metal, it is a web standard, and because of the interoperability and because of the separate files and templating, that there's a chance – I think – that there will be more people writing these the same way as everybody else. If you need to get in there and change the HTML, maybe you know exactly where to look. Where with custom jQuery, whether its jQuery plugins or something that your team has written – it's just JavaScript, when all of this is done, only in JavaScript – you don't really know how the person wrote it. They wrote it however they wanted to. Lots of times you end up with HTML in JavaScript files. To me, it violates the web stack. The HTML belongs in the HTML files and the JavaScript belongs in the JavaScript files and those two things should not mix. [Laughs]</p>
+  <p>It can be frustrating, as a front-end developer, to know, "I need to change this markup but I don't know where it is. I have to go hunt it down. It's in some random file someplace." It feels like this could be cleaner, hopefully, will end up being cleaner and everybody's doing things the same way. Which saves everybody a lot of time, like you said, if you want to make an adjustment or a change, you would be able to do that more easily.</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>This is one of the things that I really like about web components. You were mentioning a jQuery plugin, but let's take it a step further. Let's imagine someone built a really awesome Angular directive. Your friend shows it to you and is like, "Yo, check this thing out. It's my amazing calendar directive." You're like, "Aw man, I really want to use that in my application but we use Ember or Backbone." To reverse engineer that, if you don't know Angular, if you don't know the framework, you're kind of at a loss. It's the same for how people are writing jQuery plugins. But the nice things with components, it's just HTML, CSS and JavaScript. If you can read and write HTML and CSS and vanilla JavaScript, then you should be able to interpret any component that's out there. That is really empowering for people. It's weird. I had someone who's teaching an intro to web design course come and grab me at a conference. He's like, "I'm teaching all of my students how to build for the web using Polymer and web components." Initially I was like, "Oh, woah, I don't know if that's a great idea because Polymer is still pretty new. These are sort of advanced topics." He's like, "No, no, it makes so much sense for them because it's just HTML and CSS and they can really grok what's inside the component, it's not a huge mystery to them."</dd>
+
+<dt>Jen</dt>
+<dd>That's interesting. Maybe being able to focus on one little piece of the page makes it doable, where even thinking about the HTML and the CSS for a whole page is kind of intimidating when you're starting out.</dd>
+
+<dt>Rob</dt>
+<dd>Yeah, absolutely. We do it on the Polymer docs a lot. We break down and componentize the work itself. I wanted to add a bunch of YouTube videos for this new series that we're working on. We have a Google YouTube component now that we can just play around with and add that to the page. I don't have to stress about how it's margin and padding within the component itself is going to be affected by everything in the document. I can just focus on my one little part and hack away at that. It's nice to compartmentalize your application like that.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. How many times have any of us created a beautiful thing, whatever it is – maybe it's comment styling – and you grab that code from one project to drop into the next project. Like you said, maybe the default padding and margin for the whole thing is set differently than the first project, so you have to go back in and re-do a bunch of it just to make it work.</dd>
+
+<dt>Rob</dt>
+<dd>Yeah, it's frustrating.</dd>
+
+<dt>Jen</dt>
+<dd>And it's like, the more organized you are and the more you can reuse your own code, the better. The better of a developer you are, the faster of a developer you are. The reality of that is so fidgety and frustrating, I think many of us end up feeling like, "I'm just a bad developer. I'm not organized enough, if I got more organized, it wouldn't be like this." [Laughs]</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>There's a lot of code that we end up writing over and over again that you don't even really think about it until you're in the moment and you're like, "Ugh, I've written this a million times and still it's sort of annoying."</p>
+  <p>A good example is a menu. A situation where you have three buttons and when you click on one of the buttons you just want to add a class to that one button and take it away from all the other buttons. I want to move my selected class around my menu as I'm clicking. That's one the things that we write everyday, a million times. We just took that behavior and turned it into an element called core selector. You just nest your three buttons inside of that and it just handles the behavior on your behalf. Which is really nice. You can compartmentalize not just look and feel but also behavior into declarative markup. It's awesome. [Laughs] It just speeds things up. It's really great.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>I want to get into Polymer but let me first talk about Mandrill, one of our sponsors for today.</p>
+  <p>Mandrill is made by MailChimp. The folks who make it super easy to send email newsletters. Mandrill is their pro, super-power developer toolkit that you can use – you, as a developer – to integrate your app, your website, your system, whatever that is, with email and be able to send out email from your system. Not only newsletters, which you could do with MailChimp, but also those one-on-one emails, the password reset emails, and all the stuff you might want to do with email. If you use Mandrill to do all of that, you get lots of powers that you wouldn't if you weren't using some sort of a service like this. This one really is the best because it's put together by the engineers at MailChimp. They scraped off a small crew of MailChimp's best engineers in 2012. They went off with an idea and they built Mandrill. It's easy to use, quick to set up, ridiculously stable. It provides a whole bunch of statistics about what's going on with your email. If you sent somebody a password reset, did they actually reset their password? Did they open the email? Are they getting stuck somewhere? You have more information about your users and how it is that they're interacting with you, your service, your app, your whatever you're making. They've got beautiful interface, flexible template options, custom tagging, advanced tracking and reports, they've got a mobile app that lets you monitor the delivery of your email and troubleshoot any problems that you might be having from wherever you are, if you're away from your desk. It's powerful, scalable, affordable. It's the largest email-as-a-service platform on the market with more than 300,000 active customers. Scalable, reliable and secure. You can go sign up at <a href="http://mandrill.com/">mandrill.com</a> with the promo code 5by5 and you'll receive 50,000 free email sends per month for your first six months of service. So you can go try this thing out, integrate it, use their APIs, they've got tons of documentation, figure out how it's really going to work with your system, and you don't have to pay. If you've got less than 50,000 email sends each month, thank you to Mandrill for supporting 5by5 and The Web Ahead.</p>
+  <p>Let's talk about Polymer. What's up with Polymer? How are things going?</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Polymer, just to give a little bit of back story. We've been talking a lot about web components, which are kind of the new standards that we're implementing in the browser. Right now, there are four different standards. They all work inside of Chrome. I believe templates have shipped in Safari and Firefox, but you still have a few others, like custom elements and HTML imports and shadow DOM that are behind a flag in Firefox. In Safari, they've said they're working on it in a branch of Webkit. Internet Explorer, actually, just recently had a big vote to ask developers, "What should the IE team be focusing on?" I can share a link with that and we can put it in the show notes. It's pretty cool. Web components shot right to the top of that list, so hopefully the IE team will be working on that soon.</p>
+  <p>Basically, Polymer is two things. It's a library of polyfills so you can actually use web components in all the browsers that I just listed where support is spotty or not there yet. We have a file called platform.js, which bundles up polyfills for the four different specs and allows you to write web components using just the vanilla APIs. We support the last two versions of each browser with that.</p>
+  <p>The other thing Polymer does, it kind of has a second half. That second half, which is polymer.html – because it's actually a HTML import that contains the JS that it runs off of – the second half of Polymer is developer sugar. Sorry, I should say syntactical sugar. It makes building web components faster, easier, more efficient. It adds a bunch of features, like data binding, change watchers; a bunch of stuff that we list in our documentation. It came about because the team that was working on web components was like, "These things are awesome. We need to make sure that we have really good low-level primitives to create their own components." Along the way, we kind of cooked up an opinionated way of doing it that we particularly liked. We turned that into a little library. That's the second half of Polymer that's running right now.</p>
+  <p>There's a lot of really interesting stuff happening with Polymer at the moment. We're trying to explore ways to break the two halves apart. If you're in Chrome, you shouldn't need any of those polyfills. You should be able to just run polymer.html by itself. I believe, in the most recent version of Polymer, that's now possible, which is pretty cool.</p>
+  <p>We're also exploring other ways that we can shrink down the polyfills and make them more performant so developers can use this stuff in production and feel really confident about it.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>That was going to be my next question. What is the performance of this? Is this something that you think people should be using in production on big sites today?</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>It's a really good question that has a bit of nuance to it. Let me try and answer it in a few different ways.</p>
+  <p>If you want to test out the performance, you can look at a site like <a href="http://chromestatus.com/">chromestatus.com</a> or <a href="http://polymer-project.org/">polymer-project.org</a>, because we actually build the site using polymer. Right now on Chrome it's extremely fast; the polyfills never take effect because everything is native. It's also really fast on Firefox. Seems to be doing ok on IE. The place where we're probably the slowest is mobile Safari. We're actively working specifically to tune up our performance on mobile Safari.</p>
+  <p>The goal is that we should be able to be just as fast as every other JavaScript library/framework that's out there. We want the polyfills to be just as fast as something like Angular or Backbone or Ember. Oftentimes folks get in the situation where they're comparing Polymer to Angular and they're like, "Which is better?" It's not exactly a fair apples-to-apples comparison. The goal of Polymer and the whole polyfill layer is to incentivize developers to try this stuff out and give feedback to the browser makers. "Hey, I tried web components, I actually built something with it because there were polyfills available to do so. I really like this experience. It really improved the ergonomics of my workflow and I really want this to be implemented."</p>
+  <p>The goal of the polyfills is to be good but the ultimate goal is that we want this to be standard. We don't want to have everyone running polyfills forever. That's why sometimes it can be not the best comparison between a modern framework like Angular or Ember or Backbone, because those are designed to be as fast as they possibly can given the tools at hand. They're not trying to standardize anything.</p>
+  <p>If you want to put it into production, there's the requirement that it's only going to support the last two versions of each browser. For a lot of people that can be a problem. My recommendation is, some folks do user-agent sniffing to figure out, "Is this a newer browser? If so, let me give them the Polymer flavor. If not, I'll give them the older version of the site." I've found, personally, just within Google – because there's a lot of teams within Google that are interested in this – that it works really good on internal tools, especially people who build a lot of prototypes, like UX engineers and people like that. They can work really fast. If you've got an internal tool, you usually don't have to worry so much about people running IE 7 or 8, things like that.</p>
+  <p>The other thing to think about, which is a little bit more nuanced, is you don't even necessarily have to use Polymer. You could actually break it apart and just use the one or two web component standards that make sense for your project.</p>
+  <p>A good example of this is Github, which is actually using the custom elements polyfill from the Polymer project in production on their website today. If you go to Github and you look at the commit message next to where you've made a commit, it'll say, "5 minutes ago." If you inspect that, it's actually a custom <code>&#60;time&#62;</code> element that they've extended. I believe it's called <code>relativetime</code>. You'll see <code>&#60;time is="relativetime"&#62;</code>. The custom elements polyfill supports all the way down to IE9. You can make a custom element that has its own JavaScript prototype. It's really handy.</p>
+  <p>You've also got the template polyfill which works pretty well in older browsers.</p>
+  <p>If you really want to get into the nitty gritty of it, you could just use the individual bits of web components make sense today for your user base. That way, you're dipping your toe into the future. Which I think is a cool way to go about it. I really like that Github has done this. I'm excited to see other people try the same thing.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It sounds like with a lot of new technology it does depend on how you're using it. A lot of things, say CSS shapes. It's fairly easy to understand. I'll get a square instead of a circle, for the older browsers that don't support this. As more and more browsers do support it, more and more browsers will see the circle. With this, it feels a little bit more like this is more functionality, so things that are getting broken are functional things that don't work. But it sounds like it depends on what you're doing. If you use it in little places for little things, and you're ok with some of your users not seeing those extra special things, then you could start using this without a polyfill.</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>If you, for instance, have a fallback and you're like, "On Chrome they'll see this, then on another browser they'll just see an image," or something like that, then, yeah. I really encourage people to experiment with it. I think that it is going to fundamentally change the way that we build all of our applications. Even the frameworks that are out there today, like Angular. I believe Angular put up this document where they're like, "We're going to be moving over to web components." They're trying to sort out what their image of an Angular web component looks like. My sense is, this really is the future. It's good to experiment with it now and get ahead of the curve a little bit, I think.</p>
+  <p>To be honest, you start building stuff with it, and there is a learning curve. Because it's totally new. It's a big paradigm shift. But there's these little magic moments that happen. The first time I just grabbed a toolbar element and I threw it into an application that I was working on and I didn't even think about it. The same way that I grab a <code>&#60;div&#62;</code> or a <code>&#60;p&#62;</code> tag, I knew exactly what I'm going to get and I'm not even thinking about it. The first time I did that with a custom element and threw it into an app, and suddenly had this working toolbar, I was like, "Oh wow. That was really hot." I want other people to get into that because I think it will be really rewarding.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What do you think will be the future of tools like Ember and Angular and Bootstrap? It feels like the last two or three years we've seen the rise of these giant JavaScript frameworks. Do you think they're going to stick around, or do you think they're going to age out once things like web components themselves – three years from now, five years from now – are...?</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>I think something like Bootstrap or Foundation, those could be just rewritten as web components, as custom elements. They kind of scream for it. A lot of people attempt to do this, actually. This is the first thing everyone does when they first learn about web components, is try to port Twitter Bootstrap over to web components. Because the stylesheets were not written with any idea of scoping and CSS encapsulation, it's kind of difficult to do with the current version. I think that's the long term vision for a lot of those component libraries, those UI libraries. Like Pure CSS is another one.</p>
+  <p>For frameworks that are actually trying to drive your entire application, like Angular and Ember, I think they will continue to exist and prosper. The thing about web components is, they're primarily focused on components. Angular, for instance, it's primarily focused on a very opinionated way of wiring together your entire application. Angular has this notion of components right now, they're called directives. Angular has to invent this whole system to make directives work. They have to invent their own templating system and their own component model and all of this other stuff. That big chunk could just be replaced by web components. That saves the framework authors quite a lot of time and effort because now they're just leveraging the web platform. But they still have their higher level, the muppet master that's driving the whole app. I still see that existing in the future for sure.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>It feels like this could be very handy, too, for folks who are making their own design libraries. It's more than CSS. A lot of JavaScript. We've talked a lot on this show in the past about design libraries and coming up with a design system for a client or for your company rather than just designing individual pages.</p>
+  <p>Part of what a lot of people like about Bootstrap and other people don't like about it is the same thing. That it comes with a whole bunch of styling already ready to go and a whole bunch of ways that things are already done. Which can get in the way if you're trying to design your own website, but it can be fast if you don't know how to design the website, you just want someone else to prefab all of this stuff for you. It feels like having web components in a style guide library, in a templating system, or in a style system, is another place where these are going to end up.</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Absolutely. The reason I even got into web components was, I was working with a pretty big enterprise company. They were trying to build a component library that they could share across all of their products. Very similar to Twitter Bootstrap. Along the way I got super into what Brad Frost has been doing with <a href="http://patternlab.io/">Pattern Lab</a> and the whole OO CSS movement, Jonathan Snook's <a href="http://smacss.com/">book on SMACSS</a> and building your things as modules, using Brad's guidance to lay things out as a style library versus building pages. Along the way, as I was doing that and exploring it, web components just popped onto my radar and I was like, "This is how you should do this." I totally agree that you should be building component libraries and not just pages head-to-toe. To take it a step further, if you really want to make those component libraries pretty functional and reusable, doing it with web components, you actually have good scoping and encapsulation as the way to do that.</p>
+  <p>Before joining Google, I was a freelancer and I was hoping from project to project. I was doing the same thing for every client. They had usually some sort of an application but it was just a bunch of code all mashed together. One massive jQuery document ready handler or whatever. We were just working and breaking this into components piece-by-piece and naturally it just looked like web components would be a better fit for that. I started writing about it a lot, and that's actually how I ended up at Google.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>Nice. Let me jump in here with our other sponsor today, Citrix GoToAssist.</p>
+  <p>Managing your company's IT support needs can be challenging. Especially when you have remote or mobile employees. Citrix GoToAssist is a cloud-based, remote support solution, designed to allow you and your IT team to solve problems faster. If you sign up for GoToAssist before October 10th, you'll get another Citrix product of your choice free for six months. GoToAssist remote Support lets you provide live and unattended remote support to any computer or mobile device. You can also screen share to diagnose and fix support problems faster and more effectively. There are even GoToAssist apps to make it easy to deliver support, anytime, anywhere. If you work in IT, you should definitely give Citrix GoToAssist a try. If you sign up for GoToAssist before October 10th, you'll get another Citrix product of your choice free for six months. Go visit <a href="http://gotoassist.com">gotoassist.com</a> and get started today. Don't wait, this special offer ends October 10th. Once again, that's <a href="http://gotoassist.com">gostoassist.com</a>. Start managing your company's IT support team more efficiently today.</p>
+  <p>Where can people learn more about all of this stuff? You mentioned before, you're starting Polycast, a video series. What kinds of things are you and other folks over at Google doing to teach people all about this stuff?</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>Quick plug, Polycast is this thing that I started up on YouTube. There's this massive ecosystem of components. Each one of them is super interesting in its own right. Kind of the way that Railscast used to just focus on one topic and teach that one topic really quickly in 8-10 minutes. I wanted to do the same thing with web components and look at all of the libraries that are out there. The Polymer team has shipped two big component sets and I wanted to work through ow you work with those at a fundamental level and how you compose them together into applications.</p>
+  <p>We started off just talking about icons. It's limited in scope and it's a good way to get up and running and drop your first little component on the page. We're working our way up now to layout and scaffolding out an application. As far as where to learn about web components in general, there's <a href="http://webcomponents.org">webcomponents.org</a>, which is a joint effort between our team, the Chrome DevRel team, and a bunch of members of the open source community. A lot of developers from Brazil, in particular Zeno Rocha, who's done an amazing job leading that project. <a href="http://webcomponents.org">Webcomponents.org</a> is great because it's not Polymer-specific. Oftentimes people conflate web components and Polymer. I probably don't help that because I usually talk about both at the same time.</p>
+  <p>If you go to <a href="http://webcomponents.org">webcomponents.org</a>, it primarily focuses just on web components. It links out to the various libraries that let you work with web components. There's Polymer, there's other ones. There's <a href="http://www.x-tags.org/">X-Tags</a>, there's another one called <a href="http://bosonic.github.io/">Bosonic</a>. There's multiple different ways to get up and running with web components. That's a good place to go and get the fundamentals.</p>
+  <p>The Polymer site itself, we're going to be doing a lot to focus on teaching developers best practices this coming quarter. Especially around building full-blown applications. We've spent the last few quarters just trying to teach what web components even are. Still, we have a lot of work to do there. It's still a new concept for most developers. We want to push beyond that a little bit. We want to start building some pretty rich applications and we're going to go through and shoot a lot of videos and document how we built those applications and how you do fast web components/Polymer web components. But also how you tackle topics like accessibility and responsive design and making sure that as we're teaching these new technologies, we're teaching the best practices along with them.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>That was a big theme when Peter Gasston was on episode 66 talking about best practices and how to avoid a mess. Since then, all year actually, I've seen out of the corner of my eye on Twitter, it feels like there are a lot of people talking about the importance of making sure that we still support semantic HTML. That we think about accessibility and build accessibility into all of this work right from the beginning. As well as things like performance and security and other kinds of best practices. Which is good, because it feels like these new tools are so powerful that people could really do them wrong and use this superpower to make really bad code. [Laughs] Then share this really bad code with everyone all around the world in a way that could be bad.</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>I think invariably, that will happen, to some extent because it's a new, powerful toy. That just happens naturally. You overdo it. You kind of have to overdo it to realize what the boundary is and how to bring it back. We've been in this big experimentation phase right now where we do crazy stuff and then we're like, that didn't pan out and we deprecate it and try and get rid of it.</p>
+  <p>That's just the nature of it at the moment. Now that it's been maybe almost a full year that we've been pushing it as something that people should start thinking about putting into production. Now things are really settling down and we're focusing on, in particular, accessibility. It's something that a lot of people have, very rightfully, pointed out. The elements the Polymer team has built are not... at Google IO we had a bunch of elements that were not super accessible. Key board navigation on our documentation was, and still is, a nightmare.</p>
+  <p>We've got a new project called Core A11y Keys that we've just recently put out to try to make it a little bit easier to work with keyboards inside of web components. We just had a ton of stuff to do there. We fully recognize, this is something we're just going to have to keep chipping away at. It's a really big priority for us because in the long run, we want to make these things easier for developers.</p>
+  <p>Core A11y Keys is hopefully going to make keyboard navigation easier for folks. It will make it easier for developers to pick up and adopt accessibility best practices. I can say, personally, I'm not an accessibility expert and I've been trying to get a lot better at it. It's hard. It's very challenging. It's taken me a lot longer than I had hoped to try to contribute in that. We've got Addy Osmani, he's putting out some really good articles on it. I think there's an article on building accessible web components, which should be coming out really soon. It's going to be using that Core A11y Keys component to teach it to developers.</p>
+  <p>For us, in the 4th quarter of this year, this is a big thing. The videos that we're shooting for those applications, we want to make sure that we're focusing on this so developers get the best practices.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>Yeah, it feels like this is the time for web components and everybody, the whole web components community, to really get accessibility and nail it. And learn, like you said, there are some things to be learned. Learning the pieces and parts and details of how this really needs to work.</p>
+  <p>Apple has had a huge commitment to accessibility since three decades ago, but it has been very apparent in iOS. It makes it very easy for iOS application developers to build an app that's accessible if they just do it the way that Apple shows them and says, "In the developer documentation, here's all the tools that we've given you. Use them. If you use them, your app will be accessible."</p>
+  <p>It feels like we want web components to be the same way. People who don't really know anything about accessibility, they don't really know anything about performance or security, they're just learning and using stuff and they see this cool library and they're using it, that their websites are fast and accessible and secure, all at the same time, by default. Which means those of us who are experts at this and building it and evangelizing it, we've got to get it right from the very beginning.</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>It's really challenging because all of the same accessibility best practice still apply to web components, If you just drop a tag on your page. The example I'm most familiar with is working with an icon, because I tried to do this. I just dropped an icon on the page and I'm like, "Well, an <code>&#60;img&#62;</code> tag usually has an alt attribute. If the <code>&#60;img&#62;</code> fails, you get the alt attribute." But there's no built-in support in the browser for an alt attribute on anything but an actual <code>&#60;img&#62;</code> element. I needed to use ARIA attributes. That still applies, if you grab an element from the Polymer element set, you can add ARIA attributes yourself and make things accessible. The tricky part is trying to do that on behalf of the developer. That's where I got really, really tangled up into this crazy knot. I was trying to have my custom element label itself with ARIA attributes. Try to make it be really smart and do the work for the developer.</p>
+  <p>It sounds awesome in theory and in practice I had this pull request that's, like, 60 comments long with a 20 point decision tree. We actually landed it and still had to revert it because it was so difficult to make it bulletproof.</p>
+  <p>That's the thing. Right now, we're in this situation where, I don't want to tell developers, "You've just got to learn ARIA. You've got to do it all yourself, because we can't help you." I really want to try to find ways to make it easier for people. But it's hard. It's not as easy as it sounds. We are really working on it. I hope Core A11y Keys is at least a step in that direction.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+  <p>I'll put that in the show notes along with all of these other links that we're talking about. Which you can find at <a href="http://5by5.tv/webahead/86/">5by5.tv/webahead/86</a>. Or in the future at the soon-to-be-launched <a href="http://thewebahead.net/86/">thewebahead.net/86</a>.</p>
+  <p>What are some other examples? Talk about this icon component. How does that work?</p>
+</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>It's actually pretty simple but it's really handy. It's just a custom element and it can just render a little bit of SVG. You can load in a separate icon set and then you can tell your icon – it has an icon attribute – "Hey, I would like to use the rewind button icon from this set." You just give it <code>&#60;icon="av"&#62;</code> – "av" is the name of one of our icon sets, audio-visual – so <code>&#60;icon="av:rewindbutton"&#62;</code>. It goes and grabs the SVG out of that set for you and displays it on screen.</p>
+  <p>It's really nice because if you're worked with libraries like Font Awesome or something, it's a pain, even for something as simple as icons, to have to go find a 3rd party library. Using these elements, you can just make iconography another part of the web platform. It's another tag that you use, like <img>. That's pretty handy.</p>
+  <p>I've really enjoyed some of the smaller Polymer elements. Really mastering them and then sprinkling them in my applications. I have a page that I just built where there's two Polymer elements on the whole page, but it's really handy to have those two elements. It saved me a lot of work, being able to chuck those in there.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What do you think is going to happen to the web as this lands in browsers and people start to learn how to use it? A lot of what we've talked about so far today is making code reusable, making component libraries easier to build and easier to maintain, easier to implement. Any time you make things faster, development is cheaper. It's faster, you can do more cool stuff with the extra time that you have. What do you think is going to happen to the web as this starts to take off? Do you think the web is going to change? Things are going to be possible that aren't possible right now?</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>My hope is that, in particular, building something like a mobile web application will become much easier, much more viable, and then you'll start to see a shift. Right now, there's a lot of things that get built as native apps because the idea of doing it as a mobile web app is totally impossible.</p>
+  <p>An example, at an agency I worked at a few years ago, there was a big insurance company. Their entire application was a map with markers on it and a few links to various insurance policies. They insisted that it be turned into a native app because they were convinced that a mobile web app wouldn't be good enough. That's really frustrating. That seems like an application that should totally be a mobile web app. It seems that as we have these better libraries that make that easier for developers, we'll start to see a shift and more of that market share go back to the web.</p>
+  <p>The web, I don't know, it might start to become a bit more opinionated about how you build things. I think that's actually something that developers would maybe like and enjoy. Right now, you've got a billion our frameworks libraries and it's vexing to know how to wire it all together. You can look at people who build for iOS and Android and be kind of envious because they have a very well-lit path. It's like, "Do these things and your app is going to work and it will be fast and you'll be cool." The things are not impossible asks; they're pretty straightforward.</p>
+  <p>It might be that the web platform becomes a little bit more opinionated about how you knit these things together. But hopefully that will be a benefit to us.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>You could always just pull out regular old JavaScript and do whatever you want anyway. That's still going to be true.</dd>
+
+<dt>Rob</dt>
+<dd>Yeah. You can go crazy and do that, yeah. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>The crazy wild west part.</dd>
+
+<dt>Rob</dt>
+<dd>Yeah.</dd>
+
+<dt>Jen</dt>
+<dd>What are some other community spaces or places where people are collecting components?</dd>
+
+<dt>Rob</dt>
+<dd>
+  <p>The best place is <a href="http://customelements.io/">customelements.io</a>. You could think of it as npm for web components. It's a big registry where anything that gets registered user Bower that has the keyword web components gets sucked into the <a href="http://customelements.io/">customelements.io</a> registry. It's a really good place to browse around and look at what 3rd party developers are building.</p>
+  <p>Right now, a lot of folks are in the experimentation phase. A lot of things you'll see up there are, like, "I made a card that displays my favorite soccer player's name." It's totally random. You're like, "That's cool but not super useful for my application." But we're starting to see really cool things pop up now that the developers have had about a year to get their feet wet.</p>
+  <p>The Google web components project that I mentioned before is pretty awesome. Taking Google services and turning the APIs into little elements that you drop on the page. That's just really handy. Just from personal experience, Maps and YouTube alone, I am totally spoiled by those elements now. I don't have to bother with any of the code to set up Google Maps and interact with it. It's pretty rad.</p>
+  <p>There's companies out there that have started taking their own services and turning them into elements, which is pretty cool. Salesforce, if people are working on Salesforce apps, the Salesforce mobile SDK team actually took the Salesforce API and bundled it up into elements. Those elements know how to talk to the Salesforce backend, so you can throw together a little Salesforce app. I don't even know entirely what Salesforce does, but I somehow wired this app together because I was just putting these components on the page, which is really cool.</p>
+  <p>Let me see what else. I don't know. We're going to be running some events in November, we're really encouraging folks to join those. They're called Polytechnics. They're going to be happening all over the world. We'll be putting up a site soon and we'll announce that so people can find a local Polymer polytechnic and do code labs and training and stuff so they can learn how to build components themselves. So there's a lot going on. The next three to four months are going to be really, really active for us.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Nice. And people can go to <a href="http://polymer-project.org/">polymer-project.org</a> – and also the show notes for this show. It feels like a lot of this is the folks from Google. A lot of this is driven by you and your colleagues, right? Or maybe <a href="http://webcomponents.org">webcomponents.org</a> is the center of everything.</dd>
+
+<dt>Rob</dt>
+<dd>We want <a href="http://webcomponents.org">webcomponents.org</a> to be the center of everything. That's what I'd like. I'd like that to be the nexus. From there, people can branch out. If they want to use Polymer, that's cool and that would make me very happy. But the fundamental thing is, web components. We want web components to succeed. We want the standards to take off. There will be other libraries on top of Polymer that get built on top of that that make it fast and easy for developers to make components.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Well, thanks for being on the show today.</dd>
+
+<dt>Rob</dt>
+<dd>Thank you for having me, this is awesome.</dd>
+
+<dt>Jen</dt>
+<dd>People can follow you on Twitter, <a href="http://twitter.com/rob_dodson">@rob_dodson</a>. Or your website <a href="http://robdodson.me/">robdodson.me</a>. Or you must have a Google Plus identity.</dd>
+
+<dt>Rob</dt>
+<dd><a href="http://plus.google.com/+RobDodson">+RobDodson</a>.</dd>
+
+<dt>Jen</dt>
+<dd>You don't have a number? It's not 343497? [Laughs]</dd>
+
+<dt>Rob</dt>
+<dd>Nope, nope, I got in there early.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. [Laughs] Cool. If you're not subscribed to this podcast, I'd love for you to go subscribe. You can go to iTunes or Stitcher or any other podcast application of your choice on any device that you'd like and subscribe to the show. It's free. You can sign up for the newsletter that I have not sent out yet, but I will. If you are a longtime listener and already subscribe to the newsletter, good news, I've got all of the signups from everybody who's ever signed up, all into the new system. If you've signed up in the past, don't worry about it, I've got you. But everybody else can go to <a href="http://5by5.tv/webahead/newsletter">5by5.tv/webahead/newsletter</a>. I also want to say thank you so much to the sponsors today, <a href="http://gotoassist.com/">Citrix GoToAssist</a> and <a href="http://mandrill.com/">Mandrill</a>. They really do make the show possible. Thanks for listening.</dd>
+
+</dl>
