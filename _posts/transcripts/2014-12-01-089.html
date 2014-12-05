@@ -1,0 +1,580 @@
+---
+layout: transcript
+title: "Responsible Responsive Design with Scott Jehl"
+permalink: 89/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+<p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host, Jen Simmons, and this is episode 89.</p>
+
+<p>I first want to say thank you to today's sponsors, <a href="http://mandrill.com/">Mandrill</a>, <a href="http://gotoassist.com/">Citrix GoToAssist</a> and <a href="http://casper.com/webahead">Casper</a>. Bandwidth has been provided by <a href="http://cachefly.com/">CacheFly</a>, the fastest, most reliable CDN in the business. CacheFly, that's C-A-C-H-E — like caching — fly dot com.</p>
+
+<p>Today we're going to talk about how to craft a well-built website. It's one of the major themes on this show. What are the best practices when you're planning a site, designing it, coding it and serving it off the server? Especially given mobile devices and how the internet is global and different people have different experiences all around the globe. How can we make a site that's going to work best for all users?</p>
+
+<p>So my guest today is Scott Jehl. Hi, Scott.</p>
+</dd>
+
+<dt>Scott</dt>
+<dd>Hey Jen, how's it going?</dd>
+
+<dt>Jen</dt>
+<dd>He just published — and by "just," I mean it came out yesterday — a new book, <a href="http://abookapart.com/products/responsible-responsive-design">Responsible Responsive Design</a>. Published by A Book Apart. You were on our show in episode 29, which was 60 episodes ago. [Both laugh]</dd>
+
+<dt>Scott</dt>
+<dd>Wow. [Laughs] That's amazing.</dd>
+
+<dt>Jen</dt>
+<dd>August 2012, well over two years ago. We're probably going to talk about many of the same things, because how to build awesome responsive websites that load well for everybody is a thing that you are in expert in.</dd>
+
+<dt>Scott</dt>
+<dd>It's something I talk about a lot, sure. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>We'll get updates. We'll find out, that's what was best two years and three months ago, what's the deal now?</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, some things have changed, or really have just evolved.</dd>
+
+<dt>Jen</dt>
+<dd>So tell us about this book and your thinking these days about how to do responsive design responsibly.</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>Sure. The book — which is probably obvious by its title — built upon the work in responsive design. I think it pairs nicely with Ethan's A Book Apart book. It continues in the same vein of building responsively to add additional elements that we need to care about when we're building sites that work very well and very broadly across all the devices that we need to care about these days.</p>
+
+<p>I guess you could say the focus of the book is in two parts. The first half is more usability-focused. Delivering sites that work very broadly, qualifying the things we do to make sure that we can progressively enhance a site without excluding users on devices that may or may not have the capabilities to view certain features.</p>
+
+<p>The second half of the book takes a turn towards the performance angle. It focuses on how we can deliver responsive sites so they render as fast as absolutely possible. So we're respecting the nature of the web, which is an unreliable series of network connections that may or may not go as expected. Building on and embracing that rather than trying to fight it.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It also seemed to me that the first part is a "why." Especially if people listening to this show... maybe you're working on a team at work and you're trying to teach people and explain what progressive enhancement is and why people should care, but you're not getting the message through. When I was reading the book, I was like, "this is the answer." You hand people this book and say, "please read the first chapter."</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>That's so nice that you'd say that. You're right, that was the aim of the introduction, the introductory chapter. To convince and explain why this is so important. There are a number of reasons but it's not typically the ones that you would guess from the traditional arguments for using progressive enhancement. Which sort of started out from a developer maintenance perspective. Separating our layers so we could just manage in a sane way, this increasingly complex code. We separated out our layers and that was great from a developer's perspective.</p>
+
+<p>These days progressive enhancement is important to businesses for much more important reasons than just developer maintenance alone. It's increasingly important for reach. To be able to build services that are very broadly accessible and build on the promise of what the web is supposed to do, right? Work across all of the devices instead of a technology that only works on some isolated places.</p>
+
+<p>Our audiences are becoming more and more global, more and more diverse. Everyday more devices come out that have a different set of features than the devices that exist today have. Some are better, some are more constrained, so we really have to build in very careful, fault-tolerant ways to optimize for all of those situations and not exclude anybody.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, it was interesting when Apple announced the new iPhone 6 and the new screen size numbers were confirmed. They had been rumored, but they were finally confirmed and we knew for sure. Nobody cared. When the iPhone 5 came out and the screen was longer, I remember — this was over two years ago — all over Twitter, people were like, "Wait, what's the number? It's 5-what? It's 320 by 5? I've got to pound that into my head, I've got to write that down, I've got to put that in my thing with my spreadsheet." Then the iPhone 6 came out and everybody is like, "Whatever. I don't care." [Scott laughs] We've moved so far past paying attention to what the viewport numbers are, I already know my thing is going to work. But maybe we should open it up today and just double check. Yeah, it works. Ok, great. [Laughs]</dd>
+
+<dt>Scott</dt>
+<dd>That's a really good sign of the times, that practices are improving, right?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>I think it used to matter quite a lot more. Especially to folks who were building in ways that were particular and sensitive to particular screen sizes and viewport sizes. Now with that fluidity that we have in responsive layout, we can be assured that as things evolve, that we're pretty safe. Things are going to work pretty well. At least from a layout perspective.</p>
+
+<p>The new displays do bring up all sorts of concerns with image sizes, right? If you really want something sharp on that rich of a display, you may need to re-think your strategy for how you're serving images across all devices so you're not sending something enormous to a device that doesn't have that screen.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>To get a 3x image into that.</dd>
+
+<dt>Scott</dt>
+<dd>[Laughs] Which is ridiculous. But if you're sitting at that display, it's all the difference.</dd>
+
+<dt>Jen</dt>
+<dd>I find it interesting. I go to a lot of conferences and there's still so much misunderstanding about what progressive enhancement is. Developers feels like it's a big burden to have to bother to think about all of these other devices and capabilities. Sometimes I find myself confused, because I'm like, "Why do you think it's harder to do progressive enhancement?" I think it's way easier. [Laughs] Because there is this sense of, if you build things with the principle of progressive enhancement, then it's ok that there's a bunch of unknowns and you don't know a bunch of things because your code is stacked up to work no matter what.</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>Right, right. I totally agree. I would start to address that discussion by asking, "Harder than what?" [Laughs] If you're attempting to build something that works across pretty much any internet-capable browser out there, pretty much any approach is going to be difficult. It's kind of a tall order.</p>
+
+<p>But if you were to compare other ways to try to send code to all of those devices that works in an appropriate way, I would highly doubt anything is easier than progressive enhancement. Sending different codebases to each devices would certainly be more work. In that regard, it's often cited as more work, but it's like, "More work than what? Just... not doing it?" [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>It's more work than not building a website.</dd>
+
+<dt>Scott</dt>
+<dd>Right. Sure, it's more work than building something that doesn't work everywhere. But that's not out goal anyway.</dd>
+
+<dt>Jen</dt>
+<dd>I think where it's coming from is it's more work than writing a PC application for Windows 8.</dd>
+
+<dt>Scott</dt>
+<dd>That's totally true. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Or it's more work than writing an iOS app for iOS 7. Period. Just 7.</dd>
+
+<dt>Scott</dt>
+<dd>Absolutely. Building for the web is a lot of work. There's no getting around the fact that if you want to build something that's optimized in many, many places, it takes a lot of work. But I think this is the most promising approach and probably the one that has the least amount of work.</dd>
+
+<dt>Jen</dt>
+<dd>I think it's a shift in mind frame. You're not developing for a platform wit ha very specific operating system that is a closed box and you know all the variables involved. You're writing code for this incredibly diverse and crazy, over two decades and all the countries in the world craziness. You have a much bigger audience. THere's so much excitement and potential around that. You're not just doing it for Android 4.2. You're doing it for everything.</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>Right, right. I think there's a second misunderstanding oftentimes about progressive enhancement. There's this lowest common denominator approach to design, when you approach things with progressive enhancement. I find it's often quite the opposite. People are worried that they're going to be spending enormous amounts of time making things work in IE6 and IE7, older browsers.</p>
+
+<p>Really, what I've found, is the opposite. When you're building this way, you can qualify your code in such a way that all of your development focus — or at least 90% of it — is focused on the new browsers. You've written your code in such a way that it's going to just degrade or not even be sent to those older browsers. They'll just have something that's relatively basic but functional. It's kind of nice, right? The new browsers are hard enough on their own. [Laughs] There's plenty of work to be done there. It's not that it's less work, but we're focusing all the effort on where the new features are headed.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What do you think are some of the mistakes that people make the most when it comes to building a modern website?</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>Hm. I mean, there are a lot of considerations. From a usability perspective, it's very easy to apply progressive enhancements in ways that can render an already functional page, dysfunctional. If you're careful with the way you apply JavaScript enhancements or even simple CSS features.</p>
+
+<p>An easy example would be trying to achieve white text on a white background with a dark text shadow to pop it off the page. If you were to do that without checking to see if <code>text-shadow</code> was supported in the first place, you could end up with unreadable text, right? White on white.</p>
+
+<p>Qualifying even the most basic things like that is really important. I think frameworks like Modernizr make that very easy for us. We have these really nice patterns that we've developed to address those kinds of scenarios.</p>
+
+<p>That's one of the most common mistakes that I find. Just not qualifying the features that we use, when they happen to be particularly dangerous in some contexts. <code>position: fixed</code> is another one. Things like that, that just really need to be qualified before we used them.</p>
+
+<p>Another would be not taking the time to optimize the way we're delivering assets over the web. So we're not sending enormous amounts of data to devices that don't necessarily need them or need a little less. Things like that. Images, in particular. Always a problem in that regard.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Let's talk about performance. Like I said before, the first half of your book is a great case of why you should care and how you should think about this. Then the second half of your book is like, every page is another very specific thing about, "Ok, here's the deal with such and such. I'll tell you two paragraphs. Now here's a link to this resource with all the rest of what you need to know about this."</dd>
+
+<dt>Scott</dt>
+<dd>I think it is an overview, in some cases. Some parts dive a little deeper. Some leave it up to other people in the field who have written extensively about it and I can reference that instead and move on.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Right. But also it's very practical, lots and lots of details about, "Oh, you're right. <code>position: fixed</code>, I've always meant to..." Like me. I've always meant to go and track down what the heck is up with that. [Scott laughs] I don't know. I've not worked on a project as a front-end developer, recently, where a design came to me that made me go find out what's up with that. When I design for myself, or I design the project — which I do more and more recently — I'm like, just stay away from that. [Laughs]</p>
+
+<p>So what is up with <code>position: fixed</code>? Does it work? Does it not work? How in the world can we get it to work? Because people like to do things like fix a footer to the bottom of the viewport so that it's always at the bottom, no matter what you're doing with scrolling, there's always this footer at the bottom. What works and what doesn't work with that?</p>
+</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>It's a tricky feature because, from a design perspective, it's one of those features that we have very commonly in native apps on mobile operating systems. It's kind of nice, right? It allows you to have access to global navigation menus without pawing through a really tall page to get back to it. There are nice riffs on the standard fixed toolbar these days that are even a little better. That auto-dismisses as you're using the page, and comes back and you start to scroll back up.</p>
+
+<p>From a support perspective, it's all over the map, although it's getting a lot better. I actually haven't done a lot of testing in iOS, the newest version, to see which quirks are still around. [Laughs]
+
+<p>Traditionally, older versions of Android have had all sorts of issues. Sometimes it's an issue where it's relatively minor. The fixed toolbar will scroll with the page then snap back into place when you stop scrolling. If that were the only problem, it's more an aesthetic thing, not really a usability consideration.</p>
+
+<p>Whereas some of the more severe problems could be that the toolbar scrolls with the page an just remains on top of wherever it happened to have been at page load. For example, if it was a footer, it would be obscuring some content at the bottom of the page and then as you started to scroll, it would scroll along with the page and just stay there. [Both laugh] And continue to obscure content and all of a sudden it's causing a real accessibility problem to any user on that page.</p>
+
+<p>Those sorts of problems are thankfully going away in the nicer, new platforms. But everyday we have new devices coming out that are on both ends of the spectrum. More and more devices that have lower-end browsers that are more network conscious and responsible in that way. They use less data. Things like proxy browsers, Opera Mini, things like that.</p>
+
+<p>Then feature-phone level browsers of today, which are better than the feature-phones of yesterday, but are still not caught up to the top-end browsers. They're all over the place. These are the sort of features that we have to use very cautiously and qualify our use of them, if we're going to use them.</p>
+
+<p>At Filament, where I work, we've written some feature tests for things like <code>position: fixed</code> and overflow scrolling. There are a few features like those that I happen to call out in the book because they're really difficult to feature-test. That's an exception these days, fortunately. But those are the trickier ones that always seem to come up. [Laughs] We tend to try to avoid both of those features as much as we can.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, I mean, just don't do it. [Scott laughs] But if somebody really wanted to, is it possible?</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, I think it is.</dd>
+
+<dt>Jen</dt>
+<dd>You just have to really go after the right code to get it to work well.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah. It's funny how other feature considerations can creep in and make the whole qualification step more complicated. For example, the new iOS Safari lost some feature support for something that it formerly supported really well. Which is the ability to get the coordinates of an element on a page. That was something that we relied upon to test whether fixed toolbars were working well. All of a sudden we have a test that doesn't work quite as well as it did in the prior version, even though the feature itself we're testing is still fine. [Laughs] It's just the way that we go about testing it is now a little buggy. Hopefully they'll fix that in the next point release because I think it was more of a bug than an intentional thing.</p>
+
+<p>Sometimes they're tricky. I mention this in the book, on rare occasion we have to fall back from our feature-detection with some more device-specific logic. User agent sniffing kind of stuff. Thankfully that tends to be a very rare exception, more and more every day I think.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Let me jump in here with our first sponsor today. Let's talk about Mandrill.</p>
+
+<p>Mandrill is an email infrastructure service that started out as an idea in 2010. That idea became an reality in 2012 when Mandrill cannibalized a crew of MailChimp's best engineers. Isolated from the rest of the team, they turned the idea from a skunk's work project into a product that outperforms competitor services. Growing fast and innovating faster, Mandrill is now the largest email-as-a-service platform on the market, with more than 300,000 active customers. You can use Mandrill to send automated, one-to-one email like password resets, welcome messages, marketing emails, and customized newsletters. Mandrill is quick to set up, easy to use, and is ridiculously stable. They made it for developers that love documentation, integrations, high-delivery rates, webhooks and analytics. If you're not comfortable with code and APIs, Mandrill recommends finding somebody who is before you get started. Mandrill comes with a beautiful interface, flexible template options, custom tagging, and advanced tracking and reports. It's the only email infrastructure service with a mobile app that lets you monitor delivery and troubleshoot from wherever you are. It's also powerful, scalable and affordable. But you don't have to take my word for it. Go sign up at <a href="http://mandrill.com/">mandrill.com</a> with the promo code <code>5by5</code> and you'll receive 50,000 free email sends per month for your first six months of service. That's <a href="http://mandrill.com/">mandrill.com</a>, code <code>5by5</code>, you get 50,000 free email sends for six months. Thanks for Mandrill for supporting 5by5 and The Web Ahead.</p>
+
+<p>So, performance. A lot of people these days are coming up with a performance budget for their site. And saying, "This is the number we need to get under. This is the speed. We want our website to load in such-and-such number of milliseconds. So everybody has to work towards that target and we're not going to ship until we make that target." What do you think is a good number for a performance budget? What do you like to set your budget at?</dd>
+
+<dt>Scott</dt>
+<dd>There are two sides to consider. There's the raw weight of a page and all of its associated assets that it's loading. Then there's the time it takes not only to load all of those things, in entirety, but also how long it takes to start rendering a page. Which is often quite a lot sooner than the point at which all of the assets that are related to the page have finished loading. We tend to measure that one, from a timing perspective. Under a second is becoming an agreed upon standard for a budget to shoot for on a reasonable, modern connection. Wifi connection, 5 megabytes per second. That sort of speed, under a second is pretty reasonable. Especially with the techniques that we're figuring out and using more and more each day. It's getting clearer what we need to do to optimize for rendering time versus overall load time. That's really good.</dd>
+
+<dt>Jen</dt>
+<dd>What are some of those things that are key to making it load fast?</dd>
+
+<dt>Scott</dt>
+<dd>If we're optimizing for perceived performance — the performance metric that matters to real people who use websites — how fast it appears to load and how fast they can start using it. There are a number of things that, as developers, we can do to speed that up and make that happen a lot faster.</p>
+
+<p>Oddly enough, some of the ways in which we've been building websites in standard ways for a long time, some of what have always been considered best practices happen to hinder that perceived performance time. One of those is the way we reference our assets from the head of the page. CSS and JavaScript files references externally. All of those assets from the head of the page, by default, have to be fetched and loaded and parsed by the browser before it will display the page to the user.</p>
+
+<p>There are ways around that, but at least from a default perspective, that blocking behavior is what the browser will do. That's a good thing and a bad thing. We want the CSS that's necessary for the page to render to actually be loaded by the browser before it shows the page, otherwise you would get some sort of flash of unstyled content, right? You'd see an unstyled page and then whenever the styles happen to load it would jankily snap into place. That's not a good user experience.</p>
+
+<p>Some blocking is good, but external blocking tends to be bad. Any request that we make in that section of the page are introducing a potential single point of failure. We're making our page dependent on those requests not only returning at all, but returning very quickly. Ideally, we want to not make those requests at all from the head of the page.</p>
+
+<p>One of the ways we're doing that lately is figuring out which portions of our code can be prioritized. Which parts are the most important and including them inline, in the actual HTML. Instead of referencing a stylesheet externally, we're using a <code>&#60;style&#62;</code> element and actually inlining the styles directly into the markup. Which traditionally might start to sound like something that contradicts what was best practice for a long time. There are ways to work with this system to bring it back around and make sure we can cache our entire stylesheet properly for subsequent page loads and things like that.</p>
+
+<p>Ideally, what we're trying to optimize for is that initial visit to the site when we're making requests to assets that we've never downloaded before. There's nothing in our cache. It can be quite slow. Especially on a mobile connection, it can take ages. The more we can inline, the better.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Are you inlining specifically to save the HTTP request? Or are you inlining because when that request goes out to get the CSS that it might fail or it might be slow, so you want to bundle that together with the HTML to keep those two things... like, they either load together or they don't load together? Is it both of those, or more like, "Hey, let's save another HTTP request." Or is it that it's actually faster to read it? Would the browser somehow be faster to read the CSS straight out of the HTML than it would to read it from a separate file?</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>If it's in cache already, it would be potentially negligible. But assuming it's not already cached, then yes. Because we're making a request for the HTML document to begin with, and that starts to stream to the browser in little round trips and packets, from server to browser. When the browser is downloading that, eventually it's going to encounter a reference to another external asset. In this case, the CSS. It then needs to make a new round trip to go fetch it. At that point, it will halt rendering in its tracks until that additional asset has been fetched and comes back. Then it can start rendering again using the CSS that it fetched.</p>
+
+<p>Instead of making that extra round trip, if we can fit that CSS into that HTML that was already being streamed, ideally in that first round trip to the server, then we're almost guaranteed loading times under a second for the page to start rendering. That's pretty incredible from a user experience perspective.</p>
+
+<p>Just to give listeners an idea of the size that we're shooting for, that first round trip to the server tends to carry back with it something in the range of 14kb of code, compressed from the gzip or whatever. That's the window that we're shooting for. Because every round trip to the server incurs some time, right? There's actually a physical distance to travel there and back. You have some latency involved there, even if things are going well and the network is fast. What we want to do is try to fit as much important information to rendering the page in that first round trip, so 14k is pretty small. Much websites are much, much, much larger than that. We have to start thinking about prioritizing. What's the most important portions of our code to fit in that first round trip?</p>
+
+<p>Of course, our entire stylesheet for the site is probably going to be much larger than 14k on its own. What we're doing lately is using some tooling to analyze what portion of that stylesheet is relevant to rendering the most important part of the page. For an unique template on your site. We tend to refer to that as the critical CSS. There are some great tools to figure out which subset of our overall stylesheet is relevant to that critical portion of the page.</p>
+
+<p>To be honest, it's somewhat of an arbitrary guess. To say which portion of the page is critical, especially from a viewport perspective. It brings back this idea that there's a fold. Which, of course, we know there isn't. The "fold" varies from device to device and viewport to viewport.</p>
+
+<p>But we can take this advice loosely and say, let's go for an arbitrary but generous viewport size. Something like 1200 by 900 pixels, which would usually contain most of our breakpoints of a design. And say, "Let's try to fit all of our styles that are relevant to that viewport size and below," and cram the styles for those into that first round trip. What we end up having is a subset of our stylesheet that we want to inline up front, then load the rest of the stylesheet in a way that doesn't block rendering.</p>
+
+<p>That could be done in a number of ways. You could put a link tag at the end of your document. I prefer to fetch it with JavaScript because we can get it to the browser a lot sooner that way, by loading it in the head of the page and loading it asynchronously with JavaScript. There are a number of ways to do that, but that's the workflow. Inline the critical parts, request the rest of it in a way that doesn't slow down that page from showing up as fast as possible.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's interesting to think about that. Or even think about how to manually figure out, "Let's load basic typography and layout CSS. We don't need the little twiddly CSS and the little details."</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>Yeah. You could certainly try to do it manually. I'd imagine it's possible. The way that we tend to build sites, as least in our client work, would make that pretty difficult. We tend to build from the module out. Build very many small pieces and then piece them together into a larger layout. Those little pieces could end up in the header, they could end up in the footer. We don't really know. To be able to organize our CSS from top to bottom, from a visual perspective, doesn't often line up with how the most optimized cascade would work in our coding environment.</p>
+
+<p>I suppose for some designs it would work just fine to do that. But we found the tooling lets us not even think about it and just make it part of our build step instead of just another thing that we're managing manually. Which, I think, is kind of daunting, if you do it that way. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Especially if you've got a big project that's being maintained over a long time by a bunch of different people. Being like, "Why is this here? I'm putting it over there." Oh, look, you just totally broke the website. [Scott laughs]</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, there are some good tools out there. We've built some. Addy Osmani at Google has done some great work on this. He's got some tools for Grunt and Gulp that you can try out. There's one called Penthouse for NodeJS and Grunt that does it.</p>
+
+<p>We're written one at Filament Group called <a href="http://github.com/filamentgroup/criticalCSS">criticalCSS</a>. That's the one we tend to use. There are small differences between the projects. The reason we maintain ours — even though the projects are pretty similar — is because it happens to work with dynamic codebases. Things that use server-side includes and not just static HTML files. So we can run it against our live templates on a site. That's kind of neat.</p>
+
+<p>In our build process, we'll actually run this CSS extractor tool against every unique template of a particular site that we're building and extract the critical CSS relevant to each one and write them to a file. Then we can include those individual files in whichever template it happens to be relevant to. We get a dramatically different subset of CSS, depending on the template that you happen to be viewing. An article page would be much different than a homepage. If you're talking about which styles apply to the top of the page.</p>
+
+<p>It's good to automate these things because they're far too complex. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+
+<p>Right. [Laughs] Let me jump in here with another sponsor.</p>
+
+<p>Citrix GoToAssist. Are you in charge of IT and making sure that everybody's computers are working? That can be challenging. Especially when you have remote or mobile employees. You have to handle urgent tech support requests quickly to maintain productivity, making sure your network security is never compromised. That's why Citrix GoToAssist is the number one global market leader in remote support. It's easy-to-use, cloud-based remote support solutions that allow you and your team to solve problems faster than ever. GoToAssist Remote Support lets you provide live and unattended remote support to any computer, any mobile device. You can also screen share to diagnose and fix problems faster and more effectively. There are GoToAssist apps available to make it easy to deliver support anytime, anywhere. GoToAssist is easy to use, it sets up in less than a minute, whether you're supporting one coworker, ten employees, or even a thousand. Go sign up today for a 30 day free trial, no contract, no credit card needed. Visit <a href="http://gotoassist.com/">gotoassist.com</a> and click on the Try It Free button. Go visit <a href="http://gotoassist.com/">gotoassist.com</a> and get started today. Once again, that's <a href="http://gotoassist.com/">gotoassist.com</a>. Click on Try It Free and you get a 30 day free trial. Start managing your company's IT support team more efficiently today.</p>
+
+<p>It's interesting listening to you talk about making a site load so insanely fast, when I feel like most of the sites that are out there... especially as I'm surfing around on my iPad, clicking links on Twitter. I'm loading things up on a fairly big screen. It's not a phone, but it's also not a desktop computer. It's a tablet. The performance of those pages... [Laughs] it just sometimes seems so atrocious. Especially when pages load slowly and they repaint multiple times and the layout jumps around multiple times. I'm already reading content and then I'm on paragraph three and the page jumps to where paragraph three is now at the bottom. I had scrolled it to the top but it jumped back down to the bottom. I scroll it back up to the top and it jumps back down to the bottom again. Or I go to tap on something and the millisecond before my finger hits the screen, the content moves and it's in a different place and I click on the wrong thing.</p>
+</dd>
+
+<dt>Scott</dt>
+<dd>[Laughs] Tricked you, right.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and I feel like there's something going pretty wrong in the deployment of those sites. I don't know if it's in the functional requirements coming from the business side, that's never been prioritized to take time to look at how things actually load. I don't know if it's that their QA department is testing things only on big computers, regular computer screens and doesn't have any mobile devices. Who knows what's going wrong. But somewhere, something is going wrong. Nobody is paying attention to how incredibly bad the website is. Just letting it be bad for months and months and months and months.</dd>
+
+<dt>Scott</dt>
+<dd>I tend to think of it a little less cynically. [Both laugh] Not that you are.</dd>
+
+<dt>Jen</dt>
+<dd>Oh, I can be cynical.</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>I think it's easy, as developers, to adopt a little tunnel vision: the conditions that our users are experiencing are going to be similar to the ones that we're used to, in our own development environments. Which happen to be pretty exceptional, to be honest. [Laughs] Our jobs demand these really robust connections over the network to stream enormous amounts of data. We need the latest and greatest devices with the best features. We need wide arrays of different types of devices as well to test different capabilities. I think it's easy to browse the web on our own, as users, and start to adopt this viewpoint. To forget that's not the case for everyone.</p>
+
+<p>There was an article in Wired earlier this year that talked about some Facebook executives that were traveling through Nigeria. They had gone to a mobile kiosk and purchased a device. Nigeria is interesting, there's a really large population of Facebook users there. I think 30% of internet users in that region are active on Facebook. This is a big audience for them. They were there to test it out. They tried this device, installed their app, pulled it up, and they observed that they were just waiting. And waiting. And waiting. Watching it spin, just waiting for the timeline to come up.</p>
+
+<p>They had this keen observation that they had been building for users like themselves, but they hadn't really considered that they were the exception, they weren't the rule. Because Facebook's audience is global now. It's incredibly diverse. The devices that they need to support are just mind-numbing. [Laughs]</p>
+
+<p>It's amazing. I think that's a good example of that. When developers can realize, "Wow, I was building this for myself, and I'm not the target audience at all."</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Is it Chrome? There's new tools coming out these days to slow your connection down.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, Chrome has that now, it's great.</dd>
+
+<dt>Jen</dt>
+<dd>Pretend you have a really crappy device with a really crappy connection.</dd>
+
+<dt>Scott</dt>
+<dd>It's really great. If I'm not mistaken, I think it even works for testing local files. It will simulate the constraints of a 3g connection or worse. [Laughs] I'm saying this as I look at my device that has, believe it or not, an EDGE symbol. That was the connection speed that the iPhone first launched with. Yup. I'm here in Florida and we still haven't improved from 2g. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>I can frequently tell when a startup company has some new hot thing. I can tell whether they are in San Francisco or New York based exclusively on how well it performs in New York.</dd>
+
+<dt>Scott</dt>
+<dd>And when you get your wireless bill. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah! Because I think in San Francisco, the internet is much faster. They can hop on the subway, or people don't take the subway, they take buses or trolleys or whatever. In New York, you're in the subway, you have no internet, and also when you're in the street, the internet can be incredibly slow. So, it felt like over the last three years, apps and websites have started assuming faster connections than you can possibly get. It just makes me angry. Not everybody is some hoodie-wearing kid in San Francisco. [Laughs] Stop making apps that only work in that context.</dd>
+
+<dt>Scott</dt>
+<dd>And, you know, even if they are, there are other things that we need to care about. This week, I was looking at The Telegraph's website. It was blank for a lot of its users that day. Apparently, Google's ad service, DoubleClick, went down for awhile. It was offline. Depending on how DoubleClick's clients happened to reference their ad scripts of DoubleClick's servers, their sites were either crippled or maybe they built it in such a way that it wasn't noticeable that the ads were down, which is ideal. But in The Telegraph's case, they hadn't. They were referencing script files directly. I didn't look at the code, but I'd imagine it was somewhere in the content because it took over 30 seconds to even show anything other than a blank page. It's important to point out that 30 seconds wasn't just a slow loading time. That was the time it took for my browser to just say, "Oh, forget it, I'm just going to show the page because this is never going to load." It's a time out.</dd>
+
+<dt>Jen</dt>
+<dd>"I'll just show you what I have so far."</dd>
+
+<dt>Scott</dt>
+<dd>
+
+<p>Right, right. That happened to be the time out for the browser that I was using. I know Internet Explorer could be up to a minute. Some of the data that was released on The Telegraph's traffic that day showed that the average time it took to load the homepage of the site was 30 seconds or more. There are many people who are seeing much longer times. They're very patient, but that's such a problem.
+
+<p>We think about these practices as becoming increasingly irrelevant as connection speeds improve. But speed is only one factor. It's also resilience, right? Building in ways that we can make sure we don't have these single points of failure. Especially when third parties misbehave. [Laughs] Our work suffers for it.</p>
+
+<p>Yeah, I mean, it's troubling. There are trends that are going in both directions right now, on this performance front. We have this sort of Google-driven charge for making much faster rendering sites. I think it's great. That tends to be something that I follow really closely. Whereas there's another camp of people who are building what might be called more complicated applications on the web. They're using frameworks that are very JavaScript-dependent, even for rendering the page and rendering the content. I think it's pretty easy to test those things and see how damaging that can be to rendering time.</p>
+
+<p>A good example I was testing this week was Twitter's Vine website. Which I guess you could call a web application. It uses Ember, I believe. There's pretty much no content in the body to begin with, then it's rendered as soon as all of the JavaScript can load up on the client and hopefully render something. I was seeing, on average, on a cable connection, five megabytes per second connection, seven seconds or more before you see anything. That's on wifi. Then you think about, "Wow, what are people seeing on a 3g connection?" Which is very common, even in the US. When they go to the Vine website, maybe they're just using the app instead. But that's not what we want, right? We want people to be moving to the web because it's better for so many reasons, and reach is one of those. To see this and think, "Wow, seven to 15 second loading time on wifi?" It's probably going to be 30 or more on the average, really good mobile connection. That's terrible. We need to be doing better.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's also very interesting to think about what it's like to have a website that loads in three to five seconds, and what it's like to have a website that loads in under one second.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, it's amazing.</dd>
+
+<dt>Jen</dt>
+<dd>There's all kinds of studies. I'm sure you could quote them. But it just feels like butter! You just want to stay on the website and keep clicking and keep clicking and, "Oh, let me just check out this. Oh, you know, I'll go check out that." Because it feels so easy to just load a whole bunch of different pages. And I think it can really increase engagement. "This is great, I like this article, I read it, I clicked on the Twitter link. I'm reading it, but man..." and you don't think about it, but it took forever to load and it loaded really weird. It kept jumping around. "I'm not going to touch anything else on this site. I'm going to leave this site and go someplace else that's friendlier." [Laughs]</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>I totally agree. There are stats that show that it's more annoying to have a really slow site than one that's completely offline. [Both laugh] I think it was Tammy Everts. She blogs a lot about performance-related things. She had a post last week that was describing, I think it was around eight seconds. Which is a point at which a lot of business metrics just become irrelevant. That's the point at which it doesn't matter anymore if your site even loads. [Laughs] Because all of your sales conversion and shopping cart abandonment and all of these metrics just go out the window. Because it's taking too long, no one cares. They're not using your site anymore.</p>
+
+<p>Eight seconds, at least for me, I would think, "That seems a little low." Because I'm used to waiting eight seconds on my phone for most sites on the web to load. [Laughs] I mean, it's terrible, but I think I'm a little more patient than that. Maybe that's a pretty Western, maybe even urban set of data that's represented there.</p>
+
+<p>I think it reflects really well on your brand when things work well. Maybe it's just that people don't even think about it so much when it's working well. But when it's not is when they start to really get aggravated.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Yeah. Let me jump in here with our third and final sponsor.</p>
+
+<p>[Pre-recorded audio plays]</p>
+
+<p><em>[Sound of a person walking down a hallway. Door opens. "Hello." Muffled voices. "Thank you." Door closes. Sound of a person walking away.]</em></p>
+
+<p>[Pre-recorded audio ends]</p>
+
+<p>So the other day, this big box shows up at my apartment. It's a box with a mattress in it.</p>
+
+<p>[Pre-recorded audio plays]</p>
+
+<p><em>Jen: "This box, it's not shaped like a mattress. It's shaped like a clothing box. Like the kind you move your clothes from your closest in. It's not going to fit in this tiny, tiny New York apartment." [Inaudible man's voice in the background] Jen: "You can move that. I'm a little afraid of opening it." [Sound of box being unwrapped] Jen: "Is it going to pop out like a Jack-in-the-Box?" [Pause] "Ooo. Fancy box. It really is a beautiful box. It could easily go under a Christmas tree, or win a contest up against a phone box." [Unwrapping sounds] "It's not going to spring out until we want it to." [Unwrapping sounds] "Do we cut this thing open? Yeah, we're going to cut that off, I bet." [More unwrapping sounds] "You've got it." [Tape ripping sounds] Man: "It's going! It's going!" [Tape ripping sounds] [Inaudible voices] Jen: "Ooo, nice." Man: "This is awesome, Jen." Jen: "Let's try it." Man: "Jen, this is good. Keep this one." [Jen laughs] Man: "Keep it, keep it, Jen. Oh my god. You're going to love this. Jen, trust me, you're going to love this. Oh my god." [Jen laughs] Jen: "It's like the princess and the pea." Man: "This is going to be a good thing for your back." Jen: "This is nice."</em></p>
+
+<p>[Pre-recorded audio ends]</p>
+
+<p>That's a Casper mattress that landed in my living room. Casper is an online retailer of premium mattresses for a fraction of the price. They're creating this new hybrid mattress that combines premium latex foam with memory foam, creating just the right sink, just the right bounce. A shockingly fair price for an obsessively engineered mattress. You can check them out at <a href="http://casper.com/webahead">casper.com/webahead</a>. Their prices range from $500 up to $950. They've got a bunch of different sizes, of course. Twin, twin XL, full, queen, and king. All of the mattresses are made here in the United States. They've got a great, risk-free trial and return policy. You can order a mattress and try it out for up to 100 days. If at any point you decide you don't like the mattress, in those just-over-three-months, you can send it back. Risk-free. Go check them out, <a href="http://casper.com/webahead">casper.com/webahead</a>. If you use the coupon code <code>webahead</code>, you can get $50 off. Thanks to Casper for supporting 5by5 and The Web Ahead.</p>
+
+<p>I also wanted to ask you... you talk a bit in your book about responsive source order in the HTML and an x-ray perspective and being able to think about your site from this x-ray perspective. I wanted you to explain what those things are. Let's talk a little bit about that.</p>
+</dd>
+
+<dt>Scott</dt>
+<dd>Sure. The responsive source order one is something I would consider to be a crutch that I would hope never to need. [Laugh] But I think it's going away, thankfully, as new technologies and features like CSS Flexbox are becoming better and better supported. We don't have to be hindered anymore by HTML source order for achieving whatever layout we need to. Depending on how broadly you need a particular layout variation to work, as far as device support goes, there are options, I guess. Or workarounds, to be honest. They're not ideal.</p>
+
+<p>One of those that I mentioned in the book is called Append Around. We tend to use it very sparingly. But sometimes it can be useful in cases like an advertisement that you really only want to load once, right? You wouldn't want to load it twice and then toggle its visibility depending on where it needs to show up in the page, because then you're making additional requests or possible you're messing up the ad targeting because it's loading more ads than it should.</p>
+
+<p>A good example would be The Boston Globe's homepage that we worked on a number of years ago now. It's a responsive newspaper website. It has an advertisement that, on a wider screen layout, like something you'd see on a desktop computer or laptop, there's an advertisement block that's square and sits in the top right of the content region of the page. But in the source order, that's actually quite far down in the markup, if you were to view source. Where that actually site in the page is quite far down. There are all sorts of limitations that we had to work around that made that trickier. For example, it followed text that could be of any length. So we couldn't use absolute positioning reliably to stick it to the top right. It actually was in source order in the top right column, but at smaller breakpoints the ad requirements were such that it had to still be very close to the top of the layout. One or two screens worth of scrolling. That just wouldn't have happened if we had kept the ad in its original source order. It needed to be for the larger screen layout.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>So you loaded it into the bottom of the HTML and then you used JavaScript to pop it up into whichever place it needs to be. Depending on the width of the viewport.</dd>
+
+<dt>Scott</dt>
+<dd>Exactly. In our case it was actually the opposite. We would load it into the place it needed to be for a small screen layout.</dd>
+
+<dt>Jen</dt>
+<dd>And then move it.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah. Just because it was the mobile-first approach. But yeah. I think ads are an exception case where on occasion we'll still use this. It has real drawbacks and I tried to be clear about that in the book. Any time you're using JavaScript to manipulate layout like this, it's often going to be less optimal than doing something with CSS alone, right?</dd>
+
+<dt>Jen</dt>
+<dd>It feels like, "Danger! Danger! Danger!" [Laughs]</dd>
+
+<dt>Scott</dt>
+<dd><p>If you can't pull this off any other way, you can still pull it off. But you have to be very careful. For example, any time you use this approach, there's a chance that you'll add another step to the rendering process when the page is loaded. Because it has to render it one place, then measure the conditions and then say, "It's going to be over here, actually." [Laughs] That creates jank, to use the technical term that the cool kids are using. It's not ideal. That's the source order thing. We're using it less and less these days, but it is something I wanted to mention in the book.</p>
+
+<p>The x-ray perspective, the other thing you mentioned, that's actually been around at Filament, where I work, we've been using that term for a long, long time. Our first book was 2010, Designing with Progressive Enhancement. We came up with that terminology for that book.</p>
+
+<p>The idea is basically that we'll often design for the most ideal experience. Something that's highly polished. It's not always clear in translating that into code what sort of HTML should be used to produce that thing. It's not always literal, right? I guess one example might be a visualization, like a chart. Which you might produce on the average site today with an image element. But it's very hard to convey all of the rich information that a chart conveys in ways that are accessible to non-sighted users, for example. Ideally, we want to back that visualization up with something that's more meaningful from the start. Or at least provide an alternative. Alt text isn't often very useful in that regard. With a chart visualization, sometimes we've started with a simple table of data and generated a chart from that, or just loaded it alongside the table and hid the table from view.</p>
+
+<p>There are other examples. A very complicated slider, for example. A user interface slider where you might look at it and have to see through it and figure out, "What does this translate to?" At least in its pure meaning. It's a scale from zero to 100. That lines up with a number input with a min and max range. Or something like that. Maybe we could start with that and enhance it to the slider that has all sorts of bells and whistles.</p>
+
+<p>When I mention that one, I should say there's a new feature in HTML5 that lets us use a native range slider, but it's really poor. [Laughs] There's no feedback of the current value that you happen to be using. Just serving that up, from the start, doesn't often give us a very good experience. We tend to, at least today, start with a number input in that case and enhance it to maybe a slider alongside it that manipulates that number input. Maybe even leave both on the page so you could use either one.</p>
+
+<p>The x-ray perspective is just the idea of looking at a visual design and seeing through it to its skeletal, functional parts.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I think it's much like we were talking about. Progressive enhancement and understanding the difference between developing for an app on a single platform versus developing for the web. I feel like this gets to the same kind of thing of, "What is it that we're doing? What is this stuff?" I mean, the JavaScript can be awesome, and CSS is great, but underneath it all, really, what we have is HTML. I think it's important to take a moment, at any point in a process in building a site, and every time you do this. I use the developer toolbar in Firefox and I'll turn off CSS and JavaScript and be like, "How you doin', HTML?" [Both laugh]</dd>
+
+<dt>Scott</dt>
+<dd>"Did we leave you behind anywhere?" [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Like, let's pretend it's 1993, and here we are with an HTML website. See if I can click through the site and go from place to place and do things. Whatever the website is existing for. Can I do those things? If so, then things are going well. A screen reader can handle this. Or Google can handle this. The Google search robots. Or whatever. Underneath it, it's got really good bones. Rather than being more focused on the wallpaper and the paint. Building a really crappy building that's about to fall down because you didn't use two by fours the way you're supposed to. [Laughs] You were so focused on the paint colors, you put your two by fours 30 inches apart, instead of 16 on center. It's that kind of thing. It feels like really paying attention to the HTML every step of the way.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, I couldn't agree more. It's harder to build sites that work broadly. I'm not sure the goal is any other option, right? [Laughs] That's why we're building with the web.</dd>
+
+<dt>Jen</dt>
+<dd>Maybe it's harder if you don't know how to do that. Maybe if you had never thought about that way. You're really deep into Angular and you don't ever like to think about the HTML. Then switching perspective could be a lot of work. For those of us who learned how to build websites before CSS existed, it just feels so natural. Like, I wouldn't know how to not do it that way.</dd>
+
+<dt>Scott</dt>
+<dd>I can totally identify with folks coming from different types of backgrounds. More functional programming sort of backgrounds. In something like Ember or other MVC frameworks just feels like a natural, very familiar step. I think those sorts of developer convenience frameworks are really necessary in some ways. But also they're not entirely honest about the best practices that they're asking us to sidestep in order to get those conveniences, right? In the future, it's not like those frameworks are going to go away. I think that would be a tragedy if they did. But we need that level of control and maintenance and, yes, developer convenience on the client side to build really complex things. But we can't be building these things in ways that sidestep other proven best practices. I think, hopefully, the more I just rant about this and — hopefully someone's listening — more and more we need to see these kinds of frameworks work with progressive enhancement. Because it's not just about being a do-gooder. It's about reaching people. It's proven. There's no argument that this is the way that we need to build things to be broadly accessible and fast. Those are both things that are incredibly important features of the web.</dd>
+
+<dt>Jen</dt>
+<dd>And robust, not fragile.</dd>
+
+<dt>Scott</dt>
+<dd>Right.</dd>
+
+<dt>Jen</dt>
+<dd>I get lots of questions. People asking me, "Which one's better? Ember or Angular? Which framework is the one that everybody should use?" Do you use any of them? Do you have an opinion on what their place is in the landscape?</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>I'm not going to recommend one over another. I think they're all kind of aimed at different styles of complexity and different tasks, I think. And maybe different types of developers, even. When we build more complicated apps, at Filament, we tend to take more of a BackboneJS sort of approach. Because Backbone happens to be pretty friendly with progressive enhancement kind of mindsets. It's compatible with our philosophy of making things work from the start and then making them work better for some people.</p>
+
+<p>I think some frameworks are ok with that step not being there. Ember is one of those. I think their developers would argue that the tradeoff is in a much richer feature set for the higher-end device, than you can easily achieve with other frameworks. Frankly, I think with Backbone you would be doing a lot more custom work to achieve some of the really complicated features that something like Ember offers.</p>
+
+<p>I think their aim, at least from the side of the tin that I read, is much more complicated, functional applications. I'm not really sure if Angular fits somewhere in between those two. They're all built incredibly well. It's more a philosophical thing that I think developers need to be very careful about. Is the framework that I'm  choosing asking me to sidestep best practices that I know are important, right? Is that worth it for the tradeoff that I'm getting in developer convenience and user experience for some of my users, at the expense of others.</p>
+
+<p>I know I probably sound a little harsh about this, but I think it's easy to prove. [Laughs] If you pull up a lot of sites that are built with these frameworks, they are quite exclusive. They have a lot of assumptions built into them. What sort of devices are going to be accessing them and what sort of devices we need to care about when we're developing sites with them. I think it's a much smaller subset of the web than the actual users that are out there, right? It's something that I get angry about. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It sounds like, with any of these tools, of any kind, the more powerful they are, the more you can really screw things up. You have to be careful. In making a decision about any tool, there's a sense of, "Is this going to help us? I mean, us, my whole team, this whole company that I work at. Or the client who I'm setting up with something and they're going to carry on without me." Or whatever it is. Is this going to help the team do better work, faster? And get a better result? Or is this going to make it harder for the team?</p>
+
+<p>It might be that one team, you know these people are really smart, and you can totally give them this tool that might be kind of telling them to do it wrong. But they're smart enough that they're going to bend that tool to their will and they're going to end up with a great result. Another team, the exact same tool, and you might be like, "This team is not going to bend it to their will. This is going to take them down a bad road and I need to keep this out of their hands because this is not going to work out."</p>
+</dd>
+
+<dt>Scott</dt>
+<dd>Yeah. It's really important not to blame the tool. Instead blame the implementation when you find examples that are not implemented in ways that are satisfying just basic performance and accessibility goals.</dd>
+
+<dt>Jen</dt>
+<dd>Right. We can blame the tools, too, though. [Laughs]</dd>
+
+<dt>Scott</dt>
+<dd>
+<p>I think you can, in some instances. When the poster child sites for particular tools are also not satisfying those requirements. [Laughs] Then it comes back to, "Well, the developers of this project don't view this as a priority." You have to, as web developers, you have to say, "Do I agree with this worldview? Is it accurate with how I've found people to use the web at large?" Often, for our clients at Filament, it just isn't.</p>
+
+<p>We recently built the <a href="http://shop.lego.com/en-US/">LEGO store</a>. Client-side of that, and designed it as well. To even consider a technical solution that would isolate users on particular devices from seeing items in the LEGO store that they actually want to learn about and purchase. That's not benefiting our client at all. [Laughs]</p>
+
+<p>It's tricky, even with some modern devices, to get broad support even across brand new devices. With JavaScript-centric approaches. Android alone is the super tricky platform. If you go back to Android 2, which is still one of the more popular versions of the OS that's out there in the wild, it's extremely hard to get a good chunk of JavaScript to load and render in a reasonable amount of time. Or to load and parse and execute in a reasonable amount of time, alone. Not even thinking about the rest of all the stuff that has to go on for that site to work well on Android. I guess it's a philosophical thing. We rarely encounter clients that are willing to sacrifice reach for, I guess, developer conveniences like that.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I think sometimes people — developers — get frustrated because, "Look, I'm not being told to worry about accessibility or slow devices or connections or whatever. My bosses aren't saying this, QA's not saying this. The product manager isn't talking about it as a priority." I think that can be true. But I also think there's a place for developers to say, "They also aren't telling me about security and they're not telling me about making sure that the servers don't go down." But of course they care about security, and of course they care about the servers not going down. These are all things that are equally important and it's my job as a professional developer to come in with a certain level of expertise and say, "This is what I recommend for you. It needs to be part of the QA process or it needs to be built into what the product manager is thinking about. The functional requirements." To try to speak up and send that up the chain and really embed those kind of values into the culture of the company.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, I agree. It's a conversation that we have frequently with clients. We start out the process of designing or redesigning a site by looking over style guidelines and things like that, that are usually really developed and pretty rigid. To represent their brand in a visual way. I think it's common to start with the assumption that these are blockers. If this typeface isn't present, then it doesn't feel like the brand. Things like that. I think if you step back and say, "Well, first and foremost, is your brand about providing a service to your users? Or is it about an appearance of that service?" If you were to, say, serve some of your customers a completely blank page, would that represent your brand better than... [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Better than Helvetica. [Laughs]</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, exactly. Usually we can get them to come around to the fact that they're in the customer service business first. It reflects incredibly well on your brand to deliver something usable as quickly as possible. Even if some devices see that in different ways than others.</dd>
+
+<dt>Jen</dt>
+<dd>This LEGO site is very fast.</dd>
+
+<dt>Scott</dt>
+<dd>Oh, thanks. If you're doing it on the desktop, then that's not our work yet. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Ahh.</dd>
+
+<dt>Scott</dt>
+<dd>But it will be soon. They're taking a tiered strategy, which is very smart with a company of that scale. So if you were to visit the LEGO shop on a mobile device or tablet, you would see the responsive site that we built for them. We're working with them now to expand that up.</dd>
+
+<dt>Jen</dt>
+<dd>To replace their, quote unquote, "desktop site."</dd>
+
+<dt>Scott</dt>
+<dd>Yeah. Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Which is a strategy a lot of companies have used.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, yeah. I think it's really smart. You really want to get it right and you don't want to miss out on any features that people are used to seeing when they browse on the desktop. In LEGO's case, they didn't really have a mobile site to begin with. It was really a huge win, to start with this angle at all, right? That's where they're headed. So far it's been really nice seeing how the responsive site has performed for the devices they're sending it to.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Well, I'll drop that and all the other links to things you've been talking about today, into the show notes for the show. Which will be, very soon, at <a href="http://thewebahead.net/89/">thewebahead.net/89</a>. Or, until then, before that site gets launched, you can also always go to <a href="http://5by5.tv/webahead/89/">5by5.tv/webahead/89</a>.</dd>
+
+<dt>Scott</dt>
+<dd>Cool.</dd>
+
+<dt>Jen</dt>
+<dd>I'm hoping, two weeks from now to launch the new site.</dd>
+
+<dt>Scott</dt>
+<dd>Oh, wow, great!</dd>
+
+<dt>Jen</dt>
+<dd>Now that I've said that out loud, it's not going to happen. [Laughs] It's gotten very, very close.</dd>
+
+<dt>Scott</dt>
+<dd>Well, congrats ahead of time.</dd>
+
+<dt>Jen</dt>
+<dd>Thank you. I'll give you a sneak peek when it's a little more polished.</dd>
+
+<dt>Scott</dt>
+<dd>Fantastic.</dd>
+
+<dt>Jen</dt>
+<dd>It's a little messy right now.</dd>
+
+<dt>Scott</dt>
+<dd>Alright. [Laughs] That's as it happens, sure.</dd>
+
+<dt>Jen</dt>
+<dd>Especially when you're the one person doing all the development and design.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, sure.</dd>
+
+<dt>Jen</dt>
+<dd>And I'm designing in the browser but I'm also designing in the production code.</dd>
+
+<dt>Scott</dt>
+<dd>Yeah, yup. Lots to do.</dd>
+
+<dt>Jen</dt>
+<dd>I've got to re-architect my CSS and clean out my styles.</dd>
+
+<dt>Scott</dt>
+<dd>Good luck getting it finished up.</dd>
+
+<dt>Jen</dt>
+<dd>Thanks. What else should we tell people? How can people follow you on Twitter?</dd>
+
+<dt>Scott</dt>
+<dd>You can find me at my full name, <a href="http://twitter.com/scottjehl">@scottjehl</a>. That's also my website, <a href="http://scottjehl.com/">scottjehl.com</a>. And <a href="http://filamentgroup.com/">Filament Group</a> is where I work. If you're interested in some of the things we were talking about on the show today, my book is at the A Book Apart website, <a href="http://abookapart.com/">abookapart.com</a>. It's called <a href="http://abookapart.com/products/responsible-responsive-design">Responsible Responsive Design</a>. I think you should buy it. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>I do, too. We talked about a lot of the things today, but also there's so much juicy detail that there was just not time to talk about on the show. But I felt like a lot of the times, the last hour or so, we've been talking and it's like, people are going to be thinking, "No, wait, go back! How do I actually... ok, I'm convinced. How do I <em>do</em> it?" How do you do it? Step one, you buy the book. [Both laugh]</dd>
+
+<dt>Scott</dt>
+<dd>Most of what I've written about in the book is public. It's sort of collated, in a sense, into a narrative. If you don't purchase the book, you can find a lot of what the book talks about by browsing <a href="http://filamentgroup.com/lab">Filament Group's blog</a>. Our <a href="http://github.com/filamentgroup">GitHub account</a> has a lot of the projects. Those sorts of things. But I would say the book ties it all together neatly. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Yeah. Cool. People can also follow me, <a href="http://twitter.com/jensimmons">@jensimmons</a> on Twitter. Or the show itself, <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter. Which is probably where, if you want to know the moment the new website launches, you could follow the show on Twitter and then you will know.</dd>
+
+<dt>Scott</dt>
+<dd>Cool.</dd>
+
+<dt>Jen</dt>
+<dd>I want to thank our sponsors again. Mandrill, Citrix GoToAssist, and Casper for supporting this show. It really does make it possible to do this show. Thanks to them. Until the next show. It will be 90. The next show, number 90.</dd>
+
+<dt>Scott</dt>
+<dd>Wow. Congrats, that's awesome.</dd>
+
+<dt>Jen</dt>
+<dd>Thanks.</dd>
+
+<dt>Scott</dt>
+<dd>Alright, thanks so much for having me.</dd>
+
+</dl>
