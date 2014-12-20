@@ -1,0 +1,932 @@
+---
+layout: transcript
+title: "Front-end Engineering with Claudia Sarahe"
+permalink: 90/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+<p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host Jen Simmons and this is episode number 90. I first want to say thank you so much to the sponsors of today's show: <a href="http://hioscar.com/">Oscar</a>, <a href="http://mandrill.com/">Mandrill</a>, <a href="http://gotoassist.com/">Citrix GoToAssist</a>. Bandwidth for the show has been provided by <a href="http://cachefly.com/">CacheFly</a>.
+
+<p>Back in September, I was at <a href="http://blendconf.com/">BlendConf</a>, hanging out with amazing people and meeting even more new amazing people. Several of the conversations that I had were with a group of friends and colleagues who are really kicking ass when it comes to the front-end. With engineering and building up front-end development into a pretty complicated stack of technology.</p>
+
+<p>Part of me was so impressed and part of me was so... scared, in a way. [Laughs] So I thought I would have one of those folks on the show today. Claudia Sarahe. Hello, Claudia.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Hi Jen.</dd>
+
+<dt>Jen</dt>
+<dd>She is an entrepreneur, front-end architect, speaker, teacher, and organizer. I thought you could explain to me what it is that people are doing and even debate whether or not it's a good thing.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, we can dig into this. I'm excited. Thanks for having me.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, thanks for coming over. She lives in New York, so she just came over to my place.</dd>
+
+<dt>Claudia</dt>
+<dd>We're chilling here.</dd>
+
+<dt>Jen</dt>
+<dd>Sitting at my kitchen table. [Claudia laughs] Or is this the dining room?</dd>
+
+<dt>Claudia</dt>
+<dd>One of the two. Multipurpose rooms in New York. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>In my one-room apartment. My multipurpose room. So talk about the group of folks &mdash; Eric Suzanne was another one who was at BlendConf, that I was talking to quite a bit. How is it that you all know each other, and what is it that you guys are building together?</dd>
+
+<dt>Claudia</dt>
+<dd>I first met Eric at <a href="http://sassconf.com/">SassConf</a> in 2013. He was one of our speakers. Then afterwards he was like, "What are you doing?" And I was like, "I'm not quite sure yet." I had just closed my startup. He was like, "Well, if you're interested, you could come work for <a href="http://oddbird.net/">Odd Bird</a>." So I've been working with Eric for the last year and now we're colleagues, which is super fun. That's how we know each other. But we all met through Sass.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. And you are one of the organizers &mdash; or the organizer &mdash; of SassConf here in New York.</dd>
+
+<dt>Claudia</dt>
+<dd>Mhmm.</dd>
+
+<dt>Jen</dt>
+<dd>Which just happened in October.</dd>
+
+<dt>Claudia</dt>
+<dd>Yup. Right after Blend.</dd>
+
+<dt>Jen</dt>
+<dd>Pretty successful and popular conference about Sass.</dd>
+
+<dt>Claudia</dt>
+<dd>All Sass. All preprocessor.</dd>
+
+<dt>Jen</dt>
+<dd>So if people are interested, they should check that out. So is this really about using Sass in a very, very powerful way?</dd>
+
+<dt>Claudia</dt>
+<dd>I definitely think preprocessors are one of the things that contributed to this change in front-end development. Because we're changing how we author our stylesheets. Out goes CSS. Well, it's still CSS. But I definitely think that changes in JavaScript and build tools have added to this. Now we have so many sub-specializations, I believe, within front-end, which is quite the change. From dev ops to stylesheet writers that are like, "I prefer to be more on the architecture end of things," or "I'm more on the builder end of things." I do think it was spearheaded by preprocessors but it's really been a complete change within front-end.</dd>
+
+<dt>Jen</dt>
+<dd>What's a typical flow for you? What's a typical stack that you're using when you're doing front-end development these days?</dd>
+
+<dt>Claudia</dt>
+<dd>Like our full web stack or front-end tools?</dd>
+
+<dt>Jen</dt>
+<dd>Either one.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>So we're a Python shop. I think one of the things that we tend to forget about in front-end is actually your HTML templating language and what you're going to template in. That provides you with a bunch of power and options, depending on what you use. We use the <a href="http://jinja.pocoo.org/">Jinja</a> templating system, primarily because of their macros, which is pretty much just a way of creating reusable HTML snippets. Which is super fun. They have a version for JavaScript called Nunchucks which we also use when we need to render templates on the client side. We obviously use Sass. We're currently running on Ruby Sass but we're about to pull out our dependencies and make the move over to <a href="http://libsass.org/">LibSass</a>. That's primarily where I'm interacting.</p>
+
+<p>Well, and build tools. We work with <a href="http://gulpjs.com/">Gulp</a>. We use <a href="http://github.com/causes/scss-lint">SCSS Lint</a>, so we've got a linter running. I'd like to check into options for how we can define some of our own property rules and things like that to have a little bit more control. One of our other team members, Johnny, is really our front-end dev ops person. He does more of the performance and that side of things. Which I'm super interested in, so it will be fun to learn from him. He's spearheading that setup.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>You've also built front-ends just writing HTML and CSS, right? Back in the day this was how everybody did it. Open a HTML file, open a CSS file, you linked them together, you wrote a bunch of code...</dd>
+
+<dt>Claudia</dt>
+<dd>And voila.</dd>
+
+<dt>Jen</dt>
+<dd>You dropped it on the server, usually using FTP.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, before. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>No version control, just delete the one that's on the server, replace it with the new one.</dd>
+
+<dt>Claudia</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>And if there's only one copy, good luck with that.</dd>
+
+<dt>Claudia</dt>
+<dd>Yup.</dd>
+
+<dt>Jen</dt>
+<dd>What do you think you're getting out of using such a complicated stack?</dd>
+
+<dt>Claudia</dt>
+<dd>I do think it has to do a lot with the type of work that we're doing. These are applications, mission-critical, not just a website or a marketing site, per say. One definitely needs a lot more... control and accountability, is really what this stuff sets up. Version control for being able to revert changes, these processes and tools that we set in place to ensure that we're building sound structures.</dd>
+
+<dt>Jen</dt>
+<dd>You didn't list in there git, but I'm assuming...</dd>
+
+<dt>Claudia</dt>
+<dd>Oh yeah, we're on GitHub.</dd>
+
+<dt>Jen</dt>
+<dd>It feels like, of course you're using git. [Laughs]</dd>
+
+<dt>Claudia</dt>
+<dd>No, SVN!</dd>
+
+<dt>Jen</dt>
+<dd>I don't want to say that because, I mean, I'm sure there are people listening who are either not using version control at all or not using git specifically. I was reading something recently, like Gulp versus not using Gulp. Meaning you also need... oh, gosh, what are the names of them all?</dd>
+
+<dt>Claudia</dt>
+<dd>Node, you need to be running <a href="http://nodejs.org/">Node</a> and <a href="http://www.npmjs.com/">NPM</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Right, Node and NPM. But then Gulp doesn't really do it so they're using... what are the other ones?</dd>
+
+<dt>Claudia</dt>
+<dd><a href="http://gruntjs.com/">Grunt</a>...</dd>
+
+<dt>Jen</dt>
+<dd>Yes!</dd>
+
+<dt>Claudia</dt>
+<dd>And then there's <a href="http://github.com/broccolijs/broccoli">Broccoli</a>. Which, apparently, people use Broccoli. I was just at <a href="http://jsfest.com/">JSFest</a> and seeing some command lines and I was like, "Oh, people are using Broccoli." I'm not even sure how Broccoli is different from the others.</dd>
+
+<dt>Jen</dt>
+<dd>Right. In the particular blog post that I was reading... let me see if I can find it, and if I do, I'll put it in the show notes. They were talking not about them as competitors and saying, "Which one do we want to use out of these different options?" They were talking about using all of them simultaneously. Because each of them has limitations and by using NPM and then running Grunt and then running Gulp... or I guess the other way around... then running Broccoli. The whole post was like, "Why? Let's not do any of this." And was advocating dropping all of these tools.</dd>
+
+<dt>Claudia</dt>
+<dd>Woah, for what? For nothing?</dd>
+
+<dt>Jen</dt>
+<dd>For simplicity. [Claudia laughs]</dd>
+
+<dt>Claudia</dt>
+<dd>Interesting.</dd>
+
+<dt>Jen</dt>
+<dd>Why is it that you and the folks you work with... because I was so impressed, in a way, I remember walking with you and Eric and asking you questions and having you articulate this vision that I was like, "Oh, wow, thats a whole other level of wow." So I wanted you to repeat that conversation today and explain what it is that you're thinking when you're using these powerhouse tools.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>I might have a very beyond tech view on what it means for all of these sort of tools and different ways to doing things to enter our lexicon and our tool belt as developers. So that they're almost natural. I guess the other thing that I should mention that we use is <a href="https://www.npmjs.com/package/bower">Bower</a>. Bower is actually going to be more of our default package manager now that we're moving away from Ruby gems.</p>
+
+<p>It can definitely feel like a lot and overwhelming. But at the same time, for me, I really see the power of this shift in front-end as an alignment. front-end is starting to look a little more like back-end, where you've got languages like Sass, who are bringing in pretty much all of the data types and data structures in back-end to front-end developers. At first you might be like, "What do I need this for?" Eventually, as you start to use it, what I've found, especially organizing, teaching, and getting to interact with people, is when they make this connection and they're like, "Oh my gosh, my Sass map is just like my Ruby hash and it's just like this JavaScript array." And you're like, "Yes! Same data structure, same data type."</p>
+
+<p>I think this is incredibly important because now, within front-end development, it's like serious programming now, in a way. On top of that, a lot of what the participatory culture, this ability to share what we're doing. This is really new and, to me, this is incredibly powerful. Beyond just, "Hey, I know how to share what I'm doing." When I look down the line and thinking outside of tech, what it means to be part of this participatory revolution, I see it as being incredibly powerful, if we start to step out of tech world. I don't know if I'll always be making websites for the rest of my life. But the skills that I'm learning in development are wholly applicable to the world.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>So, participatory culture. I feel like part of what was so exciting to me when the web first showed up on my radar and I started getting involved, of course, by using the web and then by creating websites, I loved the original vision of the web. I didn't know that it was the original vision. But the vision of the web seems so obvious to me right away and as I've learned the history, I've learned about how that was very intentional, it was very much part of the original vision of the web. That it was simple enough to make a website for, quote unquote, anybody. Which is not really true, we could debate that. But if a person knew how to use a computer, and if they had access to the internet, and if they knew how to write in English and type &mdash; which, right there, that eliminates most of the world's population. But if a person can do those things and they're interested in and willing to learn some technical stuff &mdash; HTML and later CSS &mdash; then it was like, anybody can make a website. Anybody can publish. Anybody can suddenly have access to millions and millions and millions of people as an audience. There's no barrier to entry. To me, that's always been the exciting thing.</p>
+
+<p>In 2014 &mdash; what is it, 25 years into the web, 20 years for many people on the popular web &mdash; it seems harder than ever to get started. I meet a lot of people who are really excited and want to be part of the web and they're overwhelmed and intimidated. They're going to school and taking classes or doing a certificate program and studying for 12 weeks or studying for 6 months. They don't have 15 years to learn this slowly over time. They're trying to eat the entire pie all at once. [Both laugh]</p>
+
+<p>These tools and this level of complexity is, in a way, really amazing. Like, "Power, awesome, tech robots, cool!" But to me it's the opposite of participatory democracy. It makes the barrier to entry even higher.</p>
+
+<dt>Claudia</dt>
+<dd>
+<p>I wholeheartedly agree with you. Especially what you're saying about the access limitations of the web. I think it has made it harder to step into this and say, "I'm going to be a developer," as your career. Especially if you're working on larger enterprise sites and applications because they require this in order to be sustainable. A lot of this has just come up to be like, "How do we manage the complexity of the types of things that we're also creating on the web?"</p>
+
+<p>But you still can throw up a HTML and CSS page and it's still there. So the immense power of just learning that is great.</p>
+
+<p>We, in the communities that we're in, need to be aware of our subtle-isms. I learned this from Sonali Sridhar over at Hacker School. They have these wonderful ways of calling each other out on things and I think it can be so easy to be like, "Oh, you're starting on the web and you're not using the right build tool. What do you mean, you're not using a preprocessor? What do you mean, you don't know what this is?" You know? That's terrible and we should not do that to people. It can be really hard when you're so used to that.</p>
+
+<p>I hope that while we're pushing towards this advanced stuff that we don't forget that, actually, the most beautiful thing about the web is that you can still take a HTML page, write some stuff on it, and some basic CSS, and throw it up on a FTP site and you've just communicated with the world. That's incredible. Which is one of the things that I love about this skill set. This is such an immense amount of power, which is what has driven me to teach people. Give this back. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Especially, here we are, at the end of 2014, and it just feels like this whole year, somehow, the air leaked out of the balloon around how exciting the web is and how it will change our power structure. It seems like every time you open Twitter there's another link to another news story about how evil some VC-backed tech startup is and the crazy stuff they're doing in the name of maximizing profits. Simultaneously, we're learning more and more, or just admitting more and more about what's going on in tech culture.</p>
+
+<p>Ok, why is this about build tools? [Laughs] Like I was saying to you earlier before we started recording &mdash; it used to be that your job as a web designer or web developer or, in those days, webmaster...</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Yes! [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>... was to convince your client that they needed a website. Help them pick out a domain name and sign them up for a $15/month hosting account with FTP. That was already so hard and now it's like, your job is to walk in the door, they've already got a whole system going on, and you've got to change it or take it up a notch. They're using such and such for their build tools and you're like, "If we add this build tool or remove this build tool it will be a little bit better." Or you join a team, you get a new job, there's 35 developers and five of them are front-end. There are some sys admin somewhere who's, like, screwing everything up and won't do anything you want them to do. Everything's gotten so complicated.</p>
+
+<p>Convince me of the other side. The power of these tools. Of course, one of the reason we use them, and why we love them, is they make things faster. They automate things. They take some of the monotony out of our job, instead of repeating ourselves over and over &mdash; especially from one project to another project. Why am I writing this same HTML, head, template, file... it's the exact same 14 websites I just did. How about I just type one command line and bam, I'm already four days into my project.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Done.</dd>
+
+<dt>Jen</dt>
+<dd>Done, right. You were talking about reusability of code the ability to share things among different communities. Share things in more of an open source way, because it's not custom CSS for every website. There are actually different pieces... I could use the word "components," but I don't mean web components. Or web components could come in here. But there are different chunks that people are able to share.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Yeah, the reusability definitely makes it a lot easier. I think the hurdle of getting started is definitely much harder. But once you do, you kind of have it there, right? You have your Gulp file, you have your Grunt file, and it does its thing. That's kind of that. When you feel like it, you might be like, "Let me dig a little bit deeper. Now I can add another process to my build step that does something else."</p>
+
+<p>Also, the thing that comes with our field is, we have to be open to experiment. We have to be aware of what is fad and what is something that we should be pushing for. Usually it takes adopting it and being in it for a bit before being like, "this is actually not worth it," or "this isn't going to add anything to my time," or "this is really valuable and we should continue to make this a part of our process."</p>
+
+<p>I think we're seeing such a big change in the field that a lot of newer ideas are coming out and people are free to experiment. The whole NodeJS... a lot of these tools are in JavaScript. These are JavaScript tools and they definitely are because of this new rise in what's happening. I haven't even had time to play with all of them. There are more post-processing CSS tools and all of these things. I'm just like, "Oh, man. I just need a vacation to play with tools!" [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>You make a good point around experimenting and maybe you hear something cool and you get really passionate about it. You try it for 6 months, you try it on a couple of different projects, and you realize that you hate it and it's a absolutely ridiculously bad idea. That's ok. That's part of how we get better.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Absolutely. But to your point about going to work with clients, our job also is to access those needs of the client and not to say, "I'm going to set you up with this really complicated process because it's hip and it works." If that doesn't work for them, don't do that. Our job is to be aware of everything that is out there and put things together to meet these goals and needs of our clients. You also have to look at, what sort of team do they have to support this?</p>
+
+<p>I was talking to Anthony, he did a workshop at SassConf this year in San Francisco. One of the things that he has to do for his team members, the newer CSS people, is that instead of giving them Sass, because he was noticing that it just wasn't working out. They were trying to write Sass and in the end it was more complicated. It was a burden for them to get work done. He's like, "Here's your CSS file for this component. Just write the CSS and make it work." Then they have someone else on their team and refactors it. I was like, "That's awesome." That's you looking at your team structure and saying, "What's the best and most efficient way that we can get this done?" As he was saying, when they're ready and when they have an interest in refactoring their work, then they can.</p>
+
+<p>I definitely think that we have to watch out and not force all of this stuff on clients. There's the other side to it.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Much like anything, I think the decision of "which JavaScript framework is better?" or "which CMS is better?" or "which front-end framework is better?" or "which kind of server is better?" It always depends. [Laughs] Should you make a, quote unquote, "native app," or should you build a website? Should you make a responsive site or should you make two websites? Desktop-only and a mobile-only? It really depends on the context and people and business structure.</dd>
+
+<dt>Claudia</dt>
+<dd>And to be able to make those informed decisions, you do have to play. We do have to experiment and be comfortable trying things and not be so dogmatic. I've spent a lot of my life mostly as a contractor in the last 10 years so I'm always working on different projects, different teams, different setups. I grew to love that because I would learn different things. But it pretty much means that when people are like, "What are you favorite things?" I'm like, besides the preprocessor that I love, no, emphatically I'm pretty open. In fact, I like it when I get on a new projects and it's new tools because I can form new opinions about it and speak from a place of experience.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Even the difference between the many of us that go from project to project &mdash; whether you're working for one company but that company has a bunch of clients, so they're only on a project for a year or six months or something.</p>
+
+<p>Versus working on a team where &mdash; maybe it's a startup or a big media company &mdash; and you're working on the same web stack, same web project. Maybe you've got several different websites for several different properties, but it's the same group of people, the same sys admins. They're either always going to use Gulp or they're never going to use Gulp. But you work on that for two, three, four, five years... [Laughs]</p>
+
+<p>Even in that context, the answers to these questions are completely different. Are you swooping in, doing something, and taking off? In which case, the answer of which tool is appropriate might be really different than if you're going in and setting up a team that's going to be around for five years.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>And also recognize that in five years you're going to change things and things will change. It's definitely very, very different.</dd>
+
+<aside class="sponsor-break">
+<dt>Jen</dt>
+<dd>
+<p>Let me jump in here with our first sponsor.</p>
+
+<p>I have to tell you, there are a couple of things that make it really hard to be a small business, to be a freelancer, independent person. Just to have agency in your own career and be able to jump around from company to company and make good decisions for yourself. One of those things is accounting. Accounting and taxes... I just, personally, I try not to think about it. I try to do a good job of it, then the rest of the time I try not to think about it.</p>
+
+<p>The other thing is health insurance. Health insurance and doctors and all the paperwork and dealing with all of these old school insurance companies that are trying to rip you off at any opportunity. It's just overwhelming, honestly. Something that creates a lot of fear. Here in the United States, with the health insurance exchange that opened last year, hopefully things are really changing. Things are really getting better and we have a lot more options.</p>
+
+<p>One thing that's been interesting is there are these new insurance companies that have shown up on the scene. One of them is <a href="http://hioscar.com/webahead">Oscar</a>. Oscar is a new kind of health insurance company that is really focused on using technology to guide you to better care. And having really gorgeous, simple, beautiful websites and tools and an app... things to make this crazy process that's so bad, something that is just no bad. [Laughs]</p>
+
+<p>They've designed their whole system with today's technology to make health insurance simpler, more intuitive, and more human. It's the kind of health insurance we want for our families and ourselves.</p>
+
+<p>Oscar is like a doctor in the family, is that they're saying. You have a doctor on call, a board-certified doctor that you can call for free, 24/7. Anytime you want a doctor, you can just call them up, if you have Oscar health insurance. You can use the site and app to keep track of your medical history via a personalized timeline. You can use the site to find doctors in your area and other kinds of healthcare in your area. They have a large network of providers and hospitals in New York and New Jersey, especially large in this area. They make it easy to find doctors. You can search by location, language spoken, hospital affiliation, etc. You don't need a referral to get care. Plans include benefits like free checkups, some free generic drugs, free primary care, doctor visits, and more. You don't have to pay. Some of these plans you have to meet your deductible before anything kicks in. With Oscar, you get your yearly annual checkup, those kinds of things, they're all included no matter which plan you have.</p>
+
+<p>You can get up to $240 a year as a rebate if you meet specific daily walking goals. Every member is given a Misfit wearable device and you track it through the Oscar app. You have these daily goals that are set based on your previous levels of activity. If you meet your goals, you get paid. You get money back.</p>
+
+<p>Go check them out. If you're in the US and you are buying health insurance for yourself or your company, definitely check them out. Definitely check out these new companies, these new opportunities for us to get health insurance right, finally, after all this time.</p>
+
+<p>You can check them out at <a href="http://hioscar.com/webahead/">hioscar.com/webahead</a>. You can also call them on the phone. It drives me crazy to try to understand all of this complexity by reading. Other companies have these horrible websites and it's just like, what the heck is going on? I don't understand. I mean, I'm smart, I understand what's going on, but they're hiding things in small print and just, ugh.</p>
+
+<p>With Oscar you can just call them on the phone and ask them questions. There's a special phone number just for listeners of this show: 1-844-0SCAR55. Of course this information will be in the show notes, so if you can't write it down really fast right now, go look for the show notes for this episode. You can get the phone number, get the URL, call them up.</p>
+
+<p>You want to do it soon. We just passed the December 15th deadline that I've been seeing everywhere. Every time I go to Facebook I see these posts that say, "You must sign up for insurance by December 15th." And, of course, I totally, personally, screwed that up. I didn't sign up by then. But that's not the final deadline. That was the first deadline. The next deadline is January 15th. But if you sign up by January 15th, you'll have insurance starting February 1st. If you sign up by February 15th, your insurance will start March 1st. We actually have until February 15th to sign up. The December deadline was just if you wanted your insurance to start by January 1st.</p>
+
+<p>The other thing here, in the US, we have these deadlines in order to get into the exchange health insurance programs. But you can also sign up if you have &mdash; and I don't have it in front of me &mdash; but go search for this on the web somewhere. There's a thing around a change in your life. if you lose your job or you have Cobra insurance and it ends or if you get married or you change jobs or you move to a different state. These sort of changes in your life, you can sign up for health insurance because you didn't have health insurance because of this change in your life. Even if it's past the January 15th or February 15th deadline, it might still be a great time in your life. You lost your job? You need health insurance. You'll be able to sign up even outside of this regular sign up period.</p>
+
+<p>So check them out. Oscar. <a href="http://hioscar.com/webahead/">hioscar.com/webahead</a>. Thank you so much to them for a) trying to fix the problem with health insurance, and b) sponsoring this show.</p>
+</dd>
+</aside>
+
+<dt>Jen</dt>
+<dd>What are some of the things that you reuse?</p></dd>
+
+<dt>Claudia</dt>
+<dd>From project to project?</dd>
+
+<dt>Jen</dt>
+<dd>Yeah.</dd>
+
+<dt>Claudia</dt>
+<dd>I have my Gulp file that I'll reuse from project to project. Lately, because I've been working with a team and we work with one client at one time, I haven't been jumping around. But for my personal stuff, Gulp setup and I think that's pretty much it right now, honestly. I'll use Bower. That'll stay the same. I'm always bouncing around from different static site generators and testing those out. Right now I'm playing with Node-based static site generators.</dd>
+
+<dt>Jen</dt>
+<dd>There's <a href="http://jekyllrb.com/">Jekyll</a> and there's... what are the other names of them? I forget the Node one that I heard about.</dd>
+
+<dt>Claudia</dt>
+<dd>We are using <a href="http://hatchjs.com/">Hatch.js</a>, which is a Node one. There's <a href="http://wintersmith.io/">Wintersmith</a> and I think <a href="http://ghost.org/">Ghost</a> is another one in Node. There's Jekyll and <a href="http://octopress.org/">Octopress</a> and <a href="">Middleman</a> on the Ruby side of things. There are so many. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, there really are.</dd>
+
+<dt>Claudia</dt>
+<dd>You could make you own.</dd>
+
+<dt>Jen</dt>
+<dd>These names, too, it's so funny.</dd>
+
+<dt>Claudia</dt>
+<dd>Really, for me, it's come down to my build tool file. Which is pretty neat, when you think about it. I guess that plays into directory structures and how I structure things. That makes it a lot easier to take the same build tool with you wherever you go.</dd>
+
+<dt>Jen</dt>
+<dd>Right. When you think about sharing code or sharing chunks with people that you don't know, who you don't work with in the open source world, what kinds of ways do you... like, what are you sharing? Sass? Clearly you guys have made a bunch of Sass projects.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Mostly it's Sass. I'm super fortunate to get to work with Eric Suzanne. Working with him is when I came to believe and come a proponent of everyone making their own toolkit of Sass things that you can take around. So we have one called <a href="http://github.com/oddbird/accoutrement">Accoutrement</a>. It's literally helpers and things that we've been using from project to project. We've just pulled it out. It used to be one big, giant repo, and now we're separating every single little component into it's own thing and it will be available on Bower.</p>
+
+<p>I think that's one of the best things that we can build up. Just building your own reusable library of things that you use. I also think it's ok to depend on other libraries and frameworks if you want to. But at the end of the day, if you look at it, it's nice to have the set that works the way that you want to work.</p>
+
+<p>I know when I started out, I would heavily rely on <a href="http://compass-style.org/">Compass</a> all the time. I still love Chris so much for what he's done, Compass is such an important piece of software, I think, in the adoption of Sass. It really, to me, was one of the first frameworks that came out and said, "Here's what you can do, and here's how you can use this." It was an authoring framework so anyone could release their own tools on top of it, and almost build your own framework on top of it. It's incredibly powerful and it will be great to see how it evolves with LibSass. But it was an example of like, "Wow, I can create a bunch of CSS mix-in utilities." You see a lot more of that.</p>
+
+<p>What I love about people releasing their stuff, finally, in front-end, is it's much easier to learn from someone's Sass file. Since it's built to be a reusable tool. Before, how would you share CSS files before? You'd have one CSS file with all your CSS in it. There was no one you were going to share that with anyone. It's been great to learn and see how people are doing things.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I think back to the days when I was doing Drupal in the mid-2000s. People share a lot of CSS in the Drupal world because they're sharing...</dd>
+
+<dt>Claudia</dt>
+<dd>... modules.</dd>
+
+<dt>Jen</dt>
+<dd>Well, they're sharing modules, but they're also sharing themes.</dd>
+
+<dt>Claudia</dt>
+<dd>That's true.</dd>
+
+<dt>Jen</dt>
+<dd>There's a lot of starter kits. You could reuse other people's CSS but you were reusing their CSS that was targeting Drupal HTML, and targeting the kind of things and structures that Drupal tends to create or Drupal will create, like it or not.</dd>
+
+<dt>Claudia</dt>
+<dd>It wasn't very abstract, it was very specific.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, and it was great, because you could learn a ton about how other people were... it's just funny. It feels like some sort of morphing blob. This year everybody is structuring their Drupal CSS like this. This other year, somebody does a great presentation at Drupal Con and they're like, "This is a better way." And everybody's like, "Yes! That is a better way!" [Laughs] All the Drupal themes that year start taking on a new structure, a new technique. That slowly has just evolved and evolved to the place where they're now putting some pretty complicated structures into core for Drupal 8 that will make it easier to write CSS on top of those things and reuse things. Not have to wrangle so much with what's there.</dd>
+
+<dt>Claudia</dt>
+<dd>I think the interesting shift will also be with web components and how that works. Now all of a sudden we're sharing these complete packages of functionality. You can almost think about plugins, like jQuery plugins, as an early version of that. We were sharing specific HTML that you would need, and your CSS and JS files. But now it's this whole other level web components is going to usher in. I'm super excited for web components. Very, very, very early though.</dd>
+
+<dt>Jen</dt>
+<dd>A lot of it's GitHub, right? A lot of it was, "Hey, now we can put our stuff..." Where something like WordPress, you could easily share code 10 years ago because you could go to <a href="http://wordpress.org/">wordpress.org</a> and find code. And Drupal was sharing a lot of code because you'd go to <a href="http://drupal.org/">drupal.org</a> and find the code.</dd>
+
+<dt>Claudia</dt>
+<dd>They were in these ecosystems.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, but, like, where would you just find good HTML? [Both laugh] There wasn't, like, goodhtml.org.</dd>
+
+<dt>Claudia</dt>
+<dd>No, you're like, "I think the person who built this website is a trusted person. Print." When I started, there was no inspect element. I was printing out HTML and CSS and analyzing it and trying to understand. That's how I learned.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah! For anybody who's listening who's never done this, you right click on a menu and you go to view source. And you can't even do that... is it in Safari, there is no view source anymore? It's in one of the browsers that I have open while I'm working. I go to view source and there's no view source, I have to go, "Let me go back to Firefox and I can view source in Firefox." It's got these web inspectors, but just to get a page, just opens completely separately from the webpage you're looking at. There's the code, all in one document. Yes, you could print if you wanted to. [Claudia laughs] It's not even code highlighted or anything, it's not color coded, it's just black and white text on a text document basically.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>GitHub is amazing. I was doing a bunch of research for my talk out at <a href="http://cssconf.com/">CSSConf</a> Oakland and I didn't realize, git came out in 2005. 2005 was also a really big shift in development. That's about 10 years in. The year before, we had a major push of web frameworks. Ruby on Rails came out in 2004 and Django came out. Then we started the push with new JavaScript frameworks; <a href="http://prototypejs.org/">Prototype</a>, <a href="http://dojotoolkit.org/">Dojo</a>, <a href="http://mootools.net/">MooTools</a>, <a href="http://jquery.com/">jQuery</a> is all 2005-2006. There was an early one in 2004. And git came out in 2005. That's new. I really do believe that changed a lot, because that also made it a lot easier to collaborate and analyze.</p>
+
+<p>I remember when I started a new job, they'd be like, "Time to get the SVN repo." And you'd be like, "Great. I'm downloading this." Great, I'm getting paid. Because if you're going to use SVN... [laughs] You're downloading years and years and years of code. Oh my gosh.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>SVN was so painful.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>I know wholeheartedly we would have created something. I just feel like that's how the industry goes. You would have realized that what we need doesn't exist. That's also why preprocessors and these JavaScript frameworks came out. Just this recognition of, we can't keep working this way.</p>
+
+<p>But definitely git. Then GitHub, that was, like, "This is amazing. But let's make this a lot easier for people to use and the work that they've been putting in to make this collaborative tool better." It's impressive to watch them.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It's interesting, too. I think of these arches. 1990 to '95 was just, "Let's invent the web." [Both laugh]</p>
+
+<p>'95 to '99 was, "I'm going to learn how to use HTML and I'm going to learn how to hack it. I'm going to have two websites, one for Internet Explorer and a difference website for Netscape. I'm going to wrangle with Dreamweaver and I'm going to get Dreamweaver write JavaScript for me and try to do some image slicing and some tables." Just. ugh.</p>
+
+<p>There were a few sites in there that started building their own custom server-side applications. You started to have things like <a href="http://amazon.com/">amazon.com</a> show up. But there were very few people who were working on teams that big with budgets that big.</p>
+
+<p>The nWeb 2.0, the year 2000. There was another from 2000-2004.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>The web standards push, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>The web standards push. Let's get rid of tables, let's use CSS only. We've got to learn CSS. The simultaneously it was CMS'. WordPress, Drupal, 17 other ones. ExpressionEngine.</dd>
+
+<dt>Claudia</dt>
+<dd>The blogging stuff that came out.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p><a href="http://blogger.com/">Blogger.com</a> was huge. It was a big deal to create your own website with a database and you could log in and enter content and you could style it using CSS by creating your own template. That was a huge shift. It took years  for us to wrap our heads around it.</p>
+
+<p>Meanwhile, HTML and CSS froze in place. It just took us years to figure out how to use the HTML and CSS that we had. JavaScript was like, "Don't use JavaScript, it's painful, no JavaScript." [Claudia laughs] Then jQuery came along, it was like, "It's safe to use JavaScript."</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>"It's fun now, great."</dd>
+
+<dt>Jen</dt>
+<dd>Git finally came along. We got really bored. I feel like there was a moment where we started to get really bored with CMS' and they didn't innovate for a little while. But then HTML5 came along and responsive web design. We had this explosion on the web standards side after many years of nothing. But then simultaneously, we still have had an explosion. Maybe I'm wrong. But it feels like there's not been an explosion on the server-side but there's this huge explosion on the client-side with JavaScript and this front-end tooling.</dd>
+
+<dt>Claudia</dt>
+<dd>It's almost the shift of, we can start to do this on the client end and what does this mean if we're moving a lot of stuff to the client side instead of the server.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think about a lot of the things like local storage. A lot of the power that happens on the server, if you're running a server-side application, suddenly is on the client side as well. You've got databases on the server that invented Web 2.0. Look, now we've got databases on the client side. We had real time but real time only could go through a server and it wasn't actually real time, it was wit ha delay. But now you can actually do peer-to-peer real time stuff on the web using WebRTC. That's kind of what this whole podcast is about [laughs] is digging into all of those different technologies. But there is a bigger... it's part of why I think a lot of people are feeling overwhelmed. Everything advancing on several fronts at the same time. It's advancing on the front-end development tool stack. What does it even mean to be a front-end developer?</dd>
+
+<dt>Claudia</dt>
+<dd>Right. What part of front-end development are you? And you're like, "Wait a minute. I just meant that I did HTML, CSS, and some JS." Now it's like, front-end engineer. If I hear front-end engineer I believe that you are definitely doing a lot more JavaScript stuff. In fact, you're probably very much focused on that. We have front-end dev ops and what that actually means.</dd>
+
+<dt>Jen</dt>
+<dd>front-end dev ops? Holy moly. What the heck is that?</dd>
+
+<dt>Claudia</dt>
+<dd>They do all the performance. Alex Sexton, who I got to meet this weekend too, is really sweet. This was his term that he coined, which is really the performance and monitoring end of your applications. This rise of tooling and basically things that we would see on the server.</dd>
+
+<dt>Jen</dt>
+<dd>Smashing your images down, increasingly using SVG. Smashing your CSS into smaller files.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, and being able to understand what is affecting your performance and how these things are affecting your performance. What's the best way to bundle and require all of your JavaScript things?</dd>
+
+<dt>Jen</dt>
+<dd>And having some of that be automated so you can keep deploying, deploying, deploying.</dd>
+
+<dt>Claudia</dt>
+<dd>The bulk of it is setting it up for automation.</dd>
+
+<dt>Jen</dt>
+<dd>Without having something that people are doing manually and suddenly you're breaking your website because you're not able to continually do it manually with a high enough sense of quality.</dd>
+
+<dt>Claudia</dt>
+<dd>There are a couple of things that happen on back-end, server-side stuff. Like <a href="http://chef.io/">Chef</a>, <a href="http://puppetlabs.com/">Puppet</a>, <a href="http://jenkins-ci.org/">Jenkins</a>, and this idea of continuous integration and being able to spin up servers with all your setup a lot easier. That was really the push. That's still existing but it's also shifting into the front-end because of this push to do more on the client.</dd>
+
+<dt>Jen</dt>
+<dd>That's true. Like, Amazon Web Services. You just click a button, boom, you've got a web server. Now, Bower, click a button, you've got a website half built.</dd>
+
+<dt>Claudia</dt>
+<dd>[Laughs] If you set it up, yes.</dd>
+
+<dt>Jen</dt>
+<dd>2% built. [Both laugh]</dd>
+
+<dt>Claudia</dt>
+<dd>First install the package manager... to install the package manager...</dd>
+
+<dt>Jen</dt>
+<dd>No, you've got to first install Ruby. [Both laugh] But before you can install Ruby, you have to learn what the command line is.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, and that happened. Node, command line, NPM. Pretty much you get NPM and Node on your machine and you can get all of the rest of the things. I remember that was the debate for awhile. Should front-end people be on the command line? We're going to make the compile GUIs and tools and now it's just like, use the command line.</dd>
+
+<aside class="sponsor-break">
+<dt>Jen</dt>
+<dd>
+<p>Alright, I've got to jump in here with another sponsor.</p>
+
+<p><a href="http://mandrill.com/">Mandrill</a>. Mandrill is a scalable, reliable, and secure email infrastructure service. It started out as an idea in 2010 and became a reality in 2012 when it was created out of a crew from MailChimp's best engineers. Mandrill is now the largest email-as-a-service platform on the market with more than 300,000 active customers. You can use Mandrill to send automated one-to-one email, like password resets, welcome messages, marketing emails, and customized newsletters. It's quick to use, easy to set up, and ridiculously stable. It's made for developers, who love documentation, integrations, high delivery rates, web hooks, and analytics. You've got to be comfortable with code and APIs to use it, so if you aren't, then find somebody who is and that will get you started. It comes with a beautiful interface, flexible template options, custom tagging, advanced tracking and reports. Mandrill is the only email infrastructure service with a mobile app that lets you monitor delivery and troubleshoot from wherever you are. It's powerful, scalable, and affordable. Mandrill, MailChimp quality email stuff for your application, for customized emails. Go sign up at <a href="http://mandrill.com/">mandrill.com</a> with the promo code 5by5 and you'll get 50,000 free emails per month for your first six months of service. Thanks to Mandrill for supporting 5by5 and The Web Ahead.</p>
+</dd>
+</aside>
+
+<dt>Jen</dt>
+<dd>I should have asked this 20 minutes ago, but for the people who don't know &mdash; we've been throwing around Gulp, Grunt, Broccoli, Bower, without defining any of them. I'm wondering if you can do a quick, what the heck are those? What does each tool do? Or all of them. If somebody's interested in these tools and they're ready to learn them but they haven't had a chance to use them yet, they're not using them at work yet. They are interested in, intrigued by the optimizations and they want to get a job where you have to know these things. What do they do and where could a person start?</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>I group Gulp, Grunt, and Broccoli under the "build tools," which are tools that help us automate build processes. From anywhere to compiling your languages down &mdash; compiling Sass to CSS, CoffeeScript to JS, or rendering, pre-compiling templates, depending on what you're doing. To minifying images, gzipping content, all of that stuff. Build tools are the automation. All the things that you know you need to do, taking care of and set up.</p>
+
+<p>NPM and Bower are package managers. They're ways of getting these reusable, sharable chunks of code. <a href="http://www.stubbornella.org/">Nicole Sullivan</a> wrote a really interesting piece about moving everything to NPM, including front-end stuff. For awhile, and still continuously, Bower, to me, feels like the front-end package manager. That's where you're getting more reusable JavaScript things and Sass libraries.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>When you say package manager, you mean, open the command line. Type some stuff. Those things that are out there in the universe will appear on your computer and be in the right place so you can use them.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>They each have their own conventions. Bower and NPM will install it into a folder called bower-components or node-modules. Instead of just going and downloading the files directly, you can say, <code>npm install bootstrap</code> or <code>bower install bootstrap</code> and you'll get all of the files.</p>
+
+<p>I think the really cool thing that you can do is you can actually use an endpoint of a GitHub repo. You can just say, pull this code from this GitHub repo. Which is really, really neat.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What's the advantage, compared to, say, just go to GitHub and click the download button?</dd>
+
+<dt>Claudia</dt>
+<dd>It's the ability to list your dependencies. All of these come with a file that lists that dependencies are required. You can say, this is required as a development dependency. Which means that I only need it when I'm developing. I don't need to send all of this extra stuff to my server for production. Or this dependency is a tool that is required to run my application. The idea now being that if someone wants to go set up your site, it's a lot easier where you can just run <code>npm install</code> and everything that's listed there will install where it needs to go.</dd>
+
+<dt>Jen</dt>
+<dd>So if you did something like, "I want to install Compass." It would be like, "That's nice. You need to install Sass first." That's a very simplistic piece of it, but a little bit of that. The things will actually run because you'd got all of the parts.</dd>
+
+<dt>Claudia</dt>
+<dd>It's a list of all your requirements and what you need, in an easy way to get them and share them. For front-end, you'll see a lot of the CSS and Sass framework releases. You can download them by Bower or NPM. We'll usually do both. You can still go and <code>git clone</code> if you wanted to. But, again, if you <code>git clone</code> and that thing is required and it's not listed anywhere. Jen's like, "Claudia, here's my site!" And I'm running it and I'm like, "I can't do this, where are your dependencies?" It's much easier for share-ability.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It's just this debate. I want to use these tools, I don't know what they are, I have to go read this thing and this other thing and there's four different tools and they all do the same thing so I have to figure out which one it is that I really want, which then gets into a religious debate. People are talking about how awesome their thing is. I just want to download the one thing, why is it so hard?</p>
+
+<p>So that's the downside. But the thing that tools like this are giving you is, on the flip side, if you're installing them, it's going to find problems for you. It's going to say, "That version of Compass doesn't run with this version of Sass," or "you gave me your whole thing including your Bower file and I run the Bower file and bam, it just goes and does all of this stuff." You can walk away from your computer, get a cup of coffee, and come back and you're not even sure what happened. You just know that it works.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>And you have all of the dependencies where you need them.</dd>
+
+<dt>Jen</dt>
+<dd>Instead of not having the dependencies and being like, "How come this is broken?" And spending all day hunting down all the different pieces.</dd>
+
+<dt>Claudia</dt>
+<dd>Absolutely. It always existed in back-end development. A Bower file to me is not any different from your Ruby gems file, the things that are required to run this application. It was always there, we just didn't have that in front-end. We didn't think that way. That's a big shift, but I think that mentality and alignment of, we're all realizing this is the best way to manage and deal with these complexities, is great. While not getting rid of the simple way to do things. It's still there. By all means, definitely. I happen to work on much larger applications at all points in time, so these tools really help manage the complexity of what's there.</dd>
+
+<dt>Jen</dt>
+<dd>If someone figures out what a package is, which one they want, how to use them all, and then they also figure out all of these different build tools, which ones they want... [Claudia laughs] what they do, what they're supposed to do with them. Like, "Yes, you should smush your images," or "you should gzip." You are going to use Sass, so you need to run.. and you're not going to use Compass but you are going to use something else. So here's the build tools that are all set up properly.</dd>
+
+<dt>Claudia</dt>
+<dd>Once you're done wading through all of that... then you can start your website. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>Then you can do a "hello world" page. [Both laugh] What other kinds of tools are there, in this crazy scheme that you have going?</dd>
+
+<dt>Claudia</dt>
+<dd>What other things are we using? Hmm.</dd>
+
+<dt>Jen</dt>
+<dd>Are there any?</dd>
+
+<dt>Claudia</dt>
+<dd>I think we've mostly covered...</dd>
+
+<dt>Jen</dt>
+<dd>So package tool and build tools. That's not so hard.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Preprocessors and HTML templating language. There you go. That' your whole new front-end development now. [Laughs]</p>
+
+<p>It's definitely a little bit of a hurdle. Like you said, you start digging into it and you're like, "Why this one over the other?" And oh my gosh, you'll never get anywhere.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>And when do you use both? Or when do you use only one?</dd>
+
+<dt>Claudia</dt>
+<dd>I've not experimented with the combining of both. I don't have enough of a knowledge of what does what better. We were using Grunt and then one day I felt like everyone was talking about Gulp and we moved over to Gulp. Having set up both a Grunt file and a Gulp file, for me, the Gulp file was much easier to understand what was going on. But Grunt's also more mature. I recently saw an article by, I don't remember his name, and he was like, "We're going to adopt some things from Gulp and put them in Grunt." Understanding the intricacies of every single one of those, I would love to. Again, it comes down to, "Do I need to understand the intricacies? Or, for my purposes, what am I using it for?" It suffices wonderful.</dd>
+
+<dt>Jen</dt>
+<dd>Right. Do I need to ship this website for this client?</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, exactly. front-end people, I think you're fine just picking one. You can start talking to other people and figuring out how they use it and how they're combining with other ones. I would love to talk to and understand people who are using Broccoli and explain why it is that you decide to use Broccoli.</dd>
+
+<dt>Jen</dt>
+<dd>Because the name sounds funny? [Claudia laughs] Because it's weird to talk about code and broccoli at the same time?</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, because it doesn't start with a "g"? Because now there's Gobble. So there's Gulp, Gobble, and Broccoli.</dd>
+
+<dt>Jen</dt>
+<dd>Gulp, Grunt... those are like, you know, fart. [Both laugh] Like, these are funny names of sounds you can make.</dd>
+
+<dt>Claudia</dt>
+<dd>I was going to say, cabbage next.</dd>
+
+<dt>Jen</dt>
+<dd>Cobbler pie. Peach cobbler pie. [Both laugh]</dd>
+
+<dt>Claudia</dt>
+<dd>We tell people when they're starting with Sass, "It's ok just to do one thing. It's ok just to do variables. It's ok only if you do variables. It's ok only if you do nesting." Do what you need to do to get started and that's great.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Here's a little debate we could have. When is it better... let me know if I can articulate this in a way that doesn't make me sound stupid. It's ok if I sound stupid.</p>
+
+<p>It feels like there's a choice between... you, me, and Eric are working on a project. We each have all of these files. All of the files go into the git repo. But the only thing we're putting in the git repo are the files that have not been processed yet, the .scss files. Or if we're using a HTML HAML or something, it's the HAML file, not the HTML file. Anytime that somebody wants to actually look at the website that we're building, whether you're working locally or you have a development server someplace, there are robots on my local server or on my local machine working only to create files that can be displayed locally on the local server. We push all these raw files up to the dev server, and the dev server runs these scripts, does the build tool process, and actually creates the real CSS and the real HTML. Then we have a test server and we have a QA server and we have a production server. We have multiple servers for multiple branches or whatever. Each of those separate server is going to go ahead and do a build process. Versus the other way to do it, which is...</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>... commit everything to the repo.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Commit everything to the repo. So that I'm working locally, I'm writing code, writing Sass, blah blah blah. But meanwhile, I have a tool running that's not just running it to display on my local server, but is actually running to have that code be in the repo. I'll commit the Sass and CSS into the repo, then I'll push that to the production server.</p>
+
+<p>The production server does not need to run Sass. It does not need to have Ruby on it. There is no build process happening on a remote server anywhere, or more likely, on five separate servers, five separate times. But these things are happening once. There's a little more potential for merge conflicts, I guess. But basically we're merging CSS and HTML together, we're pushing that up to the production server. The production server doesn't need to know anything about the toolsets that were using.</p>
+
+<p>Which way to you tend to do it? Which way do you like to do it? Which way do you think about the debates that might happen on teams about which way to set things up?</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>At Odd Bird we actually compile everything and push everything up. Yes, we do have conflicts. The way that i solve those, whenever I'm like, "Oh, conflict in the compile thing." I just get rid of it, delete it, and then recompile. It's always slightly aggravating, primarily because I came from an environment where there was no committing generated files. That will happen on the server.</p>
+
+<p>The advantage to that is that you're not dealing with a bunch of merge conflicts. But the downside is you can forget, at least for Sass, you can forget about reviewing your CSS file. You need to review your CSS file. Because sometimes you might extend something that you didn't mean to do, and have tons of garbage CSS. You can't neglect the CSS file.</p>
+
+<p>I do like the fact that we're committing it and it's there and I can see it. When we do our PR reviews, I go through the CSS file and see what's changed. The downside to that is the slight annoying merge conflicts. But we resolve it. Basically, our setup is run <code>gulp watch</code>. That command is compiling and watching for changes in templates and Sass. It's also doing SVG sprites for us. It looks for changes in our SVG folder of images and sprites that together. Johnny's awesome and he set things up. It also runs our linter, so a bunch of sub-commands are running underneath it.</p>
+
+<p>We go the compile-and-push-everything-up way. So far it's ok. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's what I do, personally. For some unspecific reason it feels more pure. If I were to use templating for HTML, I don't want to push HAML files. I want to push HTML files, CSS files. It also means i don't have to know how to set up Gulp on the remote server.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, the other complication, if you're going to push things and have them compile on your server, and make sure that things compile correctly and it looks ok.</dd>
+
+<dt>Jen</dt>
+<dd>Then Gulp keeps running on the remote server. What happens if it gets turned off? Then you're pushing all of these files and nothing's happening.</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah, at that point you need someone else to run that end of things. I push everything. When you work in Middleman, Middleman generates it for you, so you don't actually see your CSS file. When you run <code>middleman build</code>, it outputs the CSS file. But when you're running <code>middleman server</code> and just working on it, it compiles everything for you. It's ok but, again, sometimes you have to go back and look at your original file.</dd>
+
+<dt>Jen</dt>
+<dd>In case somebody's curious, I'm not actually using any of these &mdash; Gulp, Grunt, Broccoli. I'm using CodeKit. CodeKit basically is a build tool that's doing of these things. It runs my Sass, it runs this, it runs that. I just prefer having a GUI rather than having a command line.</dd>
+
+<dt>Claudia</dt>
+<dd>Absolutely. I think CodeKit's great. They've sponsored stuff for SassConf, too, which is awesome. It's totally fine to use these tools. Again, we should not have these "isms," if you meet someone using a GUI and being like, "Ugh, you're not using the command line." Suddenly you're less of a developer. Please. Stop. The only reason I don't run a GUI is because I don't like to have tons of applications running, so I try to minimize the amount of applications. If I do a command + tab, I don't see a bunch of things. I get really, "Oh my gosh, too many apps."</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Honestly, for me, it feels like the choice between using a command line and using a GUI program &mdash; of any kind, the same thing with git. I'm sure I've talked about this issue on other shows when we talked about Sass and git. It feels like there are different ways for any of us to be working; which mental model you're in. Which kind of half-human, half-robot person did you wake up being today? [Both laugh]</p>
+
+<p>I frequently design in the browser, and I'm writing CSS, I'm writing code, but I'm in a design-thinking mode. I want to have as little ode overhead as possible. I don't want to have to remember that Jekyll is spelled j-e-k-y-l-l. I'm not in a verbal mode. I'm in a, "I'm drawing a box, and look, it's red! And I want to clickity-click-click-click." I want a whole bunch of windows. I want to just &mdash; whatever the keyboard command is &mdash; to make all the windows zip and, like, you pop out and there are all these windows and you pop back in and you're in the right window. I'm in such a visual mode that I'm not thinking in language. So the command line really slows me down when I'm in that mode. There are times when I'm purely a front-end developer or purely a Drupal developer and, in that case, I don't care nearly as much and the command line is fine.</p>
+
+<p>It's just interesting. I don't trust myself to do git correctly on a command line, when I've dumped all of the technical typing stuff out of my brain in order to make space for a design way of thinking. It's part of why I like the idea of not having everything compiled on the server. To have things compiled locally. Then we can all use different tools; it doesn't matter. I don't need to run Grunt because I don't need to double check whether or not Grunt is going to work because Grunt is handling it on the server. I'm going to compile it however I want to compile it. It's either going to work &mdash; the compiled file &mdash; or it's not going to work. I'm going to see, locally, whether for not it works, and I'm going to push the compiled file. If I'm using CodeKit and you're using Grunt and someone else is using Broccoli and ham and cheese sandwiches... [both laugh] we'll be fine because the compiled file is aways the one that matters. No one really cares how you got there.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>I was just thinking that actually we would never be able to do that. You would be forced into Gulp because of our tests. All of our tests are running, checking our templates. Once you start adding testing to things, sometimes you can't break things out.</dd>
+
+<dt>Jen</dt>
+<dd>If I were to suddenly work with you all on something, I'd be like, "Ok. You've got to teach me."</dd>
+
+<dt>Claudia</dt>
+<dd>Yup. But on you're own, you're like, "This is what works for me, and this is great." I mean, I really like the GitHub GUIs. I just don't use them because when I started, that was one of the main things that pushed me into command line. Git and also Sass when I was working on it in 2009. I just stayed there. But I think the visual tools, are really powerful. Especially for understanding how version control works and what it really means when you're branching these things off and merging everything in. I think it's super great to have a a visual.</dd>
+
+<dt>Jen</dt>
+<dd>I love Git Tower.</dd>
+
+<dt>Claudia</dt>
+<dd>Git Tower, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>And I love the way it prevents you from doing stupid things. Which means I can take more risks when I'm not really sure. I don't know what I'm supposed to do. I'll just click on these random buttons. Oh, yeah, that was not it. Good thing it prevented me from doing that. [Both laugh]</dd>
+
+<dt>Claudia</dt>
+<dd>Versus, you could type a commend line and you're like, "What did I just do?"</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Let me erase the last 27 commits that everyone made. Like, delete them forever. [Claudia groans]</p>
+
+<p>That's how I learned git. Using Tower and GitHub. I would clickity-click locally and I would be like, "What did I do?" And I'd go to GitHub and be like, "I'm looking at the graphs. Yeah, that's not what I meant to do." [Both laugh] I'd go back to the local thing and be like, "I was trying to merge my branch. But instead I didn't merge my branch into the main... oh, I pulled the main into my branch. Ok, wait, let me go back." Because there's such a beautiful graph. The graphs on GitHub are so beautiful.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>We're visual people, too, at the end of the day. It's funny because front-end is the visual language on the web. It's what you see. All of this stuff is the... you don't see this stuff anywhere, you don't know what's going on.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>I think the truth is, the reason the command line is challenging, is not because it's hard to use. I mean, it's a line of text, you type, you hit return, it talks back to you. You could not have a more simple interface on a computer.</p>
+
+<p>The thing that's tough about it, is that the mental model is completely invisible. You have to know how to think through what you're doing. You have to know, "I need to pull and then merge, and then push." If you've got a little picture with icons that shows you. It's an arrow that's pointing towards you and an arrow that's pointing away from you, it's a little clue about what the mental model is.</p>
+
+<p>With a command line, not only do you not have any pictures of arrows, but there's no words. You're just like, "What was that word? Fetch? Morph? Merge! It's merge. Ok. What was that other word?" [Both laugh]</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>"What branch am I on? Am I on the right branch? Am I merging the right branch?"</dd>
+
+<dt>Jen</dt>
+<dd>Right. You have to get the right mental model from somewhere else. That's where computer nerds can be really nerdy, because it's like, "I'm so cool and so hot because I already know all of this stuff and I don't even have to think about it. My fingers just type the words without me even thinking about the letters." It's cool when you get to that level, but it can be hard to get there.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>As we've been talking about, not everyone needs to be there. We need to have these other options. We need to be respectful of them. It's different when you're on teams and bringing people in. That's why I love Anthony realizing the best things that he can do for his teams. I hope that people do that. Because it is intimidating.</p>
+
+<p>Even though people are paying these prices to go to these programs, how much can you really learn in these programs? How much are you really getting? You've just got to be comfortable that you're never going to know everything.</p>
+
+<p>That goes both ways, for those that believe they know everything. Like, no, you don't. If you do, then your job is to teach and educate. I know it can get hard and tiring, but that's how you push people through.</p>
+
+<p>Also, just accept, like you're saying. No, I don't want to work in command line for git, because it means that I'm not able to understand how this tool is so powerful and can help me with what I'm doing. Rather, people being like, "I get the tool and it's awesome." Great, use it how you need to. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I think it's hard for people who are new, who feel like, "I don't know these things and I want to pretend that i do because I want the job. They hired me, they're paying me money. I went to school and I was learning and now I'm at the job. Aren't I supposed to be not learning? I'm supposed to be worth the money I'm getting, I'm supposed to know what I'm going already."</dd>
+
+<dt>Claudia</dt>
+<dd>I'll never not be learning. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I think, in this industry, anybody who's been around for awhile knows this. Maybe you've totally mastered Grunt, and it's the best thing. You know it better than anybody. You walk into a shop where you need to know Broccoli. You're going to learn Broccoli faster because you know Grunt, but you don't know Broccoli. If somebody else does, now you're the person who doesn't know the thing. Or next year all of those are going to be passé. There will be something else.</dd>
+
+<dt>Claudia</dt>
+<dd>[Laughs] What's out prediction for these things? What's staying, what's going away? Who knows. Or maybe they'll start getting baked into tools more, where they become a part of it and you don't have to worry about having these separate processes. It's exciting. It's also, just, as you're saying, "Woooah. What happened?" [Laughs]</dd>
+
+<aside class="sponsor-break">
+<dt>Jen</dt>
+<dd>
+<p>Ok, let me jump in here with our final sponsor.</p>
+
+<p><a href="http://gotoassist.com/">Citrix GoToAssist</a>. Managing your company's IT support needs can be challenging, especially when you have remote or mobile employees. You have to handle urgent tech support requests quickly to maintain productivity, making sure your network security is never compromised. That's why Citrix GoToAssist is the number one market leader in remote support An easy-to-use, cloud-based, remote support solution, Citrix GoToAssist allows you and your team to solve problems faster than ever. The GoToAssist remote support lets you provide live and unattended remote support to any computer or mobile device. You can also screen share to diagnose and fix support problems, faster and more effectively. There are even GoToAssist apps to make it easy to deliver support, anytime, anywhere. GoToAssist is easy to use and sets up in less than a minute, whether you're supporting one coworker, 10 employees, or even a thousand. You can go sign up today for a 30-day free trial. No contract, no credit card needed. Visit <a href="http://gotoassist.com/">gotoassist.com</a> and click the "Try it free now" button. Go visit <a href="http://gotoassist.com/">gotoassist.com</a> and get started today. Once again, <a href="http://gotoassist.com/">gotoassist.com</a>. Start managing your company's IT support team more efficiently, today.</p>
+</dd>
+</aside>
+
+<dt>Jen</dt>
+<dd>
+<p>Back to people feeling like they don't know. I learned CSS in 2002, 2003, 2004. I don't think I started in 2001. But somewhere in there, early 2000s. I struggled and struggled and read blog posts and struggled and struggled. I finally went and found books.</p>
+
+<p>Before then, I used books to learn HTML, but it was sort of generic, books that were written from on high. They just came out of the sky and landed.</p>
+
+<p>Whereas the books that I read on CSS were very much from the point of view of a human being. I was like, "There's a human that wrote this book. Wait, who is that? It's Dan Cederholm," or "it's Eric Meyer." There were several different books. You start to learn, "I should pay attention to who these people are."</p>
+
+<p>I go to conferences these days and here are my heroes. Absolute heroes that I just look up to. How in the world is it even possible that I'm speaking on the same stage as this person who knew everything when I knew nothing?</p>
+
+<p>They're like, "Oh my gosh, I don't know what's going on, I haven't kept up with any of it. I don't know how I can even stand up on stage in public and tell people I know anything." Because it's this stuff. It's this stuff that you and I have been talking about in this episode. "I don't know git and I don't know Sass. I know that they exist, but I don't use them and I don't necessarily want to. What's this Grunt and Gulp and Broccoli?" You can just tell, people are saying, "I'll never use those!" They feel more ashamed than anybody about not knowing the tools. It's like, "But you're the one that invented CSS!" [Both laugh] You're the one that we all should be paying homage to! We would be nowhere without you!</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>You can see that when the preprocessors came out and a lot of the, as you're saying, these wonderful people that paved the path for caring about your CSS and that I devoured their books. I mean, Transcending CSS is probably one of my favorites and I still have it, all marked up.</p>
+
+<p>There was this adamant rejection that was just like, "No." It's hard and it's actually not an unknown. Sociologists will remark on this. Usually the biggest proponents of people that paved that path, when something new is coming, they're the last line of resistance. It can be hard. Maybe it's that resistance of not wanting to feel stupid and ashamed. Are people still going to look up to them? It's equally as humbling to be like, "I don't know. Let's learn together. I'm actually not using that yet but I would love for you to teach me and teach me these benefits of it." That humility. It's one of these things on the web. You can set the course and then all of a sudden you are... obsolete. [Both laugh] You're still respected, you're still there, but it's different now. It's so different.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>One of the things that I really love about the community of web people is that feeling of, "Hey, we're all in this together. We're all just learning. I wrote this blog post because I just learned this thing." Rather than just learn it and walk around like I'm such hot stuff, I wrote a blog post and now I'm going to teach you. That's how the culture of this space has been for the last 20 years and hopefully will continue to be that way.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Absolutely. I think that's one of the best things about this and why I'm such a proponent of people learning to code. Not just so you know how to make a website. The power of being able to put your ideas out there, on a HTML and CSS page, that's incredible. That someone could stumble upon it if they want to.</p>
+
+<p>It's the way that we work together. When we are respectful... granted, there are many incidents in our community of disrespect and things that we do not want to be saying. We still have a lot to learn. Going back to it, this participatory environment of "I wrote this and here's what I did," and someone can comment on it and help you out and make it better. This idea of sharing and wanting to share our knowledge so we can get better.</p>
+
+<p>I've not really seen this in other places. A lot of my really close friends are not in tech, a lot of them are actually in academia and science. Even talking about the things that are happening and changes in science. Whereas before, if you got a null hypothesis in science, you wouldn't want to say anything. But you'd have all these other teams going down the line, taking money doing research, and you're watching them, like, "That's going to end up with nothing." This shame of not wanting to share. Now they're starting to realize, "We shouldn't be doing this. We need to share things even if it means that they weren't what we wanted and it wasn't what we got." I think there's so much value in how to work together and participate, that comes from tech, that you don't see in other industries.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It's true. I was in the non-profit arts world and then I was in theater. Theater's very collaborative.</dd>
+
+<dt>Claudia</dt>
+<dd>Theater is very collaborative, yeah.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>In part because the money is so low. If money is a priority, then you're not in theater. [Claudia laughs] Money doesn't really muck it up, because there is none. But then I worked my way into film. I was very interested in film; I went to film school. After film school it was like, "Do I really try to make a career of this?"</p>
+
+<p>Some of my colleagues in school went off to L.A. and they're really trying to make it happen. I didn't do that. Part of the reason I didn't do that wasn't because I don't love film but because I didn't love the culture of the film world. There's a certain way in which people were very... pretentious and competitive and backstab-y. It was hard to be passionate about that. Like, I was very passionate about being part of the theater community. I didn't find that kind of film community in the same way.</p>
+
+<p>Granted, most of my experience as in the context of school. Teaching undergrads and being a graduate student, which is very different from the real, professional industry. But I could just tell, I can't have fun in this space. I can't deal with this.</p>
+
+<p>And also, it was becoming a dinosaur very quickly. People were romanticizing film when digital was clearly taking over and I found myself explaining to people why digital was important. I'm like, "I've just got to get out of there."</p>
+
+<p>I feel like that's what the web is. In a way, I feel like the web world took a lot of the energy and culture that in the 60s or 70s was in visual art or poetry or performance art or theater. This sort of DIY, do-it-yourself, creative energy. It just has evolved and evolved and evolved. A lot of people are like, "I don't want to be part of the non-profit scene." Because there's no money and there's this sort of intentional poverty situation and manipulation of workers that's really hard to deal with, beyond age 26 or something. [Both laugh]</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Once you have to survive. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Yeah, once you actually need a house to live in.</p>
+
+<p>And the music industry. It used to be such an exciting place, to be really creative and do something amazing. Now it feels like the music industry is just...</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>They killed creativity in a way. It's like, "Oh, you want to make a hit? Here's your formula. Here's what you have to do." Boom, boom, boom. Done. "Oh, you want to be creative on your own? Great. We're going to shun you. Go do your own thing, good luck."</dd>
+
+<dt>Jen</dt>
+<dd>I think a lot of people who would have, in a generation or two generations before us, would have been in one of these other industries, all that energy, everybody went over to the web. Because there are business models that work and there is money to be made. Apart from the money, there's all this freedom and energy and excitement and willingness to share.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>I think it's super telling, because you can see a lot of people in this field. You're like, "Where did you come from?" Eric came from experimental theater, as well. Johnny came from philosophy and religion. [Laughs] Everyone's come from somewhere else that's not web and that's really neat. Then they can take it back to where to go, if they want to. Or doing web and still being able to do non-profit stuff because they can still have an "in" on that.</p>
+
+<p>I'm really curious to see where the next things go. Because obviously tech in steeped into all of our lives. But how can our culture take a step beyond into other areas?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>I tweeted the other day that I miss the punk rock days of the web. I think I meant by that, that I miss that feeling of, "I don't know what we're doing! Just open up a text document! Let's make something!" I hope it's just me being pessimistic, but I fear that it's a real thing that's happening. The money people showed up. The people who were investing in Wall Street real estate who crashed the market in 2008 are looking for new places to shove their money and crash a market, so they're coming to the tech world.</p>
+
+<p>Everybody and their brother is like, "What's the solution to solving our economic problems globally?" It's to teach everyone, ever to code. [Laughs] The entire country. Everyone's going to be a web developer or app developer.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>We can pretty much assume that we're wrong. Let's just start accepting that we're probably wrong when we talk about what we think might solve problems.</dd>
+
+<dt>Jen</dt>
+<dd>Let's get every taxi driver to be a tech industry person. It just feels like, somehow, it's no longer our little space of awesomeness. It should be part of the larger economy, but it's bringing in all of the problems of the larger economy.</dd>
+
+<dt>Claudia</dt>
+<dd>
+<p>Yeah, we definitely need to avoid that. I really agree with you. We need to keep that. We need to keep that ethos. I'm scared, I'm really scared. I do hope that people in tech can step back and think about it.</p>
+
+<p>When I'm in San Francisco and I hear that the rent for a one bedroom apartment is $4,000... you think about the fact that, great, ok, you might be making six figures but you work your life away to survive there. Why? Who gets your money?</p>
+
+<p>There was this wonderful talk &mdash; I believe her name is <a href="http://twitter.com/kelseyinnis">Kelsey</a>, but I'll look it up and put it in the show notes &mdash; she gave at JS Fest called, <a href="http://nothingissacred.org/">Nothing is Sacred Conference</a>. She stepped back and she's like, "Let's start to look at what tech money is actually influencing in our local levels and what's happening." I saw that it was accepted and it was one of things, I was like, "Yes, finally. We need to talk about it." Let's not let this ethos and this punk rock and this DIY mentality take over. When the money starts coming in, things change. Now there's lots of money in tech, and this notion of being able to make lots of money in tech. We definitely need to watch out and recognize that the line also starts with us.</p>
+
+<p>We're the ones that let these decisions get through. I know it's scary, but, my goodness, if we can coordinate ourselves to make these websites, can we not coordinate ourselves to find solutions to this problem and say, "No more"? Because they need us. I know people are like, "It's so easy to be replaced." I'm like, "No. Maybe. But maybe not." Maybe that's a fear thing that they're putting into you, that you're replaceable. Because I don't think many people are that bring value to their company. They're there for a reason.</p>
+
+<p>I hope that we don't see this field drive into other areas, like finance.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It feels like we had these ideas, 10 or 15 years ago. That anyone could publish. What a radical idea. You don't have to have permission from Hollywood or big media corporations or big book publishers to get your book, your film, your magazine article out to the world. You can do this on your own. I still hope that's going to be true. I still want that.</p>
+
+<p>But it feels almost like it turned inside out. Whereas now, it's like the book publishing industry... it's not us eating them, it's them eating us. [Laughs] It's the real estate market who's going to come in and take over tech and absorb us into evil real estate craziness, to make it even more evil and more crazy. Instead of us creating something that would create an alternative to the really evil practices that can happen in real estate. Carving out a more democratic, more human world. Now we're just created superpowers for...</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>For other people. Yeah. We've just made a bunch of more... minority. As in the establishment. Like, wealthier, at our expense.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>I feel like Uber epitomizes that. It's not like, cool people figured out an easier way to get a car service to come to your house. It's more like, people with very deep pockets have figured out a way to get rid of all the labor laws that protected taxi drivers. Get rid of a lot of the overhead that makes a taxi cost a certain amount of money. They're not making taxis cheaper, they're actually making them more expensive and pocketing all those profits. There's all these laws that you could consider bureaucracy, but you also could consider those protections for consumers and workers. This company is just going in there to rip all of that out. It's not about the tech, in the end. It's about labor laws and consumer protection laws and tax laws. They just don't care, they just don't care at all.</p>
+
+<p>I think we're at a point now where it's like, "It's a cool startup and it's famous," and therefore I want a piece of that. It's like, wow, can we stop doing that? Maybe I can actually look at the company and look at their mission and their leadership and ethos and the way they make their decisions. The way I would for any other company in the world before I decide whether or not I work for them. Not think that they're special just because they're using a lot of technology. To realize, they might be as awesome or as evil as any other company. Then make a decision to say, "I don't want to work for certain companies. I don't want to work for a company that's doing that."</p>
+
+<p>I have a very strong feeling that individual people should have a chance to make a great life for themselves. That these big giant power structures should not have a chance to take what they want at everybody else's expense. So why would I get a job at a company that's against every value that I've had for my entire life?</p>
+
+<p>Like, wait, I thought we were in the cool corner with cool people making cool punk-rock-y website stuff. When did we become part of the mainstream?</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Yeah. When I was in San Francisco &mdash; and I loved hearing it &mdash; some people were like, "You're ordering from Uber? Don't do that." I was like, "Yay! Yay. That's exactly what it takes." We need to do that and make all those employees that work there maybe stand up and say, "You know what? No. We're going to walk out on you until you change your management structure."</p>
+
+<p>It's definitely hard but I think it starts with us. We need to make those decisions. I know it's enticing and lucrative and can appear to be sexy to be like, "I work for this company." But the same decisions apply if you're saying, "We've always consciously made these choices." Why do we need to continue supporting these companies that are not making good decisions? It does start with us.</p>
+
+<p>So I hope to see more accountability along those lines. The other side that I always hear is the, "I need to pay my rent and I need to survive and I need to this and that. What else do I do? Where else do I go?"</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I agree with that. That's why I'm not working in theater right now. [Both laugh] So I get that. But I do think that many of us &mdash; not everybody, but many of us &mdash; are in a place where the market is still such that we have a lot of opportunity. We can make decisions to walk away from certain companies and support other companies. Frequently, lots of times, people aren't in a position where they're able to make those kinds of choices. I feel like most of the people that know how to know Gulp and Broccoli, they're in a position to call the shots.</dd>
+
+<dt>Claudia</dt>
+<dd>We have an incredible privilege here. To recognize that we we want to do with that privilege and where we want to put it. It's important because if we don't, who else will? We can see that it's obviously entering the hands of those that do not care so much anymore. It's an exciting time and I hope this is the kind of stuff that we continue talking about. When people are like, "I want to learn how to code." It's like, "Great. Come into this sector but recognize what you need to stand for."</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>I also think it's about finding little pockets of people. There's been so much on Twitter about pockets of people who are really hard to be around, to put it mildly.</p>
+
+<p>When I first went to An Event Apart and had dinner with random people, I was like, "Wow, I really like these people. These people understand me." Or when I've met the team Sass world that you're part of. "You were in theater? I was in theater!" I think there's a way to find pockets of people and support each other and help teach each other. It's hard to do these things alone. But once you find a community, it's exciting to have the community have a certain kind of momentum. I've seen the work that you've been doing be a part of that. It makes me want to come around and be like, "Why don't I hang out with you more? You guys are awesome." I like what you're doing and what you're working on.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Thank you. It is about the community. That's why it's so important to go to these events and try to get yourself into them. I also think it's amazing that the front-end community... having just been at JS Fest that had a CSS day but it was also more JS people. I was like, "Wow. You all really care about community and diversity and having these tough discussions about tech money and politics." I'm like, wow, it's there.</p>
+
+<p>It's like you're saying, it doesn't have to be a giant group. It's actually better when there are smaller communities that are linked and joined together. Like, you and I are here and we have out connection and it's great. This is one community, but we have a tie to the ethos that was happening at JS Fest. Even though you weren't there, you have a tie to that. I 100% agree with you.</p>
+
+<p>When you look at the number of non-profits that there are. There are a ton of non-profits. More non-profits than there probably are people. [Laughs] But they've taken on &mdash; bless their souls &mdash; these grandiose ideas about world changing. It's like, no, start local. Have people that you can sit down with and get on a train and be like, "Let's chat. What are you facing? What do you think?" And continuing those dialogs. Because of how our groups are structured, I think that will really lead to the bigger change.</p>
+
+<p>I love finding the wonderful pockets within tech and latching onto them.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I'm sure there are people who are listening to the show right now who have different politics than me, or maybe even a little mad at me because I'm talking about political stuff. That's cool. Then go find the people that align with you a little better. There's different flavors, of course. I just feel like people should make a decision about what's important to them, beyond money.</dd>
+
+<dt>Claudia</dt>
+<dd>Yes.</dd>
+
+<dt>Jen</dt>
+<dd>And beyond business success. Into, how do you care about the people in your life? Whatever that looks like. Let your career be an expression of those values. Don't accidentally get pulled into something that ends up being, like, you don't even think about how evil it is. Whatever your definition of evil is. You define it differently, but for you, whatever that is. Have some agency and make good decisions and be brave enough to be like, "You know what? I'm out of here. I don't want to do this anymore."</dd>
+
+<dt>Claudia</dt>
+<dd>Yes. Yes. Absolutely. We really can. If any field has that empowerment, it's us.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>We may not have this power for long. Twenty years from now, maybe, we won't be in this place. Do it now, while you can. [Both laugh]</p>
+
+<p>Anyway, we're well over time. Thank you so much for being on the show.</p>
+</dd>
+
+<dt>Claudia</dt>
+<dd>Thank you so much for having me. This has been super lovely. More dinners to talk about this stuff. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>If people want to follow you on Twitter, what's your Twitter handle?</dd>
+
+<dt>Claudia</dt>
+<dd>My Twitter handle is <a href="http://twitter.com/itsmisscs">@itsmisscs</a>.</dd>
+
+<dt>Jen</dt>
+<dd>And your website?</dd>
+
+<dt>Claudia</dt>
+<dd><a href="http://itsmisscs.me/">itsmisscs.me</a>. It's also on Twitter.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>I'll have those links as well as what other links we come up with for the show notes, at <a href="http://thewebahead.net/90">thewebahead.net/90</a>.</p>
+
+<p>For those of you who listen to the show regularly and you hear me, towards the end of the show every week, give you an update on the website, I should update you on the website. It's very close. Looks really awesome. It's super close to being done. I have friends who were like, this morning at brunch, "Launch it right now! It's done! Stop it! Launch it right now!" I still need to do a little more work.</p></dd>
+
+<dt>Claudia</dt>
+<dd>I think Jen's got a really, really amazing plan, so stay tuned for a really cool launch.</dd>
+
+<dt>Jen</dt>
+<dd>Well, thanks. Probably right after the beginning of the year. Because who launches on Christmas?</dd>
+
+<dt>Claudia</dt>
+<dd>December comes around and I'm pretty much like, "Alright. No one's doing anything now. It's holiday party month."</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, no, I have to wait until January. For sure it will be out in the beginning. Either the first or second week of January.</dd>
+
+<dt>Claudia</dt>
+<dd>Let's all cast our names for what new tools we're going to have. Bets for new tools. I pick cabbage. That's the next one. [Both laugh]</dd>
+
+<dt>Jen</dt>
+<dd>Make a Bingo card. Chopped salad.</dd>
+
+<dt>Claudia</dt>
+<dd>Thank you so much, Jen. And thanks to listeners.</dd>
+
+<dt>Jen</dt>
+<dd>Yeah, great. Thanks!</dd>
+
+
+</dl>
