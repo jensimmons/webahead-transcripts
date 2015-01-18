@@ -1,0 +1,396 @@
+---
+layout: transcript
+title: "Making Sense of A Mess with Abby Covert"
+permalink: 92/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+<p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm your host Jen Simmons and this is episode 92.</p>
+<p>I first want to say thank you so much to today's sponsor, <a href="http://thinkful.com/webahead">Thinkful</a>. I'll talk about them more later in the show. I should let you know that bandwidth has been provided by <a href="http://www.cachefly.com">CacheFly</a>, the fastest, most reliable CDN in the business. They host all the audio files at 5by5. <a href="http://cachefly.com/">cachefly.com</a>. That's C-A-C-H-E-fly dot com.</p>
+<p>Today we're going to talk about something that used to be a really, <em>really</em> hot topic in web design, back when web design was called webmaster-y. [Laughs] Then I just hadn't heard the term stated very much at all, honestly. In the circles that I orbit in, of course. I don't orbit everywhere. Until I was at BlendConf in September and saw this amazing presentation &mdash; absolutely amazing presentation &mdash; about this subject, information architecture. Given by Abby Covert, who is the guest today on the show. Hi Abby.</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>Hi Jen. Thanks for having me.</dd>
+
+<dt>Jen</dt>
+<dd>You're an information architect who has a ton of experience. You just put out this book called <a href="http://www.amazon.com/exec/obidos/ASIN/1500615994/5by5-20">How to Make Sense of Any Mess</a>, which I keep seeing everybody talking about on the internet. You teach, as well.</dd>
+
+<dt>Abby</dt>
+<dd>I do, yeah, at the School of Visual Arts here in New York City.</dd>
+
+<dt>Jen</dt>
+<dd>And you founded <a href="http://worldiaday.org/">World IA Day</a>.</dd>
+
+<dt>Abby</dt>
+<dd>I did, yeah. There's an organization called the <a href="http://iainstitute.org/">Information Architecture Institute</a>, we're a global non-profit organization. Our big focus is on empowering local communities to add to the global discourse around information architecture theory and practice. World IA Day is this idea where we have local teams submit and say, "I want to have an event on that day." It's on February 21st this year. They basically run, soup to nuts, their own little local conference. This year we have 38 teams in 38 cities across the globe, which is pretty cool.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Where's the website for that?</dd>
+
+<dt>Abby</dt>
+<dd>That would be <a href="http://worldiaday.org/">worldiaday.org</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Cool. That's coming up soon, so people can go.</dd>
+
+<dt>Abby</dt>
+<dd>Yeah. The registration for most cities has opened at this point. Many of them opened this week. New York City included, so if you're interested, Jen.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. So, what in the world is information architecture?</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>Information architecture is definitely a slippery term to hold on to. But the way that I like to describe it, when I teach, is that it's the way that we arrange the parts of something to make it understandable as a whole.</p>
+<p>Depending on the context of what we're working on, the pieces can be different. For example, if we're making a website, the information architecture would be the way that we arrange the content on that website to be understandable based on the intent that we have for people taking away a certain message from the website.</p>
+<p>If we're working on something like a restaurant menu, we have a different set of intents, in terms of the pieces that we'd be arranging and the intent that we had for our audience. In that case, we would be dealing with dishes and categories of dishes and how to prioritize things like prices or nutritional information.</p>
+<p>The information architecture concept is so broadly applicable, that it becomes very difficult to hold on to as its own thing. It's very much wrapped up in most anything &mdash; a designer, especially, but also technologists and business people &mdash; would be doing in their everyday life. One could say that you are information architecting when you're laying out the structure of the email that you're going to write to your team. Or putting together a spreadsheet of data to share with a client. These are all functions of deciding how we're going to arrange something to make it more understandable as a whole.</p>
+<p>As a print design student, it's something that you get taught as a baseline skill. But in other job titles and educational paths, you don't really see it as something that gets taught too often. As a result, people don't necessarily know how to do that. It's a little bit more common sense than not, if that makes any sense.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>What I remember from early days of the web, IA came into play because... building a website meant you opened up some sort of text editor and you wrote HTML and you saved it. You put that file directly onto a server, usually through FTP. Usually, always through FTP. Then there was some sort of a menu or group of links someplace on the page. You click on those links and get to the other pages.</p>
+<p>A lot of sites started out with a sense of, like, "All of the links are in a paragraph of text." Then it became, "Oh, let's make a list of links," "Let's make a menu," "Let's make a horizontal bar across the top of the page and we'll have this menu."</p>
+<p>Then there became this problem of, "How should we arrange... we've got eight webpages on this website. What should those words be? What order should they be in?" or "Wait, this one's got 30 pages. So let's have five categories and we'll have dropdown menus."</p>
+<p>Figuring out your information architecture, in the world, meant, "I'm going to draw a diagram. It looks sort of like an organizational chart for people's job titles or something. I'm going to draw this diagram where, like, the homepage is at the top and there are four lines that go to four main pages. Underneath that, there are these other eight pages."</p>
+<p>Then, in the world I was living in, we sort of stopped talking about it. [Laughs] Maybe because CMS' took over and it just wasn't that hard to make the menu anymore. Then we just let everything get really chaotic or something. [Abby laughs] Content strategy was the solution to the chaos. "Let's look at content strategy and have the plan."</p>
+<p>But it feels like the things that you're talking about today are still incredibly valuable and incredibly relevant. Maybe more so than ever. There's a way in which we could think about the content that people have... we've lost our thread or something.</p>
+<p>Do you feel that way? You clearly have a different perspective than I do. Are people all over information architecture right now? Are people not using a set of tools out there that they could be?</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>I think people are really hungry for information about information architecture right now. Which is a really great place, as an information architect, to be.</p>
+<p>But I feel like it's one of these things that, what I'm talking about is nothing new. It's something that, if you are practicing design thoughtfully today, you're already doing a lot of the things that I'm talking about. I think that the consideration here is, "How are we educating the next generation of designers?" and "Are we losing that thread?" to your point.</p>
+<p>Because the idea of just stepping back to make the map of the navigation system that you're about to inflict on the CMS, that's a major decision to do or not do. In my experience, there's definitely impact to not doing it, in a lot of cases. Especially when you're working with larger systems or disparate stakeholders. When you have a lot of people involved and there's a lot of opinions, it can get really hard to wrangle something right directly into the code or into the CMS. Some of these diagram techniques are still... the kind of low-fidelity versions of getting through those conversations and the objects that are best to support them.</p>
+<p>That said, I think there are a lot of cases where, when we do dive right into the CMS, we kind of lock ourselves into some decisions about things like labeling and language that I think, in some cases, are quite impactful. When you see how difficult it is to actually change a URL, for example, in the world of things spreading in social media. I've seen a lot of businesses be bitten by not thinking about anything past what they could see at the end of their nose.</p>
+<p>I know that in a lot of cases, this is stuff that gets talked about as more like strategic. Whether that's strategic design, strategic UX, strategic development. I feel like you can label it whatever you'd like. It is something that definitely comes up as a skill set that is important. It's not really whether or not it's important, it's whether or not it gets called information architecture. That is sort of the state of things, I would say.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What are some things that you'd like to see? If you're working on a project, is what makes a project goes well, in this kind of a way. What does it take to have successful clarity with information?</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>I think a big part of it is the education piece. First of all, I think there's a little relief associated with my first point. Which is, there's not really any right way to do any of this. I think that people believe, in a lot of cases, there is an established pattern that we can follow. If we follow it, we're going to get to a certain goal.</p>
+<p>It turns out that, in most cases  &mdash; especially when you deal with things like the web, with its nest of hornets in terms of issues and specialness &mdash; you really do run into a lot of things that don't follow the pattern. If you try to follow the pattern, you can almost get yourself into a worse situation than if you had done it yourself.</p>
+<p>We see a lot of situations where your information architecture is actually not even something you created, it's something you inherited through your CMS or the way that the company that you acquired was structured, or the way that you used to be structured, before you pivoted. Or the way that your database is structured because your website used to be structured that way. There are all of these places where it permeates enough so that I think it really is a decision to admit where you're at, but to also understand there's no right way to do it. There's only the way to do it that's going to get you to wherever you're going.</p>
+<p>If your goal is to increase your customer satisfaction, there are certain things that you can do in that direction, for an information architecture standpoint. If your goal is to increase the number of people in your database, there's certain other things that you can do, from an information architecture standpoint, to make that happen.</p>
+<p>In many cases, those goals only exist in the minds of the individual stakeholders. I think coming together about those goals and really understanding that intent is the only way through that uncertainty of there not being one right way to do anything. Does that make sense?</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. You talk about, in your book, you sort of define "mess" and then you're talking about intent. Which I found really interesting and valuable. Because it felt like a lot of your book was a mix of... I mean, you had some diagrams in there, and some, like, "Here are some exercises," but then you had a lot of defining what information architecture is. Inspiring people. The way the book is written, is just sort of lots of ideas and lots of inspiration to say, "Hey, we can do this."</p>
+<p>Then a lot of it seemed to be, things to think about so you can better communicate with people. Better be in the reality. You talk about reality and facing reality and like, "You have a boss or CEO who wants something that's completely different than what the users actually want. How are you going to close that gap? What are you going to actually do as a designer to work with real human beings, with the real misunderstanding and understanding and pseudo-understanding of what's going on? Clarify things and help people and get from where you are to where you want to be. Figuring out where you want to be.</p>
+<p>It seems like intent is in there. It's just big, messy, crazy... I don't even know what you and I are talking about right now. [Both laugh] It's so abstract.</dd>
+
+<dt>Abby</dt>
+<dd>I know. It really does turn into your Philosophy 101 class from undergraduate pretty quickly if you don't watch out. [Both laugh]</p>
+<p>I will say that I had my first class at SVA this week. I give these 20 minute sermons every class. The first one is on the difference between data, information, and content. It's just amazing. Their blog posts, post-class, like, "What does it all mean? This is so big! What do you mean, there's no truth?" I'm like, "Ok, guys, it's alright."</p>
+<p>The first part about writing it all down, in the way that I did, was sort of relieving the anxiety that we all are dealing with the same kind of human condition. We have our own way of looking at the world. We absolutely do. To believe, as a designer, that you don't have your own unique way of looking at the world, and that you're not kind of getting it all over your work, it's a bad practice to believe. To be that wrapped up in not understanding the uniqueness of the inside part of us.</p>
+<p>I think that looking at things like mental models of the people that we're looking to serve &mdash; in terms of our users and our stakeholders &mdash; is really an important step for any designer to learn how to do. Not just from the tool sense, which is actually quite simple: sharpies and some Post-Its. But from the soft skills sense. To be able to ask somebody, who is maybe even above you in an organization, why something has been done, and to know, implicitly, that the answer is probably not good enough for it to continue to be that way. It takes strength and courage to do that.</p>
+<p>I think that young designers, especially, need to be told, not just that that's something that is expected of them, but also that they should be prepared for that to be the reality. I do know that in a lot of cases when I'm mentoring younger designers, I run into this place where they're very dissatisfied with work when people don't agree with them.</p>
+<p>I think that dissatisfaction... as somebody like yourself who's been working in the web for long enough, that comes with the job. [Laughs] We don't always agree with our clients and users with the way things should go. Being ok with not being the one who gets their way is actually the position you should be putting yourself in most of the time. Which is really hard to prepare people for, I think.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It reminds me a lot of the things that Mike Montero talks about as well. This sense of... it's easy as designers, or people, anybody who's doing this kind of work. You go to the meeting, you're in the meeting, the people don't understand you, and you're like, "Ugh, these people are idiots, they just don't understand what I'm saying. If everybody could just get out of my way and let me do my work, it would be so much easier."</p>
+<p>I feel that way much of the time. [Laughs] It's part of the joy when, any of us, when you're working on your own project, by yourself. You're like, "Yay, I'm the client and the stakeholder and the designer and the developer. Look at me! No one disagrees!"</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>That has its own set of dark moments. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It does, it does. There's a whole other side of that.</p>
+<p>But that sense of, "This is how it should be, back at work. This big group of people. You all are obstacles to getting the work done." It's like, "No, actually, that is the work." It's not the obstacle. That is the work. The designer is a sort of a sales person. Pitching, being... what's the word? Charismatic. Evangelizing ideas. Explaining things very carefully from the very beginning so everybody gets excited about them. All of these things are actually part of what needs to happen.</p>
+<p>Why are we talking about this with information architecture? I feel like it's because your work &mdash; what you're looking at, what you're thinking about &mdash; has everything to do with understanding linguistics and understanding what any of these words mean. If you're standing up at a meeting, and you're saying, "Blah blah blah." Why did you chose those words and not these other words and what are the impressions in everybody's head when they hear those words? Are they getting the impression that you want them to have?</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Will you talk some about that? About language and how words are weird?</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>How Words Are Weird with Abby Covert. [Jen laughs]</p>
+<p>Yeah, I think words are incredibly weird, and we use them all dang day. It's just something that we don't ever stop doing. We're doing it right now. While we're talking, we're impacting that thing that I mentioned before, our mental model.</p>
+<p> We have this understanding that's unique to us of the whole world. With that comes this map that we can't see, but we can reference, and other people can't see or reference. The only shorthand link that we have between them is language. It's just the way that we've developed a shorthand to say, "I'm thinking about this thing. Are you thinking about the same thing? Cool. Let's go on with the sentence now."</p>
+<p>But that gets really tricky in situations, especially, when you have the hierarchies of organizations applied. You have a sense of power structures being applied to language. The suppression of opinion in favor of hierarchy, things like that will affect language that's being used.</p>
+<p>But then you also have that on the consumer side. When you're researching users. The language that they use versus the language that your organization uses can be the brick wall between you, in some cases. I think that, some an information architecture standpoint, the first step &mdash; as many things are &mdash; is admitting that you have a problem. Admitting that, maybe, you're using words that your users don't understand. Or admitting that, perhaps, your organization has two different languages that you're trying to maintain.</p>
+<p>I've seen this a lot. Where you have a division within the company of languages that are used. Maybe a certain language is used in your marketing department. But a different language is used in your technology department. When those two groups have a meeting together, oh boy. Bring the fireworks. That's something that's set up to be a recipe for disaster.</p>
+<p>If you look into linguistics a bit, there is a lot of thought into the idea that we all carry the ability to have something that's called linguistic insecurity. That means, literally, that we just don't feel comfortable with the language that's being used in the context that we're in. Those poor marketing people that are outnumbered in the technology meeting, or vice versa, are experiencing linguistic insecurity. When that happens, you kind of tense up. You become this person that doesn't want to collaborate.</p>
+<p>One of the best way, I think, from an internal perspective, to deal with your language, is to get together as a team and look at your language as if it is an asset of the company. There's something that's called a controlled vocabulary, which a lot of people learn about in computer science or library science, depending on what your education background is. But controlled vocabularies are really about making those important decisions about what language we're going to use, in what context, to make the people involved feel the most comfortable. Those really do tend to be the differences between teams that work really well together and teams that don't. Is having a really consistent way of speaking with one another that's respectful in all directions and sort of agreed to.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>It's interesting, as I'm listening to you, I'm thinking of things like how often in society &mdash; especially in the context of work and the larger culture of the industry or whatever, the conversations we have on Twitter &mdash; it's almost like certain kinds of people or certain kinds of ways of doing business are seen as bad and others are seen as good and we judge each other very quickly and very harshly. It's really, a lot of it is all about language.</p>
+<p>We also think about it in terms of wardrobe a lot. "Look at us, our company is so cool. In our photos of all of the people in our company, we're jumping around and we're on skateboards and we're on bikes and we're in action," and "Look at this company, they're all wearing suits and they all look very professional and they're all sitting with a 3/4 profile to the camera smiling and they're very professional."</p>
+<p>You compare those two companies and you probably have a very strong feeling that one company is the kind of company you like and the other company is the kind of company that you don't like. If you dropped a microphone into those two companies for a couple of days and you recorded them, the language at one company is very different than the language at the other. It feels like the culture clash. If you worked at one of them and you got up-ended and dropped into the other, you're just sort of like, "I hate this! I hate this so much!" [Both laugh]</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>Exactly.</dd>
+
+<dt>Jen</dt>
+<dd>Some of it's clothing, but a lot of it is language.</dd>
+
+<dt>Abby</dt>
+<dd>Well, clothing is language. I think one of the important things, especially with visual designers, when I have visual designers as students, I have to remind them that language is definitely not just words. In a lot of cases, in design &mdash; especially in interface design &mdash; we're using things like iconography as language. Color, light, sound. All of these things end up being the language. Once again, that shorthand for communicating what's going on between the interpreter and the interpretant.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Yeah. And I guess as you're creating a website and you're putting it out in public, you have to think a lot about... and I think people think about this when they talk about branding. "What is your brand?" Set an intention for what kind of impression you want to make, what kind of voice you want to have, how people see you. Then implement that impression in the photos of your employees on the website, and in the language that you're using in the words that you have in your menu, everything about your design. Your visual design.</p>
+<p>I guess there's a way in which the work that you've done, that you talk about, that you teach, is bringing that kind of maturity or sophistication around to the organization of the information itself. So that's it's organized in a way that also makes sense. To be intentional, to accomplish the goals that have been set out. Does that seem right?</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>Yeah. I think that in a lot of cases, the organizations that I end up helping, are the ones that don't necessarily have someone whose job it is to zoom out on the system. They have people that are responsible for the pieces of their marketing department or pieces of their website or pieces of social media. They have people that are really good at doing all of those things. They even have meetings where they talk to one another about what they're learning and ways they can improve each other's channels.</p>
+<p>But at the end of the day, there are some moments &mdash; specifically when there's technological restructuring. In a lot of cases, a single sign-on initiative to bring lots of things under a single umbrella. Things like who decides what you call, "Is it 'edit'? Is it 'modify'? Is it 'save'? Is it 'publish'? Are they 'authors'? Are they 'contributors'?" These decisions that have to be made at one place and trickled down to all of these other places to remain consistent, but also to be efficient and use of technology becomes a really critical position.</p>
+<p>It's one that I'm very happy to serve. It's kind of like being the referee in the game. You don't actually play the game, you're just trying to get all the players to get through the game and have as little fouling out as possible. In terms of, like, "Stay in the game. Be productive. Let's figure this out. It will come to an end and we'll all be better for it."</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Can you describe what an information architect might do? Especially, perhaps, as a consultant. Going into a company, working on a project. What does that look like?</dd>
+
+<dt>Abby</dt>
+<dd>Sure. I definitely focus a lot of my time on doing heuristic evaluations of where companies are with their IA.</dd>
+
+<dt>Jen</dt>
+<dd>Ok, explain what that is.</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>From a best practice standpoint, looking at the stuff that they have. Generally that's a lot of things. A typical company for me won't be that large in employee size, but it might have 25 different properties. From the logged in versus logged out standpoint of what their employees use, what their partners use, and what their users or consumers use.</p>
+<p>Looking at all of those things heuristically and really understanding what they have. Generally I am the first person to make a picture of all of those things together. That's a big part of what I do.</p>
+<p>I spend a lot of time working with internal employees to understand what they have and how it got to the point that it's at. Also how big it is. And I like to talk about how much it hurts. [Laughs] Because at a certain moment, I have to help prioritize, "Alright, well, everything is red. How red is it?" In terms of figuring out whose stuff gets fixed first, or what we restructure first, or who comes on a platform first, or who serves as a beta team. Things like that.</p>
+<p>That upfront stakeholder and internal research to get to that picture of where they're at can take days, it could take weeks. I've had it take months, depending on the size of the project and company. From there, it's really about architecting a series of experiences for those people that are going to be working with the decision-making of what we're going to be making to experience the user as much as possible.</p>
+<p>Whether that involves going out and getting research done, or doing research myself, or referencing research that's been done. In larger organizations, there's generally an ongoing research department that you can tap in to and ask to do custom things for you, or reference things they've done for other initiatives.</p>
+<p>Taking that research and formulating it into objects that can be used in a workshop to make those stakeholders and designers and business people and technologists understand who this person is, in a way that's respectful of their time and decision-making abilities. Generally trying to get that into a couple days over a couple weeks, or a couple weeks over a couple months, depending on the size of the project.</p>
+<p>In those workshops, we're really getting at the crux of where the language of our users and where the language of the business may not be in agreement. A lot of that comes down to having conversations about, like, "What is our actual goal here? Are we looking at this as, we're trying to be seen as an authority?" Because, in that case, you do want to take a different language, potentially, than your users. It still has to be one that they understand, but it might still be able to be authoritative and be your language, as opposed to using theirs. If it's something that you want to make them feel like they're part of a community, you're probably going to want to have it written more in their language and designed more in their aesthetic.</p>
+<p>Getting into those kinds of conversations and preparing people for the idea that they're going to have to make concessions with the decisions that are going to be made. That it's not going to be, whoever is higher up in the hierarchy of the org chart is going to get to make the decision. That's generally a structure that does make for unhappy designers and technologists and business people and, ultimately, I think, executives as well.</p>
+<p>Once the workshop part of my job is coming to its completion, at that point, teams are generally set out to do actions of their own. There are a lot of next steps and parking lot items that come out of meetings like that. A lot of next workshop steps, in terms of smaller workshops that they want to have with their own teams to make critical decisions. But while they're doing that, I'm generally making some level of record of the consensus that we came to. That generally comes in the form of a map or large set of maps, depending on the context of the assignment.</p>
+<p>That's pretty much start to finish what we're dealing with.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>It sounds like you're a therapist for really messed up stuff.</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>I'm kind of an information therapist in some cases. I do feel that I have to tell people, "It's ok, you're not the only one. Everybody deals with this," as part of the role. And I'm happy to do so. I really do have a tender spot in my heart for the anxiety that technology, especially, inflicts on people.</p>
+<p>I think that anybody who loves anybody in this world has seen them have that annoying moment with something not going right with technology and being like, "Damn! Why does it have to be this way? It just shouldn't be this hard." But it is. It is this hard. We're in an in-between state and a lot of companies are experiencing that in-between time.</p>
+<p>When I first started as an information architect, there was the term "Web 2.0" that had just started floating about as the meme of the day of what we were going towards. I feel like designers and technologists have moved past there but a lot of businesses are still operating in 1.0 land. They're still dealing with really bad interfaces that do very specific things and don't talk to other very bad interfaces that do very specific things. All of them are at this critical point of needing to restructure that.</p>
+<p>We need to be the people that are going to help them do that. Not be like, anxious about how messy it is. Because it is. It's going to be a nightmare and we should be ready.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Yeah. You start to look at any midsize to large organization's stack of web properties and it's just... it is, it's just super painful. Especially from the point of view of an employee. It's like, you have to go here and log in to do this thing, go over there to log in and do that thing. But this thing only works in that one browser and these things should be all together but they're not. Frequently that is the public facing side as well.</p>
+<p>I think we feel that pain, as customers, but I think sometimes the pain is way deeper than we even realize, when it comes to things like adding content to the website, or being an employee at that organization and getting paid.</dd>
+
+<dt>Abby</dt>
+<dd>Right. All of that stuff, at the end of the day, however you sit in the organization. Whether it be you're the marketing person or the technology person or the finance person or the CEO, there's a way to look at that story from their standpoint and just go, "Yo, this isn't good for anybody. Your employees having to spend more time figuring out how to use your internal systems just to log their time, is time they're not spending with your customers, or working on the projects that you're paying them to work on." The more drop-offs that you have on that form on the website for people that are trying to sign up, the less money you're eventually going to get from customers. It all comes to the surface, I think, at a certain point.</p>
+<p>I think that's the interesting part about the work that I do. Generally, once you figure out what's going on with an organization, it's the thing that is the reason for everything being wrong. There's usually this symptom that pops up and you're like, "What <em>is</em> that?" But once you figure out what it is, you're like, "Oh my gosh, okay. This is all over everything. This is not just their website's problem. This is deep. This is how their organization is structured deep."</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What are some examples that you've uncovered of that?</dd>
+
+<dt>Abby</dt>
+<dd>I think that some of the most recent ones really have to do with the organization from the standpoint of, like, who deals with the technology and getting the content to the technology. In cases where you're coming into a company that has a team that's been doing only traditional marketing and maybe has worked with agency partners in the past to do digital pushes, but you're trying to introduce them to something like social media for the first time, you're going to have a gap of skill set there.</p>
+<p>That's not just a technology gap, it's also an anxiety gap. If you put those people in front of a help blog post on how to do things, and mange their Facebook page, they're still going to be anxious about it. I think identifying those weaknesses and allowing those people to get the resources without having to step up and say, "Hey, I need help." I can definitely be a person that brings those things to light.</p>
+<p>Another one would be, groups that just never talk to one another, ever. Yet share properties that have linkage between them. That happens in a lot of cases. I see this happening the most in footers. People, mind your footers. Everybody out there, look at your footer. Who does it connect to? Who are those people? If you're never met them, figure it out. Because they're going to go through a redesign and then something weird is going to happen with that link and you're not going to notice it and it's going to be filling up your social media and your customer service spam and it just gets bad very quickly.</p>
+<p>There's a lot of things where collaboration between teams, or even moments where you realize, at a certain point, "This group and this group need to talk to each other so much, potentially they should be one group." Or, "This group is so large and disparate, it doesn't really have a focus anymore. Maybe it needs to be two groups." Conversations like that are definitely things that can come out of the process of workshopping through this stuff with stakeholders.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Nice. Let me jump in here with our sponsor for today, <a href="http://thinkful.com/webahead">Thinkful</a>.</p>
+<p>Thinkful is an online course that you can take to learn front-end web development: HTML, CSS, JavaScript, and jQuery. Their next class begins January 21st. But if you miss the January 21st day, check them out anyway, of course, because they'll have plenty of other classes. The big advantage here with Thinkful is the classes are online and can be accessed from anywhere in the world, but you get weekly mentor sessions held via Google Hangouts. All the projects that you work on are designed to help you build a portfolio, so once you're done with this class, you have something to help you get a job. The class is three months but you pay per month. So you try it out and if you get a month in and you realize you don't have time to complete it, you can not be paying and you can complete it later if you want. There's a guarantee and if you are unsatisfied in the first two weeks, you can get a full refund. What else should I tell you? It's that heavy emphasis on one-to-one mentorship that really is what Thinkful is about. That you have someone right there to answer questions for you, to give you advice, to look at your projects with you and say, "Oh, you could code it this way," or "That part's great. Don't worry, it's going really well," whatever. That kind of one-on-one contact. Thanks to Thinkful. Go check them out at <a href="http://thinkful.com/webahead">thinkful.com/webahead</a>. Kind of like thankful with an "i" instead of an "a". If you use that URL, you get 10% off the regular price. Thanks to Thinkful for supporting The Web Ahead.</p>
+<p>So back to your book. Tell us what it is that you were intending to do when you wrote this book.</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>I had this hypothesis going into it, that I really felt like not just designers, but everybody, architects information as part of whatever it is that they do. I got a sense, also, in thinking through and looking into how people are educated, that it's just not taught that often. I figured that one of the reasons that it might not be taught as often is because of the framing.</p>
+
+So I looked into the books that exist on information architecture. What exists, and what I was educated on, was all very specific to the web. Or very specific to being in that cross-media space before digital. The work of <a href="http://www.amazon.com/exec/obidos/ASIN/B00RWRN17S/5by5-20">Richard Saul Wurman</a>, for example, talks about information architecture much more from the standpoint that I am. But he doesn't get into what the impacts of the nature of digital might do to that kind of craft. That book is from 1998, so that might be the reason why. [Laughs] There's a line in the beginning of it that says, "The screech of a modem." [Jen laughs] It's quite great.</p>
+
+<p>But, yeah. I feel like once I looked into the books that existed, I really narrowed down on the idea that there wasn't one that applied broadly to everybody. I really wanted to write something that was that simple, something that you could hand to somebody and it would relieve some of that anxiety of it being a really hairy topic to talk about and think about.</p>
+<p>I took a long time to write it. It went through several revisions. I sort of used my students at Parsons and at the School of Visual Arts as my guinea pigs along the way with the concepts and examples and even the writing at certain points.</p>
+<p>But ultimately it expressed itself as a book of parables and lessons &mdash; with some worksheets as well &mdash; that leads someone through the process of making sense of a mess and trying to focus as little as possible on what the mess is made of, and instead thinking about it from the standpoint of things like language and people and stakeholders and users. The more basic things.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What do you mean when you talk about mess? The title of the book is How to Make Sense of Any Mess.</dd>
+
+<dt>Abby</dt>
+<dd>Sure. I define "mess" as any situation where something is misunderstood or there's some discomfort around understanding. If you define it that way, there's not many a day that goes by for a typical person where you don't experience something like that.</p>
+<p>But if you think about information in terms of what it <em>is</em>, it is what exists in our mind from an encounter that we have with content. When somebody says something to you, they're say words, which are the content that they're giving to you. But the information that you interpret is all your own.</p>
+<p>I think that really is the core of messy circumstances, is misunderstandings. Not having a successful transfer of the meaning that I intended, to you, the listener, is the crux of most issues that we run up against in a day-to-day kind of way.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Do you think that's caused mostly because of bad language or because of bad organization?</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>I think it's actually a concern of thoughtfulness. I think that we have a lot of assumptions about the way that the world is compared to the way that we think it is. There's a lot of lack of understanding of the way that other people might see the world, in some cases.</p>
+<p>There's also knowledge of it, but not doing anything about it. You can know that you have a different understanding of things than your customers, for example, and not do anything about it. I think that knowing and actually doing something about it are two different things. Having people make that journey from knowing to actually doing is... that's the work. We have to overcome the obstacles that comes along with.</p>
+<p>In some cases, that's admitting something that we worked on needs to be changed. Or something that we proposed isn't working the way we expected or the way we promised. There's a lot of giving in and being honest that comes along with it, I think.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Will you talk about that data, content, information? Explaining what data, content, and information are? I find that so fascinating.</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>Sure. It's another slippery concept but I think it's an important one.</p>
+<p>We talk a lot about content in this world. Information is also a word that we throw around pretty often. In a typical conversation, especially in a workplace, you will hear one or both of those words, especially if you're working on the web, pretty much daily. But we use them kind of synonymously and I think that there's a little bit of danger there.</p>
+<p>If you really dig into how they are defined and how we academically use them, I think that there's a really important difference between them. If we were to start thinking about the way that we actually talk about the two, it might be helpful for us to understand the impact that we have on the way that we think about the world.</p>
+<p>Content is the thing that you are making to represent whatever it is that you're trying to get across. If you're making a website, the content is the words, pictures, buttons; all the things that you have on your website. But the information is what I &mdash; as the viewer and the user &mdash; walk away believing to be true about whatever the website is. That difference of adding the layer of interpretation is really where you see information come to life. That's the kind of core difference between them.</p>
+<p>That's a really complicated sort of lesson to get across, especially in a classroom. But I think it's really important for designers to understand. You can't actually make information. Users do that part. We make content and our job is to make that content &mdash; when it goes through that complicated layer of who the user is &mdash; resembles something like what we wanted it to, on the other side, when it becomes the information that's left with them.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>The example you used in your book I find fascinating. You have a drawing of a shelf in a grocery store. There's three slots for food to be there. There's a row of jams, there's this empty space, and there's a row of jelly. There's three price tags. The jam is $3.99, the empty space is $7.99, and the jelly is $5.75 or whatever. You're saying the content would be, "Hey, there's jam here, here's the price. There's jelly here, here's the price." Are you parsing out that the data is... I'm trying to read this at the same time.</dd>
+
+<dt>Abby</dt>
+<dd>The jelly example is actually a great one. It basically tries to get across the fact that information is not actually a thing itself. It exists independently of the content, which is the physical thing. The jam and the shelf and the labels are all the content of where you are in that particular scenario. The data is what's going on in your head as I ask you the question, "Why is there an empty space between those two jars of jam?"</p>
+<p>Everything that flies into your thought pattern of, "Well, there's dust on the shelf, so maybe that used to be a product and it's no longer a product," or "I saw that there's a recall on that brand, so it must be that," or "I think that today's Wednesday and they don't restock until Thursday, so maybe that's what it is," or "It's a really expensive jam, maybe that's the most popular jam, maybe I should buy that jam next time." That's all the data. The information is what you walk away believing about it.</p>
+<p>The interesting thing to think through is, if you asked three different people, "Why is there a hole between those two jars?" A lot of them will give you a similar answer, but there will be shades of difference. Somebody will say, "I don't know, that's sold out," or "I don't know, that's the most popular," or "I don't know, the stock boy is in the other aisle and he's coming around." All of them will have their own unique piece of information that they've taken away from the situation.</p>
+<p>And it happens very, very quickly. Skinning that onion that tightly on that experience is really hard to do. But being able to slice and dice it that way, I think, is an interesting lesson. <p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Because that we, as humans, we just sort of assume that everybody thinks just like us. [Abby laughs] Or everybody would know that, "Of course it's sold out because there's a blizzard and the truck didn't get in last Tuesday." When a lot of people wouldn't think about that at all.</dd>
+
+<dt>Abby</dt>
+<dd>Exactly, exactly. And everybody has their very unique interpretation. And even the person who knows why that hole is there. Even they have their own unique interpretation. Knowledge is fairly subjective, when it comes down to it.</dd>
+
+<dt>Jen</dt>
+<dd>Then there's this idea of truth. What is the truth? [Abby laughs] Why is there no jelly there? There could actually be multiple reasons. If you did the huge investigative journalism to figure out exactly why the jelly is missing.</dd>
+
+<dt>Abby</dt>
+<dd>Yeah, "Why is the jelly missing?" My students have so much fun with that one. The other one that they really like is, "Why is there only one cookie on that plate?" Imagine that you're looking into a bakery window. One that has five oatmeal raisin cookies on it. The other plate only has one chocolate chip cookie on it. Were there ever other chocolate chip cookies? Or was there only ever one?</dd>
+
+<dt>Jen</dt>
+<dd>Right. [Laughs]</dd>
+
+<dt>Abby</dt>
+<dd>And they're like, "What do you mean? Of course... what? Wait, is this a trick question?" I'm like, "No, really." And they're like, "Well, yeah, duh, there was probably a stack of them and they sold." And I'm like, "How do you know that?" And they're like, "Well, because." [Both laugh] That's sort of the answer. Because. Because reasons. Because my brain tells me. Because my mental model, it can't have gaps in it. We fill the gaps automatically with whatever seems to fit there.</dd>
+
+<dt>Jen</dt>
+<dd>It's sort of a part of brilliance. It's part of why humans are human and we think so quickly and we figure things out and we make decisions very, very quickly. But it happens so quickly that we miss... I mean, we'd go crazy if we actually had to think through every single instance of that. [Laughs]</dd>
+
+<dt>Abby</dt>
+<dd>Right. But think back to the creation of your sitemap for your simple website. The minute you go into that activity thinking you can just lay down those terms, quick quick quick, box box box box box, that's a half hour line item on a project plan very quickly. But when you think about the impact of choosing that word and that term and that order and that prioritization, all of a sudden, you realize, "Oh man, I'm actually making major decisions about my business right now and I maybe didn't even know it."</dd>
+
+<dt>Jen</dt>
+<dd>I worked on quite a lot of Drupal projects, several years ago now. Almost always, all of those little fiddly decisions about, "What is the name of this field? What's the name of the labels? What's the help text going to be? What's the order going to be? How's this all going to work?" None of those were designed with any intention. Everything was broken up into separate tickets. Separate developers, frequently in separate states, separate countries, were building each of the separate little pieces, and none of them would check with each other.</dd>
+
+<dt>Abby</dt>
+<dd>Right, yeah. [Laughs]</dd>
+
+<dt>Jen</dt>
+<dd>And there was no master plan. Even when those of us on the team wanted to have a master plan... I'm not talking about even one company, I'm talking about a whole bunch of different companies on a whole bunch of different projects I worked on. But they all had this exact same thing in common. There was no permission to take time to make sure that this stuff got done well.</p>
+<p>You'd end up with a content entry form that was like, "Description. Teaser. Short teaser. Lede." Spelled L-E-A-D. [Both laugh] You know? You'd have <em>The Training</em> where you would train the content entry people and you explain to them, "The lede is going to show up on the homepage and the teaser is going to show up on the landing page and the teaser longer is going to show up on the alternative landing page."</p>
+<p>It made no sense whatsoever. I think there are just situations like that, over and over again, that the lack of planning and the lack of intentionality and the lack of design and the lack of willingness to take time to take care of those things as a whole is what creates a mess.</p>
+<p>Then, ok, you trained five people how to use the website. They kind of know how to use it, but what about when one of them leaves and someone else gets hired? Then one of these people is going to train that person? And that's going to happen seven times and you're going to end up with a third generation of content entry folks who have no idea why it's like this, it's always been like this, they don't really know how to use it because no one really explained it to them. Plus the homepage got redesigned and the landing pages got redesigned and what field goes where is completely different than the day it got built.</p>
+<p>Just make that time 15 years, it feels like that's the web that a lot of people are dealing with every single day.</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>I refer to that as barnacles. It doesn't seem like a big deal the first time it happens. "We need a name for that field. Just, whatever, just name it whatever." Then you get to the next thing and the next thing and the next thing and it just adds up over time. There's a certain breaking point, where if you have enough barnacles, it holds back the ship. You're no longer able to move and you have to go down there and you have to scrape them off. That process is really hard. I would definitely say, especially to small companies, if your mess is not that big now, think about how big it'll be in five years and try to fix it now.</dd>
+
+<dt>Jen</dt>
+<dd>It's funny how people will have these really intense debates about which CMS to use. They'll say, "We're using such-and-such and it's horrible, let's ditch it and rebuild everything from scratch in the new CMS." [Abby laughs]</p>
+<p>Which might be a great idea. But it might not be the CMS that's at fault. It's the implementation of it that's the problem. Switching to another CMS might be a great opportunity to get rid of all the barnacles. You've got a new ship! There's no problems because you've got a new ship! [Laughs] But if the barnacles are growing just as quickly, and you reproduce the same mess on the new thing, you didn't actually solve as much as you hoped that you would solve.</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>I had a company call me a couple of months ago and that was exactly the story they told me. They said, "So, we had this website and it was really bad. Really bad. But we redesigned it and we re-platformed it on a new CMS and it's still really bad. We don't know. We like how it looks but it still doesn't do what it's supposed to do. The web analytics barely even changed."</p>
+<p>I looked at it and they had not changed a word of it. They had not rearranged a single stitch of it. They had just face lifted it and moved one instance to another platform and made it the new brand. That was it. They were really surprised when I told them, "There's structural issues here that you've just replicated. We're going to need to go back down to the floorboards."</p>
+<p>Nobody wants to hear that hear that when they already have the walls up, have painted the rooms, moved in the furniture, people are working there. No one wants to hear that. But in some cases, it's the truth. From an architect standpoint, I take that really seriously. It's my job to tell you the truth and what's going on. Not what you want to hear or what you asked for.</p>
+<p>In a lot of cases, I am dealing with teams are on the side being like, "It's our job to give them what they want. Can you make sure that they don't want something stupid?" I'm like, "Yeah, I can help with that. I think. I hope." That's a good day, when I can say "yes" to that, confidently.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>What do you think it takes for an organization to know that they have a problem and have the will to put the resources into fixing it?</dd>
+
+<dt>Abby</dt>
+<dd>I think it takes one person. I really do. I think one person needs to stand up and go, "Guys, this is a mess. I will go into this dark cave and I will shine flashlights and I will tell you guys what I find. But I need to know that if I go in there and find stuff that I'm not going to be the crazy person that came out of the cave being like, 'Yo, there's bad stuff in there.'" [Both laugh]</p>
+<p>I really do believe that's what it takes. It takes that one person having the bravery to know there's a problem, and to say so.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Do you think a lot of organizations can do that? Or do you feel like the desire to keep your job and that the mess has gotten so big and it's so many generations old that there's just no hope?</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>Oh man. You know, I'm guilty of giving this advice. The person who I gave this to, if they are listening, will know who they are. I told somebody who was dealing with a very, very large mess at their first information architecture job, "If you don't get fired trying to fix this mess, then you didn't push hard enough." That's just the reality of it. It is not necessarily the position that anybody wants to be in, but to know that something is such a mess, and to know that it's your job to work there and to not fix it, is so much worse a reality.</p>
+<p>So it really comes down to that person decision of, if you see it as a mess, the way that you're saying it, you can't work here anymore, unless you're going to fix it. That's just... thems the breaks. It's like, once you see it, you can't un-see it. Unfortunately, that's one part of it. It's like, push on this hard enough that you try to get fired and you'll probably get promoted. [Laughs]</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>I also think there's a way in which living in a mess... it's almost like your own personal house or apartment or something. If the office itself were physically a mess; no one cleaned any of their dishes for two years, there were piles of paper up to the ceiling, to the point where it was very hard to walk through and the fire marshall, if they ever walked in there, would condemn the place.</p>
+<p>You would never &mdash; as a boss or as a CEO or corporate board officer or whatever &mdash; you would never allow that to physically happen in the office. It would make everybody feel so sad and depressed and new people coming to work there would be like, "What is going on around here? I don't know if I want to be part of this. I thought this was going to be a cool job. I'm going to... never mind, I don't want this interview." The people who stay just have to turn a blind eye to it and feel crappy about themselves and where they work everyday.</p>
+<p>And it feels like that's what's happened digitally in many places. Because it's not physical &mdash; the dishes are clean and there is no pile of paper &mdash; but there's this digital version of that. It ends up feeling like you either end up working in an environment where most every employee is just collecting a paycheck. They're just going to work and collecting a paycheck. They're kind of trying, but they're not really trying that hard because there's really no hope because the place is such a mess. How are they ever going to do good work?</p>
+<p>Versus having a company where you can have some excitement and some passion and take some risks and try to conquer some mountains and do some great things. Because things flow and the tools feel great. It's like using a computer that's fast. It just feels awesome. You can get lots of stuff done.</p>
+<p>Beyond the specific cost, it just feels like there's a way that's just so toxic, to leave the mess around.</p>
+</dd>
+
+<dt>Abby</dt>
+<dd>The thing that I definitely warn people is, you don't have to fix it. But the problem with messes is, given time, they just grow. It will get worse, is the reality. For me to be like, "Oh, no, you don't have to fix that mess and it'll be the same a year from now." It's not true. It will be worse. Even if you don't do anything, it will be worse.</dd>
+
+<dt>Jen</dt>
+<dd>That's depressing. [Laughs]</dd>
+
+<dt>Abby</dt>
+<dd>
+<p>I know, I know. It can get dark. It can get dark.</p>
+<p>There's so much hope on one side of it, because you can think, "Wow, I get to decide how I'm going to craft my message to really make sure that the person on the other side is getting it." There's something really beautiful about that dynamic between individuals. That thought of, "I'm a designer and I get to make something that's going to mean something to somebody else." Being able to tap into that meaning part.</p>
+<p>But then there's also this really dark side of, like, it's so big and there's so many things and I can't fix everything and it's such a mess. But standing there and staring at it and not calling it out, it's the number one way to just make it get bigger in front of you.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. Any other advice you have for people who want to fix their mess?</dd>
+
+<dt>Abby</dt>
+<dd>Put the computers away as much as you can. At least in the beginning. I think it's really important that people get the mental model of the mess that they're working on, out of their own head, and the heads of the people that they're working with.</p>
+<p>In a lot of cases, I find it to be very productive to have people be unprepared for the conversation that we're about to have. Because when people come in with their armor on, and their decks ready, and their numbers all solid and blah blah blah, it's not really a conversation, it's more like a show and tell by each department.</p>
+<p>But to have them all come in and not be able to have any of that, instead have these conversations that have them contribute what is going on in their head. Sort of comparing notes on how they think about the problem set.</p>
+<p>I think that's the best place that any company can start. Put the computers away. Get everybody in a room and talk about it. Talking is hard. [Laughs] So that's not an easy thing to do. But it is my first recommendation.</p>
+</dd>
+
+<dt>Jen</dt>
+<dd>Cool. If people want to check out your book and follow you on Twitter, where should they go?</dd>
+
+<dt>Abby</dt>
+<dd><a href="http://abbytheia.com/">abbytheia.com</a> is my website and you'll see a link for the book there. My Twitter is also <a href="https://twitter.com/Abby_the_IA">@abby_the_ia</a>.</dd>
+
+<dt>Jen</dt>
+<dd>Nice. Thank you so much for being on the show today.</dd>
+
+<dt>Abby</dt>
+<dd>Thanks so much for having me. This was great.</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>And thanks to <a href="http://thinkful.com/webahead">Thinkful</a> for sponsoring the show. Which always makes this much more realistic to happen. Partly because of the money &mdash; of course the sponsors support us financially &mdash; but also just the regularity. Like, I have to do a show, because people are expecting a show to go out. That's sometimes really... that makes the shows happen. [Laughs] So I appreciate all of our sponsors who help make that happen.</p>
+<p>You can go to the show notes for today's show at <a href="http://5by5.tv/webahead/92/">5by5.tv/webahead/92</a> or in the soon-to-be-future, <a href="http://thewebahead.net/92/">thewebahead.net/92</a>. And you can follow <a href="http://twitter.com/thewebahead">@thewebahead</a> on Twitter to get the first announcement of when the new website launches.</p>
+<p>So thanks to everybody who listens every week. You are the best. Bye.</p>
+</dd>
+
+</dl>
