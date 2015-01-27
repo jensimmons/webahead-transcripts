@@ -1,0 +1,413 @@
+---
+layout: transcript
+title: "Parsing Design with Andy Budd"
+permalink: 93/
+---
+
+<dl>
+
+<dt>Jen</dt>
+<dd>
+  <p>This is The Web Ahead, a weekly conversation about changing technologies and the future of the web. I'm Jen Simmons and this is episode 93.</p>
+
+  <p>I first want to say thank you so much to today's sponsors, <a href="http://thinkful.com/webahead/" title="Thinkful">Thinkful</a> and <a href="http://squarespace.com/webahead/" title="Squarespace">Squarespace</a>, and let you know that bandwidth has been provided by <a href="http://www.cachefly.com/" title="CacheFly">CacheFly</a>, the fastest, most reliable CDN in the business.</p>
+
+  <p>I thought today we would do a show about design. Really focus a bit back on thinking about web design, talking about web design, trying to define this amorphous, complex thing. To talk about design trends, get a sense of, "It's the new year, it's 2015, where are we at? What's the hot, new stuff people are doing? What practices in the past were really popular that seem to have fallen away? Get a sense of where we're at and where things are going.</p>
+
+  <p>My guest today is the fabulous Andy Budd. Hi Andy.</p>
+
+</dd>
+
+<dt>Andy</dt>
+<dd>Hi Jen, how are you doing?</dd>
+
+<dt>Jen</dt>
+<dd>Andy is one of the co-founders of <a href="http://clearleft.com/" title="Clearleft">Clearleft</a>. I've had all your colleagues on the show &mdash; your other co-founders, Jeremy Keith and Richard Rutter have both been on the show. I don't know how I've gotten 93 episodes in and not had you on the show yet.</dd>
+
+<dt>Andy</dt>
+<dd>I know, what's up with that? I'm getting a complex.</dd>
+
+<dt>Jen</dt>
+<dd>That's just an accident of some kind. [Both laugh] I have a tremendous amount of respect for your work and for everything that comes out of Clearleft. Anyone who's listening who hasn't gone to Clearleft and read the <a href="http://clearleft.com/thinks/" title="Clearleft blog">blog</a> and looked at the <a href="http://clearleft.com/made/" title="Clearleft portfolio">portfolio</a>... I feel like you're one of the top web design companies in the world.</dd>
+
+<dt>Andy</dt>
+<dd>That's awfully kind of you to say. Thanks.</dd>
+
+<dt>Jen</dt>
+<dd>Where do you think we are? I'm going to ask you a really hard, vague question. Where are we right now with design? Where are we going?</dd>
+
+<dt>Andy</dt>
+<dd>
+  <p>One of the interesting things that's been a hot topic of the last few weeks &mdash; if not months &mdash; is the future of design and whether it's in-house or agencies. There's been a lot of discussion around Adaptive Path being acquired by Capital One a number of months ago. More recently, Teehan + Lax. I'm seeing loads of articles in Medium, half of them are proclaiming the death of the agency. I think the other half are claiming that proclamation is too soon.</p>
+
+  <p>I think it's fascinating that, at this moment, we're at this stage in history. Partly because we're reaching a level of design maturity, that we have the time to think of these discussions.</p>
+
+  <p>I remember back when I first started doing web stuff 15 years ago. It was hard enough just to get a page up online. It was a real struggle to force the tools into some kind of level of control. Now, we're in this beautiful position where we have so much opportunity. There's so much great design out there, there are so many great designers, there are so many great tools &mdash; more and more coming down the line every day. We're starting, as an industry, to get very introspective. I think we're getting introspective around all kinds of things. What our job titles are, the meaning of certain terms &mdash; like user experience design &mdash; what the future of design is. Whether you can do good design in an agency setting, or embedded in a large company. I think it's a really positive thing.</p>
+
+  <p>On the other hand, I see a lot of the conversations that are happening at the moment. There is a lot of discussion over the minutiae. What is it, "How many angels dancing on the head of a pin?" That kind of stuff. I see a lot of people who I consider friends, and I know if you sit down with a beer at the end of work, they'll completely agree, on Twitter disagreeing massively with nuances of very fine, different definitions. I've been responsible for plenty of those conversations in my time.</p>
+
+  <p>But I think design is really positive. One thing I've found &mdash; three or four years ago, maybe even longer, six or seven years go &mdash; I'd go to all the conferences. I'd go to lots of startup conferences. The technologists were the heroes. Whether it was the front-end technologists or the back-end technologists, whether it was the Rails developers or the dev ops people. It seemed like every startup wanted developers and valued developers. There was a superstar developer culture.</p>
+
+  <p>Designers almost seemed like they were out of that conversation. You heard, even three or four years ago, about large tech companies buying startups and valuing their developers at a couple of million dollars a head. And designers being let free in the world because these companies didn't value them.</p>
+
+  <p>That's changed massively. In the last two or three years, a number of my friends have run small agencies that have been bought by large tech companies. They're using the same valuation. Designers are now being seen as massive asset, maybe being valued a million dollars a head. We're seeing companies like Teehan + Lax, the whole senior management going and being absorbed into these companies.</p>
+
+  <p>There's a real understanding now that technology is not a differentiator anymore. There are so many libraries and resources and platforms that can get sites up and running really quickly, at a really good speed, really efficiently. You're not going to look to startups now, as a VC, and go, "That's one's got a massively significant advantage because they've got a better tech stack." What you are now saying is, "This startups got a massive advantage because, not only does the team understand design and users and user experience, but the thing they've created is incredibly hard to copy."</p>
+
+  <p>It's incredibly hard to copy good design. As you can see around the world when you see fake versions of Apple products in a store in Hong Kong. You can copy the surface layer, but good design is something that happens much, much deeper.</p>
+
+  <p>That long-winded rant is basically me saying, I think design is possibly in the best and healthiest place it's been in a really, really long time.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>Yeah. I agree. At some point &mdash; because I've been both a developer and a designer &mdash; I was making decisions personally about my career, to focus on being more of a developer because I could live in New York on a developer's salary. Designers were just not getting paid anywhere near. They'd be making $50,000 a year less than the developers. It feels like that's changed. Now the design salaries rival the developer salaries and things are more equal now.</dd>
+
+<dt>Andy</dt>
+<dd>It's definitely getting closer. We run a company that is a user experience design company. We have a lot of people that are front-end developers, visual designers, and UI designers, because that's an important part of UX.</p>
+
+  <p>I think what's happened is, suddenly companies have realized there's a need for user experience design. Those people are going in at very, very high salaries. Often, if I'm honest, higher than the years and experience they have. But because of the echo chamber of how awesome and amazing and important UX designers are, I think UI designers are actually being a little bit undervalued. I'm seeing lots of really talented UI designers feeling that they're not being paid well enough. They're not doing the level of strategic work they're capable of. It's almost like feeling bullied into moving into becoming UX designers. I think that's a real shame.</p>
+
+  <p>What I would like to see is a realization that both fields are equally important. I'm finding now, weirdly, there's been a flip. It's harder to find visual designers, UI designers, who are any good. It's easy to find lots of people who are stylists. It's easy to go on lots of sites... I don't mean to single out Dribbble, because I love Dribbble, I love the guys behind it. But it's easy to see lots of very junior designers mimicking a style but are not good at solving problems.</p>
+
+  <p>It's that problem-solving designer that I think is hugely valuable. If you are that kind of person, you're in great demand. If you're an agency or a startup or a tech company looking for those people, they're few and far between.</p>
+
+  <p>That's one of the reasons why I think designers are in such a good place, in some regards. The demand is there but the supply isn't.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>How do you define UX or UI designers? UX versus UI? That's another thing that comes up all the time. Every time I see a job posting it seems like there's a different job title on it. Different people have different ideas of what those job titles mean. Different teams are broken up in different ways. Do you think there's a consensus around some of those titles? About what they are? What are they?</dd>
+
+<dt>Andy</dt>
+<dd>I knew you were going to ask me this. It's one of those really annoying questions, but one that you get quite a lot.</p>
+
+  <p>I imagine it's one that loads of new disciplines get. I imagine 500 or 600 years ago, during the transition between master masons and architects. People in the building trade would say, "We don't need an architect, we've got a master mason. What is this crazy, newfangled thing you're talking about? Can you explain it?"
+
+    <p>To this day, if you look at architects, it's not a clear-cut thing. You might think a profession that's been around for hundreds &mdash; if not thousands &mdash; of years, would be really well-defined. But even in those industries, I think good, mature industries are constantly trying to understand and evaluate and make sense and re-evaluate and re-invent themselves. Even if you go to forums and conferences and schools of architecture, there will be disagreement. Because we're in a moving field.</p>
+
+    <p>The term "user experience design" might be new to some people. It's been around for a really long time. Don Norman ran one of the first user experience departments at Apple back in the 90s. It comes from a history that goes back much further into human-computer interaction, which goes back into the 60s, 70s, and maybe even earlier.</p>
+
+    <p>I think what you'll find is, a lot of practitioners &mdash; who have been doing this for a very long time &mdash; have a really good understanding of what it is and what it isn't. They might their own personal definitions. They might differ from some other practitioners. But when you look at the practice as a whole, it becomes clear.</p>
+
+    <p>I know I'm being a little bit evasive, and I will get to a definition shortly. But I think one of the problems is that "user experience" is not one thing.</p>
+
+    <p>I imagine user experience as a pyramid. I think this is where the confusion comes from. Any interface you create that is used by somebody manifests a user experience. If anybody is using your product, they're receiving a user experience. The difference is, that might not have been deliberate.</p>
+
+    <p>If you're a visual designer or a web designer or a product owner that hasn't considered how that user will be interacting with your goods or services, you can't claim yourself to be a user experience designer, just because the thing you've created has manifested that. This is a trend I'm seeing. I'm seeing a lot of people misunderstand the term and go, "I design websites and build them. Obviously people experience that, so I must be a user experience designer." Well, no.</p>
+
+    <p>User experience design is also a body of practice. ClearLeft is a user experience design agency. In that, there are people of specific disciplines. As I said before, UI design, UX design, and visual design make up our pattern of things. And content strategists.</p>
+
+    <p>The classic example goes back a few years. Dan, who used to work at Adaptive Path, came up with this venn diagram of practices. He was saying that user experience is a composite, umbrella term to cover a range of disciplines that include usability and user engineering, HTI (human-technology interaction), visual design, interaction design, information architecture, and product design. Basically, UX design covers all of these fields. You can be a UX design agency and you can have all of these disciplines in your company. Or you can be an individual that has strengths and weaknesses in some of those areas.</p>
+
+    <p>Typically, I find that a user experience designers usually has strengths in three of those areas. You might find somebody who is a brilliant interaction designer that does some usability work and does some information architecture. You might find somebody else who is really, really strong at content strategy and IA and usability testing, but is weaker in interaction design. I would say, all of those people, realistically, could define themselves as user experience designers.</p>
+
+    <p>I don't know if that answers your question. Effectively, it's a composite of a number of different skills.</p>
+
+    <p>One of the ironic things I find, when I go to web conferences or talk on general forums for digital designers, there's this belief that user experience people are specialists. Ironically, when I go to a conference like the IA Summit, they look at user experience designers as generalists. They do a little bit of everything. Whereas, at the IA Summit, they've got people that have studied purely library sciences or usability all their lives.</p>
+
+    <p>If you want a really broad definition, I would say that user experience designers are people that are focused on the process and function of a designer rather than its visual, aesthetic aspects. In the same way, you could define architects as looking at the function of a building, versus interior designers looking at the aesthetics of the building.</p>
+
+    <p>Does that answer your question?</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>Yeah.</dd>
+
+  <dt>Andy</dt>
+  <dd>Yay! [Both laugh]</dd>
+
+  <dt>Jen</dt>
+  <dd>When you say UI, are you talking about graphic and visual design? Or are you separating those two out? UI being designing the functionality of an interface, and the visual aesthetics being a visual designer?</dd>
+
+  <dt>Andy</dt>
+  <dd>
+    <p>That's a very good question. I'm reminded of a story. I watch QI, a British panel show program. If your viewers haven't watched it, it's really good fun. They talked about how Darwin explained to this old, matronly woman that the Earth wasn't carried on the back of a giant turtle. He said, "If the Earth is carried on the back of a giant turtle, what's below the turtle?" The woman said confidently to Mr Darwin, "I'm sorry, Mr Darwin, you can't trick me. It's turtles all the way down." [Jen laughs]</p>
+
+    <p>I think it's the same with job titles. It's specialisms all the way down. Graphic design is quite a broad specialism. You could argue that UI designers and comic book designers and poster designers would all fall under the banner of "graphic design," in the same way interaction designers and usability practitioners would all fall under the banner of "UX."</p>
+
+    <p>If you're looking at UI designers, I would argue that UI designers are typically graphic designers who have a specialism in designing the visual aspect of the user interface. That doesn't necessarily mean that they can't be involved in other aspects. If I'm honest, the best UI designers have a really strong appreciation for UX, and the best UX designers have a really strong appreciation for UI. There's nothing in this conversation that says, "Because you call yourself one thing, or specialize in one thing, you can't have your hand in something else." It is just saying, "This is your domain of expertise."</p>
+
+    <p>In the same way, if you look at an architect, architects get engineering. Architects have to know so much engineering, but they're not engineers and they would never call themselves engineers because they're a big part of engineering which the architects do not touch on. I would say the same is true of UI design.</p>
+
+    <p>Then, just to muddy the waters further, I learned a new term. I love learning new terms. I learned a new term just before Christmas, which I've now been utilizing to its death, which is "full-stack designer."</p>
+
+    <p>Now, I believe this is really common in San Francisco. It might be really common in New York and Brooklyn, I don't know. It's something I only discovered on Twitter a couple of months ago. Basically, the term "full-stack designer" is what you and I might have called a "web designer" back in the day. Or if you're being generous, "unicorn."</p>
+
+    <p>A full-stack designer is someone that does a lot. Someone that does UI design, interaction design, front-end development. We can be all things. There is no right or wrong.</p>
+
+    <p>The thing I dislike is people saying they're one thing when they're not. I don't mind if you want to be a full-stack designer or web designer or what-have-you, that's great. I think for most people, job titles aren't important. But if you're someone trying to hire design services, either me, as an agency founder, or as a client, I hear so many prospective clients that say to me, "We hired a guy who we thought was a UX designer but he turned out to be a UI designer or a web designer," or, "They weren't very good because they misled the set of skills they have."</p>
+
+    <p>Clients get it. Clients in the UK really get what UX is. People in the UX industry really get what UX is. But there's a whole class of designers and developers who have never worked with a UX designer. Who don't know what it's like, don't know what that person does. Then there's a tendency to mistrust or think it's a made-up term.</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>Of course it has so much to do with context. I think that's what's so hard about knowing how to name things and who to call which title, because the contexts have changed so radically over the last 25 years. In my experience, I don't know what to call myself, most of the time.</p>
+
+    <p>On one project, the team wasn't very big, so a lot of people were doing a lot of different jobs, all at the same time. On a different project, there was actually a really big team. So there's lots of specialization. On the first project, even talking about information architecture &mdash; being able to call one meeting for four hours to do some drawings together about how to organize things &mdash; is so revolutionary that the person who's leading that effort is, in that moment, <em>the</em> expert on information architecture. But you could take that same person and pry them out of the project and drop them into a project where there's four library scientists discussing the information architecture of a big museum website and you could be like, that person has nothing to add to this conversation. They have no experience, comparatively.</p>
+
+  </dd>
+
+  <dt>Andy</dt>
+  <dd>If we divorce ourselves from the job title thing for a second, everybody on a project &mdash; or in a company, or in an agency &mdash; takes on a series of roles. It's very rare that somebody will do just one thing. Usually they'll have a bunch of different roles because they have a bunch of different skills. Usually the job title is a way of simply describing the key roles that you're taking on. That doesn't necessarily mean that you can't do other roles. Just because you're a business development person doesn't mean that you can't do account management. Just because you're a front-end developer, doesn't mean you can't do performance testing. Just because you're a graphic designer doesn't mean you can't sketch out a wireframe.</p>
+
+    <p>But typically, you look at a person and you say, "This person has these five or six roles in the company. These are the ones they focus on the most. These are the ones that apply to this job. We'll wrap it up in a title." I'm not precious about people giving themselves a range of different titles that accurately describe what they do. What I dislike is people giving themselves titles that don't accurately describe what they do. I know that's a nuanced thing, but there you go.</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>It makes sense. For people to not embrace a title if they're not sure, until they are sure. If you're new and a student and you liked your user experience classes more than your other classes. You get out and you get your first or second or third job, it may be too early to say, "I'm a user experience designer, I'm an expert in user experience design only."</dd>
+
+  <dt>Andy</dt>
+  <dd>Totally. I started a long, long time ago as a Flash developer, effectively. I was building Flash websites and Flash 3 ActionScript games. Then I got into web design simultaneously. For a long time I was a web designer because I did a bit of HTML and CSS and a bit of JavaScript and a bit of visual design, but I also did a bit of PHP. But I never, ever considered myself a back-end developer. Because I knew my PHP was terrible and my Photoshop and CSS skills were much better.</p>
+
+    <p>But over a period of time, I found myself getting interested in usability testing and interaction design. When a job came up at an agency that I used to work for, I found myself doing more and more and more of that. It was probably three or four years before I had the confidence to switch my job title and say, "When was the last time I opened up Photoshop? It was probably about a month ago. When was the last time I opened up a text editor? It was probably about threes ago. What have I been doing for the last two or three months? Actually, I've spent 80% of my time doing usability testing, wireframing, and sitemapping. Well, probably, it's time for me to start calling myself a UX designer. Because I'm not really a web designer anymore. I'm not doing the stuff that you do in web design."</p>
+
+    <p>I think it's better to be a little bit honest. Rather than saying, "I bought a copy of <a href="http://balsamiq.com/" title="Balsamiq">Balsamiq</a>, I made one wireframe, that must mean I'm a UX designer now."</p>
+
+    <p>I talk about this stuff all the time. I find the definition thing really tedious. [Laughs] I suggest we move on, because I don't want to bore your awesome listeners stupid with the nuances of job titles.</p>
+
+  </dd>
+
+  <aside class="sponsor-break">
+    <dt>Jen</dt>
+    <dd>
+      <p>Well, it comes up. People ask all the time because it's tricky. But, yeah, let's move on.</p>
+
+      <p>Let me jump in with our sponsor today, Thinkful.</p>
+
+      <p>Thinkful is an online course. It's a place with a whole bunch of online courses for advancing your career. They've got a bunch of different courses in Rails, Angular, Node.js, data science, Python, into to Android development, iOS programming in Swift. They've got one about being a freelance developer. All kinds of advice and tips and insider figuring out how to bill people and run your life. All the business side of being a freelance developer. And the course that the folks at Thinkful thought that you might be most interested in &mdash; you listeners of the show &mdash; is a course on front-end web development. There are four units in this course. The first one is on HTML and CSS. Unit two is on jQuery. Unit three, programming fundamentals in JavaScript. Unit four, AJAX and advanced jQuery. So you get deep into JavaScript as well as other front-end development technologies. You go through the whole course by building projects. There's 15 projects. You work through the curricula, it's online, you work through the curricula at your own pace. Working through those 15 projects over the course of three months. And you have a weekly, one-on-one video chat with a mentor. You can meet with them for 45 minutes, live video chat, show them what you've done, ask them questions, get help, get inspired, get a kick in the pants if that's what you need to help you move along. You've got yourself a mentor to work with, which is really what makes them stand out from some of the other online course offerings. They have a special deal for listeners of The Web Ahead. If you go to <a href="http://thinkful.com/webahead/" title="Thinkful">thinkful.com/webahead</a>, you can get 10% off. <a href="http://thinkful.com/webahead/" title="Thinkful">thinkful.com/webahead</a> to get 10% off. Thanks so much to the folks over at thank... <em>Think</em>ful. I'm <em>thankful</em> for the folks at Thinkful for supporting the show.</p>
+
+      <p>What should we talk about next? I feel like one question that came up the other day... somebody actually asked me a really good question. Maybe it was on Twitter or in person, I don't remember. Sorry to the person that asked me this awesome question. They said, "Look, I want to know if there's a place out there where I can go and get information, perhaps information backed up by data, but just conventional wisdom around the best usability design practices. Are people using sidebars or not? Should we put the menu in a vertical or horizontal line? Should we do this or this kind of interface? What about this design pattern vs that design pattern? Where's the place a person can go to find out what users actually do?"</p>
+
+    </dd>
+  </aside>
+
+  <dt>Andy</dt>
+  <dd>That's a really interesting question, and I think it's dangerous thinking. Have you come across the term <a href="http://en.wikipedia.org/wiki/Cargo_cult" title="cargo cult">cargo cult</a>?</dd>
+
+  <dt>Jen</dt>
+  <dd>No.</dd>
+
+  <dt>Andy</dt>
+  <dd>
+    <p>Cargo cults were amazing. Basically, during WWII, all of these American troops came to the Pacific islands with the islanders, these tribal people. With the Americans came great wealth: jeans, stereos, cigarettes, chocolate. The islanders thought this was almost magic. They couldn't imagine that these people come from anywhere; they came from the skies like the gods. When the war finished, all the planes and boats disappeared. The islanders thought, "How can we bring these planes and boats back?" They would dress up in these uniforms that they saw the soldiers wearing. They'd make wooden things that looked like guns but were just made of bamboo, and they'd march up and down, hoping that suddenly all of this wealth could come back. It didn't work. Then they went out and cleared huge runways in the forest. They built bamboo control towers and bamboo planes because they thought, "If we do these things, the planes will come."</p>
+
+    <p>This is a cargo cult. It's magical thinking. It's thinking there's a magical incantation or perfect way of doing it. If I do this, the solution will come. It's a misattribution error. These tribal people were misunderstanding the nature of the problem, they were attributing the solution to one thing, when actually it was a much more complicated problem.</p>
+
+    <p>I use the term "cargo cult" a lot. I think the question you're asking, actually, is a really good question. But it's sort of magical thinking. There is no one UI component to rule them all.</p>
+
+    <p>There's a classic example of this. A number of years ago &mdash; I think it was Target, I might be wrong, I'm terrible with names, but I think it was Target. They looked at the Amazon website and said, "Look, these guys have nailed it. They have nailed ecommerce. We cannot get better than the Amazon platform. We will pay Amazon a sh*tload of money to license their software, to use their software on our website."</p>
+
+    <p>But one of the key things was, "We want people to comment as much as they do on Amazon." They looked at Amazon and they were like, "Man, you go to these product pages and there's reviews and ratings and it's vibrant." Obviously, because Amazon has tested the hell out of it, this must be the perfect combination. They've hit on this magical combination of text and images and features. This is it. This is the mother lode.</p>
+
+    <p>They spent millions and millions of dollars on this platform. Did people come and comment on the products that Target had? Of course they didn't. Because you don't go to Target to comment on products. You go to Amazon.</p>
+
+    <p>Again, it's going back to context. There is no right solution. There is no perfect button. There is no perfect dropdown. There is no perfect sidebar. Every single client, every single business, every single problem is unique to that problem.</p>
+
+    <p>The reason that Amazon was successful wasn't necessarily because of the usability. It was the brand, the marketing, the first-move advantage.</p>
+
+    <p>I know it's a non-helpful answer, but there is no perfect. That's probably not super helpful.</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>No, I think it is. What would you say people need to be doing instead? Instead of opening up Visio and drawing boxes that are in the same shape as Facebook because they want to capture Facebook's success, what's the first step when you have a site or something you want to design and you want to have the ultimate interface that's going to be best for your project?</dd>
+
+  <dt>Andy</dt>
+  <dd>
+    <p>This is the essence of good design. The essence of good design is having a really good process. It's about understanding clearly what the problems are, understanding the contest under which the problems exist. Having great designers that come up with a first best guess, based on years and years and years of experience, but also being open to experimentation and change. A lot of design is constant iterations. It's putting a whole bunch of elements together, seeing whether it feels right, seeing whether it feels natural. Re-combining, re-combining, and re-combining until you get to something which you think is close to perfection. Then you test it. You put it in front of users, and you realize that a lot of your assumptions were probably wrong. People work in a different way. That feeds into your better understanding of design and human beings. Next time, you'll do something different.</p>
+
+    <p>Sadly, there is no successful design-by-numbers. This is an interesting thing, actually. You asked earlier about design trends. I can't remember the name of the application, you or one of your listeners might be able to remember. One of the chaps who was the designer at Medium &mdash; an English guy &mdash; has now gone off to create a design tool that, apparently, uses artificial intelligence to design pages.</p>
+
+    <p>Their ideas is, web designers are costly. Clock cycles are cheap. Let's try to create designs through artificial intelligence. It's a really, really interesting project. I would say that if you're a small shopkeeper &mdash; if you're someone that uses Shopify or Squarespace &mdash; a tool like this, in a non-trained designers hands, might actually get closer to sentient. It might get close to creating some stars and looking pretty.</p>
+
+    <p>But the art of a true designer is problem-solving. There are certain things which you cannot do with artificial intelligence at the moment, which need a human eye, which needs human experience. I'd say design is one of them.</p>
+
+    <p>So the answer to you question is, "Hire a great designer." On saying that, there are principles. I recommended this morning to Craig Mod, who's a really great designer. He was asking if anyone could recommend books for a 12 or 13 year old on design fundamentals. There's a really good book called <a href="http://stuffcreators.com/upod/" title="Universal Principles of Design">Universal Principles of Design</a> that has 101 design heuristics.</p>
+
+    <p>Design heuristics are like near-truths. If you're really struggling, then you can look at some of these design heuristics and have that as an assemblage of a first best-guess. But that doesn't mean that will be perfect. Assembling a whole bunch of things that are 90% there, could mean that you have a product that ends up being 90% there, or you could have a product that ends up being a horrible mess. Because the combination of all of those things is worse than the thing on its own.</p>
+
+    <p>There are lots of pattern libraries out there. There are lots of UX patterns. You've got Bootstrap and the global experience language from the BBC and all of these things out there. Google's new UI pattern libraries. But these are only first guesses and they're appropriate for their uses.</p>
+
+    <p>Good designing, and then testing and iterating is probably the answer.</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>Yeah, it's interesting. In some ways, I agree with what we were saying at the beginning of the show, that design is valued right now, more than ever. Especially in the context of the web or digital interfaces. But at the same time, it feels like, there are so many people and trends and tools popping up everywhere who want to cut the designer &mdash; the actual design process &mdash; out. They want to take a paint-by-numbers or shortcut, "Give me the mad libs and I'll just fill in the blanks."</dd>
+
+  <dt>Andy</dt>
+  <dd>
+    <p>That's not a bad thing. It's difficult. I do think that the digital industry is going through a transformation. It used to be, if you wanted to set up a startup, you had to have loads of people building things from scratch and it was very expensive. Now, you can get a small team of two or three people, a whole bunch of cool libraries, and they can do the same amount of work in the quarter of the time that a team ten times the size would have been able to do.</p>
+
+    <p>If you're an old-school, traditional developer, you might suddenly feel threatened, that the internet has changed. Or you might suddenly realize this has opened up a whole bunch of new opportunities to go and work for smaller, leaner companies, rather than big, massive, slow-moving beasts.</p>
+
+    <p>I think the same is true of design. Design is being democratized. Me as a blogger, or me as a small shopkeeper... let's say I own a little fashion boutique in Brighton, where I'm from. I probably don't turn over a huge amount of money. I've probably got enough money to hire one or two staff members. I might make $10-$15,000 profit a year. Not a huge amount. In that instance, does it make sense for me to hire a freelancer designer who might charge me $20,000 or $30,000 to design a site from scratch? Or to go and pay Shopify $50?</p>
+
+    <p>I think there's an absolute logic behind creating tools that simplify very easy, simple design problems. Some of your audience might disagree, but there's very little design challenge in designing a simple blog or a site for a very small shop. There's some technical challenges, which Shopify have solved. There's some design and typographic challenges that Squarespace has solved. Ultimately, it becomes a styling issue. And that's fine. If you run one of those shops, you want a stylist more than a designer. You want a cheap solution versus a more expensive solution.</p>
+
+    <p>As you get into more and more complicated arenas, that frees up design to tackle the bigger problems. How do we transact online? How we do banking online? How do we interact with government online? These are tough problems. These are tough problems that need experienced designers. I think it's very unlikely that we're going to get to a stage where there will any automation that will solve those really big problems. But what it will do is solve the simple ones.</p>
+
+    <p>There's an argument I use, which is not a wholly correct argument. There was a time when, if you wanted to have furniture in your house, you had to go to the local wood maker and they would make it for you, from scratch. There's some beautiful things about that. You get craftsmanship, you get local materials, you get to know the person who's working with you. And get something that's to your exact specification. But it also meant, 500 years ago, the only people who could afford wooden chairs and nice things in their houses were kings and queens and dukes and lords. They weren't the serfs and peasantry, who probably had to sit in a mud floor.</p>
+
+    <p>You've now got IKEA. IKEA brings design to the masses. IKEA means I can sit in my house on a sofa that looks like it was designed by a superstar designer, but has some crazy Scandinavian name and cost $200. There's nothing wrong with democratizing design. What ends up happening is, if you're a designer, either you make money because you create and license that design and it's sold a million times, or you open a high-end boutique that's selling $10,000 sofas and you sell five a year.</p>
+
+    <p>I think that's what design is moving towards. It's moving away from the mass commodity end of the market and moving higher up the value chain. Of course, if you're stuck in the middle, and you're someone who only does very small sites, you've got to change up. But that doesn't necessarily mean you have to go and chase more expensive clients. It just means the skills you have to offer are changing slightly. You're going to be less judged on your ability to do Photoshop or code complex CSS. It's more about being a business consultant for clients and helping them pick the right tool, set up payments with Stripe or what-have-you. Those are the services you start performing, rather than doing beautiful Photoshop mockups of things.</p>
+
+  </dd>
+
+  <dt>Jen</dt>
+  <dd>
+
+  </p> The blog, the interface of the blog, was invented well over 10 years ago. Ten, twelve, fifteen years ago, or longer. It's a big of a known, fixed, solved problem. I think there's space to do something innovative and creative. Redefine what a blog is. Medium did that a bit. But there's not a lot of space. In some ways, if you get too crazy, it's just confusing to users because they're expecting a blog to be shaped like a blog.</p>
+
+  <p>I think there's a place to say, "We have a small budget, let's just lean into that interface and let the blog be the blog," or whatever. Where, like you said, there are all of these other interfaces. We have a problem with the quality of conversation online right now. Everybody's like, "Don't read the comments." [Andy laughs] The common shape of the comments are just not working. What could we replace commenting with? What kind of interface might be designed in a very different way? Where you throw comments out, you do something completely different.</p>
+
+  <p>We had forms for a long time. We had Usenet before that. Comments were not the first thing that came along and they probably won't be the last. That's a juicy design problem.</p>
+
+  <p>In fact, Mozilla and The New York Times and The Washington Post just started a project called Coral. Or maybe not just, but they have it running. I just saw this week that they have job openings. They're looking to hire people, to build up the team. They're trying to solve that problem. They're going to put together this super team and see if they can come up with something really amazing, so the future of discussion and the future of news, the public discussion of news in five years could be really helpful and add something to our culture, rather than be these kind of crazy comments.</p>
+
+  <p>So, yeah. There's these amazing design things to have, but maybe they're not in the spaces that we've already designed a million times.</p>
+
+</dd>
+
+<dt>Andy</dt>
+<dd>And that's good. You solve a problem, you move on, you solve a bigger problem you move on.</p>
+
+  <p>There's something I wanted to touch on there. You talked about the crazy comments. I'm finding the whole tone of conversation on the internet to have gone really weird in the last, probably year or two. YouTube comments have always been a dark, dark place.</p>
+
+  <p>One of the reason I got into the web is, first of all, the amazing ability to connect people together. To connect people together over mutual interests, mutual passions. I wouldn't be in this industry if it wasn't for, in the early days, stumbling onto some blog or forum, saying some incorrect thing and having some helpful person come along and say, "Actually, this is how it works." Or throwing out a comment and asking for help and some helpful person coming along and helping me.</p>
+
+  <p>It feels like the web, when I started, was this small, helpful village. Everyone was really friendly. Everyone wanted to be involved. Sure, there were always some trolls. But you knew them and dealt with them.</p>
+
+  <p>I've blinked and lost that. We've now moved into this really weird place where people are not joined together by a mutual love of something, but often a mutual hate of something. You look at what's happening around Gamer Gate. You look at what's happening around diversity in conferences, or the lack of diversity in conferences. Poor lineups of all male, all white speakers. Or you look at stuff that's happening in America, in politics, like Ferguson. The negative, racist stuff that you're seeing being spouted back at people. It's truly wowing. I really worry that the internet has gone from this place of positivity and help to this place of outrage and dis-calm or disquiet.</p>
+
+  <p>I think it's a real shame. I think, in a way, I'm starting to lose my love and passion for the industry. To think all of the people that I know when I started. Weirdly, there's almost a city analogy there. We wanted to build these shining cities that were perfect to live in, where everyone walked through beautifully lit streets and gardens and had this wonderful, perfect Californian lifestyle. What we've ended up creating are ghettos and silos and no-go areas. We've created the Bronx and possibly the worst kind of communities rather than the best kind. I don't know if there's anything we could have done about it. I'm getting increasingly disengaged from a lot of these social spaces that I used to like a lot because of the type of behavior that I'm witnessing, and it's a shame.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>Some people in the Bronx are probably sad that you said that.</dd>
+
+<dt>Andy</dt>
+<dd>
+  <p>Now it's great, I'm talking about how it used to be in the 70s and 80s. I don't want to pick on the Bronx. There are places all over the world. This is the wonderful thing, though. I hope there's an upside. If you look at big cities in the world, pretty much all of the big cities in the world have gone through that bit, have gone through that struggle and come out the other side.</p>
+
+  <p>Brooklyn, many years ago, was an incredible undesirable place to live, I imagine. Now, it's an incredibly desirable place to live.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>I've been thinking a lot, too, about war. For anybody gone through a war or lived in a country that's gone through a war or even just visited, there's a way in which... it's just such a trauma. It's such a collective thing. When you think about the former Yugoslavia, where there was a certain kind of unity under the government of Yugoslavia that dissolved and this horrible war happened between Croatia and Bosnia and Serbia. Did I say that right? Under Yugoslavia it was all together. What happened, then the war ended, and why? What happened? How could we do that?</p>
+
+  <p>It feels like, people who are lobbying. Trolling. Like, "Oh, I'm just trolling. It's a joke. Ha ha ha." No. It's a war. There are people who are fanning the flames of an actual war. I hope to have time this year to read books. There are a few people around who know how to dissolve a war and dissolve that mindset. Because it's almost an infection that happens in a culture, or a country, or a space. How can you get it a place where everything starts to get better, instead of only getting worse?</p>
+
+</dd>
+
+<dt>Andy</dt>
+<dd>
+  <p>The thing is, though, I think wars are easier to solve, in some regards. Because there are clear-cut lines, clear-cut divisions. Two or three parties and they're usually fighting for a fairly understood consensus.</p>
+
+  <p>Whereas, I think what we're dealing with now, what we're talking about, is more like gang culture in deprived urban cities. It's like the warriors in New York in the 1980s. It's this weird, no-go world of tribal allegiances shifting. Defining yourself not by what you are, but by what you're not.</p>
+
+  <p>Also, what ends up happening is &mdash; and I know it's been proven to be wrong &mdash; but it's the whole broken windows mentality. I think going through these times of trouble and strife but hopefully the people in charge of these platforms, people like Twitter and Facebook and YouTube and Google. At the moment they're shirking responsibility. They're saying, "We have just created this open playground and we'll let other people do what they will." I think there needs to be more though on creating spaces which default to a certain kind of behavior and discourage other behaviors.</p>
+
+  <p>One of the things, the classic example. I'm going back years and years now. If you look at YouTube comments. They're usually ghastly and devolved really quickly. If you look at how Flickr managed it, when Flickr was actually a thing of value a long, long time ago. It's kind of decayed and rotted and it's a real shame. I sometimes go to Flickr and just feel really sad about what it once was.</p>
+
+  <p>But they created this great community of positivity through setting some small defaults. Setting some general guidance. Encouraging people to behave in a certain way, and that encouraged how other people behaved. If there was behavior that was uncomfortable, it would be discouraged. It wouldn't be banned completely, but it would be discouraged.</p>
+
+  <p>Whereas, if you have a free-for-all, if every kind of behavior is valid... we're not going to censor, we're not going to make suggestions as to how people behave, then that gives people permission to behave horribly.</p>
+
+  <p>Frankly, what I would like a lot of these spaces to be,- again, this is probably going to show my class allegiance &mdash; but I'd much prefer them to be like cocktail parties or dinner parties. But they've turned into a terror, like a kid's birthday party. Where everyone's hopped up on cake and fizzy drink and running around, breaking stuff. The parents going, "They're just expressing themselves. Let them do whatever they want." As they're smashing the house to pieces.</p>
+
+  <p>I'm not in charge of these sites. I don't know what to do about them. I don't think censorship is the answer.</p>
+
+  <p>Anyway, I love to talk about internet culture. We've run a conference called Deconstruct, which is all about internet culture. I love having these deep, philosophical chats. I guess I'm just concerned, probably your audience might be more interested in the design stuff. Are there any kind of other design or tech-related things you fancy getting to grips with? I know one of the things you talked about were trends. Is that something you want to dig into, in these final few minutes?</p>
+
+</dd>
+
+<aside class="sponsor-break">
+  <dt>Jen</dt>
+  <dd>
+    <p>Sure. Let me jump in here with another sponsor.</p>
+
+    <p>Squarespace. We were just talking about Squarespace, Andy and I. About how it fills this space in web development and design. A tool that people can use to make websites. I am, honestly, genuinely, a huge fan of Squarespace. Because I do think it makes it affordable to create smaller project websites that are really beautiful. To work with a client to focus on things like usability and user experience and content, because you're focused on the content and where are you going to put which piece of content on the page? How big do you want to make one thing versus another thing? You can think about your visual hierarchy. You don't have to think nearly as much about things like, "How do we make sure our store is PCI compliant?" Because it just is. "How do we make these links work in this menu that's horizontal? That works on all screens? That's responsive?" You don't have to worry about that. It's just there. You can focus on what links are going to go there and what words you're going to use, what branding you're going to have. Rather than the technical details of exactly what to do. But given the fact the Squarespace is all set up for you, there's also a lot of flexibility in how you can mold and morph a Squarespace website to be your own unique creation. They've got a ton of fonts to choose from. You can change the typography around. You can change the colors. You can change the way things look and feel. If you know CSS, which many of us do, you can get in there and re-write the CSS. They give you access to those tools. They've got a whole developer platform. A whole developer website for developers about how to get in and really make Squarespace into what you want it to be. I just feel like it's a really great shortcut to having this site that's a modern site that is responsive, that looks great, and has all the things that people want when they want a $50,000 website but they only have $5,000 or $500 or $5 to make their website happen. You can't start from scratch with people who want their website to be just like Facebook, who want to build a drag-and-drop thing. In Squarespace, you can. You've got a whole bunch of photos that were just shot, right out of the camera, and they're still RAW or huge or something? With other websites, you've got to teach the client how to take those into Photoshop or a different program and resize them, and what's a jpg, and how do you compress for jpg, and how do you make sure that all of this is working properly? Even at work, sometimes, people who are professional content editors, who add content to websites for a living, have a hard time managing all of that. It takes time to open 127 images in Photoshop and resize each one of them to be the correct size. Squarespace, you don't have to do any of that. You just grab them all from the desktop, drop them onto the window on the website, and their little magical robots will make everything be the correct size and compressed the way it's supposed to be and cut down to the size it's supposed to be for responsive website. Responsive images, responsive context. Make it all optimized and fast and all of that stuff. Even for those of us who know how to do that, it's just so much easier when you don't have to bother. So go check out Squarespace. You can go to <a href="http://squarespace.com/webahead/"  title="Squarespace">squarespace.com/webahead</a>, which will let them know that you went over the site because you're a fan of the show and you listen to the show. You can use the code <code>JENSENTME</code> to get 10% off your first purchase. Whatever you buy. Maybe you sign up for month, maybe you sign up for a year. You'll get 10% off. But before you sign up for anything, well, before you <em>pay</em> anything, you can sign up and get a free trial. An actual free trial. No credit card required. Go check them out, <a href="http://squarespace.com/webahead/" title="Squarespace">squarespace.com/webahead</a>. Thank you so much to them for supporting the show.</p>
+
+    <p>What kinds of things are you seeing? I'll go back to the original question I asked around design trends. Do you feel like you seeing a lot of sites coming out very similar to each other? That people are tending to hone in on a very few ways of going about creating a website these days? Or are you seeing a lot of fresh innovation in what people are doing?</p>
+
+  </dd>
+</aside>
+
+<dt>Andy</dt>
+<dd>It's a little bit embarrassing to admit this, actually, but I spend far too little time looking at other websites. The way that we approach design is mostly to focus on the problem at hand. It's very rare that we get stylistic inspiration from elsewhere. Usually our stylistic inspiration comes from the values of the client, the brand, their existing material and how they're trying to communicate. I think a lot of designers do fixate a little bit on what they see in magazines or lists of great designs, and iterate and trot out those trends.</p>
+
+  <p>Obviously, there are trends. We've gone through the period of very 3D, textured designs and graphic designs. We're not going through a flat design period. I think we're coming out of the other end of that. I'm sure there are visual design trends.</p>
+
+  <p>I guess some of the trends I'm interested in are slightly deeper. If I'm honest, I've always been a very anti-trend person. I often get asked in magazines, "What are the design trends coming out over the next year?" I always say, "Design trends are meaningless. We need to get to the bottom of the problem."</p>
+
+  <p>But there is a trend that I've seen recently, which I'm fascinated with and think is massively important. I think everyone needs to start focusing on it. That trend is animation. I'm not necessarily talking about becoming a great animator or throwing your products or services full of animation. But particularly, if you're designing sites or products on relatively small screens, where there is a real lack of real estate, then animation and transition can communicate a huge amount.</p>
+
+  <p>One of the things that we've found is, when we're trying to communicate to clients statically by showing them Photoshop comps or flat files or wireframes or clickable prototypes, they get a sense of how this thing will work. But if you start using animation as a prototyping tool, suddenly you've breathed life into these products and service.</p>
+
+  <p>People have been doing this forever. But two years ago, I started meeting people who were creating prototypes, not in HTML or CSS or a prototyping tool, but were prototyping in <a href="http://www.adobe.com/products/aftereffects.html" title="Adobe After Effects">Adobe After Effects</a>. I thought, "That's weird." Because After Effects shouldn't be a prototyping tool. People do &mdash; and we've been doing this for quite a while &mdash; prototype in <a href="https://www.apple.com/mac/keynote/" title="Keynote">Keynote</a>. I'm led to believe, by people that used to work at Apple, that Keynote was actually originally designed as a prototyping tool. If you look at the animation tools within Keynote, there's some really powerful stuff.</p>
+
+  <p>Four or five years ago, we did a "How to Prototype in Keynote" workshop during our UX London conference, which we have in London every May. More recently, we've seen a whole raft of prototyping tools come out. I'm going to forget all of their names now. Is it <a href="http://framerjs.com/" title="Framer.js">Framer.js</a> that's this interesting JavaScript prototyping tool that hooks into Photoshop? It used to hook into Fireworks, I think. You've got the stuff that the guys at Facebook have been working on, <a href="https://www.facebook.com/origami.qc" title="Origami">Origami</a>. You've got stuff happening in <a href="http://bohemiancoding.com/sketch/" title="Sketch">Sketch</a>. There's all of these rich animation tools. There's also a lot of great iPhone applications where you can photograph sketched wireframes or drawing and bring those prototypes to life.</p>
+
+  <p>One of the things I'm seeing is, a lot of forward-thinking, full-stack designers jumping on board with these animated prototyping tools. Because they're more akin to the visual design tools they're comfortable with. If you're used to using Photoshop or Fireworks, or if you're a developer, using one of these tools is really easy.</p>
+
+  <p>I see a lot of traditional UX people burying their heads in the sand. I think that's really dangerous.</p>
+
+  <p>At UX London last year and this year, we've been doing loads of prototyping workshops. There's a fantastic designer living in San Francisco, <a href="http://mengto.com/" title="Meng To">Meng To</a>, who's written this really great book and set of workshops on prototyping with animation. I think it's going to be big. If you're in a job where you are having to prototype and sell designs, you're going to find very soon, the people you're competing against &mdash;  the agencies, your colleagues &mdash; are going to be using animated prototyping much more heavily.</p>
+
+  <p>That would be my big tip to listeners of your podcast this year. Go and explore all of the amazing animated prototyping tools out there. If not this year, then next year is going to be the year of animated prototypes.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>It's interesting, as you were talking I was remembering... I think when people go to design phone apps, "I'm making an iPhone app." The idea of having an animated prototype is, "Of course. We need to use one of those things and we'll click and you can click here and this hotspot and that hotspot and you can see how the screens are going to evolve, one to the next and the next. This thing slides up and this thing moves over here.</p>
+
+  <p>But then when it comes to websites, it feels like, 90% of the folks out there who are designing websites right now are doing everything in Visio or Omnigraffle, Photoshop, and delivering everything in PDFs.</p>
+
+  <p>There's no room for animation. There's no room for even hover text. [Laughs] What color do you want the link to be when you hover over them? Please let me know in this separate email what that's supposed to be.</p>
+
+  <p>There are so many things around states and transitions that are lost. Yeah, you're right. It's becoming more and more important.</p>
+
+</dd>
+
+<dt>Andy</dt>
+<dd>
+
+</p> I remember, a long time ago at Clearleft, we designed a website in the UK called <a href="http://www.gumtree.com/" title="Gumtree">Gumtree</a>. The closest equivalent in the states would be Craigslist. I just remember us designing on a single Photoshop page 30 different states for a search box. Search ahead, drop down, all of this kind of stuff. It was laborious. Doing it in Photoshop wasn't a good idea. Then we had to go and sit with the developers how fast this thing dropped down, and when you're typing, how quickly we wanted the text to come up. Because all of those little nuances tell a story. If you don't do that, then everything just pops up at once and it just feels clunky and unconsidered.</p>
+
+<p>People talk about some of the nicest things on the iPhone, like the scrolling mechanism. People will just sit there at the end of the page and bounce the scroll up and down. It's a simple thing, but a lot of thought and consideration has been put into it. I think motion design is important.</p>
+
+<p>One thing I always think is, whatever tool you use leaves marks in the material. To use a woodworking analogy, if you use a chisel or a saw, you can see. You can see the marks you've left in the medium. Different tools give a different effect. I think the same is true with the web. If you are going to use a prototyping tool that is a very flat prototyping tool, with very little animation built in from scratch, then your designs are going to represent that and they're going to have that built in.</p>
+
+<p>If you use a tool where animation is much more important, then it becomes easier for you to animate a dropdown on a search box. Suddenly, you're going to see a lot more of these things appearing in your designs.</p>
+
+<p>One of the things I find is, a lot of designers &mdash; and UX designers in particular &mdash; will pick a bunch of tools based on the agency or company they worked on first. They will just sit on them. As the web goes on, these tools get more and more irrelevant, until they're a waste of time.</p>
+
+<p>We hire people at Clearleft who are curious, who want to experiment, who want to explore. Who would much prefer, on their next project, to be checking out this cool new prototyping tool, rather than falling back on old, tried stale methods. Because I think the best designers that have a toolkit, they're not woodworking people that only have a chisel. They have a whole toolbox of things to pick from. When they look at a project, they can decide what the right tool for the job is, based on the quality o the material and the quality of the solution. I think that's what we should be doing.</p>
+
+<p>This is true of developers as well. There is no one perfect library. There is no one perfect toolkit. There is no one perfect grid system. You need to know as many of them as possible. When you see a problem, you can apply the right one, the right tool for the job. That's probably where I'd leave our discussion. It seems like a nice way to round things up.</p>
+
+</dd>
+
+<dt>Jen</dt>
+<dd>
+<p>Yeah, it's excellent advice. People can go to the show notes for this episode to get links. I'll get them from you. We'll collect all of the links to these different tools that you suggest people might want to try out. People can find the show notes at <a href="http://5by5.tv/webahead/93" title="The Web Ahead on 5by5">5by5.tv/webahead/93</a> or very soon, in about two weeks from the day we're recording this, you'll be able to go to <a href="http://http://thewebahead.net/93" title="The Web Ahead">thewebahead.net/93</a> and get the show notes there.</p>
+
+<p>Thank you so much for being on the show today, Andy.</p>
+
+</dd>
+
+<dt>Andy</dt>
+<dd>It's been really fun. It's been my pleasure. Thank you so much for having me.</dd>
+
+<dt>Jen</dt>
+<dd>Thanks to our sponsors, <a href="http://squarespace.com/webahead/" title="Squarespace">Squarespace</a> and <a href="http://thinkful.com/webahead/" title="Thinkful">Thinkful</a>, for supporting the show. They really do make it possible. Until next week. Next week we will be talking about the new browser that Microsoft is coming out with and the death of Internet Explorer. Stay tuned for that. Thanks for listening.</dd>
+
+</dl>
